@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ecs_image.example "image_id"

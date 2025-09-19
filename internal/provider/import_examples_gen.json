@@ -1,0 +1,7 @@
+[
+    {
+        "resource": "bytepluscc_ecs_image",
+        "identifier": ["ImageId"],
+        "path": "./examples/resources/bytepluscc_ecs_image/import.sh"
+    }
+]
