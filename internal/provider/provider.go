@@ -311,7 +311,7 @@ func (p *ByteplusCCProvider) DataSources(ctx context.Context) []func() datasourc
 
 func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.Diagnostics) {
 	var diags diag.Diagnostics
-	version := fmt.Sprintf("terraform/%s /%s/%s", c.terraformVersion, common.TerraformProviderName, common.TerraformProviderVersion)
+	version := fmt.Sprintf("%s/%s (terraform/%s)", common.TerraformProviderName, common.TerraformProviderVersion, c.terraformVersion)
 	ctx, logger := baselogging.NewTfLogger(ctx)
 
 	if diags.HasError() {
@@ -320,9 +320,11 @@ func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.D
 
 	config := volcengine.NewConfig().
 		WithRegion(c.Region.ValueString()).
-		WithExtraUserAgent(&version).
 		WithCredentials(credentials.NewStaticCredentials(c.AccessKey.ValueString(), c.SecretKey.ValueString(), "")).
-		WithDisableSSL(c.DisableSSL.ValueBool())
+		WithDisableSSL(c.DisableSSL.ValueBool()).
+		WithExtendHttpRequest(func(ctx context.Context, request *http.Request) {
+			request.Header.Set("user-agent", version)
+		})
 
 	if !(c.CustomerHeaders.IsNull() || c.CustomerHeaders.IsUnknown()) {
 		customHeaderMap := make(map[string]string)
