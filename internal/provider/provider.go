@@ -73,7 +73,7 @@ func (p *ByteplusCCProvider) ProviderData() any {
 }
 
 func (p *ByteplusCCProvider) Metadata(ctx context.Context, request provider.MetadataRequest, response *provider.MetadataResponse) {
-	response.TypeName = "volcenginecc"
+	response.TypeName = "bytepluscc"
 	response.Version = Version
 }
 
