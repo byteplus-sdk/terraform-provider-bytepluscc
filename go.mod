@@ -1,4 +1,4 @@
-module github.com/byteplus/terraform-provider-bytepluscc
+module github.com/byteplus-sdk/terraform-provider-bytepluscc
 
 go 1.23.0
 

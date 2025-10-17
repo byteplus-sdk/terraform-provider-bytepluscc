@@ -12,5 +12,14 @@ meta_schema {
 
 # CloudControl resource types schemas are available for use with the Cloud Control API.
 resource_schema "byteplus_ecs_image" {
-  cloudcontrol_type_name = "Volcengine::ECS::Image"
+  cloudcontrol_type_name = "Byteplus::ECS::Image"
+}
+
+resource_schema "byteplus_clb_listener" {
+  cloudcontrol_type_name = "Byteplus::CLB::Listener"
+}
+
+resource_schema "byteplus_vpc_vpc" {
+  cloudcontrol_type_name = "Byteplus::VPC::VPC"
+
 }

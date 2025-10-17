@@ -7,7 +7,7 @@ import (
 	"context"
 	"testing"
 
-	fwvalidators "github.com/byteplus/terraform-provider-bytepluscc/internal/validators"
+	fwvalidators "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/validators"
 	"github.com/google/go-cmp/cmp"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"

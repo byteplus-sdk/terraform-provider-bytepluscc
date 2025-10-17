@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/envvar"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/provider"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/envvar"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/provider"
 	fwprovider "github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 )

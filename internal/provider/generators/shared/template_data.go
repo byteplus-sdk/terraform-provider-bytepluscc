@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/ccschema"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/naming"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/provider/generators/shared/codegen"
-	tfslices "github.com/byteplus/terraform-provider-bytepluscc/internal/slices"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/ccschema"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/naming"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/provider/generators/shared/codegen"
+	tfslices "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/slices"
 	"github.com/hashicorp/cli"
 )
 

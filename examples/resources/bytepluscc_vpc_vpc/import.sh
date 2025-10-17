@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_vpc.example "vpc_id"

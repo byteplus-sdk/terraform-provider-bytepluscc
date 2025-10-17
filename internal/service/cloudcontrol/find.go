@@ -7,8 +7,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/cloudcontrol"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/tfresource"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/tfresource"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 )
 

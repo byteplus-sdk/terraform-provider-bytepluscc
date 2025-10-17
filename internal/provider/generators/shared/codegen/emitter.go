@@ -12,9 +12,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/ccschema"
-	tfmaps "github.com/byteplus/terraform-provider-bytepluscc/internal/maps"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/naming"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/ccschema"
+	tfmaps "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/maps"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/naming"
 	"github.com/hashicorp/cli"
 )
 

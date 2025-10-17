@@ -6,7 +6,7 @@ package errs_test
 import (
 	"testing"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/errs"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/errs"
 )
 
 type FirstError struct{}

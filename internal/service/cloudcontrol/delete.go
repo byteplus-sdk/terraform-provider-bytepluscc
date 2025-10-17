@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/base"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/cloudcontrol"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/util"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/base"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/util"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 )

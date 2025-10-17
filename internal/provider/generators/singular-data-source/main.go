@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/provider/generators/common"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/provider/generators/shared"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/provider/generators/common"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/provider/generators/shared"
 )
 
 var (

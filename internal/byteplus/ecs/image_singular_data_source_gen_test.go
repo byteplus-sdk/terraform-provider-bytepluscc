@@ -9,12 +9,12 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/acctest"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccVolcengineECSImageDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Volcengine::ECS::Image", "bytepluscc_ecs_image", "test")
+func TestAccByteplusECSImageDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::Image", "bytepluscc_ecs_image", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{
@@ -24,8 +24,8 @@ func TestAccVolcengineECSImageDataSource_basic(t *testing.T) {
 	})
 }
 
-func TestAccVolcengineECSImageDataSource_NonExistent(t *testing.T) {
-	td := acctest.NewTestData(t, "Volcengine::ECS::Image", "bytepluscc_ecs_image", "test")
+func TestAccByteplusECSImageDataSource_NonExistent(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::Image", "bytepluscc_ecs_image", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

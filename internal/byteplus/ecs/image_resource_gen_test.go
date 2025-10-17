@@ -9,12 +9,12 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/acctest"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccVolcengineECSImage_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Volcengine::ECS::Image", "bytepluscc_ecs_image", "test")
+func TestAccByteplusECSImage_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::Image", "bytepluscc_ecs_image", "test")
 
 	td.ResourceTest(t, []resource.TestStep{
 		{

@@ -8,8 +8,8 @@ package ecs
 import (
 	"context"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/generic"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/registry"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/generic"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/registry"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -20,7 +20,7 @@ func init() {
 }
 
 // imageDataSource returns the Terraform bytepluscc_ecs_image data source.
-// This Terraform data source corresponds to the Cloud Control Volcengine::ECS::Image resource.
+// This Terraform data source corresponds to the Cloud Control Byteplus::ECS::Image resource.
 func imageDataSource(ctx context.Context) (datasource.DataSource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: Architecture
@@ -549,13 +549,13 @@ func imageDataSource(ctx context.Context) (datasource.DataSource, error) {
 	}
 
 	schema := schema.Schema{
-		Description: "Data Source schema for Volcengine::ECS::Image",
+		Description: "Data Source schema for Byteplus::ECS::Image",
 		Attributes:  attributes,
 	}
 
 	var opts generic.DataSourceOptions
 
-	opts = opts.WithCloudControlTypeName("Volcengine::ECS::Image").WithTerraformTypeName("bytepluscc_ecs_image")
+	opts = opts.WithCloudControlTypeName("Byteplus::ECS::Image").WithTerraformTypeName("bytepluscc_ecs_image")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"architecture":                 "Architecture",

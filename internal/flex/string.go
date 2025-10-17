@@ -6,7 +6,7 @@ package flex
 import (
 	"context"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/util"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/util"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 

@@ -3,12 +3,12 @@
 page_title: "bytepluscc_ecs_images Data Source - terraform-provider-bytepluscc"
 subcategory: ""
 description: |-
-  Plural Data Source schema for Volcengine::ECS::Image
+  Plural Data Source schema for Byteplus::ECS::Image
 ---
 
 # bytepluscc_ecs_images (Data Source)
 
-Plural Data Source schema for Volcengine::ECS::Image
+Plural Data Source schema for Byteplus::ECS::Image
 
 
 

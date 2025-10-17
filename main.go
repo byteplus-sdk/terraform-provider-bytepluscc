@@ -7,7 +7,7 @@ import (
 	"context"
 	"flag"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/provider"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/provider"
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 )
 

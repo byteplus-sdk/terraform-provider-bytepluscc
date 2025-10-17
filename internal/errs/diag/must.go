@@ -4,7 +4,7 @@
 package diag
 
 import (
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/errs"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/errs"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 )
 

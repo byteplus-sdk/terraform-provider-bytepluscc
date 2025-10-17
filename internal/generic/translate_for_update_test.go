@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	fwvalidators "github.com/byteplus/terraform-provider-bytepluscc/internal/validators"
+	fwvalidators "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/validators"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
