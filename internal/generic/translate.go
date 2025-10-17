@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"math/big"
 
-	ccdiag "github.com/byteplus/terraform-provider-bytepluscc/internal/errs/diag"
+	ccdiag "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/errs/diag"
 	"github.com/hashicorp/terraform-plugin-framework-jsontypes/jsontypes"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
 	"github.com/hashicorp/terraform-plugin-log/tflog"

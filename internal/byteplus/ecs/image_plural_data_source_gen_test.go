@@ -9,12 +9,12 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/acctest"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccVolcengineECSImagesDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Volcengine::ECS::Image", "bytepluscc_ecs_images", "test")
+func TestAccByteplusECSImagesDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::Image", "bytepluscc_ecs_images", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

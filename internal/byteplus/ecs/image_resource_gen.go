@@ -8,9 +8,9 @@ package ecs
 import (
 	"context"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/generic"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/registry"
-	fwvalidators "github.com/byteplus/terraform-provider-bytepluscc/internal/validators"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/generic"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/registry"
+	fwvalidators "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/validators"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
@@ -31,7 +31,7 @@ func init() {
 }
 
 // imageResource returns the Terraform bytepluscc_ecs_image resource.
-// This Terraform resource corresponds to the Cloud Control Volcengine::ECS::Image resource.
+// This Terraform resource corresponds to the Cloud Control Byteplus::ECS::Image resource.
 func imageResource(ctx context.Context) (resource.Resource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: Architecture
@@ -65,14 +65,7 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"boot_mode": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "镜像的启动模式。可以选择BIOS、UEFI类型。",
-			Optional:    true,
 			Computed:    true,
-			Validators: []validator.String{ /*START VALIDATORS*/
-				stringvalidator.OneOf(
-					"BIOS",
-					"UEFI",
-				),
-			}, /*END VALIDATORS*/
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.UseStateForUnknown(),
 			}, /*END PLAN MODIFIERS*/
@@ -288,6 +281,7 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 				stringplanmodifier.UseStateForUnknown(),
 				stringplanmodifier.RequiresReplaceIfConfigured(),
 			}, /*END PLAN MODIFIERS*/
+			// InstanceId is a write-only property.
 		}, /*END ATTRIBUTE*/
 		// Property: IsInstallRunCommandAgent
 		// Cloud Control resource type schema:
@@ -536,6 +530,7 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 				stringplanmodifier.UseStateForUnknown(),
 				stringplanmodifier.RequiresReplaceIfConfigured(),
 			}, /*END PLAN MODIFIERS*/
+			// SnapshotGroupId is a write-only property.
 		}, /*END ATTRIBUTE*/
 		// Property: SnapshotId
 		// Cloud Control resource type schema:
@@ -552,6 +547,7 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 				stringplanmodifier.UseStateForUnknown(),
 				stringplanmodifier.RequiresReplaceIfConfigured(),
 			}, /*END PLAN MODIFIERS*/
+			// SnapshotId is a write-only property.
 		}, /*END ATTRIBUTE*/
 		// Property: Snapshots
 		// Cloud Control resource type schema:
@@ -751,7 +747,7 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 
 	var opts generic.ResourceOptions
 
-	opts = opts.WithCloudControlTypeName("Volcengine::ECS::Image").WithTerraformTypeName("bytepluscc_ecs_image")
+	opts = opts.WithCloudControlTypeName("Byteplus::ECS::Image").WithTerraformTypeName("bytepluscc_ecs_image")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"architecture":                 "Architecture",
@@ -795,6 +791,12 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 		"volume_kind":                  "VolumeKind",
 	})
 
+	opts = opts.WithWriteOnlyPropertyPaths([]string{
+		"/properties/InstanceId",
+		"/properties/SnapshotGroupId",
+		"/properties/SnapshotId",
+	})
+
 	opts = opts.WithReadOnlyPropertyPaths([]string{
 		"/properties/ImageId",
 		"/properties/CreatedAt",
@@ -810,6 +812,7 @@ func imageResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/ShareStatus",
 		"/properties/VirtualSize",
 		"/properties/Visibility",
+		"/properties/BootMode",
 	})
 
 	opts = opts.WithCreateOnlyPropertyPaths([]string{

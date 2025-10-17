@@ -6,7 +6,7 @@ package cloudcontrol
 import (
 	"context"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/cloudcontrol"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
 )
 
 type Provider interface {

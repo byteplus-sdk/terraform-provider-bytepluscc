@@ -7,7 +7,7 @@ import (
 	"context"
 	"testing"
 
-	cctypes "github.com/byteplus/terraform-provider-bytepluscc/internal/types"
+	cctypes "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/types"
 	"github.com/google/go-cmp/cmp"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/attr/xattr"

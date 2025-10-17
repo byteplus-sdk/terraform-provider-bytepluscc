@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 
-	ccdiag "github.com/byteplus/terraform-provider-bytepluscc/internal/errs/diag"
+	ccdiag "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/errs/diag"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"

@@ -3,5 +3,15 @@
         "resource": "bytepluscc_ecs_image",
         "identifier": ["ImageId"],
         "path": "./examples/resources/bytepluscc_ecs_image/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_listener",
+        "identifier": ["ListenerId"],
+        "path": "./examples/resources/bytepluscc_clb_listener/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_vpc",
+        "identifier": ["VpcId"],
+        "path": "./examples/resources/bytepluscc_vpc_vpc/import.sh"
     }
 ]

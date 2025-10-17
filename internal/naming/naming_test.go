@@ -6,7 +6,7 @@ package naming_test
 import (
 	"testing"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/naming"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/naming"
 )
 
 func TestCloudControlPropertyToTerraformAttribute(t *testing.T) {

@@ -15,7 +15,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/provider/generators/common"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/provider/generators/common"
 )
 
 var (

@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/cloudcontrol"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/common"
-	baselogging "github.com/byteplus/terraform-provider-bytepluscc/internal/logging"
-	"github.com/byteplus/terraform-provider-bytepluscc/internal/registry"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/common"
+	baselogging "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/logging"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/registry"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int32validator"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
@@ -73,7 +73,7 @@ func (p *ByteplusCCProvider) ProviderData() any {
 }
 
 func (p *ByteplusCCProvider) Metadata(ctx context.Context, request provider.MetadataRequest, response *provider.MetadataResponse) {
-	response.TypeName = "volcenginecc"
+	response.TypeName = "bytepluscc"
 	response.Version = Version
 }
 

@@ -6,7 +6,7 @@ package defaults
 import (
 	"context"
 
-	tfslices "github.com/byteplus/terraform-provider-bytepluscc/internal/slices"
+	tfslices "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/slices"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/defaults"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"

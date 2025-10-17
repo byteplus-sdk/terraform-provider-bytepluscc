@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 
-	cctypes "github.com/byteplus/terraform-provider-bytepluscc/internal/types"
+	cctypes "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/types"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
