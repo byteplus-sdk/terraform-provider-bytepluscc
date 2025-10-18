@@ -7,9 +7,9 @@ import (
 	"os"
 )
 
-// Standard Volcengine environment variables used in the Terraform Volcengine Provider testing.
+// Standard Byteplus environment variables used in the Terraform Volcengine Provider testing.
 const (
-	DefaultRegion = "VOLCNEINGE_REGION"
+	DefaultRegion = "BYTEPLUS_REGION"
 )
 
 // GetWithDefault gets an environment variable value if non-empty or returns the default.

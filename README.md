@@ -17,7 +17,7 @@ Terraform 1.0.7 and later:
 terraform {
   required_providers {
     bytepluscc = {
-      source  = "byteplus/bytepluscc"
+      source  = "byteplus-sdk/bytepluscc"
       version = "~> 0.0.1"
     }
   }
