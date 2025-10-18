@@ -16,8 +16,8 @@ Terraform 1.0.7 and later:
 # Configure the Bytepluscc Provider
 terraform {
   required_providers {
-    volcenginecc = {
-      source  = "byteplus/bytepluscc"
+    bytepluscc = {
+      source  = "byteplus-sdk/bytepluscc"
       version = "~> 0.0.1"
     }
   }
@@ -25,15 +25,33 @@ terraform {
 
 # Create VPC
 resource "bytepluscc_vpc_vpc" "VPCDemo" {
-  vpc_name = "vpc-demo"
-  description = "VpcDemo Example"
-  cidr_block = "192.168.0.0/24"
+  cidr_block            = "192.168.0.0/24"
   support_ipv_4_gateway = true
-  enable_ipv_6 = false
+  vpc_name              = "vpc-demo"
+  description           = "VpcDemo Example"
+  dns_servers = [
+    "12.3.x.x"
+  ]
+  associate_cens = [
+    {
+      cen_id       = "cen-3re8cx4vwdibk5zsk2xxxx"
+      cen_owner_id = "200000xxx"
+      cen_status   = "Attaching"
+    }
+  ]
+  nat_gateway_ids = [
+    "ngw-2d6tp1y8zq41s58ozfdxxx"
+  ]
+  route_table_ids = [
+    "vtb-29mkf8ft83l6o1e1hgixxx"
+  ]
+  security_group_ids = [
+    "sg-29mkx39jb80741e1hgj2bxxx"
+  ]
   project_name = "default"
   tags = [
     {
-      key = "env"
+      key   = "env"
       value = "test"
     }
   ]
@@ -51,7 +69,7 @@ The Bytepluscc provider offers a flexible means of providing credentials for aut
 
 ### Static credentials
 
-Static credentials can be provided by adding an public_key and private_key in-line in the volcengine provider block:
+Static credentials can be provided by adding an public_key and private_key in-line in the byteplus provider block:
 
 > **Warning**:
 > Hard-coded credentials are not recommended in any Terraform configuration and risks secret leakage should this file ever be committed to a public version control system.
@@ -59,7 +77,7 @@ Static credentials can be provided by adding an public_key and private_key in-li
 Usage:
 
 ```shell
-provider "volcenginecc" {
+provider "bytepluscc" {
    access_key = "your ak"
    secret_key = "your sk"
    region = "cn-beijing"
@@ -68,10 +86,10 @@ provider "volcenginecc" {
 
 ### Environment variables
 
-You can provide your credentials via BYTEPLUS_ACCESS_KEY and BYTEPLUS_SECRET_KEY environment variables, representing your volcengine public key and private key respectively. BYTEPLUS_REGION is also used, if applicable:
+You can provide your credentials via BYTEPLUS_ACCESS_KEY and BYTEPLUS_SECRET_KEY environment variables, representing your byteplus public key and private key respectively. BYTEPLUS_REGION is also used, if applicable:
 
 ```shell
-provider "volcenginecc" {
+provider "bytepluscc" {
 
 }
 ```

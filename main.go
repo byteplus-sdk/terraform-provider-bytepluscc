@@ -18,7 +18,7 @@ func main() {
 	flag.Parse()
 
 	providerserver.Serve(context.Background(), provider.New, providerserver.ServeOpts{
-		Address: "registry.terraform.io/byteplus/bytepluscc",
+		Address: "registry.terraform.io/byteplus-sdk/bytepluscc",
 		Debug:   debugMode,
 	})
 
