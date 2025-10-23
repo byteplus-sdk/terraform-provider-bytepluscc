@@ -5,11 +5,20 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_images -cctype Byteplus::ECS::Image -package ecs ../byteplus/ecs/image_plural_data_source_gen.go ../byteplus/ecs/image_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_listeners -cctype Byteplus::CLB::Listener -package clb ../byteplus/clb/listener_plural_data_source_gen.go ../byteplus/clb/listener_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_vpcs -cctype Byteplus::VPC::VPC -package vpc ../byteplus/vpc/vpc_plural_data_source_gen.go ../byteplus/vpc/vpc_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_storageebs_volumes -cctype Byteplus::StorageEBS::Volume -package storageebs ../byteplus/storageebs/volume_plural_data_source_gen.go ../byteplus/storageebs/volume_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_listeners -cctype Byteplus::ALB::Listener -package alb ../byteplus/alb/listener_plural_data_source_gen.go ../byteplus/alb/listener_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_repositories -cctype Byteplus::CR::Repository -package cr ../byteplus/cr/repository_plural_data_source_gen.go ../byteplus/cr/repository_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_configurations -cctype Byteplus::AutoScaling::ScalingConfiguration -package autoscaling ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen.go ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_instances -cctype Byteplus::ECS::Instance -package ecs ../byteplus/ecs/instance_plural_data_source_gen.go ../byteplus/ecs/instance_plural_data_source_gen_test.go
 
 package provider
 
 import (
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
 )

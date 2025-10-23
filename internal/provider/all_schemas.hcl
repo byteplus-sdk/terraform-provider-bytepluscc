@@ -23,3 +23,25 @@ resource_schema "byteplus_vpc_vpc" {
   cloudcontrol_type_name = "Byteplus::VPC::VPC"
 
 }
+
+resource_schema "byteplus_storageebs_volume" {
+  cloudcontrol_type_name = "Byteplus::StorageEBS::Volume"
+}
+
+resource_schema "byteplus_alb_listener" {
+  cloudcontrol_type_name = "Byteplus::ALB::Listener"
+}
+
+resource_schema "byteplus_cr_repository" {
+  cloudcontrol_type_name = "Byteplus::CR::Repository"
+}
+
+resource_schema "byteplus_autoscaling_scaling_configuration" {
+  cloudcontrol_type_name = "Byteplus::AutoScaling::ScalingConfiguration"
+}
+
+resource_schema "byteplus_ecs_instance" {
+  cloudcontrol_type_name = "Byteplus::ECS::Instance"
+}
+
+

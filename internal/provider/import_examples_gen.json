@@ -13,5 +13,30 @@
         "resource": "bytepluscc_vpc_vpc",
         "identifier": ["VpcId"],
         "path": "./examples/resources/bytepluscc_vpc_vpc/import.sh"
+    },
+    {
+        "resource": "bytepluscc_storageebs_volume",
+        "identifier": ["VolumeId"],
+        "path": "./examples/resources/bytepluscc_storageebs_volume/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_listener",
+        "identifier": ["ListenerId"],
+        "path": "./examples/resources/bytepluscc_alb_listener/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cr_repository",
+        "identifier": ["Registry","Namespace","Name"],
+        "path": "./examples/resources/bytepluscc_cr_repository/import.sh"
+    },
+    {
+        "resource": "bytepluscc_autoscaling_scaling_configuration",
+        "identifier": ["ScalingConfigurationId"],
+        "path": "./examples/resources/bytepluscc_autoscaling_scaling_configuration/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_ecs_instance/import.sh"
     }
 ]

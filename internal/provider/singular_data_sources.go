@@ -5,11 +5,20 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_ecs_image -ccschema ../service/cloudcontrol/schemas/Byteplus_ECS_Image.json -package ecs ../byteplus/ecs/image_singular_data_source_gen.go ../byteplus/ecs/image_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_clb_listener -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_Listener.json -package clb ../byteplus/clb/listener_singular_data_source_gen.go ../byteplus/clb/listener_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vpc_vpc -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_VPC.json -package vpc ../byteplus/vpc/vpc_singular_data_source_gen.go ../byteplus/vpc/vpc_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_storageebs_volume -ccschema ../service/cloudcontrol/schemas/Byteplus_StorageEBS_Volume.json -package storageebs ../byteplus/storageebs/volume_singular_data_source_gen.go ../byteplus/storageebs/volume_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_alb_listener -ccschema ../service/cloudcontrol/schemas/Byteplus_ALB_Listener.json -package alb ../byteplus/alb/listener_singular_data_source_gen.go ../byteplus/alb/listener_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cr_repository -ccschema ../service/cloudcontrol/schemas/Byteplus_CR_Repository.json -package cr ../byteplus/cr/repository_singular_data_source_gen.go ../byteplus/cr/repository_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_autoscaling_scaling_configuration -ccschema ../service/cloudcontrol/schemas/Byteplus_AutoScaling_ScalingConfiguration.json -package autoscaling ../byteplus/autoscaling/scaling_configuration_singular_data_source_gen.go ../byteplus/autoscaling/scaling_configuration_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_ecs_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_ECS_Instance.json -package ecs ../byteplus/ecs/instance_singular_data_source_gen.go ../byteplus/ecs/instance_singular_data_source_gen_test.go
 
 package provider
 
 import (
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
 )
