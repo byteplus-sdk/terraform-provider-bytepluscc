@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_storageebs_volume.example "volume_id"

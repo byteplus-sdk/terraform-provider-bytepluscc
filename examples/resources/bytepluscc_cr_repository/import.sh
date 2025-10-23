@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cr_repository.example "registry|namespace|name"

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_autoscaling_scaling_configuration.example "scaling_configuration_id"
