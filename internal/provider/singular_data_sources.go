@@ -10,15 +10,31 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cr_repository -ccschema ../service/cloudcontrol/schemas/Byteplus_CR_Repository.json -package cr ../byteplus/cr/repository_singular_data_source_gen.go ../byteplus/cr/repository_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_autoscaling_scaling_configuration -ccschema ../service/cloudcontrol/schemas/Byteplus_AutoScaling_ScalingConfiguration.json -package autoscaling ../byteplus/autoscaling/scaling_configuration_singular_data_source_gen.go ../byteplus/autoscaling/scaling_configuration_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_ecs_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_ECS_Instance.json -package ecs ../byteplus/ecs/instance_singular_data_source_gen.go ../byteplus/ecs/instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vke_permission -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_Permission.json -package vke ../byteplus/vke/permission_singular_data_source_gen.go ../byteplus/vke/permission_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vefaas_sandbox -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_Sandbox.json -package vefaas ../byteplus/vefaas/sandbox_singular_data_source_gen.go ../byteplus/vefaas/sandbox_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vefaas_kafka_trigger -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_KafkaTrigger.json -package vefaas ../byteplus/vefaas/kafka_trigger_singular_data_source_gen.go ../byteplus/vefaas/kafka_trigger_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cdn_share_config -ccschema ../service/cloudcontrol/schemas/Byteplus_CDN_ShareConfig.json -package cdn ../byteplus/cdn/share_config_singular_data_source_gen.go ../byteplus/cdn/share_config_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_apig_upstream -ccschema ../service/cloudcontrol/schemas/Byteplus_APIG_Upstream.json -package apig ../byteplus/apig/upstream_singular_data_source_gen.go ../byteplus/apig/upstream_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_apig_upstream_source -ccschema ../service/cloudcontrol/schemas/Byteplus_APIG_UpstreamSource.json -package apig ../byteplus/apig/upstream_source_singular_data_source_gen.go ../byteplus/apig/upstream_source_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_apig_gateway_service -ccschema ../service/cloudcontrol/schemas/Byteplus_APIG_GatewayService.json -package apig ../byteplus/apig/gateway_service_singular_data_source_gen.go ../byteplus/apig/gateway_service_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_iam_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_Policy.json -package iam ../byteplus/iam/policy_singular_data_source_gen.go ../byteplus/iam/policy_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_iam_role -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_Role.json -package iam ../byteplus/iam/role_singular_data_source_gen.go ../byteplus/iam/role_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_iam_user -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_User.json -package iam ../byteplus/iam/user_singular_data_source_gen.go ../byteplus/iam/user_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_clb_listener -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_Listener.json -package clb ../byteplus/clb/listener_singular_data_source_gen.go ../byteplus/clb/listener_singular_data_source_gen_test.go
 
 package provider
 
 import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
 )

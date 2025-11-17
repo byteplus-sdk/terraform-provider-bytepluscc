@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_apig_gateway_service.example "service_id"

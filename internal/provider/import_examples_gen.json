@@ -38,5 +38,60 @@
         "resource": "bytepluscc_ecs_instance",
         "identifier": ["InstanceId"],
         "path": "./examples/resources/bytepluscc_ecs_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_permission",
+        "identifier": ["PermissionId"],
+        "path": "./examples/resources/bytepluscc_vke_permission/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vefaas_sandbox",
+        "identifier": ["FunctionId","SandboxId"],
+        "path": "./examples/resources/bytepluscc_vefaas_sandbox/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vefaas_kafka_trigger",
+        "identifier": ["FunctionId","KafkaTriggerId"],
+        "path": "./examples/resources/bytepluscc_vefaas_kafka_trigger/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cdn_share_config",
+        "identifier": ["ConfigName"],
+        "path": "./examples/resources/bytepluscc_cdn_share_config/import.sh"
+    },
+    {
+        "resource": "bytepluscc_apig_upstream",
+        "identifier": ["UpstreamId"],
+        "path": "./examples/resources/bytepluscc_apig_upstream/import.sh"
+    },
+    {
+        "resource": "bytepluscc_apig_upstream_source",
+        "identifier": ["UpstreamSourceId"],
+        "path": "./examples/resources/bytepluscc_apig_upstream_source/import.sh"
+    },
+    {
+        "resource": "bytepluscc_apig_gateway_service",
+        "identifier": ["ServiceId"],
+        "path": "./examples/resources/bytepluscc_apig_gateway_service/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_policy",
+        "identifier": ["PolicyName","PolicyType"],
+        "path": "./examples/resources/bytepluscc_iam_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_role",
+        "identifier": ["RoleName"],
+        "path": "./examples/resources/bytepluscc_iam_role/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_user",
+        "identifier": ["UserName"],
+        "path": "./examples/resources/bytepluscc_iam_user/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_listener",
+        "identifier": ["ListenerId"],
+        "path": "./examples/resources/bytepluscc_clb_listener/import.sh"
     }
 ]

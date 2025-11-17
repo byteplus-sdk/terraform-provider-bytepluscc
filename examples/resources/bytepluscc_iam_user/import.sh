@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_iam_user.example "user_name"

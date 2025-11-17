@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vefaas_sandbox.example "function_id|sandbox_id"

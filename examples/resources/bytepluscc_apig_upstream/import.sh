@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_apig_upstream.example "upstream_id"

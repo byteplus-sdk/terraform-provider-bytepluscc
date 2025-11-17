@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vke_permission.example "permission_id"
