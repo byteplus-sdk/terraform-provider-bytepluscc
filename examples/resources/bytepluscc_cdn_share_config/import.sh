@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cdn_share_config.example "config_name"

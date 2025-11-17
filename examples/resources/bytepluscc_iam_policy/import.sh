@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_iam_policy.example "policy_name|policy_type"

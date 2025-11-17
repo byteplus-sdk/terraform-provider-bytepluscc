@@ -44,4 +44,48 @@ resource_schema "byteplus_ecs_instance" {
   cloudcontrol_type_name = "Byteplus::ECS::Instance"
 }
 
+resource_schema "byteplus_vke_permission" {
+  cloudcontrol_type_name = "Byteplus::VKE::Permission"
+}
+
+resource_schema "byteplus_vefaas_sandbox" {
+  cloudcontrol_type_name = "Byteplus::VEFAAS::Sandbox"
+}
+
+resource_schema "byteplus_vefaas_kafka_trigger" {
+  cloudcontrol_type_name = "Byteplus::VEFAAS::KafkaTrigger"
+}
+
+resource_schema "byteplus_cdn_share_config" {
+  cloudcontrol_type_name = "Byteplus::CDN::ShareConfig"
+}
+
+resource_schema "byteplus_apig_upstream" {
+  cloudcontrol_type_name = "Byteplus::APIG::Upstream"
+}
+
+resource_schema "byteplus_apig_upstream_source" {
+  cloudcontrol_type_name = "Byteplus::APIG::UpstreamSource"
+}
+
+resource_schema "byteplus_apig_gateway_service" {
+  cloudcontrol_type_name = "Byteplus::APIG::GatewayService"
+}
+
+resource_schema "byteplus_iam_policy" {
+  cloudcontrol_type_name = "Byteplus::IAM::Policy"
+}
+
+resource_schema "byteplus_iam_role" {
+  cloudcontrol_type_name = "Byteplus::IAM::Role"
+}
+
+resource_schema "byteplus_iam_user" {
+  cloudcontrol_type_name = "Byteplus::IAM::User"
+}
+
+resource_schema "byteplus_clb_listener" {
+  cloudcontrol_type_name = "Byteplus::CLB::Listener"
+}
+
 

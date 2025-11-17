@@ -69,7 +69,7 @@ The Bytepluscc provider offers a flexible means of providing credentials for aut
 
 ### Static credentials
 
-Static credentials can be provided by adding an public_key and private_key in-line in the byteplus provider block:
+Static credentials can be provided by adding an public_key and private_key in-line in the bytepluscc provider block:
 
 > **Warning**:
 > Hard-coded credentials are not recommended in any Terraform configuration and risks secret leakage should this file ever be committed to a public version control system.

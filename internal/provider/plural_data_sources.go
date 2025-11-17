@@ -10,15 +10,31 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_repositories -cctype Byteplus::CR::Repository -package cr ../byteplus/cr/repository_plural_data_source_gen.go ../byteplus/cr/repository_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_configurations -cctype Byteplus::AutoScaling::ScalingConfiguration -package autoscaling ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen.go ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_instances -cctype Byteplus::ECS::Instance -package ecs ../byteplus/ecs/instance_plural_data_source_gen.go ../byteplus/ecs/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_permissions -cctype Byteplus::VKE::Permission -package vke ../byteplus/vke/permission_plural_data_source_gen.go ../byteplus/vke/permission_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vefaas_sandboxes -cctype Byteplus::VEFAAS::Sandbox -package vefaas ../byteplus/vefaas/sandbox_plural_data_source_gen.go ../byteplus/vefaas/sandbox_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vefaas_kafka_triggers -cctype Byteplus::VEFAAS::KafkaTrigger -package vefaas ../byteplus/vefaas/kafka_trigger_plural_data_source_gen.go ../byteplus/vefaas/kafka_trigger_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cdn_share_configs -cctype Byteplus::CDN::ShareConfig -package cdn ../byteplus/cdn/share_config_plural_data_source_gen.go ../byteplus/cdn/share_config_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_apig_upstreams -cctype Byteplus::APIG::Upstream -package apig ../byteplus/apig/upstream_plural_data_source_gen.go ../byteplus/apig/upstream_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_apig_upstream_sources -cctype Byteplus::APIG::UpstreamSource -package apig ../byteplus/apig/upstream_source_plural_data_source_gen.go ../byteplus/apig/upstream_source_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_apig_gateway_services -cctype Byteplus::APIG::GatewayService -package apig ../byteplus/apig/gateway_service_plural_data_source_gen.go ../byteplus/apig/gateway_service_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_policies -cctype Byteplus::IAM::Policy -package iam ../byteplus/iam/policy_plural_data_source_gen.go ../byteplus/iam/policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_roles -cctype Byteplus::IAM::Role -package iam ../byteplus/iam/role_plural_data_source_gen.go ../byteplus/iam/role_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_users -cctype Byteplus::IAM::User -package iam ../byteplus/iam/user_plural_data_source_gen.go ../byteplus/iam/user_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_listeners -cctype Byteplus::CLB::Listener -package clb ../byteplus/clb/listener_plural_data_source_gen.go ../byteplus/clb/listener_plural_data_source_gen_test.go
 
 package provider
 
 import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
 )
