@@ -21,6 +21,9 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_roles -cctype Byteplus::IAM::Role -package iam ../byteplus/iam/role_plural_data_source_gen.go ../byteplus/iam/role_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_users -cctype Byteplus::IAM::User -package iam ../byteplus/iam/user_plural_data_source_gen.go ../byteplus/iam/user_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_listeners -cctype Byteplus::CLB::Listener -package clb ../byteplus/clb/listener_plural_data_source_gen.go ../byteplus/clb/listener_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_ngws -cctype Byteplus::NatGateway::NGW -package natgateway ../byteplus/natgateway/ngw_plural_data_source_gen.go ../byteplus/natgateway/ngw_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_units -cctype Byteplus::Organization::Unit -package organization ../byteplus/organization/unit_plural_data_source_gen.go ../byteplus/organization/unit_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_db_accounts -cctype Byteplus::RDSMySQL::DBAccount -package rdsmysql ../byteplus/rdsmysql/db_account_plural_data_source_gen.go ../byteplus/rdsmysql/db_account_plural_data_source_gen_test.go
 
 package provider
 
@@ -33,6 +36,9 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"

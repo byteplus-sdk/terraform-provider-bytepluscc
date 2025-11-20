@@ -88,4 +88,14 @@ resource_schema "byteplus_clb_listener" {
   cloudcontrol_type_name = "Byteplus::CLB::Listener"
 }
 
+resource_schema "byteplus_natgateway_ngw" {
+  cloudcontrol_type_name = "Byteplus::NatGateway::NGW"
+}
 
+resource_schema "byteplus_organization_unit" {
+  cloudcontrol_type_name = "Byteplus::Organization::Unit"
+}
+
+resource_schema "byteplus_rdsmysql_db_account" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::DBAccount"
+}

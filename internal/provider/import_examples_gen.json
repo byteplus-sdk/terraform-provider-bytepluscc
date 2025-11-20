@@ -93,5 +93,20 @@
         "resource": "bytepluscc_clb_listener",
         "identifier": ["ListenerId"],
         "path": "./examples/resources/bytepluscc_clb_listener/import.sh"
+    },
+    {
+        "resource": "bytepluscc_natgateway_ngw",
+        "identifier": ["NatGatewayId"],
+        "path": "./examples/resources/bytepluscc_natgateway_ngw/import.sh"
+    },
+    {
+        "resource": "bytepluscc_organization_unit",
+        "identifier": ["OrgUnitId"],
+        "path": "./examples/resources/bytepluscc_organization_unit/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_db_account",
+        "identifier": ["InstanceId","AccountName","Host"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_db_account/import.sh"
     }
 ]

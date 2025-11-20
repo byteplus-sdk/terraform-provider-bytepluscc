@@ -21,6 +21,9 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_iam_role -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_Role.json -package iam ../byteplus/iam/role_singular_data_source_gen.go ../byteplus/iam/role_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_iam_user -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_User.json -package iam ../byteplus/iam/user_singular_data_source_gen.go ../byteplus/iam/user_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_clb_listener -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_Listener.json -package clb ../byteplus/clb/listener_singular_data_source_gen.go ../byteplus/clb/listener_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_ngw -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_NGW.json -package natgateway ../byteplus/natgateway/ngw_singular_data_source_gen.go ../byteplus/natgateway/ngw_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_organization_unit -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_Unit.json -package organization ../byteplus/organization/unit_singular_data_source_gen.go ../byteplus/organization/unit_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdsmysql_db_account -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_DBAccount.json -package rdsmysql ../byteplus/rdsmysql/db_account_singular_data_source_gen.go ../byteplus/rdsmysql/db_account_singular_data_source_gen_test.go
 
 package provider
 
@@ -33,6 +36,9 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"
