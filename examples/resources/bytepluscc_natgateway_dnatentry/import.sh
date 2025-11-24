@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_natgateway_dnatentry.example "dnat_entry_id"

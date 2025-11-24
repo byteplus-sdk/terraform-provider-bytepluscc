@@ -24,6 +24,11 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_ngw -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_NGW.json -package natgateway ../byteplus/natgateway/ngw_singular_data_source_gen.go ../byteplus/natgateway/ngw_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_organization_unit -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_Unit.json -package organization ../byteplus/organization/unit_singular_data_source_gen.go ../byteplus/organization/unit_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdsmysql_db_account -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_DBAccount.json -package rdsmysql ../byteplus/rdsmysql/db_account_singular_data_source_gen.go ../byteplus/rdsmysql/db_account_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_autoscaling_scaling_group -ccschema ../service/cloudcontrol/schemas/Byteplus_AutoScaling_ScalingGroup.json -package autoscaling ../byteplus/autoscaling/scaling_group_singular_data_source_gen.go ../byteplus/autoscaling/scaling_group_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cen_cen -ccschema ../service/cloudcontrol/schemas/Byteplus_CEN_CEN.json -package cen ../byteplus/cen/cen_singular_data_source_gen.go ../byteplus/cen/cen_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_snatentry -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_Snatentry.json -package natgateway ../byteplus/natgateway/snatentry_singular_data_source_gen.go ../byteplus/natgateway/snatentry_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_dnatentry -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_Dnatentry.json -package natgateway ../byteplus/natgateway/dnatentry_singular_data_source_gen.go ../byteplus/natgateway/dnatentry_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_nat_ip -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_NatIp.json -package natgateway ../byteplus/natgateway/nat_ip_singular_data_source_gen.go ../byteplus/natgateway/nat_ip_singular_data_source_gen_test.go
 
 package provider
 
@@ -32,6 +37,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"

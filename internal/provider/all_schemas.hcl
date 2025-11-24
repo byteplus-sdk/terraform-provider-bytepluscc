@@ -99,3 +99,25 @@ resource_schema "byteplus_organization_unit" {
 resource_schema "byteplus_rdsmysql_db_account" {
   cloudcontrol_type_name = "Byteplus::RDSMySQL::DBAccount"
 }
+
+resource_schema "byteplus_autoscaling_scaling_group" {
+  cloudcontrol_type_name = "Byteplus::AutoScaling::ScalingGroup"
+}
+
+resource_schema "byteplus_cen_cen" {
+  cloudcontrol_type_name = "Byteplus::CEN::CEN"
+}
+
+resource_schema "byteplus_natgateway_snatentry" {
+  cloudcontrol_type_name = "Byteplus::NatGateway::Snatentry"
+}
+
+resource_schema "byteplus_natgateway_dnatentry" {
+  cloudcontrol_type_name = "Byteplus::NatGateway::Dnatentry"
+}
+
+resource_schema "byteplus_natgateway_nat_ip" {
+  cloudcontrol_type_name = "Byteplus::NatGateway::NatIp"
+}
+
+

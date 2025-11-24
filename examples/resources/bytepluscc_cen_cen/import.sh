@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cen_cen.example "cen_id"
