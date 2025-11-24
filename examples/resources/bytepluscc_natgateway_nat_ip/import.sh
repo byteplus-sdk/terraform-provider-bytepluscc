@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_natgateway_nat_ip.example "nat_ip_id"

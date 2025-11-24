@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_natgateway_snatentry.example "snat_entry_id"

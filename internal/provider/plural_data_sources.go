@@ -24,6 +24,11 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_ngws -cctype Byteplus::NatGateway::NGW -package natgateway ../byteplus/natgateway/ngw_plural_data_source_gen.go ../byteplus/natgateway/ngw_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_units -cctype Byteplus::Organization::Unit -package organization ../byteplus/organization/unit_plural_data_source_gen.go ../byteplus/organization/unit_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_db_accounts -cctype Byteplus::RDSMySQL::DBAccount -package rdsmysql ../byteplus/rdsmysql/db_account_plural_data_source_gen.go ../byteplus/rdsmysql/db_account_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_groups -cctype Byteplus::AutoScaling::ScalingGroup -package autoscaling ../byteplus/autoscaling/scaling_group_plural_data_source_gen.go ../byteplus/autoscaling/scaling_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cen_cens -cctype Byteplus::CEN::CEN -package cen ../byteplus/cen/cen_plural_data_source_gen.go ../byteplus/cen/cen_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_snatentries -cctype Byteplus::NatGateway::Snatentry -package natgateway ../byteplus/natgateway/snatentry_plural_data_source_gen.go ../byteplus/natgateway/snatentry_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_dnatentries -cctype Byteplus::NatGateway::Dnatentry -package natgateway ../byteplus/natgateway/dnatentry_plural_data_source_gen.go ../byteplus/natgateway/dnatentry_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_nat_ips -cctype Byteplus::NatGateway::NatIp -package natgateway ../byteplus/natgateway/nat_ip_plural_data_source_gen.go ../byteplus/natgateway/nat_ip_plural_data_source_gen_test.go
 
 package provider
 
@@ -32,6 +37,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
