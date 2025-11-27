@@ -29,6 +29,7 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_natgateway_snatentry -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_Snatentry.json -package natgateway -- ../byteplus/natgateway/snatentry_resource_gen.go ../byteplus/natgateway/snatentry_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_natgateway_dnatentry -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_Dnatentry.json -package natgateway -- ../byteplus/natgateway/dnatentry_resource_gen.go ../byteplus/natgateway/dnatentry_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_natgateway_nat_ip -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_NatIp.json -package natgateway -- ../byteplus/natgateway/nat_ip_resource_gen.go ../byteplus/natgateway/nat_ip_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vke_cluster -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_Cluster.json -package vke -- ../byteplus/vke/cluster_resource_gen.go ../byteplus/vke/cluster_resource_gen_test.go
 
 package provider
 

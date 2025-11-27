@@ -133,5 +133,10 @@
         "resource": "bytepluscc_natgateway_nat_ip",
         "identifier": ["NatIpId"],
         "path": "./examples/resources/bytepluscc_natgateway_nat_ip/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_cluster",
+        "identifier": ["ClusterId"],
+        "path": "./examples/resources/bytepluscc_vke_cluster/import.sh"
     }
 ]
