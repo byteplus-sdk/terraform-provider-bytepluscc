@@ -120,4 +120,9 @@ resource_schema "byteplus_natgateway_nat_ip" {
   cloudcontrol_type_name = "Byteplus::NatGateway::NatIp"
 }
 
+resource_schema "byteplus_vke_cluster" {
+  cloudcontrol_type_name = "Byteplus::VKE::Cluster"
+}
+
+
 
