@@ -138,5 +138,10 @@
         "resource": "bytepluscc_vke_cluster",
         "identifier": ["ClusterId"],
         "path": "./examples/resources/bytepluscc_vke_cluster/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_instance/import.sh"
     }
 ]
