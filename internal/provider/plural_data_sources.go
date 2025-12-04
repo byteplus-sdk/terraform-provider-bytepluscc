@@ -30,6 +30,7 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_dnatentries -cctype Byteplus::NatGateway::Dnatentry -package natgateway ../byteplus/natgateway/dnatentry_plural_data_source_gen.go ../byteplus/natgateway/dnatentry_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_nat_ips -cctype Byteplus::NatGateway::NatIp -package natgateway ../byteplus/natgateway/nat_ip_plural_data_source_gen.go ../byteplus/natgateway/nat_ip_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_clusters -cctype Byteplus::VKE::Cluster -package vke ../byteplus/vke/cluster_plural_data_source_gen.go ../byteplus/vke/cluster_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_instances -cctype Byteplus::RDSMySQL::Instance -package rdsmysql ../byteplus/rdsmysql/instance_plural_data_source_gen.go ../byteplus/rdsmysql/instance_plural_data_source_gen_test.go
 
 package provider
 

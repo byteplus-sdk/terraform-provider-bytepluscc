@@ -124,5 +124,10 @@ resource_schema "byteplus_vke_cluster" {
   cloudcontrol_type_name = "Byteplus::VKE::Cluster"
 }
 
+resource_schema "byteplus_rdsmysql_instance" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::Instance"
+}
+
+
 
 

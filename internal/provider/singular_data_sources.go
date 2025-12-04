@@ -30,6 +30,7 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_dnatentry -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_Dnatentry.json -package natgateway ../byteplus/natgateway/dnatentry_singular_data_source_gen.go ../byteplus/natgateway/dnatentry_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_nat_ip -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_NatIp.json -package natgateway ../byteplus/natgateway/nat_ip_singular_data_source_gen.go ../byteplus/natgateway/nat_ip_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vke_cluster -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_Cluster.json -package vke ../byteplus/vke/cluster_singular_data_source_gen.go ../byteplus/vke/cluster_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdsmysql_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_Instance.json -package rdsmysql ../byteplus/rdsmysql/instance_singular_data_source_gen.go ../byteplus/rdsmysql/instance_singular_data_source_gen_test.go
 
 package provider
 

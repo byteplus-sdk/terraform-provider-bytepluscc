@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdsmysql_instance.example "instance_id"
