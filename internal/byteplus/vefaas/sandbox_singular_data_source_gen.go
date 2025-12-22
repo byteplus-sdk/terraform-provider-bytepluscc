@@ -37,7 +37,6 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 1000,
 		//	  "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。",
 		//	  "maximum": 16000,
 		//	  "type": "integer"
@@ -74,6 +73,10 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	        "type": "string"
 		//	      }
 		//	    },
+		//	    "required": [
+		//	      "Key",
+		//	      "Value"
+		//	    ],
 		//	    "type": "object"
 		//	  },
 		//	  "type": "array",
@@ -216,12 +219,20 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	            "type": "string"
 		//	          }
 		//	        },
+		//	        "required": [
+		//	          "BucketPath",
+		//	          "LocalMountPath"
+		//	        ],
 		//	        "type": "object"
 		//	      },
 		//	      "type": "array",
 		//	      "uniqueItems": true
 		//	    }
 		//	  },
+		//	  "required": [
+		//	    "Enable",
+		//	    "TosMountPoints"
+		//	  ],
 		//	  "type": "object"
 		//	}
 		"instance_tos_mount_config": schema.SingleNestedAttribute{ /*START ATTRIBUTE*/
@@ -269,8 +280,8 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 100,
 		//	  "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。",
+		//	  "maximum": 1000,
 		//	  "type": "integer"
 		//	}
 		"max_concurrency": schema.Int64Attribute{ /*START ATTRIBUTE*/
@@ -281,7 +292,6 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 2048,
 		//	  "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048",
 		//	  "maximum": 131072,
 		//	  "type": "integer"
@@ -295,9 +305,42 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//
 		//	{
 		//	  "description": "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为\u003c\"key\":\"value\"\u003e。",
-		//	  "type": "string"
+		//	  "insertionOrder": false,
+		//	  "items": {
+		//	    "properties": {
+		//	      "Key": {
+		//	        "description": "标签键。",
+		//	        "type": "string"
+		//	      },
+		//	      "Value": {
+		//	        "description": "标签值。",
+		//	        "type": "string"
+		//	      }
+		//	    },
+		//	    "required": [
+		//	      "Key",
+		//	      "Value"
+		//	    ],
+		//	    "type": "object"
+		//	  },
+		//	  "type": "array",
+		//	  "uniqueItems": true
 		//	}
-		"metadata": schema.StringAttribute{ /*START ATTRIBUTE*/
+		"metadata": schema.SetNestedAttribute{ /*START ATTRIBUTE*/
+			NestedObject: schema.NestedAttributeObject{ /*START NESTED OBJECT*/
+				Attributes: map[string]schema.Attribute{ /*START SCHEMA*/
+					// Property: Key
+					"key": schema.StringAttribute{ /*START ATTRIBUTE*/
+						Description: "标签键。",
+						Computed:    true,
+					}, /*END ATTRIBUTE*/
+					// Property: Value
+					"value": schema.StringAttribute{ /*START ATTRIBUTE*/
+						Description: "标签值。",
+						Computed:    true,
+					}, /*END ATTRIBUTE*/
+				}, /*END SCHEMA*/
+			}, /*END NESTED OBJECT*/
 			Description: "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<\"key\":\"value\">。",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
@@ -316,8 +359,8 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 30,
 		//	  "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。",
+		//	  "maximum": 900,
 		//	  "type": "integer"
 		//	}
 		"request_timeout": schema.Int64Attribute{ /*START ATTRIBUTE*/
@@ -361,7 +404,6 @@ func sandboxDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 60,
 		//	  "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。",
 		//	  "maximum": 1440,
 		//	  "type": "integer"

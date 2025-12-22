@@ -10,11 +10,11 @@ import (
 
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/generic"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/registry"
+	fwvalidators "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/validators"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64default"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
@@ -49,7 +49,6 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 1000,
 		//	  "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。",
 		//	  "maximum": 16000,
 		//	  "type": "integer"
@@ -58,7 +57,6 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 			Description: "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。",
 			Optional:    true,
 			Computed:    true,
-			Default:     int64default.StaticInt64(1000),
 			Validators: []validator.Int64{ /*START VALIDATORS*/
 				int64validator.AtMost(16000),
 			}, /*END VALIDATORS*/
@@ -98,6 +96,10 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		//	        "type": "string"
 		//	      }
 		//	    },
+		//	    "required": [
+		//	      "Key",
+		//	      "Value"
+		//	    ],
 		//	    "type": "object"
 		//	  },
 		//	  "type": "array",
@@ -111,6 +113,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 						Description: "环境变量键。",
 						Optional:    true,
 						Computed:    true,
+						Validators: []validator.String{ /*START VALIDATORS*/
+							fwvalidators.NotNullString(),
+						}, /*END VALIDATORS*/
 						PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 							stringplanmodifier.UseStateForUnknown(),
 						}, /*END PLAN MODIFIERS*/
@@ -120,6 +125,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 						Description: "环境变量值。",
 						Optional:    true,
 						Computed:    true,
+						Validators: []validator.String{ /*START VALIDATORS*/
+							fwvalidators.NotNullString(),
+						}, /*END VALIDATORS*/
 						PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 							stringplanmodifier.UseStateForUnknown(),
 						}, /*END PLAN MODIFIERS*/
@@ -186,6 +194,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		"function_id": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "沙箱实例所属的沙箱应用 ID。",
 			Required:    true,
+			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
+				stringplanmodifier.RequiresReplace(),
+			}, /*END PLAN MODIFIERS*/
 		}, /*END ATTRIBUTE*/
 		// Property: InstanceImageInfo
 		// Cloud Control resource type schema:
@@ -283,12 +294,20 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		//	            "type": "string"
 		//	          }
 		//	        },
+		//	        "required": [
+		//	          "BucketPath",
+		//	          "LocalMountPath"
+		//	        ],
 		//	        "type": "object"
 		//	      },
 		//	      "type": "array",
 		//	      "uniqueItems": true
 		//	    }
 		//	  },
+		//	  "required": [
+		//	    "Enable",
+		//	    "TosMountPoints"
+		//	  ],
 		//	  "type": "object"
 		//	}
 		"instance_tos_mount_config": schema.SingleNestedAttribute{ /*START ATTRIBUTE*/
@@ -298,6 +317,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 					Description: "沙箱实例是否启用了实例级别的 TOS 挂载，参数值说明：true：是，false：否。",
 					Optional:    true,
 					Computed:    true,
+					Validators: []validator.Bool{ /*START VALIDATORS*/
+						fwvalidators.NotNullBool(),
+					}, /*END VALIDATORS*/
 					PlanModifiers: []planmodifier.Bool{ /*START PLAN MODIFIERS*/
 						boolplanmodifier.UseStateForUnknown(),
 					}, /*END PLAN MODIFIERS*/
@@ -311,6 +333,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 								Description: "沙箱实例挂载的 TOS 远端目录。",
 								Optional:    true,
 								Computed:    true,
+								Validators: []validator.String{ /*START VALIDATORS*/
+									fwvalidators.NotNullString(),
+								}, /*END VALIDATORS*/
 								PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 									stringplanmodifier.UseStateForUnknown(),
 								}, /*END PLAN MODIFIERS*/
@@ -320,6 +345,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 								Description: "沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。",
 								Optional:    true,
 								Computed:    true,
+								Validators: []validator.String{ /*START VALIDATORS*/
+									fwvalidators.NotNullString(),
+								}, /*END VALIDATORS*/
 								PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 									stringplanmodifier.UseStateForUnknown(),
 								}, /*END PLAN MODIFIERS*/
@@ -329,6 +357,9 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 					Description: "启用了实例级别 TOS 挂载的沙箱实例具体 TOS 挂载目录信息。\n 特别提示: 在使用 ListNestedAttribute 或 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。",
 					Optional:    true,
 					Computed:    true,
+					Validators: []validator.Set{ /*START VALIDATORS*/
+						fwvalidators.NotNullSet(),
+					}, /*END VALIDATORS*/
 					PlanModifiers: []planmodifier.Set{ /*START PLAN MODIFIERS*/
 						setplanmodifier.UseStateForUnknown(),
 					}, /*END PLAN MODIFIERS*/
@@ -360,15 +391,17 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 100,
 		//	  "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。",
+		//	  "maximum": 1000,
 		//	  "type": "integer"
 		//	}
 		"max_concurrency": schema.Int64Attribute{ /*START ATTRIBUTE*/
 			Description: "单实例请求最大并发数：取值范围：10~1000,默认值：100。",
 			Optional:    true,
 			Computed:    true,
-			Default:     int64default.StaticInt64(100),
+			Validators: []validator.Int64{ /*START VALIDATORS*/
+				int64validator.AtMost(1000),
+			}, /*END VALIDATORS*/
 			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
 				int64planmodifier.UseStateForUnknown(),
 				int64planmodifier.RequiresReplaceIfConfigured(),
@@ -378,7 +411,6 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 2048,
 		//	  "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048",
 		//	  "maximum": 131072,
 		//	  "type": "integer"
@@ -387,7 +419,6 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 			Description: "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048",
 			Optional:    true,
 			Computed:    true,
-			Default:     int64default.StaticInt64(2048),
 			Validators: []validator.Int64{ /*START VALIDATORS*/
 				int64validator.AtMost(131072),
 			}, /*END VALIDATORS*/
@@ -401,15 +432,62 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		//
 		//	{
 		//	  "description": "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为\u003c\"key\":\"value\"\u003e。",
-		//	  "type": "string"
+		//	  "insertionOrder": false,
+		//	  "items": {
+		//	    "properties": {
+		//	      "Key": {
+		//	        "description": "标签键。",
+		//	        "type": "string"
+		//	      },
+		//	      "Value": {
+		//	        "description": "标签值。",
+		//	        "type": "string"
+		//	      }
+		//	    },
+		//	    "required": [
+		//	      "Key",
+		//	      "Value"
+		//	    ],
+		//	    "type": "object"
+		//	  },
+		//	  "type": "array",
+		//	  "uniqueItems": true
 		//	}
-		"metadata": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<\"key\":\"value\">。",
+		"metadata": schema.SetNestedAttribute{ /*START ATTRIBUTE*/
+			NestedObject: schema.NestedAttributeObject{ /*START NESTED OBJECT*/
+				Attributes: map[string]schema.Attribute{ /*START SCHEMA*/
+					// Property: Key
+					"key": schema.StringAttribute{ /*START ATTRIBUTE*/
+						Description: "标签键。",
+						Optional:    true,
+						Computed:    true,
+						Validators: []validator.String{ /*START VALIDATORS*/
+							fwvalidators.NotNullString(),
+						}, /*END VALIDATORS*/
+						PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
+							stringplanmodifier.UseStateForUnknown(),
+						}, /*END PLAN MODIFIERS*/
+					}, /*END ATTRIBUTE*/
+					// Property: Value
+					"value": schema.StringAttribute{ /*START ATTRIBUTE*/
+						Description: "标签值。",
+						Optional:    true,
+						Computed:    true,
+						Validators: []validator.String{ /*START VALIDATORS*/
+							fwvalidators.NotNullString(),
+						}, /*END VALIDATORS*/
+						PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
+							stringplanmodifier.UseStateForUnknown(),
+						}, /*END PLAN MODIFIERS*/
+					}, /*END ATTRIBUTE*/
+				}, /*END SCHEMA*/
+			}, /*END NESTED OBJECT*/
+			Description: "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<\"key\":\"value\">。\n 特别提示: 在使用 ListNestedAttribute 或 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。",
 			Optional:    true,
 			Computed:    true,
-			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
-				stringplanmodifier.UseStateForUnknown(),
-				stringplanmodifier.RequiresReplaceIfConfigured(),
+			PlanModifiers: []planmodifier.Set{ /*START PLAN MODIFIERS*/
+				setplanmodifier.UseStateForUnknown(),
+				setplanmodifier.RequiresReplaceIfConfigured(),
 			}, /*END PLAN MODIFIERS*/
 		}, /*END ATTRIBUTE*/
 		// Property: Pending
@@ -430,15 +508,17 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 30,
 		//	  "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。",
+		//	  "maximum": 900,
 		//	  "type": "integer"
 		//	}
 		"request_timeout": schema.Int64Attribute{ /*START ATTRIBUTE*/
 			Description: "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。",
 			Optional:    true,
 			Computed:    true,
-			Default:     int64default.StaticInt64(30),
+			Validators: []validator.Int64{ /*START VALIDATORS*/
+				int64validator.AtMost(900),
+			}, /*END VALIDATORS*/
 			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
 				int64planmodifier.UseStateForUnknown(),
 				int64planmodifier.RequiresReplaceIfConfigured(),
@@ -490,7 +570,6 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "default": 60,
 		//	  "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。",
 		//	  "maximum": 1440,
 		//	  "type": "integer"
@@ -499,7 +578,6 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 			Description: "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。",
 			Optional:    true,
 			Computed:    true,
-			Default:     int64default.StaticInt64(60),
 			Validators: []validator.Int64{ /*START VALIDATORS*/
 				int64validator.AtMost(1440),
 			}, /*END VALIDATORS*/
@@ -588,6 +666,7 @@ func sandboxResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/MemoryMB",
 		"/properties/Metadata",
 		"/properties/RequestTimeout",
+		"/properties/FunctionId",
 	})
 	opts = opts.WithCreateTimeoutInMinutes(0).WithDeleteTimeoutInMinutes(0)
 

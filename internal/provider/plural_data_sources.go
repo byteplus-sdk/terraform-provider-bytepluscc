@@ -31,6 +31,12 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_nat_ips -cctype Byteplus::NatGateway::NatIp -package natgateway ../byteplus/natgateway/nat_ip_plural_data_source_gen.go ../byteplus/natgateway/nat_ip_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_clusters -cctype Byteplus::VKE::Cluster -package vke ../byteplus/vke/cluster_plural_data_source_gen.go ../byteplus/vke/cluster_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_instances -cctype Byteplus::RDSMySQL::Instance -package rdsmysql ../byteplus/rdsmysql/instance_plural_data_source_gen.go ../byteplus/rdsmysql/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_escloud_instances -cctype Byteplus::ESCloud::Instance -package escloud ../byteplus/escloud/instance_plural_data_source_gen.go ../byteplus/escloud/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kms_keys -cctype Byteplus::KMS::Key -package kms ../byteplus/kms/key_plural_data_source_gen.go ../byteplus/kms/key_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_apig_gateways -cctype Byteplus::APIG::Gateway -package apig ../byteplus/apig/gateway_plural_data_source_gen.go ../byteplus/apig/gateway_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_apig_custom_domains -cctype Byteplus::APIG::CustomDomain -package apig ../byteplus/apig/custom_domain_plural_data_source_gen.go ../byteplus/apig/custom_domain_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_hbase_instances -cctype Byteplus::HBase::Instance -package hbase ../byteplus/hbase/instance_plural_data_source_gen.go ../byteplus/hbase/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_certificates -cctype Byteplus::ALB::Certificate -package alb ../byteplus/alb/certificate_plural_data_source_gen.go ../byteplus/alb/certificate_plural_data_source_gen_test.go
 
 package provider
 
@@ -43,7 +49,10 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"

@@ -128,6 +128,32 @@ resource_schema "byteplus_rdsmysql_instance" {
   cloudcontrol_type_name = "Byteplus::RDSMySQL::Instance"
 }
 
+resource_schema "byteplus_escloud_instance" {
+  cloudcontrol_type_name = "Byteplus::ESCloud::Instance"
+}
+
+resource_schema "byteplus_kms_key" {
+  cloudcontrol_type_name = "Byteplus::KMS::Key"
+}
+
+resource_schema "byteplus_apig_gateway" {
+  cloudcontrol_type_name = "Byteplus::APIG::Gateway"
+}
+
+resource_schema "byteplus_apig_custom_domain" {
+  cloudcontrol_type_name = "Byteplus::APIG::CustomDomain"
+}
+
+resource_schema "byteplus_hbase_instance" {
+  cloudcontrol_type_name = "Byteplus::HBase::Instance"
+}
+
+resource_schema "byteplus_alb_certificate" {
+  cloudcontrol_type_name = "Byteplus::ALB::Certificate"
+}
+
+
+
 
 
 

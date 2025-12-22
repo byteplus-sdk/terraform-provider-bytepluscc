@@ -143,5 +143,35 @@
         "resource": "bytepluscc_rdsmysql_instance",
         "identifier": ["InstanceId"],
         "path": "./examples/resources/bytepluscc_rdsmysql_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_escloud_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_escloud_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kms_key",
+        "identifier": ["KeyringName","KeyID"],
+        "path": "./examples/resources/bytepluscc_kms_key/import.sh"
+    },
+    {
+        "resource": "bytepluscc_apig_gateway",
+        "identifier": ["GatewayID"],
+        "path": "./examples/resources/bytepluscc_apig_gateway/import.sh"
+    },
+    {
+        "resource": "bytepluscc_apig_custom_domain",
+        "identifier": ["CustomDomainId"],
+        "path": "./examples/resources/bytepluscc_apig_custom_domain/import.sh"
+    },
+    {
+        "resource": "bytepluscc_hbase_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_hbase_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_certificate",
+        "identifier": ["CertificateId","CertificateType"],
+        "path": "./examples/resources/bytepluscc_alb_certificate/import.sh"
     }
 ]

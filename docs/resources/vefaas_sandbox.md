@@ -62,7 +62,8 @@ resource "bytepluscc_vefaas_sandbox" "VefaasSandboxDemo" {
 - `instance_tos_mount_config` (Attributes) 沙箱实例级别对象存储（TOS）存储挂载配置。 (see [below for nested schema](#nestedatt--instance_tos_mount_config))
 - `max_concurrency` (Number) 单实例请求最大并发数：取值范围：10~1000,默认值：100。
 - `memory_mb` (Number) 沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048
-- `metadata` (String) 沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<"key":"value">。
+- `metadata` (Attributes Set) 沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<"key":"value">。
+ 特别提示: 在使用 ListNestedAttribute 或 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--metadata))
 - `request_timeout` (Number) 请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。
 - `timeout` (Number) 沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。
 
@@ -116,6 +117,16 @@ Optional:
 
 - `bucket_path` (String) 沙箱实例挂载的 TOS 远端目录。
 - `local_mount_path` (String) 沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。
+
+
+
+<a id="nestedatt--metadata"></a>
+### Nested Schema for `metadata`
+
+Optional:
+
+- `key` (String) 标签键。
+- `value` (String) 标签值。
 
 ## Import
 

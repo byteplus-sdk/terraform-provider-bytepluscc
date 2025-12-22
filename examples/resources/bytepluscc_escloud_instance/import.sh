@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_escloud_instance.example "instance_id"
