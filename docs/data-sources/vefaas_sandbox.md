@@ -34,7 +34,7 @@ Data Source schema for Byteplus::VEFAAS::Sandbox
 - `instance_type` (String) 沙箱实例类型 。参数值说明：elastic：弹性实例，frozen：冻结实例，activated：激活实例，reserved：预留实例。
 - `max_concurrency` (Number) 单实例请求最大并发数：取值范围：10~1000,默认值：100。
 - `memory_mb` (Number) 沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048
-- `metadata` (String) 沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<"key":"value">。
+- `metadata` (Attributes Set) 沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为<"key":"value">。 (see [below for nested schema](#nestedatt--metadata))
 - `pending` (Boolean) 沙箱实例是否处于 Pending 状态。参数值说明：true：是，false：否。
 - `request_timeout` (Number) 请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。
 - `revision_number` (Number) 函数实例版本编号。
@@ -77,3 +77,13 @@ Read-Only:
 
 - `bucket_path` (String) 沙箱实例挂载的 TOS 远端目录。
 - `local_mount_path` (String) 沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。
+
+
+
+<a id="nestedatt--metadata"></a>
+### Nested Schema for `metadata`
+
+Read-Only:
+
+- `key` (String) 标签键。
+- `value` (String) 标签值。

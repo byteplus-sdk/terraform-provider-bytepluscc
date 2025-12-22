@@ -31,6 +31,12 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_natgateway_nat_ip -ccschema ../service/cloudcontrol/schemas/Byteplus_NatGateway_NatIp.json -package natgateway ../byteplus/natgateway/nat_ip_singular_data_source_gen.go ../byteplus/natgateway/nat_ip_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vke_cluster -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_Cluster.json -package vke ../byteplus/vke/cluster_singular_data_source_gen.go ../byteplus/vke/cluster_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdsmysql_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_Instance.json -package rdsmysql ../byteplus/rdsmysql/instance_singular_data_source_gen.go ../byteplus/rdsmysql/instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_escloud_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_ESCloud_Instance.json -package escloud ../byteplus/escloud/instance_singular_data_source_gen.go ../byteplus/escloud/instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_kms_key -ccschema ../service/cloudcontrol/schemas/Byteplus_KMS_Key.json -package kms ../byteplus/kms/key_singular_data_source_gen.go ../byteplus/kms/key_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_apig_gateway -ccschema ../service/cloudcontrol/schemas/Byteplus_APIG_Gateway.json -package apig ../byteplus/apig/gateway_singular_data_source_gen.go ../byteplus/apig/gateway_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_apig_custom_domain -ccschema ../service/cloudcontrol/schemas/Byteplus_APIG_CustomDomain.json -package apig ../byteplus/apig/custom_domain_singular_data_source_gen.go ../byteplus/apig/custom_domain_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_hbase_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_HBase_Instance.json -package hbase ../byteplus/hbase/instance_singular_data_source_gen.go ../byteplus/hbase/instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_alb_certificate -ccschema ../service/cloudcontrol/schemas/Byteplus_ALB_Certificate.json -package alb ../byteplus/alb/certificate_singular_data_source_gen.go ../byteplus/alb/certificate_singular_data_source_gen_test.go
 
 package provider
 
@@ -43,7 +49,10 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"

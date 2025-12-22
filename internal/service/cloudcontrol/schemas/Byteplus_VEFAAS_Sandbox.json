@@ -8,7 +8,8 @@
     "/properties/MaxConcurrency",
     "/properties/MemoryMB",
     "/properties/Metadata",
-    "/properties/RequestTimeout"
+    "/properties/RequestTimeout",
+    "/properties/FunctionId"
   ],
   "definitions": {
     "Env": {
@@ -22,6 +23,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "Key",
+        "Value"
+      ],
       "type": "object"
     },
     "InstanceImageInfo": {
@@ -61,6 +66,27 @@
           "uniqueItems": true
         }
       },
+      "required": [
+        "Enable",
+        "TosMountPoints"
+      ],
+      "type": "object"
+    },
+    "MetadataItem": {
+      "properties": {
+        "Key": {
+          "description": "标签键。",
+          "type": "string"
+        },
+        "Value": {
+          "description": "标签值。",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
       "type": "object"
     },
     "TosMountPoint": {
@@ -74,10 +100,27 @@
           "type": "string"
         }
       },
+      "required": [
+        "BucketPath",
+        "LocalMountPath"
+      ],
       "type": "object"
     }
   },
   "description": "沙箱实例是云沙箱中实际执行沙箱镜像的安全且隔离的容器运行环境。",
+  "filterProperties": {
+    "filterableProperties": [
+      "/properties/FunctionId",
+      "/properties/SandboxId",
+      "/properties/Status",
+      "/properties/InstanceImageInfo/Image",
+      "/properties/Metadata/*/Key",
+      "/properties/Metadata/*/Value"
+    ],
+    "required": [
+      "/properties/FunctionId"
+    ]
+  },
   "handlers": {
     "create": {
       "permissions": [
@@ -89,6 +132,11 @@
       "permissions": [
         "vefaas:KillSandbox",
         "vefaas:DescribeSandbox"
+      ]
+    },
+    "list": {
+      "permissions": [
+        "vefaas:ListSandboxes"
       ]
     },
     "read": {
@@ -113,13 +161,13 @@
       "type": "string"
     },
     "CpuMilli": {
-      "default": 1000,
       "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。",
       "maximum": 16000,
       "type": "integer"
     },
     "CreatedTime": {
       "description": "沙箱实例创建时间。",
+      "semantic": "createdTime",
       "type": "string"
     },
     "Envs": {
@@ -149,38 +197,44 @@
     },
     "InstanceImageInfo": {
       "$ref": "#/definitions/InstanceImageInfo",
-      "description": "沙箱实例镜像信息，包括镜像地址、启动命令、监听端口。"
+      "description": "沙箱实例镜像信息，包括镜像地址、启动命令、监听端口。",
+      "type": "object"
     },
     "InstanceTosMountConfig": {
       "$ref": "#/definitions/InstanceTosMountConfig",
-      "description": "沙箱实例级别对象存储（TOS）存储挂载配置。"
+      "description": "沙箱实例级别对象存储（TOS）存储挂载配置。",
+      "type": "object"
     },
     "InstanceType": {
       "description": "沙箱实例类型 。参数值说明：elastic：弹性实例，frozen：冻结实例，activated：激活实例，reserved：预留实例。",
       "type": "string"
     },
     "MaxConcurrency": {
-      "default": 100,
       "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。",
+      "maximum": 1000,
       "type": "integer"
     },
     "MemoryMB": {
-      "default": 2048,
       "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048",
       "maximum": 131072,
       "type": "integer"
     },
     "Metadata": {
       "description": "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为\u003c\"key\":\"value\"\u003e。",
-      "type": "string"
+      "insertionOrder": false,
+      "items": {
+        "$ref": "#/definitions/MetadataItem"
+      },
+      "type": "array",
+      "uniqueItems": true
     },
     "Pending": {
       "description": "沙箱实例是否处于 Pending 状态。参数值说明：true：是，false：否。",
       "type": "boolean"
     },
     "RequestTimeout": {
-      "default": 30,
       "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。",
+      "maximum": 900,
       "type": "integer"
     },
     "RevisionNumber": {
@@ -189,14 +243,15 @@
     },
     "SandboxId": {
       "description": "沙箱实例 ID。",
+      "semantic": "resourceId",
       "type": "string"
     },
     "Status": {
       "description": "沙箱实例状态。 参数值说明：Starting：开始启动，Ready：启动完成，Failed：启动失败，Terminating：终止中。",
+      "semantic": "status",
       "type": "string"
     },
     "Timeout": {
-      "default": 60,
       "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。",
       "maximum": 1440,
       "type": "integer"
