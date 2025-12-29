@@ -37,6 +37,20 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_apig_custom_domain -ccschema ../service/cloudcontrol/schemas/Byteplus_APIG_CustomDomain.json -package apig -- ../byteplus/apig/custom_domain_resource_gen.go ../byteplus/apig/custom_domain_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_hbase_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_HBase_Instance.json -package hbase -- ../byteplus/hbase/instance_resource_gen.go ../byteplus/hbase/instance_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_alb_certificate -ccschema ../service/cloudcontrol/schemas/Byteplus_ALB_Certificate.json -package alb -- ../byteplus/alb/certificate_resource_gen.go ../byteplus/alb/certificate_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vke_addon -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_Addon.json -package vke -- ../byteplus/vke/addon_resource_gen.go ../byteplus/vke/addon_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vke_node_pool -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_NodePool.json -package vke -- ../byteplus/vke/node_pool_resource_gen.go ../byteplus/vke/node_pool_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpc_security_group -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_SecurityGroup.json -package vpc -- ../byteplus/vpc/security_group_resource_gen.go ../byteplus/vpc/security_group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpc_eni -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_ENI.json -package vpc -- ../byteplus/vpc/eni_resource_gen.go ../byteplus/vpc/eni_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_redis_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_Redis_Instance.json -package redis -- ../byteplus/redis/instance_resource_gen.go ../byteplus/redis/instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vepfs_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_VEPFS_Instance.json -package vepfs -- ../byteplus/vepfs/instance_resource_gen.go ../byteplus/vepfs/instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_storageebs_snapshot -ccschema ../service/cloudcontrol/schemas/Byteplus_StorageEBS_Snapshot.json -package storageebs -- ../byteplus/storageebs/snapshot_resource_gen.go ../byteplus/storageebs/snapshot_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_kafka_topic -ccschema ../service/cloudcontrol/schemas/Byteplus_Kafka_Topic.json -package kafka -- ../byteplus/kafka/topic_resource_gen.go ../byteplus/kafka/topic_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_dns_zone -ccschema ../service/cloudcontrol/schemas/Byteplus_DNS_Zone.json -package dns -- ../byteplus/dns/zone_resource_gen.go ../byteplus/dns/zone_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_iam_project -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_Project.json -package iam -- ../byteplus/iam/project_resource_gen.go ../byteplus/iam/project_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_cloudidentity_user -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudIdentity_User.json -package cloudidentity -- ../byteplus/cloudidentity/user_resource_gen.go ../byteplus/cloudidentity/user_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_bmq_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_BMQ_Instance.json -package bmq -- ../byteplus/bmq/instance_resource_gen.go ../byteplus/bmq/instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_privatelink_endpoint_service -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateLink_EndpointService.json -package privatelink -- ../byteplus/privatelink/endpoint_service_resource_gen.go ../byteplus/privatelink/endpoint_service_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_firewallcenter_dns_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_FireWallCenter_DnsControlPolicy.json -package firewallcenter -- ../byteplus/firewallcenter/dns_control_policy_resource_gen.go ../byteplus/firewallcenter/dns_control_policy_resource_gen_test.go
 
 package provider
 
@@ -44,20 +58,28 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/bmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudidentity"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/firewallcenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatelink"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vepfs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
 )

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_bmq_instance.example "instance_id"

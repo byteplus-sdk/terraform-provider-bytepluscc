@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_privatelink_endpoint_service.example "service_id"

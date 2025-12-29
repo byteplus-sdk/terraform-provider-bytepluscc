@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_eni.example "network_interface_id"

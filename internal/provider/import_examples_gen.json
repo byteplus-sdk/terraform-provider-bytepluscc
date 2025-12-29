@@ -173,5 +173,75 @@
         "resource": "bytepluscc_alb_certificate",
         "identifier": ["CertificateId","CertificateType"],
         "path": "./examples/resources/bytepluscc_alb_certificate/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_addon",
+        "identifier": ["ClusterId","Name"],
+        "path": "./examples/resources/bytepluscc_vke_addon/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_node_pool",
+        "identifier": ["ClusterId","NodePoolId"],
+        "path": "./examples/resources/bytepluscc_vke_node_pool/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_security_group",
+        "identifier": ["SecurityGroupId"],
+        "path": "./examples/resources/bytepluscc_vpc_security_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_eni",
+        "identifier": ["NetworkInterfaceId"],
+        "path": "./examples/resources/bytepluscc_vpc_eni/import.sh"
+    },
+    {
+        "resource": "bytepluscc_redis_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_redis_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vepfs_instance",
+        "identifier": ["FileSystemId"],
+        "path": "./examples/resources/bytepluscc_vepfs_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_storageebs_snapshot",
+        "identifier": ["SnapshotId"],
+        "path": "./examples/resources/bytepluscc_storageebs_snapshot/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kafka_topic",
+        "identifier": ["InstanceId","TopicName"],
+        "path": "./examples/resources/bytepluscc_kafka_topic/import.sh"
+    },
+    {
+        "resource": "bytepluscc_dns_zone",
+        "identifier": ["ZID"],
+        "path": "./examples/resources/bytepluscc_dns_zone/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_project",
+        "identifier": ["ProjectName"],
+        "path": "./examples/resources/bytepluscc_iam_project/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudidentity_user",
+        "identifier": ["UserId"],
+        "path": "./examples/resources/bytepluscc_cloudidentity_user/import.sh"
+    },
+    {
+        "resource": "bytepluscc_bmq_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_bmq_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatelink_endpoint_service",
+        "identifier": ["ServiceId"],
+        "path": "./examples/resources/bytepluscc_privatelink_endpoint_service/import.sh"
+    },
+    {
+        "resource": "bytepluscc_firewallcenter_dns_control_policy",
+        "identifier": ["RuleId"],
+        "path": "./examples/resources/bytepluscc_firewallcenter_dns_control_policy/import.sh"
     }
 ]

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_storageebs_snapshot.example "snapshot_id"
