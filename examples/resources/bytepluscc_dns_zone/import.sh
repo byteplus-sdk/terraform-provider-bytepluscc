@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_dns_zone.example "zid"

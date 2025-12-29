@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vke_node_pool.example "cluster_id|node_pool_id"

@@ -153,7 +153,60 @@ resource_schema "byteplus_alb_certificate" {
 }
 
 
+resource_schema "byteplus_vke_addon" {
+  cloudcontrol_type_name = "Byteplus::VKE::Addon"
+}
 
+resource_schema "byteplus_vke_node_pool" {
+  cloudcontrol_type_name = "Byteplus::VKE::NodePool"
+}
 
+resource_schema "byteplus_vpc_security_group" {
+  cloudcontrol_type_name = "Byteplus::VPC::SecurityGroup"
+}
+
+resource_schema "byteplus_vpc_eni" {
+  cloudcontrol_type_name = "Byteplus::VPC::ENI"
+}
+
+resource_schema "byteplus_redis_instance" {
+  cloudcontrol_type_name = "Byteplus::Redis::Instance"
+}
+
+resource_schema "byteplus_vepfs_instance" {
+  cloudcontrol_type_name = "Byteplus::VEPFS::Instance"
+}
+
+resource_schema "byteplus_storageebs_snapshot" {
+  cloudcontrol_type_name = "Byteplus::StorageEBS::Snapshot"
+}
+
+resource_schema "byteplus_kafka_topic" {
+  cloudcontrol_type_name = "Byteplus::Kafka::Topic"
+}
+
+resource_schema "byteplus_dns_zone" {
+  cloudcontrol_type_name = "Byteplus::DNS::Zone"
+}
+
+resource_schema "byteplus_iam_project" {
+  cloudcontrol_type_name = "Byteplus::IAM::Project"
+}
+
+resource_schema "byteplus_cloudidentity_user" {
+  cloudcontrol_type_name = "Byteplus::CloudIdentity::User"
+}
+
+resource_schema "byteplus_bmq_instance" {
+  cloudcontrol_type_name = "Byteplus::BMQ::Instance"
+}
+
+resource_schema "byteplus_privatelink_endpoint_service" {
+  cloudcontrol_type_name = "Byteplus::PrivateLink::EndpointService"
+}
+
+resource_schema "byteplus_firewallcenter_dns_control_policy" {
+  cloudcontrol_type_name = "Byteplus::FireWallCenter::DnsControlPolicy"
+}
 
 

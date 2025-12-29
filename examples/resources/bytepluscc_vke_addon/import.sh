@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vke_addon.example "cluster_id|name"

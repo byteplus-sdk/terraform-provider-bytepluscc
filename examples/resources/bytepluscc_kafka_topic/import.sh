@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kafka_topic.example "instance_id|topic_name"
