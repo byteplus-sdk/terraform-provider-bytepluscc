@@ -51,6 +51,8 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_bmq_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_BMQ_Instance.json -package bmq -- ../byteplus/bmq/instance_resource_gen.go ../byteplus/bmq/instance_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_privatelink_endpoint_service -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateLink_EndpointService.json -package privatelink -- ../byteplus/privatelink/endpoint_service_resource_gen.go ../byteplus/privatelink/endpoint_service_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_firewallcenter_dns_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_FireWallCenter_DnsControlPolicy.json -package firewallcenter -- ../byteplus/firewallcenter/dns_control_policy_resource_gen.go ../byteplus/firewallcenter/dns_control_policy_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_Rule.json -package clb -- ../byteplus/clb/rule_resource_gen.go ../byteplus/clb/rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpc_subnet -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_Subnet.json -package vpc -- ../byteplus/vpc/subnet_resource_gen.go ../byteplus/vpc/subnet_resource_gen_test.go
 
 package provider
 

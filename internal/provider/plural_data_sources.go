@@ -51,6 +51,8 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_bmq_instances -cctype Byteplus::BMQ::Instance -package bmq ../byteplus/bmq/instance_plural_data_source_gen.go ../byteplus/bmq/instance_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatelink_endpoint_services -cctype Byteplus::PrivateLink::EndpointService -package privatelink ../byteplus/privatelink/endpoint_service_plural_data_source_gen.go ../byteplus/privatelink/endpoint_service_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_firewallcenter_dns_control_policies -cctype Byteplus::FireWallCenter::DnsControlPolicy -package firewallcenter ../byteplus/firewallcenter/dns_control_policy_plural_data_source_gen.go ../byteplus/firewallcenter/dns_control_policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_rules -cctype Byteplus::CLB::Rule -package clb ../byteplus/clb/rule_plural_data_source_gen.go ../byteplus/clb/rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_subnets -cctype Byteplus::VPC::Subnet -package vpc ../byteplus/vpc/subnet_plural_data_source_gen.go ../byteplus/vpc/subnet_plural_data_source_gen_test.go
 
 package provider
 

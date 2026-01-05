@@ -210,3 +210,13 @@ resource_schema "byteplus_firewallcenter_dns_control_policy" {
 }
 
 
+resource_schema "byteplus_clb_rule" {
+  cloudcontrol_type_name = "Byteplus::CLB::Rule"
+}
+
+resource_schema "byteplus_vpc_subnet" {
+  cloudcontrol_type_name = "Byteplus::VPC::Subnet"
+}
+
+
+
