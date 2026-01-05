@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_subnet.example "subnet_id"

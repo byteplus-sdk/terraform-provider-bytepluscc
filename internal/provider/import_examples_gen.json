@@ -243,5 +243,15 @@
         "resource": "bytepluscc_firewallcenter_dns_control_policy",
         "identifier": ["RuleId"],
         "path": "./examples/resources/bytepluscc_firewallcenter_dns_control_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_rule",
+        "identifier": ["ListenerId","RuleId"],
+        "path": "./examples/resources/bytepluscc_clb_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_subnet",
+        "identifier": ["SubnetId"],
+        "path": "./examples/resources/bytepluscc_vpc_subnet/import.sh"
     }
 ]

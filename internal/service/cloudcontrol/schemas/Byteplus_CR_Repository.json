@@ -6,6 +6,17 @@
     "/properties/Registry"
   ],
   "description": "OCI 制品仓库用于存储容器镜像或 Helm Chart 等，符合开源容器标准的 OCI（Open Container Initiative） 制品。",
+  "filterProperties": {
+    "filterableProperties": [
+      "/properties/AccessLevel",
+      "/properties/Name",
+      "/properties/Namespace",
+      "/properties/Registry"
+    ],
+    "required": [
+      "/properties/Registry"
+    ]
+  },
   "handlers": {
     "create": {
       "permissions": [
@@ -16,6 +27,11 @@
     "delete": {
       "permissions": [
         "cr:DeleteRepository",
+        "cr:ListRepositories"
+      ]
+    },
+    "list": {
+      "permissions": [
         "cr:ListRepositories"
       ]
     },

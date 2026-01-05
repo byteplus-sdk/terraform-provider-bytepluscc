@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_clb_rule.example "listener_id|rule_id"
