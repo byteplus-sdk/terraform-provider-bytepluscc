@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudmonitor_rule.example "rule_id"

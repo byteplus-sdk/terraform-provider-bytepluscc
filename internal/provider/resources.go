@@ -50,9 +50,18 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_cloudidentity_user -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudIdentity_User.json -package cloudidentity -- ../byteplus/cloudidentity/user_resource_gen.go ../byteplus/cloudidentity/user_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_bmq_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_BMQ_Instance.json -package bmq -- ../byteplus/bmq/instance_resource_gen.go ../byteplus/bmq/instance_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_privatelink_endpoint_service -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateLink_EndpointService.json -package privatelink -- ../byteplus/privatelink/endpoint_service_resource_gen.go ../byteplus/privatelink/endpoint_service_resource_gen_test.go
-//go:generate go run generators/resource/main.go -resource bytepluscc_firewallcenter_dns_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_FireWallCenter_DnsControlPolicy.json -package firewallcenter -- ../byteplus/firewallcenter/dns_control_policy_resource_gen.go ../byteplus/firewallcenter/dns_control_policy_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_fwcenter_dns_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_FWCenter_DnsControlPolicy.json -package fwcenter -- ../byteplus/fwcenter/dns_control_policy_resource_gen.go ../byteplus/fwcenter/dns_control_policy_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_clb_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_Rule.json -package clb -- ../byteplus/clb/rule_resource_gen.go ../byteplus/clb/rule_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_vpc_subnet -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_Subnet.json -package vpc -- ../byteplus/vpc/subnet_resource_gen.go ../byteplus/vpc/subnet_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_bmq_group -ccschema ../service/cloudcontrol/schemas/Byteplus_BMQ_Group.json -package bmq -- ../byteplus/bmq/group_resource_gen.go ../byteplus/bmq/group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_cloudmonitor_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_Rule.json -package cloudmonitor -- ../byteplus/cloudmonitor/rule_resource_gen.go ../byteplus/cloudmonitor/rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_nlb_server_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_NLBServerGroup.json -package clb -- ../byteplus/clb/nlb_server_group_resource_gen.go ../byteplus/clb/nlb_server_group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_nlb_listener -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_NLBListener.json -package clb -- ../byteplus/clb/nlb_listener_resource_gen.go ../byteplus/clb/nlb_listener_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_server_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_ServerGroup.json -package clb -- ../byteplus/clb/server_group_resource_gen.go ../byteplus/clb/server_group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_directconnect_direct_connect_gateway -ccschema ../service/cloudcontrol/schemas/Byteplus_DirectConnect_DirectConnectGateway.json -package directconnect -- ../byteplus/directconnect/direct_connect_gateway_resource_gen.go ../byteplus/directconnect/direct_connect_gateway_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpc_eip -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_EIP.json -package vpc -- ../byteplus/vpc/eip_resource_gen.go ../byteplus/vpc/eip_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpc_route_table -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_RouteTable.json -package vpc -- ../byteplus/vpc/route_table_resource_gen.go ../byteplus/vpc/route_table_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_filenas_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_FileNAS_Instance.json -package filenas -- ../byteplus/filenas/instance_resource_gen.go ../byteplus/filenas/instance_resource_gen_test.go
 
 package provider
 
@@ -65,11 +74,14 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudidentity"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudmonitor"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/directconnect"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
-	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/firewallcenter"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/filenas"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/fwcenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"

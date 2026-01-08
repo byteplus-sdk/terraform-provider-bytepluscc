@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_bmq_group.example "group_id"

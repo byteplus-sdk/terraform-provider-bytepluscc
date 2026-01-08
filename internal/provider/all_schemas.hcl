@@ -205,8 +205,8 @@ resource_schema "byteplus_privatelink_endpoint_service" {
   cloudcontrol_type_name = "Byteplus::PrivateLink::EndpointService"
 }
 
-resource_schema "byteplus_firewallcenter_dns_control_policy" {
-  cloudcontrol_type_name = "Byteplus::FireWallCenter::DnsControlPolicy"
+resource_schema "byteplus_fwcenter_dns_control_policy" {
+  cloudcontrol_type_name = "Byteplus::FWCenter::DnsControlPolicy"
 }
 
 
@@ -218,5 +218,40 @@ resource_schema "byteplus_vpc_subnet" {
   cloudcontrol_type_name = "Byteplus::VPC::Subnet"
 }
 
+resource_schema "byteplus_bmq_group" {
+  cloudcontrol_type_name = "Byteplus::BMQ::Group"
+}
+
+resource_schema "byteplus_cloudmonitor_rule" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::Rule"
+}
+
+resource_schema "byteplus_clb_nlb_server_group" {
+  cloudcontrol_type_name = "Byteplus::CLB::NLBServerGroup"
+}
+
+resource_schema "byteplus_clb_nlb_listener" {
+  cloudcontrol_type_name = "Byteplus::CLB::NLBListener"
+}
+
+resource_schema "byteplus_clb_server_group" {
+  cloudcontrol_type_name = "Byteplus::CLB::ServerGroup"
+}
+
+resource_schema "byteplus_directconnect_direct_connect_gateway" {
+  cloudcontrol_type_name = "Byteplus::DirectConnect::DirectConnectGateway"
+}
+
+resource_schema "byteplus_vpc_eip" {
+  cloudcontrol_type_name = "Byteplus::VPC::EIP"
+}
+
+resource_schema "byteplus_vpc_route_table" {
+  cloudcontrol_type_name = "Byteplus::VPC::RouteTable"
+}
+
+resource_schema "byteplus_filenas_instance" {
+  cloudcontrol_type_name = "Byteplus::FileNAS::Instance"
+}
 
 

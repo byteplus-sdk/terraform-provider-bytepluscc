@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_route_table.example "route_table_id"

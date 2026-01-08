@@ -50,9 +50,18 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_users -cctype Byteplus::CloudIdentity::User -package cloudidentity ../byteplus/cloudidentity/user_plural_data_source_gen.go ../byteplus/cloudidentity/user_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_bmq_instances -cctype Byteplus::BMQ::Instance -package bmq ../byteplus/bmq/instance_plural_data_source_gen.go ../byteplus/bmq/instance_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatelink_endpoint_services -cctype Byteplus::PrivateLink::EndpointService -package privatelink ../byteplus/privatelink/endpoint_service_plural_data_source_gen.go ../byteplus/privatelink/endpoint_service_plural_data_source_gen_test.go
-//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_firewallcenter_dns_control_policies -cctype Byteplus::FireWallCenter::DnsControlPolicy -package firewallcenter ../byteplus/firewallcenter/dns_control_policy_plural_data_source_gen.go ../byteplus/firewallcenter/dns_control_policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_fwcenter_dns_control_policies -cctype Byteplus::FWCenter::DnsControlPolicy -package fwcenter ../byteplus/fwcenter/dns_control_policy_plural_data_source_gen.go ../byteplus/fwcenter/dns_control_policy_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_rules -cctype Byteplus::CLB::Rule -package clb ../byteplus/clb/rule_plural_data_source_gen.go ../byteplus/clb/rule_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_subnets -cctype Byteplus::VPC::Subnet -package vpc ../byteplus/vpc/subnet_plural_data_source_gen.go ../byteplus/vpc/subnet_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_bmq_groups -cctype Byteplus::BMQ::Group -package bmq ../byteplus/bmq/group_plural_data_source_gen.go ../byteplus/bmq/group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_rules -cctype Byteplus::CloudMonitor::Rule -package cloudmonitor ../byteplus/cloudmonitor/rule_plural_data_source_gen.go ../byteplus/cloudmonitor/rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_nlb_server_groups -cctype Byteplus::CLB::NLBServerGroup -package clb ../byteplus/clb/nlb_server_group_plural_data_source_gen.go ../byteplus/clb/nlb_server_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_nlb_listeners -cctype Byteplus::CLB::NLBListener -package clb ../byteplus/clb/nlb_listener_plural_data_source_gen.go ../byteplus/clb/nlb_listener_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_server_groups -cctype Byteplus::CLB::ServerGroup -package clb ../byteplus/clb/server_group_plural_data_source_gen.go ../byteplus/clb/server_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_directconnect_direct_connect_gateways -cctype Byteplus::DirectConnect::DirectConnectGateway -package directconnect ../byteplus/directconnect/direct_connect_gateway_plural_data_source_gen.go ../byteplus/directconnect/direct_connect_gateway_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_eips -cctype Byteplus::VPC::EIP -package vpc ../byteplus/vpc/eip_plural_data_source_gen.go ../byteplus/vpc/eip_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_route_tables -cctype Byteplus::VPC::RouteTable -package vpc ../byteplus/vpc/route_table_plural_data_source_gen.go ../byteplus/vpc/route_table_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_filenas_instances -cctype Byteplus::FileNAS::Instance -package filenas ../byteplus/filenas/instance_plural_data_source_gen.go ../byteplus/filenas/instance_plural_data_source_gen_test.go
 
 package provider
 
@@ -65,11 +74,14 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudidentity"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudmonitor"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/directconnect"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
-	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/firewallcenter"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/filenas"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/fwcenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"

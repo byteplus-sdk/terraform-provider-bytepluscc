@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_clb_nlb_server_group.example "server_group_id"
