@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_eip.example "allocation_id"

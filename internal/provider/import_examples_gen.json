@@ -240,9 +240,9 @@
         "path": "./examples/resources/bytepluscc_privatelink_endpoint_service/import.sh"
     },
     {
-        "resource": "bytepluscc_firewallcenter_dns_control_policy",
+        "resource": "bytepluscc_fwcenter_dns_control_policy",
         "identifier": ["RuleId"],
-        "path": "./examples/resources/bytepluscc_firewallcenter_dns_control_policy/import.sh"
+        "path": "./examples/resources/bytepluscc_fwcenter_dns_control_policy/import.sh"
     },
     {
         "resource": "bytepluscc_clb_rule",
@@ -253,5 +253,50 @@
         "resource": "bytepluscc_vpc_subnet",
         "identifier": ["SubnetId"],
         "path": "./examples/resources/bytepluscc_vpc_subnet/import.sh"
+    },
+    {
+        "resource": "bytepluscc_bmq_group",
+        "identifier": ["GroupId"],
+        "path": "./examples/resources/bytepluscc_bmq_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudmonitor_rule",
+        "identifier": ["RuleId"],
+        "path": "./examples/resources/bytepluscc_cloudmonitor_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_nlb_server_group",
+        "identifier": ["ServerGroupId"],
+        "path": "./examples/resources/bytepluscc_clb_nlb_server_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_nlb_listener",
+        "identifier": ["ListenerId"],
+        "path": "./examples/resources/bytepluscc_clb_nlb_listener/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_server_group",
+        "identifier": ["ServerGroupId"],
+        "path": "./examples/resources/bytepluscc_clb_server_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_directconnect_direct_connect_gateway",
+        "identifier": ["DirectConnectGatewayId"],
+        "path": "./examples/resources/bytepluscc_directconnect_direct_connect_gateway/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_eip",
+        "identifier": ["AllocationId"],
+        "path": "./examples/resources/bytepluscc_vpc_eip/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_route_table",
+        "identifier": ["RouteTableId"],
+        "path": "./examples/resources/bytepluscc_vpc_route_table/import.sh"
+    },
+    {
+        "resource": "bytepluscc_filenas_instance",
+        "identifier": ["FileSystemId"],
+        "path": "./examples/resources/bytepluscc_filenas_instance/import.sh"
     }
 ]

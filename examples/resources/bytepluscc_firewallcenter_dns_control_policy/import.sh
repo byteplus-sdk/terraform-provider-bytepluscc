@@ -1,1 +1,0 @@
-$ terraform import bytepluscc_firewallcenter_dns_control_policy.example "rule_id"
