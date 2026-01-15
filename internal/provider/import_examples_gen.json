@@ -30,11 +30,6 @@
         "path": "./examples/resources/bytepluscc_cr_repository/import.sh"
     },
     {
-        "resource": "bytepluscc_autoscaling_scaling_configuration",
-        "identifier": ["ScalingConfigurationId"],
-        "path": "./examples/resources/bytepluscc_autoscaling_scaling_configuration/import.sh"
-    },
-    {
         "resource": "bytepluscc_ecs_instance",
         "identifier": ["InstanceId"],
         "path": "./examples/resources/bytepluscc_ecs_instance/import.sh"
@@ -88,11 +83,6 @@
         "resource": "bytepluscc_iam_user",
         "identifier": ["UserName"],
         "path": "./examples/resources/bytepluscc_iam_user/import.sh"
-    },
-    {
-        "resource": "bytepluscc_clb_listener",
-        "identifier": ["ListenerId"],
-        "path": "./examples/resources/bytepluscc_clb_listener/import.sh"
     },
     {
         "resource": "bytepluscc_natgateway_ngw",
@@ -298,5 +288,95 @@
         "resource": "bytepluscc_filenas_instance",
         "identifier": ["FileSystemId"],
         "path": "./examples/resources/bytepluscc_filenas_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_keypair",
+        "identifier": ["KeyPairName"],
+        "path": "./examples/resources/bytepluscc_ecs_keypair/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_invocation",
+        "identifier": ["InvocationId"],
+        "path": "./examples/resources/bytepluscc_ecs_invocation/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cr_name_space",
+        "identifier": ["Registry","Name"],
+        "path": "./examples/resources/bytepluscc_cr_name_space/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cr_registry",
+        "identifier": ["Name"],
+        "path": "./examples/resources/bytepluscc_cr_registry/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_bandwidth_package",
+        "identifier": ["BandwidthPackageId"],
+        "path": "./examples/resources/bytepluscc_vpc_bandwidth_package/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_transit_router_route_table",
+        "identifier": ["TransitRouterId","TransitRouterRouteTableId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_transit_router_route_table/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_transit_router_route_entry",
+        "identifier": ["TransitRouterRouteTableId","TransitRouterRouteEntryId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_transit_router_route_entry/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_acl",
+        "identifier": ["AclId"],
+        "path": "./examples/resources/bytepluscc_alb_acl/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_server_group",
+        "identifier": ["ServerGroupId"],
+        "path": "./examples/resources/bytepluscc_alb_server_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_load_balancer",
+        "identifier": ["LoadBalancerId"],
+        "path": "./examples/resources/bytepluscc_alb_load_balancer/import.sh"
+    },
+    {
+        "resource": "bytepluscc_autoscaling_scaling_configuration",
+        "identifier": ["ScalingConfigurationId"],
+        "path": "./examples/resources/bytepluscc_autoscaling_scaling_configuration/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_group",
+        "identifier": ["UserGroupName"],
+        "path": "./examples/resources/bytepluscc_iam_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_network_acl",
+        "identifier": ["NetworkAclId"],
+        "path": "./examples/resources/bytepluscc_vpc_network_acl/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_transit_router",
+        "identifier": ["TransitRouterId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_transit_router/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vmp_workspace",
+        "identifier": ["WorkspaceId"],
+        "path": "./examples/resources/bytepluscc_vmp_workspace/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpn_vpn_gateway",
+        "identifier": ["VpnGatewayId"],
+        "path": "./examples/resources/bytepluscc_vpn_vpn_gateway/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_nlb",
+        "identifier": ["LoadBalancerId"],
+        "path": "./examples/resources/bytepluscc_clb_nlb/import.sh"
+    },
+    {
+        "resource": "bytepluscc_filenas_snapshot",
+        "identifier": ["SnapshotId"],
+        "path": "./examples/resources/bytepluscc_filenas_snapshot/import.sh"
     }
 ]

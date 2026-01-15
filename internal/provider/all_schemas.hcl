@@ -36,10 +36,6 @@ resource_schema "byteplus_cr_repository" {
   cloudcontrol_type_name = "Byteplus::CR::Repository"
 }
 
-resource_schema "byteplus_autoscaling_scaling_configuration" {
-  cloudcontrol_type_name = "Byteplus::AutoScaling::ScalingConfiguration"
-}
-
 resource_schema "byteplus_ecs_instance" {
   cloudcontrol_type_name = "Byteplus::ECS::Instance"
 }
@@ -82,10 +78,6 @@ resource_schema "byteplus_iam_role" {
 
 resource_schema "byteplus_iam_user" {
   cloudcontrol_type_name = "Byteplus::IAM::User"
-}
-
-resource_schema "byteplus_clb_listener" {
-  cloudcontrol_type_name = "Byteplus::CLB::Listener"
 }
 
 resource_schema "byteplus_natgateway_ngw" {
@@ -254,4 +246,74 @@ resource_schema "byteplus_filenas_instance" {
   cloudcontrol_type_name = "Byteplus::FileNAS::Instance"
 }
 
+resource_schema "byteplus_ecs_keypair" {
+  cloudcontrol_type_name = "Byteplus::ECS::Keypair"
+}
 
+resource_schema "byteplus_ecs_invocation" {
+  cloudcontrol_type_name = "Byteplus::ECS::Invocation"
+}
+
+resource_schema "byteplus_cr_name_space" {
+  cloudcontrol_type_name = "Byteplus::CR::NameSpace"
+}
+
+resource_schema "byteplus_cr_registry" {
+  cloudcontrol_type_name = "Byteplus::CR::Registry"
+}
+
+resource_schema "byteplus_vpc_bandwidth_package" {
+  cloudcontrol_type_name = "Byteplus::VPC::BandwidthPackage"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_route_table" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterRouteTable"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_route_entry" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterRouteEntry"
+}
+
+resource_schema "byteplus_alb_acl" {
+  cloudcontrol_type_name = "Byteplus::ALB::ACL"
+}
+
+resource_schema "byteplus_alb_server_group" {
+  cloudcontrol_type_name = "Byteplus::ALB::ServerGroup"
+}
+
+resource_schema "byteplus_alb_load_balancer" {
+  cloudcontrol_type_name = "Byteplus::ALB::LoadBalancer"
+}
+
+resource_schema "byteplus_autoscaling_scaling_configuration" {
+  cloudcontrol_type_name = "Byteplus::AutoScaling::ScalingConfiguration"
+}
+
+resource_schema "byteplus_iam_group" {
+  cloudcontrol_type_name = "Byteplus::IAM::Group"
+}
+
+resource_schema "byteplus_vpc_network_acl" {
+  cloudcontrol_type_name = "Byteplus::VPC::NetworkAcl"
+}
+
+resource_schema "byteplus_transitrouter_transit_router" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouter"
+}
+
+resource_schema "byteplus_vmp_workspace" {
+  cloudcontrol_type_name = "Byteplus::VMP::Workspace"
+}
+
+resource_schema "byteplus_vpn_vpn_gateway" {
+  cloudcontrol_type_name = "Byteplus::VPN::VPNGateway"
+}
+
+resource_schema "byteplus_clb_nlb" {
+  cloudcontrol_type_name = "Byteplus::CLB::NLB"
+}
+
+resource_schema "byteplus_filenas_snapshot" {
+  cloudcontrol_type_name = "Byteplus::FileNAS::Snapshot"
+}

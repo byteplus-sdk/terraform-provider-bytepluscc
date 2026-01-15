@@ -874,7 +874,7 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "监听器的协议。",
+		//	  "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。",
 		//	  "enum": [
 		//	    "TCP",
 		//	    "UDP",
@@ -884,7 +884,7 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 		//	  "type": "string"
 		//	}
 		"protocol": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "监听器的协议。",
+			Description: "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。",
 			Required:    true,
 			Validators: []validator.String{ /*START VALIDATORS*/
 				stringvalidator.OneOf(
@@ -984,6 +984,26 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 			}, /*END VALIDATORS*/
 			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
 				int64planmodifier.UseStateForUnknown(),
+			}, /*END PLAN MODIFIERS*/
+		}, /*END ATTRIBUTE*/
+		// Property: RuleIds
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "监听器绑定的规则ID列表。",
+		//	  "insertionOrder": false,
+		//	  "items": {
+		//	    "type": "string"
+		//	  },
+		//	  "type": "array",
+		//	  "uniqueItems": true
+		//	}
+		"rule_ids": schema.SetAttribute{ /*START ATTRIBUTE*/
+			ElementType: types.StringType,
+			Description: "监听器绑定的规则ID列表。",
+			Computed:    true,
+			PlanModifiers: []planmodifier.Set{ /*START PLAN MODIFIERS*/
+				setplanmodifier.UseStateForUnknown(),
 			}, /*END PLAN MODIFIERS*/
 		}, /*END ATTRIBUTE*/
 		// Property: Scheduler
@@ -1126,8 +1146,7 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 		//	      }
 		//	    },
 		//	    "required": [
-		//	      "Key",
-		//	      "Value"
+		//	      "Key"
 		//	    ],
 		//	    "type": "object"
 		//	  },
@@ -1158,7 +1177,6 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 						Computed:    true,
 						Validators: []validator.String{ /*START VALIDATORS*/
 							stringvalidator.LengthBetween(0, 256),
-							fwvalidators.NotNullString(),
 						}, /*END VALIDATORS*/
 						PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 							stringplanmodifier.UseStateForUnknown(),
@@ -1166,7 +1184,7 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 					}, /*END ATTRIBUTE*/
 				}, /*END SCHEMA*/
 			}, /*END NESTED OBJECT*/
-			Description: "监听器所属标签。\n 特别提示: 在使用 ListNestedAttribute 或 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。",
+			Description: "监听器所属标签。\n 特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。",
 			Optional:    true,
 			Computed:    true,
 			Validators: []validator.Set{ /*START VALIDATORS*/
@@ -1271,6 +1289,7 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 		"proxy_protocol_type":        "ProxyProtocolType",
 		"proxy_read_timeout":         "ProxyReadTimeout",
 		"proxy_send_timeout":         "ProxySendTimeout",
+		"rule_ids":                   "RuleIds",
 		"scheduler":                  "Scheduler",
 		"security_policy_id":         "SecurityPolicyId",
 		"send_timeout":               "SendTimeout",
@@ -1294,6 +1313,7 @@ func listenerResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/UpdatedTime",
 		"/properties/Status",
 		"/properties/WafProtectionEnabled",
+		"/properties/RuleIds",
 	})
 
 	opts = opts.WithCreateOnlyPropertyPaths([]string{

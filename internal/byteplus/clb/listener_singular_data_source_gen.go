@@ -573,7 +573,7 @@ func listenerDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "监听器的协议。",
+		//	  "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。",
 		//	  "enum": [
 		//	    "TCP",
 		//	    "UDP",
@@ -583,7 +583,7 @@ func listenerDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	  "type": "string"
 		//	}
 		"protocol": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "监听器的协议。",
+			Description: "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: ProxyConnectTimeout
@@ -641,6 +641,23 @@ func listenerDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	}
 		"proxy_send_timeout": schema.Int64Attribute{ /*START ATTRIBUTE*/
 			Description: "CLB将请求传输到后端服务器的超时时间。此超时仅针对两个连续的写操作之间设置，而非整个请求的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。",
+			Computed:    true,
+		}, /*END ATTRIBUTE*/
+		// Property: RuleIds
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "监听器绑定的规则ID列表。",
+		//	  "insertionOrder": false,
+		//	  "items": {
+		//	    "type": "string"
+		//	  },
+		//	  "type": "array",
+		//	  "uniqueItems": true
+		//	}
+		"rule_ids": schema.SetAttribute{ /*START ATTRIBUTE*/
+			ElementType: types.StringType,
+			Description: "监听器绑定的规则ID列表。",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: Scheduler
@@ -749,8 +766,7 @@ func listenerDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	      }
 		//	    },
 		//	    "required": [
-		//	      "Key",
-		//	      "Value"
+		//	      "Key"
 		//	    ],
 		//	    "type": "object"
 		//	  },
@@ -860,6 +876,7 @@ func listenerDataSource(ctx context.Context) (datasource.DataSource, error) {
 		"proxy_protocol_type":        "ProxyProtocolType",
 		"proxy_read_timeout":         "ProxyReadTimeout",
 		"proxy_send_timeout":         "ProxySendTimeout",
+		"rule_ids":                   "RuleIds",
 		"scheduler":                  "Scheduler",
 		"security_policy_id":         "SecurityPolicyId",
 		"send_timeout":               "SendTimeout",

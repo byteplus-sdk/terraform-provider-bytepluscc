@@ -51,11 +51,12 @@ Data Source schema for Byteplus::CLB::Listener
 - `persistence_timeout` (Number) 会话保持的超时时间，单位为秒。取值范围根据参数PersistenceType取值有所不同。PersistenceType置为source_ip时，取值范围为1～3600。PersistenceType配置为insert时，取值范围为1～86400。
 - `persistence_type` (String) 会话保持的类型。取值如下：off（默认值）：不启用会话保持。source_ip：源地址IP，仅参数ProtocolTCP或UDP时，本取值有效。insert：植入Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。server：重写Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。。
 - `port` (Number) 监听器接收请求使用的端口。取值范围为 0～65535。参数Protocol为“TCP”或“UDP”时，支持传入0，表示用全端口监听。
-- `protocol` (String) 监听器的协议。
+- `protocol` (String) 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
 - `proxy_connect_timeout` (Number) CLB与后端服务器之间的连接建立超时时间。建议大于健康检查超时时间。取值范围为 4-120秒，默认为4。仅参数Protocol取HTTP或HTTPS时，本参数有效。
 - `proxy_protocol_type` (String) 是否启用Proxy-Protocol协议。仅参数Protocol取TCP或UDP时，本参数有效。取值如下：off（默认值）：关闭。standard：开启。
 - `proxy_read_timeout` (Number) CLB从后端服务器读取响应的超时时间。此超时时间仅针对两个连续的读操作之间设置，而非整个响应的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
 - `proxy_send_timeout` (Number) CLB将请求传输到后端服务器的超时时间。此超时仅针对两个连续的写操作之间设置，而非整个请求的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
+- `rule_ids` (Set of String) 监听器绑定的规则ID列表。
 - `scheduler` (String) 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
 - `security_policy_id` (String) HTTPS监听器的TLS安全策略。仅参数Protocol取HTTPS时，本参数有效。 取值如下：default_policy（默认值）：支持SSL v3、TLS v1.0、TLS v1.1、TLS v1.2。tls_cipher_policy_1_0：支持TLS v1.0、TLS v1.1、TLS v1.2。tls_cipher_policy_1_1：支持TLS v1.1、TLS v1.2。tls_cipher_policy_1_2：支持TLS v1.2。tls_cipher_policy_1_2_strict：支持TLS v1.2。
 - `send_timeout` (Number) CLB向客户端发送响应的超时时间。此超时仅针对两个连续的写操作之间设置，而非整响应的传输过程。取值范围为 1-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。

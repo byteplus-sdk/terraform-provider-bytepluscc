@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_filenas_snapshot.example "snapshot_id"

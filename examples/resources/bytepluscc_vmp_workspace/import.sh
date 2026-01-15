@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vmp_workspace.example "workspace_id"

@@ -37,6 +37,7 @@ resource "bytepluscc_vefaas_kafka_trigger" "VefaasTriggerDemo" {
 ### Required
 
 - `function_id` (String) 函数 ID。
+- `kafka_credentials` (Attributes) Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。 (see [below for nested schema](#nestedatt--kafka_credentials))
 - `mq_instance_id` (String) 消息队列 Kafka 实例 ID。
 - `name` (String) Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。
 - `topic_name` (String) 消息队列 Kafka 实例的 Topic 名称。
@@ -47,7 +48,6 @@ resource "bytepluscc_vefaas_kafka_trigger" "VefaasTriggerDemo" {
 - `batch_size` (Number) 触发器批量消费的每批次消息数。
 - `description` (String) Kafka 触发器描述。长度限制为 200 个字符以内。
 - `enabled` (Boolean) 是否在创建触发器的同时启用触发器。取值：true：启用。false：关闭。
-- `kafka_credentials` (Attributes) Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。 (see [below for nested schema](#nestedatt--kafka_credentials))
 - `maximum_retry_attempts` (Number) 函数发生运行错误（包括用户代码错误和 Runtime 错误）时的最大重试次数。取值范围为 0～100 的正整数。
 - `starting_position` (String) 指定开始消费 Topic 中消息的位置。取值：Latest：只消费订阅 Topic 后产生的消息。Earliest：从 Topic 中生产的第一条消息开始消费。
 
@@ -63,7 +63,7 @@ resource "bytepluscc_vefaas_kafka_trigger" "VefaasTriggerDemo" {
 <a id="nestedatt--kafka_credentials"></a>
 ### Nested Schema for `kafka_credentials`
 
-Optional:
+Required:
 
 - `mechanism` (String) Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。
 - `password` (String) 创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。

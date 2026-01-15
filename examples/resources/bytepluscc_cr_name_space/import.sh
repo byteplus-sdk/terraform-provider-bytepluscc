@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cr_name_space.example "registry|name"
