@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_clb_nlb.example "load_balancer_id"

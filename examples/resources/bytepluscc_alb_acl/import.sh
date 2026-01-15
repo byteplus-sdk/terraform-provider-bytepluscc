@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_alb_acl.example "acl_id"

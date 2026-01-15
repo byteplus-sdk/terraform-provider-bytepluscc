@@ -125,6 +125,11 @@ func kafkaTriggerDataSource(ctx context.Context) (datasource.DataSource, error) 
 		//	      "type": "string"
 		//	    }
 		//	  },
+		//	  "required": [
+		//	    "Mechanism",
+		//	    "Password",
+		//	    "Username"
+		//	  ],
 		//	  "type": "object"
 		//	}
 		"kafka_credentials": schema.SingleNestedAttribute{ /*START ATTRIBUTE*/
@@ -187,6 +192,8 @@ func kafkaTriggerDataSource(ctx context.Context) (datasource.DataSource, error) 
 		//
 		//	{
 		//	  "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。",
+		//	  "maxLength": 63,
+		//	  "minLength": 4,
 		//	  "type": "string"
 		//	}
 		"name": schema.StringAttribute{ /*START ATTRIBUTE*/

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ecs_keypair.example "key_pair_name"

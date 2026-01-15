@@ -110,18 +110,28 @@
         }
       },
       "required": [
-        "Key",
-        "Value"
+        "Key"
       ],
       "type": "object"
     }
   },
   "description": "监听器负责根据指定的协议和端口，监听CLB实例接收到的用户访问请求。CLB将按照该监听器配置的调度算法，将访问请求转发至该后端服务器组内健康的后端服务器。",
+  "filterProperties": {
+    "filterableProperties": [
+      "/properties/ListenerId",
+      "/properties/ListenerName",
+      "/properties/LoadBalancerId",
+      "/properties/Protocol",
+      "/properties/Tags/*/Key",
+      "/properties/Tags/*/Value"
+    ]
+  },
   "handlers": {
     "create": {
       "permissions": [
         "clb:CreateListener",
-        "clb:DescribeListenerAttributes"
+        "clb:DescribeListenerAttributes",
+        "clb:DescribeRules"
       ]
     },
     "delete": {
@@ -137,7 +147,8 @@
     },
     "read": {
       "permissions": [
-        "clb:DescribeListenerAttributes"
+        "clb:DescribeListenerAttributes",
+        "clb:DescribeRules"
       ]
     },
     "update": {
@@ -145,7 +156,8 @@
         "clb:ModifyListenerAttributes",
         "clb:DescribeListenerAttributes",
         "clb:TagResources",
-        "clb:UntagResources"
+        "clb:UntagResources",
+        "clb:DescribeRules"
       ]
     }
   },
@@ -287,7 +299,8 @@
     },
     "HealthCheck": {
       "$ref": "#/definitions/HealthCheck",
-      "description": "健康检查相关信息。"
+      "description": "健康检查相关信息。",
+      "type": "object"
     },
     "Http2Enabled": {
       "description": "监听器是否开启前端HTTP 2.0协议。仅参数`Protocol取HTTPS时，本参数有效。取值如下：|on：开启。off（默认值）：不开启。",
@@ -349,7 +362,7 @@
       "type": "integer"
     },
     "Protocol": {
-      "description": "监听器的协议。",
+      "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。",
       "enum": [
         "TCP",
         "UDP",
@@ -386,6 +399,15 @@
       "maximum": 3600,
       "minimum": 30,
       "type": "integer"
+    },
+    "RuleIds": {
+      "description": "监听器绑定的规则ID列表。",
+      "insertionOrder": false,
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
     },
     "Scheduler": {
       "default": "wrr",
@@ -427,6 +449,7 @@
         "Deleting",
         "Disabled"
       ],
+      "semantic": "status",
       "type": "string"
     },
     "Tags": {
@@ -459,7 +482,8 @@
     "/properties/CreatedTime",
     "/properties/UpdatedTime",
     "/properties/Status",
-    "/properties/WafProtectionEnabled"
+    "/properties/WafProtectionEnabled",
+    "/properties/RuleIds"
   ],
   "required": [
     "Protocol",

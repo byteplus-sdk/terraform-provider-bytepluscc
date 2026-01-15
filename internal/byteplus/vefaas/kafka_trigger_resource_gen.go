@@ -163,6 +163,11 @@ func kafkaTriggerResource(ctx context.Context) (resource.Resource, error) {
 		//	      "type": "string"
 		//	    }
 		//	  },
+		//	  "required": [
+		//	    "Mechanism",
+		//	    "Password",
+		//	    "Username"
+		//	  ],
 		//	  "type": "object"
 		//	}
 		"kafka_credentials": schema.SingleNestedAttribute{ /*START ATTRIBUTE*/
@@ -170,43 +175,29 @@ func kafkaTriggerResource(ctx context.Context) (resource.Resource, error) {
 				// Property: Mechanism
 				"mechanism": schema.StringAttribute{ /*START ATTRIBUTE*/
 					Description: "Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。",
-					Optional:    true,
-					Computed:    true,
+					Required:    true,
 					Validators: []validator.String{ /*START VALIDATORS*/
 						stringvalidator.OneOf(
 							"PLAIN",
 							"SCRAM-SHA-256",
 						),
 					}, /*END VALIDATORS*/
-					PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
-						stringplanmodifier.UseStateForUnknown(),
-					}, /*END PLAN MODIFIERS*/
 				}, /*END ATTRIBUTE*/
 				// Property: Password
 				"password": schema.StringAttribute{ /*START ATTRIBUTE*/
 					Description: "创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。",
-					Optional:    true,
-					Computed:    true,
-					PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
-						stringplanmodifier.UseStateForUnknown(),
-					}, /*END PLAN MODIFIERS*/
+					Required:    true,
 				}, /*END ATTRIBUTE*/
 				// Property: Username
 				"username": schema.StringAttribute{ /*START ATTRIBUTE*/
 					Description: "创建 Kafka 实例时设置的 SASL/PLAIN 用户名称。",
-					Optional:    true,
-					Computed:    true,
-					PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
-						stringplanmodifier.UseStateForUnknown(),
-					}, /*END PLAN MODIFIERS*/
+					Required:    true,
 				}, /*END ATTRIBUTE*/
 			}, /*END SCHEMA*/
 			Description: "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。",
-			Optional:    true,
-			Computed:    true,
+			Required:    true,
 			PlanModifiers: []planmodifier.Object{ /*START PLAN MODIFIERS*/
-				objectplanmodifier.UseStateForUnknown(),
-				objectplanmodifier.RequiresReplaceIfConfigured(),
+				objectplanmodifier.RequiresReplace(),
 			}, /*END PLAN MODIFIERS*/
 			// KafkaCredentials is a write-only property.
 		}, /*END ATTRIBUTE*/
@@ -262,11 +253,16 @@ func kafkaTriggerResource(ctx context.Context) (resource.Resource, error) {
 		//
 		//	{
 		//	  "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。",
+		//	  "maxLength": 63,
+		//	  "minLength": 4,
 		//	  "type": "string"
 		//	}
 		"name": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。",
 			Required:    true,
+			Validators: []validator.String{ /*START VALIDATORS*/
+				stringvalidator.LengthBetween(4, 63),
+			}, /*END VALIDATORS*/
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.RequiresReplace(),
 			}, /*END PLAN MODIFIERS*/

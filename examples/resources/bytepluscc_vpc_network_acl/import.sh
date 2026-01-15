@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_network_acl.example "network_acl_id"

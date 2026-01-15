@@ -8,7 +8,6 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_storageebs_volumes -cctype Byteplus::StorageEBS::Volume -package storageebs ../byteplus/storageebs/volume_plural_data_source_gen.go ../byteplus/storageebs/volume_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_listeners -cctype Byteplus::ALB::Listener -package alb ../byteplus/alb/listener_plural_data_source_gen.go ../byteplus/alb/listener_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_repositories -cctype Byteplus::CR::Repository -package cr ../byteplus/cr/repository_plural_data_source_gen.go ../byteplus/cr/repository_plural_data_source_gen_test.go
-//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_configurations -cctype Byteplus::AutoScaling::ScalingConfiguration -package autoscaling ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen.go ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_instances -cctype Byteplus::ECS::Instance -package ecs ../byteplus/ecs/instance_plural_data_source_gen.go ../byteplus/ecs/instance_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_permissions -cctype Byteplus::VKE::Permission -package vke ../byteplus/vke/permission_plural_data_source_gen.go ../byteplus/vke/permission_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vefaas_sandboxes -cctype Byteplus::VEFAAS::Sandbox -package vefaas ../byteplus/vefaas/sandbox_plural_data_source_gen.go ../byteplus/vefaas/sandbox_plural_data_source_gen_test.go
@@ -20,7 +19,6 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_policies -cctype Byteplus::IAM::Policy -package iam ../byteplus/iam/policy_plural_data_source_gen.go ../byteplus/iam/policy_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_roles -cctype Byteplus::IAM::Role -package iam ../byteplus/iam/role_plural_data_source_gen.go ../byteplus/iam/role_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_users -cctype Byteplus::IAM::User -package iam ../byteplus/iam/user_plural_data_source_gen.go ../byteplus/iam/user_plural_data_source_gen_test.go
-//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_listeners -cctype Byteplus::CLB::Listener -package clb ../byteplus/clb/listener_plural_data_source_gen.go ../byteplus/clb/listener_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_natgateway_ngws -cctype Byteplus::NatGateway::NGW -package natgateway ../byteplus/natgateway/ngw_plural_data_source_gen.go ../byteplus/natgateway/ngw_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_units -cctype Byteplus::Organization::Unit -package organization ../byteplus/organization/unit_plural_data_source_gen.go ../byteplus/organization/unit_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_db_accounts -cctype Byteplus::RDSMySQL::DBAccount -package rdsmysql ../byteplus/rdsmysql/db_account_plural_data_source_gen.go ../byteplus/rdsmysql/db_account_plural_data_source_gen_test.go
@@ -62,6 +60,24 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_eips -cctype Byteplus::VPC::EIP -package vpc ../byteplus/vpc/eip_plural_data_source_gen.go ../byteplus/vpc/eip_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_route_tables -cctype Byteplus::VPC::RouteTable -package vpc ../byteplus/vpc/route_table_plural_data_source_gen.go ../byteplus/vpc/route_table_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_filenas_instances -cctype Byteplus::FileNAS::Instance -package filenas ../byteplus/filenas/instance_plural_data_source_gen.go ../byteplus/filenas/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_keypairs -cctype Byteplus::ECS::Keypair -package ecs ../byteplus/ecs/keypair_plural_data_source_gen.go ../byteplus/ecs/keypair_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_invocations -cctype Byteplus::ECS::Invocation -package ecs ../byteplus/ecs/invocation_plural_data_source_gen.go ../byteplus/ecs/invocation_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_name_spaces -cctype Byteplus::CR::NameSpace -package cr ../byteplus/cr/name_space_plural_data_source_gen.go ../byteplus/cr/name_space_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_registries -cctype Byteplus::CR::Registry -package cr ../byteplus/cr/registry_plural_data_source_gen.go ../byteplus/cr/registry_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_bandwidth_packages -cctype Byteplus::VPC::BandwidthPackage -package vpc ../byteplus/vpc/bandwidth_package_plural_data_source_gen.go ../byteplus/vpc/bandwidth_package_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_transit_router_route_tables -cctype Byteplus::TransitRouter::TransitRouterRouteTable -package transitrouter ../byteplus/transitrouter/transit_router_route_table_plural_data_source_gen.go ../byteplus/transitrouter/transit_router_route_table_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_transit_router_route_entries -cctype Byteplus::TransitRouter::TransitRouterRouteEntry -package transitrouter ../byteplus/transitrouter/transit_router_route_entry_plural_data_source_gen.go ../byteplus/transitrouter/transit_router_route_entry_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_acls -cctype Byteplus::ALB::ACL -package alb ../byteplus/alb/acl_plural_data_source_gen.go ../byteplus/alb/acl_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_server_groups -cctype Byteplus::ALB::ServerGroup -package alb ../byteplus/alb/server_group_plural_data_source_gen.go ../byteplus/alb/server_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_load_balancers -cctype Byteplus::ALB::LoadBalancer -package alb ../byteplus/alb/load_balancer_plural_data_source_gen.go ../byteplus/alb/load_balancer_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_configurations -cctype Byteplus::AutoScaling::ScalingConfiguration -package autoscaling ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen.go ../byteplus/autoscaling/scaling_configuration_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_groups -cctype Byteplus::IAM::Group -package iam ../byteplus/iam/group_plural_data_source_gen.go ../byteplus/iam/group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_network_acls -cctype Byteplus::VPC::NetworkAcl -package vpc ../byteplus/vpc/network_acl_plural_data_source_gen.go ../byteplus/vpc/network_acl_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_transit_routers -cctype Byteplus::TransitRouter::TransitRouter -package transitrouter ../byteplus/transitrouter/transit_router_plural_data_source_gen.go ../byteplus/transitrouter/transit_router_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vmp_workspaces -cctype Byteplus::VMP::Workspace -package vmp ../byteplus/vmp/workspace_plural_data_source_gen.go ../byteplus/vmp/workspace_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpn_vpn_gateways -cctype Byteplus::VPN::VPNGateway -package vpn ../byteplus/vpn/vpn_gateway_plural_data_source_gen.go ../byteplus/vpn/vpn_gateway_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_nlbs -cctype Byteplus::CLB::NLB -package clb ../byteplus/clb/nlb_plural_data_source_gen.go ../byteplus/clb/nlb_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_filenas_snapshots -cctype Byteplus::FileNAS::Snapshot -package filenas ../byteplus/filenas/snapshot_plural_data_source_gen.go ../byteplus/filenas/snapshot_plural_data_source_gen_test.go
 
 package provider
 
@@ -92,8 +108,11 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vepfs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vmp"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpn"
 )

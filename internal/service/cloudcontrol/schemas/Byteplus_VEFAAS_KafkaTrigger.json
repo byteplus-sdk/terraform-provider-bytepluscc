@@ -27,6 +27,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "Mechanism",
+        "Password",
+        "Username"
+      ],
       "type": "object"
     }
   },
@@ -77,11 +82,13 @@
     },
     "CreatedTime": {
       "description": "Kafka 触发器创建时间。",
+      "semantic": "createdTime",
       "type": "string"
     },
     "Description": {
       "description": "Kafka 触发器描述。长度限制为 200 个字符以内。",
       "maxLength": 200,
+      "semantic": "description",
       "type": "string"
     },
     "Enabled": {
@@ -94,10 +101,12 @@
     },
     "KafkaCredentials": {
       "$ref": "#/definitions/KafkaCredentials",
-      "description": "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。"
+      "description": "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。",
+      "type": "object"
     },
     "KafkaTriggerId": {
       "description": "Kafka 触发器 ID。",
+      "semantic": "resourceId",
       "type": "string"
     },
     "MaximumRetryAttempts": {
@@ -111,6 +120,9 @@
     },
     "Name": {
       "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。",
+      "maxLength": 63,
+      "minLength": 4,
+      "semantic": "resourceName",
       "type": "string"
     },
     "StartingPosition": {
@@ -123,6 +135,7 @@
     },
     "Status": {
       "description": "Kafka 触发器状态。参数值说明：ready：运行，failed：失败，pending：启动中",
+      "semantic": "status",
       "type": "string"
     },
     "TopicName": {
@@ -131,6 +144,7 @@
     },
     "UpdatedTime": {
       "description": "Kafka 触发器最近一次更新时间。",
+      "semantic": "updatedTime",
       "type": "string"
     }
   },
@@ -145,7 +159,8 @@
     "FunctionId",
     "MqInstanceId",
     "Name",
-    "TopicName"
+    "TopicName",
+    "KafkaCredentials"
   ],
   "tagging": {
     "taggable": false
