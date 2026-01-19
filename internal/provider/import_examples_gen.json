@@ -378,5 +378,30 @@
         "resource": "bytepluscc_filenas_snapshot",
         "identifier": ["SnapshotId"],
         "path": "./examples/resources/bytepluscc_filenas_snapshot/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_command",
+        "identifier": ["CommandId"],
+        "path": "./examples/resources/bytepluscc_ecs_command/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_acl",
+        "identifier": ["AclId"],
+        "path": "./examples/resources/bytepluscc_clb_acl/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_certificate",
+        "identifier": ["CertificateId"],
+        "path": "./examples/resources/bytepluscc_clb_certificate/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_prefix_list",
+        "identifier": ["PrefixListId"],
+        "path": "./examples/resources/bytepluscc_vpc_prefix_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_database",
+        "identifier": ["InstanceId","Name"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_database/import.sh"
     }
 ]

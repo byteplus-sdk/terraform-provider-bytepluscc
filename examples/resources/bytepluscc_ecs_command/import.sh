@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ecs_command.example "command_id"

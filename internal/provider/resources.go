@@ -78,6 +78,11 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_vpn_vpn_gateway -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_VPNGateway.json -package vpn -- ../byteplus/vpn/vpn_gateway_resource_gen.go ../byteplus/vpn/vpn_gateway_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_clb_nlb -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_NLB.json -package clb -- ../byteplus/clb/nlb_resource_gen.go ../byteplus/clb/nlb_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_filenas_snapshot -ccschema ../service/cloudcontrol/schemas/Byteplus_FileNAS_Snapshot.json -package filenas -- ../byteplus/filenas/snapshot_resource_gen.go ../byteplus/filenas/snapshot_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_ecs_command -ccschema ../service/cloudcontrol/schemas/Byteplus_ECS_Command.json -package ecs -- ../byteplus/ecs/command_resource_gen.go ../byteplus/ecs/command_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_acl -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_ACL.json -package clb -- ../byteplus/clb/acl_resource_gen.go ../byteplus/clb/acl_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_certificate -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_Certificate.json -package clb -- ../byteplus/clb/certificate_resource_gen.go ../byteplus/clb/certificate_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpc_prefix_list -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_PrefixList.json -package vpc -- ../byteplus/vpc/prefix_list_resource_gen.go ../byteplus/vpc/prefix_list_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdsmysql_database -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_Database.json -package rdsmysql -- ../byteplus/rdsmysql/database_resource_gen.go ../byteplus/rdsmysql/database_resource_gen_test.go
 
 package provider
 
