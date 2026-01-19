@@ -78,6 +78,11 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpn_vpn_gateways -cctype Byteplus::VPN::VPNGateway -package vpn ../byteplus/vpn/vpn_gateway_plural_data_source_gen.go ../byteplus/vpn/vpn_gateway_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_nlbs -cctype Byteplus::CLB::NLB -package clb ../byteplus/clb/nlb_plural_data_source_gen.go ../byteplus/clb/nlb_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_filenas_snapshots -cctype Byteplus::FileNAS::Snapshot -package filenas ../byteplus/filenas/snapshot_plural_data_source_gen.go ../byteplus/filenas/snapshot_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_commands -cctype Byteplus::ECS::Command -package ecs ../byteplus/ecs/command_plural_data_source_gen.go ../byteplus/ecs/command_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_acls -cctype Byteplus::CLB::ACL -package clb ../byteplus/clb/acl_plural_data_source_gen.go ../byteplus/clb/acl_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_certificates -cctype Byteplus::CLB::Certificate -package clb ../byteplus/clb/certificate_plural_data_source_gen.go ../byteplus/clb/certificate_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_prefix_lists -cctype Byteplus::VPC::PrefixList -package vpc ../byteplus/vpc/prefix_list_plural_data_source_gen.go ../byteplus/vpc/prefix_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_databases -cctype Byteplus::RDSMySQL::Database -package rdsmysql ../byteplus/rdsmysql/database_plural_data_source_gen.go ../byteplus/rdsmysql/database_plural_data_source_gen_test.go
 
 package provider
 

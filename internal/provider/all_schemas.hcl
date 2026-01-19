@@ -317,3 +317,25 @@ resource_schema "byteplus_clb_nlb" {
 resource_schema "byteplus_filenas_snapshot" {
   cloudcontrol_type_name = "Byteplus::FileNAS::Snapshot"
 }
+
+resource_schema "byteplus_ecs_command" {
+  cloudcontrol_type_name = "Byteplus::ECS::Command"
+}
+
+resource_schema "byteplus_clb_acl" {
+  cloudcontrol_type_name = "Byteplus::CLB::ACL"
+}
+
+resource_schema "byteplus_clb_certificate" {
+  cloudcontrol_type_name = "Byteplus::CLB::Certificate"
+}
+
+resource_schema "byteplus_vpc_prefix_list" {
+  cloudcontrol_type_name = "Byteplus::VPC::PrefixList"
+}
+
+resource_schema "byteplus_rdsmysql_database" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::Database"
+}
+
+

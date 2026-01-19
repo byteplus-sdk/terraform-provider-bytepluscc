@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_clb_certificate.example "certificate_id"
