@@ -17,6 +17,8 @@ import (
 	"strings"
 	"time"
 
+	bytepluscredentials "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/credentials"
+	byteplusclicreds "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/credentials/clicreds"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/common"
 	baselogging "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/logging"
@@ -139,6 +141,14 @@ func (p *ByteplusCCProvider) Schema(ctx context.Context, request provider.Schema
 				Optional:    true,
 				Description: "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.",
 			},
+			"profile": schema.StringAttribute{
+				Description: "The profile for Byteplus Provider. It can be sourced from the `BYTEPLUS_PROFILE` environment variable",
+				Optional:    true,
+			},
+			"file_path": schema.StringAttribute{
+				Description: "The file path for Byteplus Provider configuration. It can be sourced from the `BYTEPLUS_FILE_PATH` environment variable",
+				Optional:    true,
+			},
 		},
 	}
 }
@@ -153,6 +163,8 @@ type configModel struct {
 	AssumeRole      *AssumeRoleData `tfsdk:"assume_role"`
 	Endpoints       *endpointData   `tfsdk:"endpoints"`
 
+	Profile          types.String `tfsdk:"profile"`
+	FilePath         types.String `tfsdk:"file_path"`
 	terraformVersion string
 }
 type AssumeRoleData struct {
@@ -185,17 +197,22 @@ func (p *ByteplusCCProvider) Configure(ctx context.Context, request provider.Con
 	if config.SecretKey.IsNull() || config.SecretKey.IsUnknown() {
 		config.SecretKey = types.StringValue(os.Getenv("BYTEPLUS_SECRET_KEY"))
 	}
+	if config.Profile.IsNull() || config.Profile.IsUnknown() {
+		config.Profile = types.StringValue(os.Getenv("BYTEPLUS_PROFILE"))
+	}
+	if config.FilePath.IsNull() || config.FilePath.IsUnknown() {
+		config.FilePath = types.StringValue(os.Getenv("BYTEPLUS_FILE_PATH"))
+	}
 	if config.Region.IsNull() || config.Region.IsUnknown() {
 		config.Region = types.StringValue(os.Getenv("BYTEPLUS_REGION"))
 	}
-	if config.AccessKey.ValueString() == "" {
-		response.Diagnostics.AddError("Missing AccessKey", "AccessKey must be set")
-	}
-	if config.SecretKey.ValueString() == "" {
-		response.Diagnostics.AddError("Missing SecretKey", "SecretKey must be set")
-	}
-	if config.Region.ValueString() == "" {
-		response.Diagnostics.AddError("Missing Region", "Region must be set")
+	// 验证认证方式：必须配置ak + sk，或者必须配置profile + file_path
+	hasAKSK := config.AccessKey.ValueString() != "" && config.SecretKey.ValueString() != ""
+	hasProfile := config.Profile.ValueString() != ""
+
+	if !hasAKSK && !hasProfile {
+		response.Diagnostics.AddError("Invalid Authentication Configuration",
+			"Either (AccessKey and SecretKey) or Profile must be provided")
 	}
 	if config.DisableSSL.IsNull() || config.DisableSSL.IsUnknown() {
 		if disableSSLString := os.Getenv("BYTEPLUS_DISABLE_SSL"); disableSSLString != "" {
@@ -309,6 +326,8 @@ func (p *ByteplusCCProvider) DataSources(ctx context.Context) []func() datasourc
 	return dataSources
 }
 
+var clicreds = cliCredsAdapter{}
+
 func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.Diagnostics) {
 	var diags diag.Diagnostics
 	version := fmt.Sprintf("%s/%s (terraform/%s)", common.TerraformProviderName, common.TerraformProviderVersion, c.terraformVersion)
@@ -318,13 +337,26 @@ func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.D
 		return nil, diags
 	}
 
-	config := volcengine.NewConfig().
-		WithRegion(c.Region.ValueString()).
-		WithCredentials(credentials.NewStaticCredentials(c.AccessKey.ValueString(), c.SecretKey.ValueString(), "")).
-		WithDisableSSL(c.DisableSSL.ValueBool()).
-		WithExtendHttpRequest(func(ctx context.Context, request *http.Request) {
-			request.Header.Set("user-agent", version)
-		})
+	var config *volcengine.Config
+
+	if c.AccessKey.ValueString() != "" && c.SecretKey.ValueString() != "" {
+		config = volcengine.NewConfig().
+			WithRegion(c.Region.ValueString()).
+			WithCredentials(credentials.NewStaticCredentials(c.AccessKey.ValueString(), c.SecretKey.ValueString(), "")).
+			WithDisableSSL(c.DisableSSL.ValueBool()).
+			WithExtendHttpRequest(func(ctx context.Context, request *http.Request) {
+				request.Header.Set("user-agent", version)
+			})
+	} else {
+		logger.Debug(ctx, fmt.Sprintf("use cli credentials, file_path: %s, profile: %s", c.FilePath.ValueString(), c.Profile.ValueString()))
+		config = volcengine.NewConfig().
+			WithRegion(c.Region.ValueString()).
+			WithCredentials(clicreds.NewCliCredentials(c.FilePath.ValueString(), c.Profile.ValueString())).
+			WithDisableSSL(c.DisableSSL.ValueBool()).
+			WithExtendHttpRequest(func(ctx context.Context, request *http.Request) {
+				request.Header.Set("user-agent", version)
+			})
+	}
 
 	if !(c.CustomerHeaders.IsNull() || c.CustomerHeaders.IsUnknown()) {
 		customHeaderMap := make(map[string]string)
@@ -422,4 +454,41 @@ func ParseTrn(trn string) (string, string, error) {
 	} else {
 		return "", "", errors.New("invalid trn")
 	}
+}
+
+type cliCredsAdapter struct{}
+
+func (cliCredsAdapter) NewCliCredentials(configPath, profile string) *credentials.Credentials {
+	return credentials.NewExpireAbleCredentials(&byteplusCliCredentialsProvider{
+		creds: byteplusclicreds.NewCliCredentials(configPath, profile),
+	})
+}
+
+type byteplusCliCredentialsProvider struct {
+	creds *bytepluscredentials.Credentials
+}
+
+func (p *byteplusCliCredentialsProvider) Retrieve() (credentials.Value, error) {
+	if p.creds == nil {
+		return credentials.Value{ProviderName: "CliProvider"}, fmt.Errorf("byteplus cli credentials is nil")
+	}
+
+	v, err := p.creds.Get()
+	if err != nil {
+		return credentials.Value{ProviderName: "CliProvider"}, err
+	}
+
+	return credentials.Value{
+		AccessKeyID:     v.AccessKeyID,
+		SecretAccessKey: v.SecretAccessKey,
+		SessionToken:    v.SessionToken,
+		ProviderName:    v.ProviderName,
+	}, nil
+}
+
+func (p *byteplusCliCredentialsProvider) IsExpired() bool {
+	if p.creds == nil {
+		return true
+	}
+	return p.creds.IsExpired()
 }
