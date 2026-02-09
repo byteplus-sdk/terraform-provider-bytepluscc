@@ -5,6 +5,7 @@ go 1.23.0
 toolchain go1.24.2
 
 require (
+	github.com/byteplus-sdk/byteplus-go-sdk-v2 v1.0.51
 	github.com/google/go-cmp v0.7.0
 	github.com/hashicorp/cli v1.1.7
 	github.com/hashicorp/go-hclog v1.6.3
@@ -19,7 +20,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0
 	github.com/mattbaird/jsonpatch v0.0.0-20240118010651-0ba75a80ca38
 	github.com/test-go/testify v1.1.4
-	github.com/volcengine/volcengine-go-sdk v1.1.18
+	github.com/volcengine/volcengine-go-sdk v1.2.12
 	github.com/xeipuuv/gojsonschema v1.2.0
 	golang.org/x/text v0.25.0
 )
@@ -33,6 +34,7 @@ require (
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
+	github.com/byteplus-sdk/byteplus-sdk-golang v1.0.16 // indirect
 	github.com/cloudflare/circl v1.6.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/evanphx/json-patch v0.5.2 // indirect
