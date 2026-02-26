@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rabbitmq_instance.example "instance_id"

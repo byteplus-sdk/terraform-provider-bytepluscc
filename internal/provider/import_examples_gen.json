@@ -403,5 +403,160 @@
         "resource": "bytepluscc_rdsmysql_database",
         "identifier": ["InstanceId","Name"],
         "path": "./examples/resources/bytepluscc_rdsmysql_database/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_launch_template",
+        "identifier": ["LaunchTemplateId"],
+        "path": "./examples/resources/bytepluscc_ecs_launch_template/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_launch_template_version",
+        "identifier": ["LaunchTemplateId","VersionNumber"],
+        "path": "./examples/resources/bytepluscc_ecs_launch_template_version/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_deployment_set",
+        "identifier": ["DeploymentSetId"],
+        "path": "./examples/resources/bytepluscc_ecs_deployment_set/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_default_node_pool",
+        "identifier": ["ClusterId","NodePoolId"],
+        "path": "./examples/resources/bytepluscc_vke_default_node_pool/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_node",
+        "identifier": ["ClusterId","NodePoolId","NodeId"],
+        "path": "./examples/resources/bytepluscc_vke_node/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_clb",
+        "identifier": ["LoadBalancerId"],
+        "path": "./examples/resources/bytepluscc_clb_clb/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_ha_vip",
+        "identifier": ["HaVipId"],
+        "path": "./examples/resources/bytepluscc_vpc_ha_vip/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_flow_log",
+        "identifier": ["FlowLogId"],
+        "path": "./examples/resources/bytepluscc_vpc_flow_log/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_traffic_mirror_target",
+        "identifier": ["TrafficMirrorTargetId"],
+        "path": "./examples/resources/bytepluscc_vpc_traffic_mirror_target/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_traffic_mirror_filter",
+        "identifier": ["TrafficMirrorFilterId"],
+        "path": "./examples/resources/bytepluscc_vpc_traffic_mirror_filter/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_ipv6_address_bandwidth",
+        "identifier": ["AllocationId"],
+        "path": "./examples/resources/bytepluscc_vpc_ipv6_address_bandwidth/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_traffic_mirror_session",
+        "identifier": ["TrafficMirrorSessionId"],
+        "path": "./examples/resources/bytepluscc_vpc_traffic_mirror_session/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_ipv6_gateway",
+        "identifier": ["Ipv6GatewayId"],
+        "path": "./examples/resources/bytepluscc_vpc_ipv6_gateway/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_traffic_mirror_filter_rule",
+        "identifier": ["TrafficMirrorFilterId","TrafficMirrorFilterRuleId"],
+        "path": "./examples/resources/bytepluscc_vpc_traffic_mirror_filter_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpn_customer_gateway",
+        "identifier": ["CustomerGatewayId"],
+        "path": "./examples/resources/bytepluscc_vpn_customer_gateway/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_vpn_attachment",
+        "identifier": ["TransitRouterId","TransitRouterAttachmentId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_vpn_attachment/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_vpc_attachment",
+        "identifier": ["TransitRouterId","TransitRouterAttachmentId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_vpc_attachment/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_health_check_template",
+        "identifier": ["HealthCheckTemplateId"],
+        "path": "./examples/resources/bytepluscc_alb_health_check_template/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_customized_cfg",
+        "identifier": ["CustomizedCfgId"],
+        "path": "./examples/resources/bytepluscc_alb_customized_cfg/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_backup",
+        "identifier": ["InstanceId","BackupId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_backup/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_endpoint",
+        "identifier": ["InstanceId","EndpointId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_redis_account",
+        "identifier": ["InstanceId","AccountName"],
+        "path": "./examples/resources/bytepluscc_redis_account/import.sh"
+    },
+    {
+        "resource": "bytepluscc_redis_endpoint_public_address",
+        "identifier": ["InstanceId","EipId"],
+        "path": "./examples/resources/bytepluscc_redis_endpoint_public_address/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_accesskey",
+        "identifier": ["AccessKeyId"],
+        "path": "./examples/resources/bytepluscc_iam_accesskey/import.sh"
+    },
+    {
+        "resource": "bytepluscc_organization_account",
+        "identifier": ["AccountId"],
+        "path": "./examples/resources/bytepluscc_organization_account/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rabbitmq_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_rabbitmq_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rabbitmq_public_address",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_rabbitmq_public_address/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rabbitmq_instance_plugin",
+        "identifier": ["InstanceId","PluginName"],
+        "path": "./examples/resources/bytepluscc_rabbitmq_instance_plugin/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kms_key_ring",
+        "identifier": ["KeyRingId"],
+        "path": "./examples/resources/bytepluscc_kms_key_ring/import.sh"
     }
 ]

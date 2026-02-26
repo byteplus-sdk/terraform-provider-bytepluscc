@@ -26,10 +26,10 @@ Data Source schema for Byteplus::IAM::Role
 - `display_name` (String) 角色显示名，长度不超过64。
 - `is_service_linked_role` (Number) 是否是服务关联角色, 0否，1是。
 - `max_session_duration` (Number) 角色最大会话时间，角色最大会话时间。用于限制角色扮演产生的临时安全凭证的有效期的最大范围。取值范围：3600~43200，单位为秒，默认为43200。
-- `policies` (Attributes Set) (see [below for nested schema](#nestedatt--policies))
+- `policies` (Attributes Set) 角色策略。 (see [below for nested schema](#nestedatt--policies))
 - `role_id` (Number) 角色ID。
 - `role_name` (String) 角色名，长度1~64，支持英文、数字和.-_符号。
-- `tags` (Attributes Set) (see [below for nested schema](#nestedatt--tags))
+- `tags` (Attributes Set) 标签。 (see [below for nested schema](#nestedatt--tags))
 - `trn` (String) 角色TRN。
 - `trust_policy_document` (String) 角色信任策略，信任策略遵循IAM的策略语法中基于资源的策略规则。
 - `update_date` (String) 角色更新时间。

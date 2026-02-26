@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_alb_customized_cfg.example "customized_cfg_id"

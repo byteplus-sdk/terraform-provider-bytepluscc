@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_traffic_mirror_session.example "traffic_mirror_session_id"

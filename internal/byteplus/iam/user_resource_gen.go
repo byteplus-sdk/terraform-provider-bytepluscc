@@ -46,7 +46,7 @@ func userResource(ctx context.Context) (resource.Resource, error) {
 		//	        "description": "访问密钥ID。",
 		//	        "type": "string"
 		//	      },
-		//	      "CreatedTime": {
+		//	      "CreateDate": {
 		//	        "description": "访问密钥创建时间。",
 		//	        "type": "string"
 		//	      },
@@ -66,7 +66,7 @@ func userResource(ctx context.Context) (resource.Resource, error) {
 		//	        "description": "访问密钥状态。Active代表启用，Inactive代表禁用。",
 		//	        "type": "string"
 		//	      },
-		//	      "UpdatedTime": {
+		//	      "UpdateDate": {
 		//	        "description": "访问密钥更新时间。",
 		//	        "type": "string"
 		//	      },
@@ -88,8 +88,8 @@ func userResource(ctx context.Context) (resource.Resource, error) {
 						Description: "访问密钥ID。",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
-					// Property: CreatedTime
-					"created_time": schema.StringAttribute{ /*START ATTRIBUTE*/
+					// Property: CreateDate
+					"create_date": schema.StringAttribute{ /*START ATTRIBUTE*/
 						Description: "访问密钥创建时间。",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
@@ -113,8 +113,8 @@ func userResource(ctx context.Context) (resource.Resource, error) {
 						Description: "访问密钥状态。Active代表启用，Inactive代表禁用。",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
-					// Property: UpdatedTime
-					"updated_time": schema.StringAttribute{ /*START ATTRIBUTE*/
+					// Property: UpdateDate
+					"update_date": schema.StringAttribute{ /*START ATTRIBUTE*/
 						Description: "访问密钥更新时间。",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
@@ -771,7 +771,6 @@ func userResource(ctx context.Context) (resource.Resource, error) {
 		"access_key_id":             "AccessKeyId",
 		"account_id":                "AccountId",
 		"create_date":               "CreateDate",
-		"created_time":              "CreatedTime",
 		"description":               "Description",
 		"display_name":              "DisplayName",
 		"email":                     "Email",
@@ -806,7 +805,6 @@ func userResource(ctx context.Context) (resource.Resource, error) {
 		"tags":                      "Tags",
 		"trn":                       "Trn",
 		"update_date":               "UpdateDate",
-		"updated_time":              "UpdatedTime",
 		"user_id":                   "UserId",
 		"user_name":                 "UserName",
 		"value":                     "Value",

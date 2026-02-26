@@ -338,4 +338,129 @@ resource_schema "byteplus_rdsmysql_database" {
   cloudcontrol_type_name = "Byteplus::RDSMySQL::Database"
 }
 
+resource_schema "byteplus_ecs_launch_template" {
+  cloudcontrol_type_name = "Byteplus::ECS::Launchtemplate"
+}
+
+resource_schema "byteplus_ecs_launch_template_version" {
+  cloudcontrol_type_name = "Byteplus::ECS::LaunchtemplateVersion"
+}
+
+resource_schema "byteplus_ecs_deployment_set" {
+  cloudcontrol_type_name = "Byteplus::ECS::DeploymentSet"
+}
+
+resource_schema "byteplus_vke_default_node_pool" {
+  cloudcontrol_type_name = "Byteplus::VKE::DefaultNodePool"
+}
+
+resource_schema "byteplus_vke_node" {
+  cloudcontrol_type_name = "Byteplus::VKE::Node"
+}
+
+resource_schema "byteplus_clb_clb" {
+  cloudcontrol_type_name = "Byteplus::CLB::CLB"
+}
+
+resource_schema "byteplus_vpc_ha_vip" {
+  cloudcontrol_type_name = "Byteplus::VPC::HAVIP"
+}
+
+resource_schema "byteplus_vpc_flow_log" {
+  cloudcontrol_type_name = "Byteplus::VPC::FlowLog"
+}
+
+resource_schema "byteplus_vpc_traffic_mirror_target" {
+  cloudcontrol_type_name = "Byteplus::VPC::TrafficMirrorTarget"
+}
+
+resource_schema "byteplus_vpc_traffic_mirror_filter" {
+  cloudcontrol_type_name = "Byteplus::VPC::TrafficMirrorFilter"
+}
+
+resource_schema "byteplus_vpc_ipv6_address_bandwidth" {
+  cloudcontrol_type_name = "Byteplus::VPC::Ipv6AddressBandwidth"
+}
+
+resource_schema "byteplus_vpc_traffic_mirror_session" {
+  cloudcontrol_type_name = "Byteplus::VPC::TrafficMirrorSession"
+}
+
+resource_schema "byteplus_vpc_ipv6_gateway" {
+  cloudcontrol_type_name = "Byteplus::VPC::Ipv6Gateway"
+}
+
+resource_schema "byteplus_vpc_traffic_mirror_filter_rule" {
+  cloudcontrol_type_name = "Byteplus::VPC::TrafficMirrorFilterRule"
+}
+
+resource_schema "byteplus_vpn_customer_gateway" {
+  cloudcontrol_type_name = "Byteplus::VPN::CustomerGateway"
+}
+
+resource_schema "byteplus_transitrouter_vpn_attachment" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::VpnAttachment"
+}
+
+resource_schema "byteplus_transitrouter_vpc_attachment" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::VpcAttachment"
+}
+
+resource_schema "byteplus_alb_health_check_template" {
+  cloudcontrol_type_name = "Byteplus::ALB::HealthCheckTemplate"
+}
+
+resource_schema "byteplus_alb_customized_cfg" {
+  cloudcontrol_type_name = "Byteplus::ALB::CustomizedCfg"
+}
+
+resource_schema "byteplus_rdsmysql_backup" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::Backup"
+}
+
+resource_schema "byteplus_rdsmysql_endpoint" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::Endpoint"
+}
+
+resource_schema "byteplus_rdsmysql_allow_list" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::AllowList"
+}
+
+resource_schema "byteplus_redis_account" {
+  cloudcontrol_type_name = "Byteplus::Redis::Account"
+}
+
+resource_schema "byteplus_redis_endpoint_public_address" {
+  cloudcontrol_type_name = "Byteplus::Redis::EndpointPublicAddress"
+}
+
+resource_schema "byteplus_rdspostgresql_allow_list" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::AllowList"
+}
+
+resource_schema "byteplus_iam_accesskey" {
+  cloudcontrol_type_name = "Byteplus::IAM::Accesskey"
+}
+
+resource_schema "byteplus_organization_account" {
+  cloudcontrol_type_name = "Byteplus::Organization::Account"
+}
+
+resource_schema "byteplus_rabbitmq_instance" {
+  cloudcontrol_type_name = "Byteplus::RabbitMQ::Instance"
+}
+
+resource_schema "byteplus_rabbitmq_public_address" {
+  cloudcontrol_type_name = "Byteplus::RabbitMQ::PublicAddress"
+}
+
+resource_schema "byteplus_rabbitmq_instance_plugin" {
+  cloudcontrol_type_name = "Byteplus::RabbitMQ::InstancePlugin"
+}
+
+resource_schema "byteplus_kms_key_ring" {
+  cloudcontrol_type_name = "Byteplus::KMS::KeyRing"
+}
+
+
 

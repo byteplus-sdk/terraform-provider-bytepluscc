@@ -11,7 +11,7 @@
           "description": "访问密钥ID。",
           "type": "string"
         },
-        "CreatedTime": {
+        "CreateDate": {
           "description": "访问密钥创建时间。",
           "type": "string"
         },
@@ -31,7 +31,7 @@
           "description": "访问密钥状态。Active代表启用，Inactive代表禁用。",
           "type": "string"
         },
-        "UpdatedTime": {
+        "UpdateDate": {
           "description": "访问密钥更新时间。",
           "type": "string"
         },
@@ -183,7 +183,8 @@
         "iam:GetUser",
         "iam:GetLoginProfile",
         "iam:UpdateLoginProfile",
-        "iam:ListAccessKeys"
+        "iam:ListAccessKeys",
+        "iam:GetAccessKeyLastUsed"
       ]
     },
     "delete": {
@@ -205,7 +206,8 @@
         "iam:GetUser",
         "iam:GetLoginProfile",
         "iam:GetSecurityConfig",
-        "iam:ListAccessKeys"
+        "iam:ListAccessKeys",
+        "iam:GetAccessKeyLastUsed"
       ]
     },
     "update": {
@@ -224,7 +226,8 @@
         "iam:UpdateLoginProfile",
         "iam:GetSecurityConfig",
         "iam:SetSecurityConfig",
-        "iam:ListAccessKeys"
+        "iam:ListAccessKeys",
+        "iam:GetAccessKeyLastUsed"
       ]
     }
   },
@@ -279,7 +282,8 @@
     },
     "LoginProfile": {
       "$ref": "#/definitions/LoginProfile",
-      "description": "子用户的登录配置。"
+      "description": "子用户的登录配置。",
+      "type": "object"
     },
     "MobilePhone": {
       "description": "子用户对应的手机号。",
@@ -301,7 +305,8 @@
     },
     "SecurityConfig": {
       "$ref": "#/definitions/SecurityConfig",
-      "description": "子用户的操作保护配置。"
+      "description": "子用户的操作保护配置。",
+      "type": "object"
     },
     "Tags": {
       "description": "子用户对应的资源标签。",

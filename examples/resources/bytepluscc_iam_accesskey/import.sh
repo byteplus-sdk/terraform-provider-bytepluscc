@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_iam_accesskey.example "access_key_id"
