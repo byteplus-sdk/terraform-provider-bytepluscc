@@ -87,6 +87,7 @@ func roleDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
+		//	  "description": "角色策略。",
 		//	  "insertionOrder": false,
 		//	  "items": {
 		//	    "description": "角色策略。",
@@ -128,7 +129,8 @@ func roleDataSource(ctx context.Context) (datasource.DataSource, error) {
 					}, /*END ATTRIBUTE*/
 				}, /*END SCHEMA*/
 			}, /*END NESTED OBJECT*/
-			Computed: true,
+			Description: "角色策略。",
+			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: RoleId
 		// Cloud Control resource type schema:
@@ -156,6 +158,7 @@ func roleDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
+		//	  "description": "标签。",
 		//	  "insertionOrder": false,
 		//	  "items": {
 		//	    "description": "标签",
@@ -193,7 +196,8 @@ func roleDataSource(ctx context.Context) (datasource.DataSource, error) {
 					}, /*END ATTRIBUTE*/
 				}, /*END SCHEMA*/
 			}, /*END NESTED OBJECT*/
-			Computed: true,
+			Description: "标签。",
+			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: Trn
 		// Cloud Control resource type schema:

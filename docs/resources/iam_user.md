@@ -126,12 +126,12 @@ Optional:
 Read-Only:
 
 - `access_key_id` (String) 访问密钥ID。
-- `created_time` (String) 访问密钥创建时间。
+- `create_date` (String) 访问密钥创建时间。
 - `region` (String) 最近一次使用的服务区域。
 - `request_time` (String) 访问密钥最近一次使用时间。
 - `service` (String) 最近一次使用的服务名称。
 - `status` (String) 访问密钥状态。Active代表启用，Inactive代表禁用。
-- `updated_time` (String) 访问密钥更新时间。
+- `update_date` (String) 访问密钥更新时间。
 - `user_name` (String) 访问密钥Secret。
 
 ## Import

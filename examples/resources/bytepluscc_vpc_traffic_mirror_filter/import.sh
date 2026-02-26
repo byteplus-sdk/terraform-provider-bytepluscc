@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_traffic_mirror_filter.example "traffic_mirror_filter_id"

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ecs_launch_template_version.example "launch_template_id|version_number"

@@ -117,6 +117,7 @@
       "type": "integer"
     },
     "Policies": {
+      "description": "角色策略。",
       "insertionOrder": false,
       "items": {
         "$ref": "#/definitions/Policy"
@@ -135,6 +136,7 @@
       "type": "string"
     },
     "Tags": {
+      "description": "标签。",
       "insertionOrder": false,
       "items": {
         "$ref": "#/definitions/Tag"

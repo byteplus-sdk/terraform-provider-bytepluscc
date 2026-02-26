@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_flow_log.example "flow_log_id"

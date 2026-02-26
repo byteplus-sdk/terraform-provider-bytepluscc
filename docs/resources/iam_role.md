@@ -38,8 +38,10 @@ resource "bytepluscc_iam_role" "RoleDemo" {
 - `description` (String) 角色描述，长度不超过128。
 - `display_name` (String) 角色显示名，长度不超过64。
 - `max_session_duration` (Number) 角色最大会话时间，角色最大会话时间。用于限制角色扮演产生的临时安全凭证的有效期的最大范围。取值范围：3600~43200，单位为秒，默认为43200。
-- `policies` (Attributes Set) (see [below for nested schema](#nestedatt--policies))
-- `tags` (Attributes Set) (see [below for nested schema](#nestedatt--tags))
+- `policies` (Attributes Set) 角色策略。
+ 特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--policies))
+- `tags` (Attributes Set) 标签。
+ 特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--tags))
 - `trust_policy_document` (String) 角色信任策略，信任策略遵循IAM的策略语法中基于资源的策略规则。
 
 ### Read-Only

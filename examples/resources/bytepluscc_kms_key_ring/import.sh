@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kms_key_ring.example "key_ring_id"
