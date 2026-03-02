@@ -114,6 +114,11 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rabbitmq_public_addresses -cctype Byteplus::RabbitMQ::PublicAddress -package rabbitmq ../byteplus/rabbitmq/public_address_plural_data_source_gen.go ../byteplus/rabbitmq/public_address_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rabbitmq_instance_plugins -cctype Byteplus::RabbitMQ::InstancePlugin -package rabbitmq ../byteplus/rabbitmq/instance_plugin_plural_data_source_gen.go ../byteplus/rabbitmq/instance_plugin_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kms_key_rings -cctype Byteplus::KMS::KeyRing -package kms ../byteplus/kms/key_ring_plural_data_source_gen.go ../byteplus/kms/key_ring_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_nlb_security_policies -cctype Byteplus::CLB::NLBSecurityPolicy -package clb ../byteplus/clb/nlb_security_policy_plural_data_source_gen.go ../byteplus/clb/nlb_security_policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_permission_sets -cctype Byteplus::CloudIdentity::PermissionSet -package cloudidentity ../byteplus/cloudidentity/permission_set_plural_data_source_gen.go ../byteplus/cloudidentity/permission_set_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_filenas_mount_points -cctype Byteplus::FileNAS::MountPoint -package filenas ../byteplus/filenas/mount_point_plural_data_source_gen.go ../byteplus/filenas/mount_point_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_groups -cctype Byteplus::CloudIdentity::Group -package cloudidentity ../byteplus/cloudidentity/group_plural_data_source_gen.go ../byteplus/cloudidentity/group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_db_accounts -cctype Byteplus::RDSPostgreSQL::DBAccount -package rdspostgresql ../byteplus/rdspostgresql/db_account_plural_data_source_gen.go ../byteplus/rdspostgresql/db_account_plural_data_source_gen_test.go
 
 package provider
 

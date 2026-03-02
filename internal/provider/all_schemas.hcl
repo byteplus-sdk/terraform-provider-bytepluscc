@@ -462,5 +462,23 @@ resource_schema "byteplus_kms_key_ring" {
   cloudcontrol_type_name = "Byteplus::KMS::KeyRing"
 }
 
+resource_schema "byteplus_clb_nlb_security_policy" {
+  cloudcontrol_type_name = "Byteplus::CLB::NLBSecurityPolicy"
+}
 
+resource_schema "byteplus_cloudidentity_permission_set" {
+  cloudcontrol_type_name = "Byteplus::CloudIdentity::PermissionSet"
+}
+
+resource_schema "byteplus_filenas_mount_point" {
+  cloudcontrol_type_name = "Byteplus::FileNAS::MountPoint"
+}
+
+resource_schema "byteplus_cloudidentity_group" {
+  cloudcontrol_type_name = "Byteplus::CloudIdentity::Group"
+}
+
+resource_schema "byteplus_rdspostgresql_db_account" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::DBAccount"
+}
 

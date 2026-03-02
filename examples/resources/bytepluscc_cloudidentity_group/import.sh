@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudidentity_group.example "group_id"

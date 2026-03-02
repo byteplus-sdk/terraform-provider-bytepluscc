@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_filenas_mount_point.example "file_system_id|mount_point_id"
