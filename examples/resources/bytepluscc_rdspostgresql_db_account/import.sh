@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdspostgresql_db_account.example "instance_id|account_name"

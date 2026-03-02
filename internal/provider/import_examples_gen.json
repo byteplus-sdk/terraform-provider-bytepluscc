@@ -558,5 +558,30 @@
         "resource": "bytepluscc_kms_key_ring",
         "identifier": ["KeyRingId"],
         "path": "./examples/resources/bytepluscc_kms_key_ring/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_nlb_security_policy",
+        "identifier": ["SecurityPolicyId"],
+        "path": "./examples/resources/bytepluscc_clb_nlb_security_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudidentity_permission_set",
+        "identifier": ["PermissionSetId"],
+        "path": "./examples/resources/bytepluscc_cloudidentity_permission_set/import.sh"
+    },
+    {
+        "resource": "bytepluscc_filenas_mount_point",
+        "identifier": ["FileSystemId","MountPointId"],
+        "path": "./examples/resources/bytepluscc_filenas_mount_point/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudidentity_group",
+        "identifier": ["GroupId"],
+        "path": "./examples/resources/bytepluscc_cloudidentity_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_db_account",
+        "identifier": ["InstanceId","AccountName"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_db_account/import.sh"
     }
 ]

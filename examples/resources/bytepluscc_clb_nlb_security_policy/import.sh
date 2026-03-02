@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_clb_nlb_security_policy.example "security_policy_id"
