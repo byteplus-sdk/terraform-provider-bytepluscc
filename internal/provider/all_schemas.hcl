@@ -482,3 +482,34 @@ resource_schema "byteplus_rdspostgresql_db_account" {
   cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::DBAccount"
 }
 
+resource_schema "byteplus_rdsmssql_instance" {
+  cloudcontrol_type_name = "Byteplus::RDSMsSQL::Instance"
+}
+
+resource_schema "byteplus_ark_endpoint" {
+  cloudcontrol_type_name = "Byteplus::ARK::Endpoint"
+}
+
+resource_schema "byteplus_cloudidentity_user_provisioning" {
+  cloudcontrol_type_name = "Byteplus::CloudIdentity::UserProvisioning"
+}
+
+resource_schema "byteplus_cloudidentity_permission_set_assignment" {
+  cloudcontrol_type_name = "Byteplus::CloudIdentity::PermissionSetAssignment"
+}
+
+resource_schema "byteplus_cloudidentity_permission_set_provisioning" {
+  cloudcontrol_type_name = "Byteplus::CloudIdentity::PermissionSetProvisioning"
+}
+
+resource_schema "byteplus_tls_project" {
+  cloudcontrol_type_name = "Byteplus::TLS::Project"
+}
+
+resource_schema "byteplus_kafka_allow_list" {
+  cloudcontrol_type_name = "Byteplus::Kafka::AllowList"
+}
+
+resource_schema "byteplus_alb_rule" {
+  cloudcontrol_type_name = "Byteplus::ALB::Rule"
+}

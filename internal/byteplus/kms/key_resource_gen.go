@@ -334,6 +334,23 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 				stringplanmodifier.RequiresReplaceIfConfigured(),
 			}, /*END PLAN MODIFIERS*/
 		}, /*END ATTRIBUTE*/
+		// Property: RotateInterval
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "密钥轮转周期，单位：天；取值范围：[90, 2560]。",
+		//	  "type": "integer"
+		//	}
+		"rotate_interval": schema.Int64Attribute{ /*START ATTRIBUTE*/
+			Description: "密钥轮转周期，单位：天；取值范围：[90, 2560]。",
+			Optional:    true,
+			Computed:    true,
+			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
+				int64planmodifier.UseStateForUnknown(),
+				int64planmodifier.RequiresReplaceIfConfigured(),
+			}, /*END PLAN MODIFIERS*/
+			// RotateInterval is a write-only property.
+		}, /*END ATTRIBUTE*/
 		// Property: RotateState
 		// Cloud Control resource type schema:
 		//
@@ -511,6 +528,7 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		"protection_level":           "ProtectionLevel",
 		"region":                     "Region",
 		"replica_keys":               "ReplicaKeys",
+		"rotate_interval":            "RotateInterval",
 		"rotate_state":               "RotateState",
 		"schedule_delete_time":       "ScheduleDeleteTime",
 		"schedule_rotation_time":     "ScheduleRotationTime",
@@ -518,6 +536,10 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		"trn":                        "Trn",
 		"updated_time":               "UpdatedTime",
 		"value":                      "Value",
+	})
+
+	opts = opts.WithWriteOnlyPropertyPaths([]string{
+		"/properties/RotateInterval",
 	})
 
 	opts = opts.WithReadOnlyPropertyPaths([]string{
@@ -540,6 +562,7 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/Origin",
 		"/properties/ProtectionLevel",
 		"/properties/RotateState",
+		"/properties/RotateInterval",
 		"/properties/KeyringName",
 	})
 	opts = opts.WithCreateTimeoutInMinutes(0).WithDeleteTimeoutInMinutes(0)

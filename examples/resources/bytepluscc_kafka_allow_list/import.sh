@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kafka_allow_list.example "allow_list_id"

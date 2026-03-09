@@ -266,6 +266,17 @@ func keyDataSource(ctx context.Context) (datasource.DataSource, error) {
 			Description: "密钥保护级别，取值：SOFTWARE，HSM。",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
+		// Property: RotateInterval
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "密钥轮转周期，单位：天；取值范围：[90, 2560]。",
+		//	  "type": "integer"
+		//	}
+		"rotate_interval": schema.Int64Attribute{ /*START ATTRIBUTE*/
+			Description: "密钥轮转周期，单位：天；取值范围：[90, 2560]。",
+			Computed:    true,
+		}, /*END ATTRIBUTE*/
 		// Property: RotateState
 		// Cloud Control resource type schema:
 		//
@@ -403,6 +414,7 @@ func keyDataSource(ctx context.Context) (datasource.DataSource, error) {
 		"protection_level":           "ProtectionLevel",
 		"region":                     "Region",
 		"replica_keys":               "ReplicaKeys",
+		"rotate_interval":            "RotateInterval",
 		"rotate_state":               "RotateState",
 		"schedule_delete_time":       "ScheduleDeleteTime",
 		"schedule_rotation_time":     "ScheduleRotationTime",
