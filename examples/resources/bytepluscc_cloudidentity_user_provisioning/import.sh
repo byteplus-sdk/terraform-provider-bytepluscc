@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudidentity_user_provisioning.example "user_provisioning_id"

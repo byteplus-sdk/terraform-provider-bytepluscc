@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ark_endpoint.example "endpoint_id"

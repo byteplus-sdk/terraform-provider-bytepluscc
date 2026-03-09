@@ -583,5 +583,45 @@
         "resource": "bytepluscc_rdspostgresql_db_account",
         "identifier": ["InstanceId","AccountName"],
         "path": "./examples/resources/bytepluscc_rdspostgresql_db_account/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmssql_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_rdsmssql_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ark_endpoint",
+        "identifier": ["EndpointId"],
+        "path": "./examples/resources/bytepluscc_ark_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudidentity_user_provisioning",
+        "identifier": ["UserProvisioningId"],
+        "path": "./examples/resources/bytepluscc_cloudidentity_user_provisioning/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudidentity_permission_set_assignment",
+        "identifier": ["TargetId","PrincipalId","PermissionSetId"],
+        "path": "./examples/resources/bytepluscc_cloudidentity_permission_set_assignment/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudidentity_permission_set_provisioning",
+        "identifier": ["PermissionSetId","TargetId"],
+        "path": "./examples/resources/bytepluscc_cloudidentity_permission_set_provisioning/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_project",
+        "identifier": ["ProjectID"],
+        "path": "./examples/resources/bytepluscc_tls_project/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kafka_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_kafka_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_alb_rule",
+        "identifier": ["ListenerId","RuleId"],
+        "path": "./examples/resources/bytepluscc_alb_rule/import.sh"
     }
 ]

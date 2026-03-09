@@ -35,6 +35,7 @@ Data Source schema for Byteplus::KMS::Key
 - `multi_region_configuration` (Attributes) Multi-region key 配置信息。 (see [below for nested schema](#nestedatt--multi_region_configuration))
 - `origin` (String) 密钥来源，取值：CloudKMS，External，ExternalKeyStore。
 - `protection_level` (String) 密钥保护级别，取值：SOFTWARE，HSM。
+- `rotate_interval` (Number) 密钥轮转周期，单位：天；取值范围：[90, 2560]。
 - `rotate_state` (String) 密钥轮转状态，取值：Enable，Disable。
 - `schedule_delete_time` (String) 密钥删除时间。
 - `schedule_rotation_time` (String) 密钥轮转时间。

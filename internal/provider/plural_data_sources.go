@@ -119,12 +119,21 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_filenas_mount_points -cctype Byteplus::FileNAS::MountPoint -package filenas ../byteplus/filenas/mount_point_plural_data_source_gen.go ../byteplus/filenas/mount_point_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_groups -cctype Byteplus::CloudIdentity::Group -package cloudidentity ../byteplus/cloudidentity/group_plural_data_source_gen.go ../byteplus/cloudidentity/group_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_db_accounts -cctype Byteplus::RDSPostgreSQL::DBAccount -package rdspostgresql ../byteplus/rdspostgresql/db_account_plural_data_source_gen.go ../byteplus/rdspostgresql/db_account_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmssql_instances -cctype Byteplus::RDSMsSQL::Instance -package rdsmssql ../byteplus/rdsmssql/instance_plural_data_source_gen.go ../byteplus/rdsmssql/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ark_endpoints -cctype Byteplus::ARK::Endpoint -package ark ../byteplus/ark/endpoint_plural_data_source_gen.go ../byteplus/ark/endpoint_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_user_provisionings -cctype Byteplus::CloudIdentity::UserProvisioning -package cloudidentity ../byteplus/cloudidentity/user_provisioning_plural_data_source_gen.go ../byteplus/cloudidentity/user_provisioning_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_permission_set_assignments -cctype Byteplus::CloudIdentity::PermissionSetAssignment -package cloudidentity ../byteplus/cloudidentity/permission_set_assignment_plural_data_source_gen.go ../byteplus/cloudidentity/permission_set_assignment_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudidentity_permission_set_provisionings -cctype Byteplus::CloudIdentity::PermissionSetProvisioning -package cloudidentity ../byteplus/cloudidentity/permission_set_provisioning_plural_data_source_gen.go ../byteplus/cloudidentity/permission_set_provisioning_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_projects -cctype Byteplus::TLS::Project -package tls ../byteplus/tls/project_plural_data_source_gen.go ../byteplus/tls/project_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_allow_lists -cctype Byteplus::Kafka::AllowList -package kafka ../byteplus/kafka/allow_list_plural_data_source_gen.go ../byteplus/kafka/allow_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_rules -cctype Byteplus::ALB::Rule -package alb ../byteplus/alb/rule_plural_data_source_gen.go ../byteplus/alb/rule_plural_data_source_gen_test.go
 
 package provider
 
 import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ark"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/bmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
@@ -147,10 +156,12 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatelink"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rabbitmq"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmssql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdspostgresql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vepfs"

@@ -119,12 +119,21 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_filenas_mount_point -ccschema ../service/cloudcontrol/schemas/Byteplus_FileNAS_MountPoint.json -package filenas ../byteplus/filenas/mount_point_singular_data_source_gen.go ../byteplus/filenas/mount_point_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudidentity_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudIdentity_Group.json -package cloudidentity ../byteplus/cloudidentity/group_singular_data_source_gen.go ../byteplus/cloudidentity/group_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdspostgresql_db_account -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_DBAccount.json -package rdspostgresql ../byteplus/rdspostgresql/db_account_singular_data_source_gen.go ../byteplus/rdspostgresql/db_account_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdsmssql_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMsSQL_Instance.json -package rdsmssql ../byteplus/rdsmssql/instance_singular_data_source_gen.go ../byteplus/rdsmssql/instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_ark_endpoint -ccschema ../service/cloudcontrol/schemas/Byteplus_ARK_Endpoint.json -package ark ../byteplus/ark/endpoint_singular_data_source_gen.go ../byteplus/ark/endpoint_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudidentity_user_provisioning -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudIdentity_UserProvisioning.json -package cloudidentity ../byteplus/cloudidentity/user_provisioning_singular_data_source_gen.go ../byteplus/cloudidentity/user_provisioning_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudidentity_permission_set_assignment -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudIdentity_PermissionSetAssignment.json -package cloudidentity ../byteplus/cloudidentity/permission_set_assignment_singular_data_source_gen.go ../byteplus/cloudidentity/permission_set_assignment_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudidentity_permission_set_provisioning -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudIdentity_PermissionSetProvisioning.json -package cloudidentity ../byteplus/cloudidentity/permission_set_provisioning_singular_data_source_gen.go ../byteplus/cloudidentity/permission_set_provisioning_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_tls_project -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_Project.json -package tls ../byteplus/tls/project_singular_data_source_gen.go ../byteplus/tls/project_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_kafka_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_Kafka_AllowList.json -package kafka ../byteplus/kafka/allow_list_singular_data_source_gen.go ../byteplus/kafka/allow_list_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_alb_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_ALB_Rule.json -package alb ../byteplus/alb/rule_singular_data_source_gen.go ../byteplus/alb/rule_singular_data_source_gen_test.go
 
 package provider
 
 import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/alb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ark"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/bmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
@@ -147,10 +156,12 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatelink"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rabbitmq"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmssql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdspostgresql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vepfs"
