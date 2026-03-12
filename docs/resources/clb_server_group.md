@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_clb_server_group Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "CLB"
 description: |-
   后端服务器组是一组后端服务器。
 ---

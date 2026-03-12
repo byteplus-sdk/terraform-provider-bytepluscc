@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_clb_rule Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "CLB"
 description: |-
   转发规则用于将指定域名和URL的请求引流至指定的后端服务器组。
 ---

@@ -66,6 +66,40 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 				stringplanmodifier.UseStateForUnknown(),
 			}, /*END PLAN MODIFIERS*/
 		}, /*END ATTRIBUTE*/
+		// Property: KeyArchiveOperation
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "用户主密钥归档操作（用户输入1=归档，2=取消归档）",
+		//	  "format": "int32",
+		//	  "type": "integer"
+		//	}
+		"key_archive_operation": schema.Int64Attribute{ /*START ATTRIBUTE*/
+			Description: "用户主密钥归档操作（用户输入1=归档，2=取消归档）",
+			Optional:    true,
+			Computed:    true,
+			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
+				int64planmodifier.UseStateForUnknown(),
+			}, /*END PLAN MODIFIERS*/
+			// KeyArchiveOperation is a write-only property.
+		}, /*END ATTRIBUTE*/
+		// Property: KeyEnableOperation
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "用户主密钥启用操作（用户输入1=启用，2=禁用）",
+		//	  "format": "int32",
+		//	  "type": "integer"
+		//	}
+		"key_enable_operation": schema.Int64Attribute{ /*START ATTRIBUTE*/
+			Description: "用户主密钥启用操作（用户输入1=启用，2=禁用）",
+			Optional:    true,
+			Computed:    true,
+			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
+				int64planmodifier.UseStateForUnknown(),
+			}, /*END PLAN MODIFIERS*/
+			// KeyEnableOperation is a write-only property.
+		}, /*END ATTRIBUTE*/
 		// Property: KeyID
 		// Cloud Control resource type schema:
 		//
@@ -109,6 +143,23 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 			Validators: []validator.String{ /*START VALIDATORS*/
 				stringvalidator.LengthBetween(2, 31),
 			}, /*END VALIDATORS*/
+		}, /*END ATTRIBUTE*/
+		// Property: KeyRotationOperation
+		// Cloud Control resource type schema:
+		//
+		//	{
+		//	  "description": "用户主密钥轮转操作（用户输入1=开启，2=关闭）",
+		//	  "format": "int32",
+		//	  "type": "integer"
+		//	}
+		"key_rotation_operation": schema.Int64Attribute{ /*START ATTRIBUTE*/
+			Description: "用户主密钥轮转操作（用户输入1=开启，2=关闭）",
+			Optional:    true,
+			Computed:    true,
+			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
+				int64planmodifier.UseStateForUnknown(),
+			}, /*END PLAN MODIFIERS*/
+			// KeyRotationOperation is a write-only property.
 		}, /*END ATTRIBUTE*/
 		// Property: KeySpec
 		// Cloud Control resource type schema:
@@ -360,11 +411,9 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"rotate_state": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "密钥轮转状态，取值：Enable，Disable。",
-			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.UseStateForUnknown(),
-				stringplanmodifier.RequiresReplaceIfConfigured(),
 			}, /*END PLAN MODIFIERS*/
 		}, /*END ATTRIBUTE*/
 		// Property: ScheduleDeleteTime
@@ -512,9 +561,12 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		"created_time":               "CreatedTime",
 		"description":                "Description",
 		"key":                        "Key",
+		"key_archive_operation":      "KeyArchiveOperation",
+		"key_enable_operation":       "KeyEnableOperation",
 		"key_id":                     "KeyID",
 		"key_material_expire_time":   "KeyMaterialExpireTime",
 		"key_name":                   "KeyName",
+		"key_rotation_operation":     "KeyRotationOperation",
 		"key_spec":                   "KeySpec",
 		"key_state":                  "KeyState",
 		"key_usage":                  "KeyUsage",
@@ -539,6 +591,9 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 	})
 
 	opts = opts.WithWriteOnlyPropertyPaths([]string{
+		"/properties/KeyRotationOperation",
+		"/properties/KeyArchiveOperation",
+		"/properties/KeyEnableOperation",
 		"/properties/RotateInterval",
 	})
 
@@ -552,6 +607,7 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/ScheduleDeleteTime",
 		"/properties/ScheduleRotationTime",
 		"/properties/Trn",
+		"/properties/RotateState",
 		"/properties/UpdatedTime",
 	})
 
@@ -561,7 +617,6 @@ func keyResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/MultiRegion",
 		"/properties/Origin",
 		"/properties/ProtectionLevel",
-		"/properties/RotateState",
 		"/properties/RotateInterval",
 		"/properties/KeyringName",
 	})

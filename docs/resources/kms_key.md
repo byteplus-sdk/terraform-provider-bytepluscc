@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_kms_key Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "KMS"
 description: |-
   密钥管理服务（Key Management Service）是火山引擎上一站式的密钥管理和数据加密服务平台。提供简单易用的加密接口，KMS 帮助用户轻松管理密钥、保护云上核心数据的安全。同时极大降低用户自行部署密码基础设施的采购、研发成本。帮助业务轻松满足监管和合规需求。
 ---
@@ -41,13 +41,15 @@ resource "bytepluscc_kms_key" "KMSKeyDemo" {
 ### Optional
 
 - `description` (String) 密钥描述:长度为 0   - 8192 个字符。
+- `key_archive_operation` (Number) 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+- `key_enable_operation` (Number) 用户主密钥启用操作（用户输入1=启用，2=禁用）
+- `key_rotation_operation` (Number) 用户主密钥轮转操作（用户输入1=开启，2=关闭）
 - `key_spec` (String) 对称密钥：SYMMETRIC_256，SYMMETRIC_128，非对称密钥：RSA_2048，RSA_3072，RSA_4096，EC_P256，EC_P256K，EC_P384，EC_P521，EC_SM2。
 - `key_usage` (String) 密钥用途，取值：ENCRYPT_DECRYPT，SIGN_VERIFY，GENERATE_VERIFY_MAC。
 - `multi_region` (Boolean) 是否为 Multi-region 类型的主密钥。
 - `origin` (String) 密钥来源，取值：CloudKMS，External，ExternalKeyStore。
 - `protection_level` (String) 密钥保护级别，取值：SOFTWARE，HSM。
 - `rotate_interval` (Number) 密钥轮转周期，单位：天；取值范围：[90, 2560]。
-- `rotate_state` (String) 密钥轮转状态，取值：Enable，Disable。
 - `tags` (Attributes Set) KMS密钥的标签信息
  特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--tags))
 
@@ -60,6 +62,7 @@ resource "bytepluscc_kms_key" "KMSKeyDemo" {
 - `key_state` (String) 密钥状态：Enable，Disable，PendingDelete，Archived，PendingImport。
 - `last_rotation_time` (String) 密钥最后轮转时间。
 - `multi_region_configuration` (Attributes) Multi-region key 配置信息。 (see [below for nested schema](#nestedatt--multi_region_configuration))
+- `rotate_state` (String) 密钥轮转状态，取值：Enable，Disable。
 - `schedule_delete_time` (String) 密钥删除时间。
 - `schedule_rotation_time` (String) 密钥轮转时间。
 - `trn` (String) 资源名称，格式应为 trn:${Service}:${Region}:${AccountID}:${ResourcePath}。

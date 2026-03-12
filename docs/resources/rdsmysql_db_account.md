@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_rdsmysql_db_account Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "RDSMySQL"
 description: |-
   数据库账号
 ---

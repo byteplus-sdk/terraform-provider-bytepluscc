@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_transitrouter_vpc_attachment Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "TransitRouter"
 description: |-
   通过在私有网络和中转路由器之间建立连接，可以实现私有网络与中转路由器的私网互通。
 ---

@@ -513,3 +513,51 @@ resource_schema "byteplus_kafka_allow_list" {
 resource_schema "byteplus_alb_rule" {
   cloudcontrol_type_name = "Byteplus::ALB::Rule"
 }
+
+resource_schema "byteplus_ecs_hpc_cluster" {
+  cloudcontrol_type_name = "Byteplus::ECS::HpcCluster"
+}
+
+resource_schema "byteplus_autoscaling_scaling_policy" {
+  cloudcontrol_type_name = "Byteplus::AutoScaling::ScalingPolicy"
+}
+
+resource_schema "byteplus_mongodb_instance" {
+  cloudcontrol_type_name = "Byteplus::MongoDB::Instance"
+}
+
+resource_schema "byteplus_rdspostgresql_db_endpoint" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::DBEndpoint"
+}
+
+resource_schema "byteplus_vedbm_instance" {
+  cloudcontrol_type_name = "Byteplus::VEDBM::Instance"
+}
+
+resource_schema "byteplus_privatezone_record" {
+  cloudcontrol_type_name = "Byteplus::PrivateZone::Record"
+}
+
+resource_schema "byteplus_privatezone_resolver_endpoint" {
+  cloudcontrol_type_name = "Byteplus::PrivateZone::ResolverEndpoint"
+}
+
+resource_schema "byteplus_privatezone_resolver_rule" {
+  cloudcontrol_type_name = "Byteplus::PrivateZone::ResolverRule"
+}
+
+resource_schema "byteplus_rdsmssql_allow_list" {
+  cloudcontrol_type_name = "Byteplus::RDSMsSQL::Allowlist"
+}
+
+resource_schema "byteplus_rdspostgresql_database" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::Database"
+}
+
+resource_schema "byteplus_mongodb_allow_list" {
+  cloudcontrol_type_name = "Byteplus::MongoDB::AllowList"
+}
+
+resource_schema "byteplus_rdspostgresql_schema" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::Schema"
+}

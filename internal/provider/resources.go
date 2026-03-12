@@ -127,6 +127,18 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_tls_project -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_Project.json -package tls -- ../byteplus/tls/project_resource_gen.go ../byteplus/tls/project_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_kafka_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_Kafka_AllowList.json -package kafka -- ../byteplus/kafka/allow_list_resource_gen.go ../byteplus/kafka/allow_list_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_alb_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_ALB_Rule.json -package alb -- ../byteplus/alb/rule_resource_gen.go ../byteplus/alb/rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_ecs_hpc_cluster -ccschema ../service/cloudcontrol/schemas/Byteplus_ECS_HpcCluster.json -package ecs -- ../byteplus/ecs/hpc_cluster_resource_gen.go ../byteplus/ecs/hpc_cluster_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_autoscaling_scaling_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_AutoScaling_ScalingPolicy.json -package autoscaling -- ../byteplus/autoscaling/scaling_policy_resource_gen.go ../byteplus/autoscaling/scaling_policy_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_mongodb_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_MongoDB_Instance.json -package mongodb -- ../byteplus/mongodb/instance_resource_gen.go ../byteplus/mongodb/instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_db_endpoint -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_DBEndpoint.json -package rdspostgresql -- ../byteplus/rdspostgresql/db_endpoint_resource_gen.go ../byteplus/rdspostgresql/db_endpoint_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vedbm_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_VEDBM_Instance.json -package vedbm -- ../byteplus/vedbm/instance_resource_gen.go ../byteplus/vedbm/instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_privatezone_record -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_Record.json -package privatezone -- ../byteplus/privatezone/record_resource_gen.go ../byteplus/privatezone/record_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_privatezone_resolver_endpoint -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_ResolverEndpoint.json -package privatezone -- ../byteplus/privatezone/resolver_endpoint_resource_gen.go ../byteplus/privatezone/resolver_endpoint_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_privatezone_resolver_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_ResolverRule.json -package privatezone -- ../byteplus/privatezone/resolver_rule_resource_gen.go ../byteplus/privatezone/resolver_rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdsmssql_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMsSQL_Allowlist.json -package rdsmssql -- ../byteplus/rdsmssql/allow_list_resource_gen.go ../byteplus/rdsmssql/allow_list_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_database -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_Database.json -package rdspostgresql -- ../byteplus/rdspostgresql/database_resource_gen.go ../byteplus/rdspostgresql/database_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_mongodb_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_MongoDB_AllowList.json -package mongodb -- ../byteplus/mongodb/allow_list_resource_gen.go ../byteplus/mongodb/allow_list_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_schema -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_Schema.json -package rdspostgresql -- ../byteplus/rdspostgresql/schema_resource_gen.go ../byteplus/rdspostgresql/schema_resource_gen_test.go
 
 package provider
 
@@ -152,9 +164,11 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/mongodb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatelink"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatezone"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rabbitmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmssql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
@@ -163,6 +177,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vedbm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vepfs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"

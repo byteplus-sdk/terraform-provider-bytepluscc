@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_vpc_traffic_mirror_filter Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "VPC"
 description: |-
   通过流量镜像，您可以按自己设定的筛选条件复制网卡的流量，并将复制的流量私网转发到目标服务进行监控分析。
 ---

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdspostgresql_schema.example "instance_id|db_name|schema_name"

@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_kafka_topic Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "Kafka"
 description: |-
   Topic即消息的主题，用于分类消息。支持 Topic 级别的资源管理，即 Topic 的创建、查看与删除等操作。
 ---

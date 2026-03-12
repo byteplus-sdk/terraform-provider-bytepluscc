@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_vpc_traffic_mirror_session Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "VPC"
 description: |-
   镜像会话关联镜像源、镜像目的、筛选条件，使从镜像源复制的流量私网转发到镜像目的，是流量镜像的载体。
 ---

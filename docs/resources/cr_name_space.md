@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_cr_name_space Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "CR"
 description: |-
   命名空间是 OCI 制品仓库的集合，管理多个具有关联属性的 OCI 制品仓库。命名空间的名称通常为企业内部的组织团队名称、产品项目名称或个人自定义名称。
 ---

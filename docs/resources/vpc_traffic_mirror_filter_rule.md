@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_vpc_traffic_mirror_filter_rule Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "VPC"
 description: |-
   筛选条件由筛选规则组成，分为入向筛选规则和出向筛选规则。
 ---
