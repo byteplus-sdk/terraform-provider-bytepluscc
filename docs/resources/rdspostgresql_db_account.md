@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_rdspostgresql_db_account Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "RDSPostgreSQL"
 description: |-
   RDS PostgreSQL 数据库账号
 ---

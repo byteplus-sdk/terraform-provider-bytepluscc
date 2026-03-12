@@ -623,5 +623,65 @@
         "resource": "bytepluscc_alb_rule",
         "identifier": ["ListenerId","RuleId"],
         "path": "./examples/resources/bytepluscc_alb_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_hpc_cluster",
+        "identifier": ["HpcClusterId"],
+        "path": "./examples/resources/bytepluscc_ecs_hpc_cluster/import.sh"
+    },
+    {
+        "resource": "bytepluscc_autoscaling_scaling_policy",
+        "identifier": ["ScalingGroupId","ScalingPolicyId"],
+        "path": "./examples/resources/bytepluscc_autoscaling_scaling_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_mongodb_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_mongodb_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_db_endpoint",
+        "identifier": ["InstanceId","EndpointId"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_db_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vedbm_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_vedbm_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatezone_record",
+        "identifier": ["RecordId"],
+        "path": "./examples/resources/bytepluscc_privatezone_record/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatezone_resolver_endpoint",
+        "identifier": ["EndpointID"],
+        "path": "./examples/resources/bytepluscc_privatezone_resolver_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatezone_resolver_rule",
+        "identifier": ["RuleID"],
+        "path": "./examples/resources/bytepluscc_privatezone_resolver_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmssql_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_rdsmssql_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_database",
+        "identifier": ["InstanceId","DBName"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_database/import.sh"
+    },
+    {
+        "resource": "bytepluscc_mongodb_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_mongodb_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_schema",
+        "identifier": ["InstanceId","DBName","SchemaName"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_schema/import.sh"
     }
 ]

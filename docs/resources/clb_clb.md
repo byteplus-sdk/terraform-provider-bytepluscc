@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_clb_clb Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "CLB"
 description: |-
   负载均衡实例
 ---

@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_alb_certificate Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "ALB"
 description: |-
   ALB 支持上传服务器证书、CA 证书到控制台，对上传的证书单独管理。
 ---

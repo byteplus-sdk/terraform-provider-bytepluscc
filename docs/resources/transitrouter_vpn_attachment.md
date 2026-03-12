@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_transitrouter_vpn_attachment Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "TransitRouter"
 description: |-
   通过在VPN连接的IPsec连接和中转路由器之间建立连接，可以实现VPN连通的网络与中转路由器的私网互通。
 ---

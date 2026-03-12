@@ -127,6 +127,18 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_projects -cctype Byteplus::TLS::Project -package tls ../byteplus/tls/project_plural_data_source_gen.go ../byteplus/tls/project_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_allow_lists -cctype Byteplus::Kafka::AllowList -package kafka ../byteplus/kafka/allow_list_plural_data_source_gen.go ../byteplus/kafka/allow_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_alb_rules -cctype Byteplus::ALB::Rule -package alb ../byteplus/alb/rule_plural_data_source_gen.go ../byteplus/alb/rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_hpc_clusters -cctype Byteplus::ECS::HpcCluster -package ecs ../byteplus/ecs/hpc_cluster_plural_data_source_gen.go ../byteplus/ecs/hpc_cluster_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_policies -cctype Byteplus::AutoScaling::ScalingPolicy -package autoscaling ../byteplus/autoscaling/scaling_policy_plural_data_source_gen.go ../byteplus/autoscaling/scaling_policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_mongodb_instances -cctype Byteplus::MongoDB::Instance -package mongodb ../byteplus/mongodb/instance_plural_data_source_gen.go ../byteplus/mongodb/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_db_endpoints -cctype Byteplus::RDSPostgreSQL::DBEndpoint -package rdspostgresql ../byteplus/rdspostgresql/db_endpoint_plural_data_source_gen.go ../byteplus/rdspostgresql/db_endpoint_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vedbm_instances -cctype Byteplus::VEDBM::Instance -package vedbm ../byteplus/vedbm/instance_plural_data_source_gen.go ../byteplus/vedbm/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_records -cctype Byteplus::PrivateZone::Record -package privatezone ../byteplus/privatezone/record_plural_data_source_gen.go ../byteplus/privatezone/record_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_resolver_endpoints -cctype Byteplus::PrivateZone::ResolverEndpoint -package privatezone ../byteplus/privatezone/resolver_endpoint_plural_data_source_gen.go ../byteplus/privatezone/resolver_endpoint_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_resolver_rules -cctype Byteplus::PrivateZone::ResolverRule -package privatezone ../byteplus/privatezone/resolver_rule_plural_data_source_gen.go ../byteplus/privatezone/resolver_rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmssql_allow_lists -cctype Byteplus::RDSMsSQL::Allowlist -package rdsmssql ../byteplus/rdsmssql/allow_list_plural_data_source_gen.go ../byteplus/rdsmssql/allow_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_databases -cctype Byteplus::RDSPostgreSQL::Database -package rdspostgresql ../byteplus/rdspostgresql/database_plural_data_source_gen.go ../byteplus/rdspostgresql/database_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_mongodb_allow_lists -cctype Byteplus::MongoDB::AllowList -package mongodb ../byteplus/mongodb/allow_list_plural_data_source_gen.go ../byteplus/mongodb/allow_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_schemas -cctype Byteplus::RDSPostgreSQL::Schema -package rdspostgresql ../byteplus/rdspostgresql/schema_plural_data_source_gen.go ../byteplus/rdspostgresql/schema_plural_data_source_gen_test.go
 
 package provider
 
@@ -152,9 +164,11 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/mongodb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/natgateway"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/organization"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatelink"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/privatezone"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rabbitmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmssql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
@@ -163,6 +177,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vedbm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vepfs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vke"

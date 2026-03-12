@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_privatezone_record.example "record_id"

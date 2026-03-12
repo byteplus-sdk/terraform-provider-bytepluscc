@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_vpc_ipv6_gateway Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "VPC"
 description: |-
   IPv6网关服务的运行载体，创建IPv6网关实例是进行IPv6公网配置的前提。
 ---

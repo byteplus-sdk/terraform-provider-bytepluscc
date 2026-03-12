@@ -1,6 +1,6 @@
 ---
 page_title: "bytepluscc_ecs_instance Resource - terraform-provider-bytepluscc"
-subcategory: ""
+subcategory: "ECS"
 description: |-
   表示一个弹性计算服务（ECS）的实例资源。
 ---

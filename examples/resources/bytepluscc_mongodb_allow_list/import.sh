@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_mongodb_allow_list.example "allow_list_id"

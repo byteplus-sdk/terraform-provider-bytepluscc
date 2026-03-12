@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_mongodb_instance.example "instance_id"
