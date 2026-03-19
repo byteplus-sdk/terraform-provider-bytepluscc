@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_emr_cluster.example "cluster_id"

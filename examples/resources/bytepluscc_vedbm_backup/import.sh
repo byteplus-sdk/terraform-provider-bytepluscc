@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vedbm_backup.example "instance_id|backup_id"

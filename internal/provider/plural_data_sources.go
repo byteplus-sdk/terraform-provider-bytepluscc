@@ -139,6 +139,16 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_databases -cctype Byteplus::RDSPostgreSQL::Database -package rdspostgresql ../byteplus/rdspostgresql/database_plural_data_source_gen.go ../byteplus/rdspostgresql/database_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_mongodb_allow_lists -cctype Byteplus::MongoDB::AllowList -package mongodb ../byteplus/mongodb/allow_list_plural_data_source_gen.go ../byteplus/mongodb/allow_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_schemas -cctype Byteplus::RDSPostgreSQL::Schema -package rdspostgresql ../byteplus/rdspostgresql/schema_plural_data_source_gen.go ../byteplus/rdspostgresql/schema_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vedbm_backups -cctype Byteplus::VEDBM::Backup -package vedbm ../byteplus/vedbm/backup_plural_data_source_gen.go ../byteplus/vedbm/backup_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_emr_clusters -cctype Byteplus::EMR::Cluster -package emr ../byteplus/emr/cluster_plural_data_source_gen.go ../byteplus/emr/cluster_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_emr_cluster_users -cctype Byteplus::EMR::ClusterUser -package emr ../byteplus/emr/cluster_user_plural_data_source_gen.go ../byteplus/emr/cluster_user_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_emr_cluster_user_groups -cctype Byteplus::EMR::ClusterUserGroup -package emr ../byteplus/emr/cluster_user_group_plural_data_source_gen.go ../byteplus/emr/cluster_user_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_schedule_sql_tasks -cctype Byteplus::TLS::ScheduleSqlTask -package tls ../byteplus/tls/schedule_sql_task_plural_data_source_gen.go ../byteplus/tls/schedule_sql_task_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_autoscaling_scaling_lifecycle_hooks -cctype Byteplus::AutoScaling::ScalingLifecycleHook -package autoscaling ../byteplus/autoscaling/scaling_lifecycle_hook_plural_data_source_gen.go ../byteplus/autoscaling/scaling_lifecycle_hook_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_indices -cctype Byteplus::TLS::Index -package tls ../byteplus/tls/index_plural_data_source_gen.go ../byteplus/tls/index_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_topics -cctype Byteplus::TLS::Topic -package tls ../byteplus/tls/topic_plural_data_source_gen.go ../byteplus/tls/topic_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vedbm_databases -cctype Byteplus::VEDBM::Database -package vedbm ../byteplus/vedbm/database_plural_data_source_gen.go ../byteplus/vedbm/database_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_organizations -cctype Byteplus::Organization::Organization -package organization ../byteplus/organization/organization_plural_data_source_gen.go ../byteplus/organization/organization_plural_data_source_gen_test.go
 
 package provider
 
@@ -157,6 +167,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/directconnect"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/emr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/filenas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/fwcenter"

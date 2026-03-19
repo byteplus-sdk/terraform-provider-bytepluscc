@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_autoscaling_scaling_lifecycle_hook.example "scaling_group_id|lifecycle_hook_id"

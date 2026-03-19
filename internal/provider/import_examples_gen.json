@@ -683,5 +683,55 @@
         "resource": "bytepluscc_rdspostgresql_schema",
         "identifier": ["InstanceId","DBName","SchemaName"],
         "path": "./examples/resources/bytepluscc_rdspostgresql_schema/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vedbm_backup",
+        "identifier": ["InstanceId","BackupId"],
+        "path": "./examples/resources/bytepluscc_vedbm_backup/import.sh"
+    },
+    {
+        "resource": "bytepluscc_emr_cluster",
+        "identifier": ["ClusterId"],
+        "path": "./examples/resources/bytepluscc_emr_cluster/import.sh"
+    },
+    {
+        "resource": "bytepluscc_emr_cluster_user",
+        "identifier": ["ClusterId","UserName"],
+        "path": "./examples/resources/bytepluscc_emr_cluster_user/import.sh"
+    },
+    {
+        "resource": "bytepluscc_emr_cluster_user_group",
+        "identifier": ["ClusterId","UserGroupName"],
+        "path": "./examples/resources/bytepluscc_emr_cluster_user_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_schedule_sql_task",
+        "identifier": ["TaskId"],
+        "path": "./examples/resources/bytepluscc_tls_schedule_sql_task/import.sh"
+    },
+    {
+        "resource": "bytepluscc_autoscaling_scaling_lifecycle_hook",
+        "identifier": ["ScalingGroupId","LifecycleHookId"],
+        "path": "./examples/resources/bytepluscc_autoscaling_scaling_lifecycle_hook/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_index",
+        "identifier": ["TopicId"],
+        "path": "./examples/resources/bytepluscc_tls_index/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_topic",
+        "identifier": ["TopicID"],
+        "path": "./examples/resources/bytepluscc_tls_topic/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vedbm_database",
+        "identifier": ["InstanceId","DBName"],
+        "path": "./examples/resources/bytepluscc_vedbm_database/import.sh"
+    },
+    {
+        "resource": "bytepluscc_organization_organization",
+        "identifier": ["OrganizationID"],
+        "path": "./examples/resources/bytepluscc_organization_organization/import.sh"
     }
 ]
