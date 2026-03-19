@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tls_topic.example "topic_id"

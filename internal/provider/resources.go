@@ -139,6 +139,16 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_database -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_Database.json -package rdspostgresql -- ../byteplus/rdspostgresql/database_resource_gen.go ../byteplus/rdspostgresql/database_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_mongodb_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_MongoDB_AllowList.json -package mongodb -- ../byteplus/mongodb/allow_list_resource_gen.go ../byteplus/mongodb/allow_list_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_schema -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_Schema.json -package rdspostgresql -- ../byteplus/rdspostgresql/schema_resource_gen.go ../byteplus/rdspostgresql/schema_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vedbm_backup -ccschema ../service/cloudcontrol/schemas/Byteplus_VEDBM_Backup.json -package vedbm -- ../byteplus/vedbm/backup_resource_gen.go ../byteplus/vedbm/backup_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_emr_cluster -ccschema ../service/cloudcontrol/schemas/Byteplus_EMR_Cluster.json -package emr -- ../byteplus/emr/cluster_resource_gen.go ../byteplus/emr/cluster_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_emr_cluster_user -ccschema ../service/cloudcontrol/schemas/Byteplus_EMR_ClusterUser.json -package emr -- ../byteplus/emr/cluster_user_resource_gen.go ../byteplus/emr/cluster_user_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_emr_cluster_user_group -ccschema ../service/cloudcontrol/schemas/Byteplus_EMR_ClusterUserGroup.json -package emr -- ../byteplus/emr/cluster_user_group_resource_gen.go ../byteplus/emr/cluster_user_group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_schedule_sql_task -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_ScheduleSqlTask.json -package tls -- ../byteplus/tls/schedule_sql_task_resource_gen.go ../byteplus/tls/schedule_sql_task_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_autoscaling_scaling_lifecycle_hook -ccschema ../service/cloudcontrol/schemas/Byteplus_AutoScaling_ScalingLifecycleHook.json -package autoscaling -- ../byteplus/autoscaling/scaling_lifecycle_hook_resource_gen.go ../byteplus/autoscaling/scaling_lifecycle_hook_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_index -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_Index.json -package tls -- ../byteplus/tls/index_resource_gen.go ../byteplus/tls/index_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_topic -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_Topic.json -package tls -- ../byteplus/tls/topic_resource_gen.go ../byteplus/tls/topic_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vedbm_database -ccschema ../service/cloudcontrol/schemas/Byteplus_VEDBM_Database.json -package vedbm -- ../byteplus/vedbm/database_resource_gen.go ../byteplus/vedbm/database_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_organization_organization -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_Organization.json -package organization -- ../byteplus/organization/organization_resource_gen.go ../byteplus/organization/organization_resource_gen_test.go
 
 package provider
 
@@ -157,6 +167,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/directconnect"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ecs"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/emr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/filenas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/fwcenter"

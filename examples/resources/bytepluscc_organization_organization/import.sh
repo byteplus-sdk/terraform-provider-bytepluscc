@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_organization_organization.example "organization_id"

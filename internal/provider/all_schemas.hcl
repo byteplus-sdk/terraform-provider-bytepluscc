@@ -561,3 +561,43 @@ resource_schema "byteplus_mongodb_allow_list" {
 resource_schema "byteplus_rdspostgresql_schema" {
   cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::Schema"
 }
+
+resource_schema "byteplus_vedbm_backup" {
+  cloudcontrol_type_name = "Byteplus::VEDBM::Backup"
+}
+
+resource_schema "byteplus_emr_cluster" {
+  cloudcontrol_type_name = "Byteplus::EMR::Cluster"
+}
+
+resource_schema "byteplus_emr_cluster_user" {
+  cloudcontrol_type_name = "Byteplus::EMR::ClusterUser"
+}
+
+resource_schema "byteplus_emr_cluster_user_group" {
+  cloudcontrol_type_name = "Byteplus::EMR::ClusterUserGroup"
+}
+
+resource_schema "byteplus_tls_schedule_sql_task" {
+  cloudcontrol_type_name = "Byteplus::TLS::ScheduleSqlTask"
+}
+
+resource_schema "byteplus_autoscaling_scaling_lifecycle_hook" {
+  cloudcontrol_type_name = "Byteplus::AutoScaling::ScalingLifecycleHook"
+}
+
+resource_schema "byteplus_tls_index" {
+  cloudcontrol_type_name = "Byteplus::TLS::Index"
+}
+
+resource_schema "byteplus_tls_topic" {
+  cloudcontrol_type_name = "Byteplus::TLS::Topic"
+}
+
+resource_schema "byteplus_vedbm_database" {
+  cloudcontrol_type_name = "Byteplus::VEDBM::Database"
+}
+
+resource_schema "byteplus_organization_organization" {
+  cloudcontrol_type_name = "Byteplus::Organization::Organization"
+}
