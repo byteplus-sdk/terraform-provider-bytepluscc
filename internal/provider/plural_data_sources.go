@@ -83,8 +83,8 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_clb_certificates -cctype Byteplus::CLB::Certificate -package clb ../byteplus/clb/certificate_plural_data_source_gen.go ../byteplus/clb/certificate_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_prefix_lists -cctype Byteplus::VPC::PrefixList -package vpc ../byteplus/vpc/prefix_list_plural_data_source_gen.go ../byteplus/vpc/prefix_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_databases -cctype Byteplus::RDSMySQL::Database -package rdsmysql ../byteplus/rdsmysql/database_plural_data_source_gen.go ../byteplus/rdsmysql/database_plural_data_source_gen_test.go
-//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_launch_templates -cctype Byteplus::ECS::Launchtemplate -package ecs ../byteplus/ecs/launch_template_plural_data_source_gen.go ../byteplus/ecs/launch_template_plural_data_source_gen_test.go
-//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_launch_template_versions -cctype Byteplus::ECS::LaunchtemplateVersion -package ecs ../byteplus/ecs/launch_template_version_plural_data_source_gen.go ../byteplus/ecs/launch_template_version_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_launch_templates -cctype Byteplus::ECS::LaunchTemplate -package ecs ../byteplus/ecs/launch_template_plural_data_source_gen.go ../byteplus/ecs/launch_template_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_launch_template_versions -cctype Byteplus::ECS::LaunchTemplateVersion -package ecs ../byteplus/ecs/launch_template_version_plural_data_source_gen.go ../byteplus/ecs/launch_template_version_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_deployment_sets -cctype Byteplus::ECS::DeploymentSet -package ecs ../byteplus/ecs/deployment_set_plural_data_source_gen.go ../byteplus/ecs/deployment_set_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_default_node_pools -cctype Byteplus::VKE::DefaultNodePool -package vke ../byteplus/vke/default_node_pool_plural_data_source_gen.go ../byteplus/vke/default_node_pool_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_nodes -cctype Byteplus::VKE::Node -package vke ../byteplus/vke/node_plural_data_source_gen.go ../byteplus/vke/node_plural_data_source_gen_test.go
@@ -135,7 +135,7 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_records -cctype Byteplus::PrivateZone::Record -package privatezone ../byteplus/privatezone/record_plural_data_source_gen.go ../byteplus/privatezone/record_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_resolver_endpoints -cctype Byteplus::PrivateZone::ResolverEndpoint -package privatezone ../byteplus/privatezone/resolver_endpoint_plural_data_source_gen.go ../byteplus/privatezone/resolver_endpoint_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_resolver_rules -cctype Byteplus::PrivateZone::ResolverRule -package privatezone ../byteplus/privatezone/resolver_rule_plural_data_source_gen.go ../byteplus/privatezone/resolver_rule_plural_data_source_gen_test.go
-//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmssql_allow_lists -cctype Byteplus::RDSMsSQL::Allowlist -package rdsmssql ../byteplus/rdsmssql/allow_list_plural_data_source_gen.go ../byteplus/rdsmssql/allow_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmssql_allow_lists -cctype Byteplus::RDSMsSQL::AllowList -package rdsmssql ../byteplus/rdsmssql/allow_list_plural_data_source_gen.go ../byteplus/rdsmssql/allow_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_databases -cctype Byteplus::RDSPostgreSQL::Database -package rdspostgresql ../byteplus/rdspostgresql/database_plural_data_source_gen.go ../byteplus/rdspostgresql/database_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_mongodb_allow_lists -cctype Byteplus::MongoDB::AllowList -package mongodb ../byteplus/mongodb/allow_list_plural_data_source_gen.go ../byteplus/mongodb/allow_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_schemas -cctype Byteplus::RDSPostgreSQL::Schema -package rdspostgresql ../byteplus/rdspostgresql/schema_plural_data_source_gen.go ../byteplus/rdspostgresql/schema_plural_data_source_gen_test.go
@@ -149,6 +149,10 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_topics -cctype Byteplus::TLS::Topic -package tls ../byteplus/tls/topic_plural_data_source_gen.go ../byteplus/tls/topic_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vedbm_databases -cctype Byteplus::VEDBM::Database -package vedbm ../byteplus/vedbm/database_plural_data_source_gen.go ../byteplus/vedbm/database_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_organizations -cctype Byteplus::Organization::Organization -package organization ../byteplus/organization/organization_plural_data_source_gen.go ../byteplus/organization/organization_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vedbm_allow_lists -cctype Byteplus::VEDBM::AllowList -package vedbm ../byteplus/vedbm/allow_list_plural_data_source_gen.go ../byteplus/vedbm/allow_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_domains -cctype Byteplus::WAF::Domain -package waf ../byteplus/waf/domain_plural_data_source_gen.go ../byteplus/waf/domain_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_instances -cctype Byteplus::Kafka::Instance -package kafka ../byteplus/kafka/instance_plural_data_source_gen.go ../byteplus/kafka/instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cdn_domains -cctype Byteplus::CDN::Domain -package cdn ../byteplus/cdn/domain_plural_data_source_gen.go ../byteplus/cdn/domain_plural_data_source_gen_test.go
 
 package provider
 
@@ -195,4 +199,5 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vmp"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpc"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vpn"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/waf"
 )

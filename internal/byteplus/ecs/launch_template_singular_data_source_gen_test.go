@@ -13,8 +13,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccByteplusECSLaunchtemplateDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::ECS::Launchtemplate", "bytepluscc_ecs_launch_template", "test")
+func TestAccByteplusECSLaunchTemplateDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::LaunchTemplate", "bytepluscc_ecs_launch_template", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{
@@ -24,8 +24,8 @@ func TestAccByteplusECSLaunchtemplateDataSource_basic(t *testing.T) {
 	})
 }
 
-func TestAccByteplusECSLaunchtemplateDataSource_NonExistent(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::ECS::Launchtemplate", "bytepluscc_ecs_launch_template", "test")
+func TestAccByteplusECSLaunchTemplateDataSource_NonExistent(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::LaunchTemplate", "bytepluscc_ecs_launch_template", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

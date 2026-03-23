@@ -16,12 +16,12 @@ import (
 )
 
 func init() {
-	registry.AddDataSourceFactory("bytepluscc_ecs_launch_template", launchtemplateDataSource)
+	registry.AddDataSourceFactory("bytepluscc_ecs_launch_template", launchTemplateDataSource)
 }
 
-// launchtemplateDataSource returns the Terraform bytepluscc_ecs_launch_template data source.
-// This Terraform data source corresponds to the Cloud Control Byteplus::ECS::Launchtemplate resource.
-func launchtemplateDataSource(ctx context.Context) (datasource.DataSource, error) {
+// launchTemplateDataSource returns the Terraform bytepluscc_ecs_launch_template data source.
+// This Terraform data source corresponds to the Cloud Control Byteplus::ECS::LaunchTemplate resource.
+func launchTemplateDataSource(ctx context.Context) (datasource.DataSource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: CreatedAt
 		// Cloud Control resource type schema:
@@ -658,13 +658,13 @@ func launchtemplateDataSource(ctx context.Context) (datasource.DataSource, error
 	}
 
 	schema := schema.Schema{
-		Description: "Data Source schema for Byteplus::ECS::Launchtemplate",
+		Description: "Data Source schema for Byteplus::ECS::LaunchTemplate",
 		Attributes:  attributes,
 	}
 
 	var opts generic.DataSourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::ECS::Launchtemplate").WithTerraformTypeName("bytepluscc_ecs_launch_template")
+	opts = opts.WithCloudControlTypeName("Byteplus::ECS::LaunchTemplate").WithTerraformTypeName("bytepluscc_ecs_launch_template")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"bandwidth":                       "Bandwidth",

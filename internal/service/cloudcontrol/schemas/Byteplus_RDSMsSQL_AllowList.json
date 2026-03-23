@@ -154,5 +154,5 @@
   "tagging": {
     "taggable": false
   },
-  "typeName": "Byteplus::RDSMsSQL::Allowlist"
+  "typeName": "Byteplus::RDSMsSQL::AllowList"
 }

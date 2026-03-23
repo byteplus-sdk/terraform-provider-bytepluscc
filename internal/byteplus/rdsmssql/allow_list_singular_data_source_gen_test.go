@@ -13,8 +13,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccByteplusRDSMsSQLAllowlistDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::RDSMsSQL::Allowlist", "bytepluscc_rdsmssql_allow_list", "test")
+func TestAccByteplusRDSMsSQLAllowListDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::RDSMsSQL::AllowList", "bytepluscc_rdsmssql_allow_list", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{
@@ -24,8 +24,8 @@ func TestAccByteplusRDSMsSQLAllowlistDataSource_basic(t *testing.T) {
 	})
 }
 
-func TestAccByteplusRDSMsSQLAllowlistDataSource_NonExistent(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::RDSMsSQL::Allowlist", "bytepluscc_rdsmssql_allow_list", "test")
+func TestAccByteplusRDSMsSQLAllowListDataSource_NonExistent(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::RDSMsSQL::AllowList", "bytepluscc_rdsmssql_allow_list", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

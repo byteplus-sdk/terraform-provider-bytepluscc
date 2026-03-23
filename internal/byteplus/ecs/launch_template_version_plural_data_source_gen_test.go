@@ -13,8 +13,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccByteplusECSLaunchtemplateVersionsDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::ECS::LaunchtemplateVersion", "bytepluscc_ecs_launch_template_versions", "test")
+func TestAccByteplusECSLaunchTemplateVersionsDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::ECS::LaunchTemplateVersion", "bytepluscc_ecs_launch_template_versions", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

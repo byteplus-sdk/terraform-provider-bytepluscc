@@ -376,7 +376,7 @@
     "tagOnCreate": true,
     "taggable": true
   },
-  "typeName": "Byteplus::ECS::Launchtemplate",
+  "typeName": "Byteplus::ECS::LaunchTemplate",
   "writeOnlyProperties": [
     "/properties/LaunchTemplateVersion"
   ]

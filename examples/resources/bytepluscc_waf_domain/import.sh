@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_waf_domain.example "domain"
