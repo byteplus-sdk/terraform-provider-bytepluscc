@@ -733,5 +733,25 @@
         "resource": "bytepluscc_organization_organization",
         "identifier": ["OrganizationID"],
         "path": "./examples/resources/bytepluscc_organization_organization/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vedbm_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_vedbm_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_waf_domain",
+        "identifier": ["Domain"],
+        "path": "./examples/resources/bytepluscc_waf_domain/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kafka_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_kafka_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cdn_domain",
+        "identifier": ["Domain"],
+        "path": "./examples/resources/bytepluscc_cdn_domain/import.sh"
     }
 ]

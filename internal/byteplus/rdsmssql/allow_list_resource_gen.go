@@ -21,12 +21,12 @@ import (
 )
 
 func init() {
-	registry.AddResourceFactory("bytepluscc_rdsmssql_allow_list", allowlistResource)
+	registry.AddResourceFactory("bytepluscc_rdsmssql_allow_list", allowListResource)
 }
 
-// allowlistResource returns the Terraform bytepluscc_rdsmssql_allow_list resource.
-// This Terraform resource corresponds to the Cloud Control Byteplus::RDSMsSQL::Allowlist resource.
-func allowlistResource(ctx context.Context) (resource.Resource, error) {
+// allowListResource returns the Terraform bytepluscc_rdsmssql_allow_list resource.
+// This Terraform resource corresponds to the Cloud Control Byteplus::RDSMsSQL::AllowList resource.
+func allowListResource(ctx context.Context) (resource.Resource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: AllowList
 		// Cloud Control resource type schema:
@@ -277,7 +277,7 @@ func allowlistResource(ctx context.Context) (resource.Resource, error) {
 
 	var opts generic.ResourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::RDSMsSQL::Allowlist").WithTerraformTypeName("bytepluscc_rdsmssql_allow_list")
+	opts = opts.WithCloudControlTypeName("Byteplus::RDSMsSQL::AllowList").WithTerraformTypeName("bytepluscc_rdsmssql_allow_list")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"allow_list":              "AllowList",

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cdn_domain.example "domain"

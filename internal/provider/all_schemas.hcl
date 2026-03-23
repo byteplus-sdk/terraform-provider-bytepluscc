@@ -339,11 +339,11 @@ resource_schema "byteplus_rdsmysql_database" {
 }
 
 resource_schema "byteplus_ecs_launch_template" {
-  cloudcontrol_type_name = "Byteplus::ECS::Launchtemplate"
+  cloudcontrol_type_name = "Byteplus::ECS::LaunchTemplate"
 }
 
 resource_schema "byteplus_ecs_launch_template_version" {
-  cloudcontrol_type_name = "Byteplus::ECS::LaunchtemplateVersion"
+  cloudcontrol_type_name = "Byteplus::ECS::LaunchTemplateVersion"
 }
 
 resource_schema "byteplus_ecs_deployment_set" {
@@ -547,7 +547,7 @@ resource_schema "byteplus_privatezone_resolver_rule" {
 }
 
 resource_schema "byteplus_rdsmssql_allow_list" {
-  cloudcontrol_type_name = "Byteplus::RDSMsSQL::Allowlist"
+  cloudcontrol_type_name = "Byteplus::RDSMsSQL::AllowList"
 }
 
 resource_schema "byteplus_rdspostgresql_database" {
@@ -600,4 +600,20 @@ resource_schema "byteplus_vedbm_database" {
 
 resource_schema "byteplus_organization_organization" {
   cloudcontrol_type_name = "Byteplus::Organization::Organization"
+}
+
+resource_schema "byteplus_vedbm_allow_list" {
+  cloudcontrol_type_name = "Byteplus::VEDBM::AllowList"
+}
+
+resource_schema "byteplus_waf_domain" {
+  cloudcontrol_type_name = "Byteplus::WAF::Domain"
+}
+
+resource_schema "byteplus_kafka_instance" {
+  cloudcontrol_type_name = "Byteplus::Kafka::Instance"
+}
+
+resource_schema "byteplus_cdn_domain" {
+  cloudcontrol_type_name = "Byteplus::CDN::Domain"
 }

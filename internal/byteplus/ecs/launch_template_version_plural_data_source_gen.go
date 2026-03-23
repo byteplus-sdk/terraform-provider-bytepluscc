@@ -16,12 +16,12 @@ import (
 )
 
 func init() {
-	registry.AddDataSourceFactory("bytepluscc_ecs_launch_template_versions", launchtemplateVersionsDataSource)
+	registry.AddDataSourceFactory("bytepluscc_ecs_launch_template_versions", launchTemplateVersionsDataSource)
 }
 
-// launchtemplateVersionsDataSource returns the Terraform bytepluscc_ecs_launch_template_versions data source.
-// This Terraform data source corresponds to the Cloud Control Byteplus::ECS::LaunchtemplateVersion resource.
-func launchtemplateVersionsDataSource(ctx context.Context) (datasource.DataSource, error) {
+// launchTemplateVersionsDataSource returns the Terraform bytepluscc_ecs_launch_template_versions data source.
+// This Terraform data source corresponds to the Cloud Control Byteplus::ECS::LaunchTemplateVersion resource.
+func launchTemplateVersionsDataSource(ctx context.Context) (datasource.DataSource, error) {
 	attributes := map[string]schema.Attribute{
 		"id": schema.StringAttribute{
 			Description: "Uniquely identifies the data source.",
@@ -35,13 +35,13 @@ func launchtemplateVersionsDataSource(ctx context.Context) (datasource.DataSourc
 	}
 
 	schema := schema.Schema{
-		Description: "Plural Data Source schema for Byteplus::ECS::LaunchtemplateVersion",
+		Description: "Plural Data Source schema for Byteplus::ECS::LaunchTemplateVersion",
 		Attributes:  attributes,
 	}
 
 	var opts generic.DataSourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::ECS::LaunchtemplateVersion").WithTerraformTypeName("bytepluscc_ecs_launch_template_versions")
+	opts = opts.WithCloudControlTypeName("Byteplus::ECS::LaunchTemplateVersion").WithTerraformTypeName("bytepluscc_ecs_launch_template_versions")
 	opts = opts.WithTerraformSchema(schema)
 
 	v, err := generic.NewPluralDataSource(ctx, opts...)

@@ -345,7 +345,7 @@
     "tagOnCreate": true,
     "taggable": true
   },
-  "typeName": "Byteplus::ECS::LaunchtemplateVersion",
+  "typeName": "Byteplus::ECS::LaunchTemplateVersion",
   "writeOnlyProperties": [
     "/properties/ImageName"
   ]
