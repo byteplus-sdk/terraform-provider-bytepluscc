@@ -753,5 +753,10 @@
         "resource": "bytepluscc_cdn_domain",
         "identifier": ["Domain"],
         "path": "./examples/resources/bytepluscc_cdn_domain/import.sh"
+    },
+    {
+        "resource": "bytepluscc_emr_node_group",
+        "identifier": ["ClusterId","NodeGroupId"],
+        "path": "./examples/resources/bytepluscc_emr_node_group/import.sh"
     }
 ]
