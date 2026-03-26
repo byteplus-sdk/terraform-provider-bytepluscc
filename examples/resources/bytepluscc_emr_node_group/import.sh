@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_emr_node_group.example "cluster_id|node_group_id"

@@ -153,6 +153,7 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_waf_domain -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_Domain.json -package waf -- ../byteplus/waf/domain_resource_gen.go ../byteplus/waf/domain_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_kafka_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_Kafka_Instance.json -package kafka -- ../byteplus/kafka/instance_resource_gen.go ../byteplus/kafka/instance_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_cdn_domain -ccschema ../service/cloudcontrol/schemas/Byteplus_CDN_Domain.json -package cdn -- ../byteplus/cdn/domain_resource_gen.go ../byteplus/cdn/domain_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_emr_node_group -ccschema ../service/cloudcontrol/schemas/Byteplus_EMR_NodeGroup.json -package emr -- ../byteplus/emr/node_group_resource_gen.go ../byteplus/emr/node_group_resource_gen_test.go
 
 package provider
 

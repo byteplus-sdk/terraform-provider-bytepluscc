@@ -153,6 +153,7 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_domains -cctype Byteplus::WAF::Domain -package waf ../byteplus/waf/domain_plural_data_source_gen.go ../byteplus/waf/domain_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_instances -cctype Byteplus::Kafka::Instance -package kafka ../byteplus/kafka/instance_plural_data_source_gen.go ../byteplus/kafka/instance_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cdn_domains -cctype Byteplus::CDN::Domain -package cdn ../byteplus/cdn/domain_plural_data_source_gen.go ../byteplus/cdn/domain_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_emr_node_groups -cctype Byteplus::EMR::NodeGroup -package emr ../byteplus/emr/node_group_plural_data_source_gen.go ../byteplus/emr/node_group_plural_data_source_gen_test.go
 
 package provider
 

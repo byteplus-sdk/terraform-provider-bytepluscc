@@ -617,3 +617,7 @@ resource_schema "byteplus_kafka_instance" {
 resource_schema "byteplus_cdn_domain" {
   cloudcontrol_type_name = "Byteplus::CDN::Domain"
 }
+
+resource_schema "byteplus_emr_node_group" {
+  cloudcontrol_type_name = "Byteplus::EMR::NodeGroup"
+}
