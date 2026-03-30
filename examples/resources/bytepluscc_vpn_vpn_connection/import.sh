@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpn_vpn_connection.example "vpn_connection_id"

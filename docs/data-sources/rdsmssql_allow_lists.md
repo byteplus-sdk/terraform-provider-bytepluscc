@@ -3,12 +3,12 @@
 page_title: "bytepluscc_rdsmssql_allow_lists Data Source - terraform-provider-bytepluscc"
 subcategory: "RDSMsSQL"
 description: |-
-  Plural Data Source schema for Byteplus::RDSMsSQL::Allowlist
+  Plural Data Source schema for Byteplus::RDSMsSQL::AllowList
 ---
 
 # bytepluscc_rdsmssql_allow_lists (Data Source)
 
-Plural Data Source schema for Byteplus::RDSMsSQL::Allowlist
+Plural Data Source schema for Byteplus::RDSMsSQL::AllowList
 
 
 

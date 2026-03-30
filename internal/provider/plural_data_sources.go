@@ -154,6 +154,10 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_instances -cctype Byteplus::Kafka::Instance -package kafka ../byteplus/kafka/instance_plural_data_source_gen.go ../byteplus/kafka/instance_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cdn_domains -cctype Byteplus::CDN::Domain -package cdn ../byteplus/cdn/domain_plural_data_source_gen.go ../byteplus/cdn/domain_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_emr_node_groups -cctype Byteplus::EMR::NodeGroup -package emr ../byteplus/emr/node_group_plural_data_source_gen.go ../byteplus/emr/node_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cen_grant_instances -cctype Byteplus::CEN::GrantInstance -package cen ../byteplus/cen/grant_instance_plural_data_source_gen.go ../byteplus/cen/grant_instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpn_vpn_connections -cctype Byteplus::VPN::VPNConnection -package vpn ../byteplus/vpn/vpn_connection_plural_data_source_gen.go ../byteplus/vpn/vpn_connection_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_user_vpc_authorizations -cctype Byteplus::PrivateZone::UserVPCAuthorization -package privatezone ../byteplus/privatezone/user_vpc_authorization_plural_data_source_gen.go ../byteplus/privatezone/user_vpc_authorization_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vefaas_functions -cctype Byteplus::VEFAAS::Function -package vefaas ../byteplus/vefaas/function_plural_data_source_gen.go ../byteplus/vefaas/function_plural_data_source_gen_test.go
 
 package provider
 

@@ -154,6 +154,10 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_kafka_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_Kafka_Instance.json -package kafka -- ../byteplus/kafka/instance_resource_gen.go ../byteplus/kafka/instance_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_cdn_domain -ccschema ../service/cloudcontrol/schemas/Byteplus_CDN_Domain.json -package cdn -- ../byteplus/cdn/domain_resource_gen.go ../byteplus/cdn/domain_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_emr_node_group -ccschema ../service/cloudcontrol/schemas/Byteplus_EMR_NodeGroup.json -package emr -- ../byteplus/emr/node_group_resource_gen.go ../byteplus/emr/node_group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_cen_grant_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_CEN_GrantInstance.json -package cen -- ../byteplus/cen/grant_instance_resource_gen.go ../byteplus/cen/grant_instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpn_vpn_connection -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_VPNConnection.json -package vpn -- ../byteplus/vpn/vpn_connection_resource_gen.go ../byteplus/vpn/vpn_connection_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_privatezone_user_vpc_authorization -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_UserVPCAuthorization.json -package privatezone -- ../byteplus/privatezone/user_vpc_authorization_resource_gen.go ../byteplus/privatezone/user_vpc_authorization_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vefaas_function -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_Function.json -package vefaas -- ../byteplus/vefaas/function_resource_gen.go ../byteplus/vefaas/function_resource_gen_test.go
 
 package provider
 

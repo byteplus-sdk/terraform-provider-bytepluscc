@@ -6,7 +6,7 @@ resource "bytepluscc_vpc_network_acl" "NetworkAclDemo" {
   ingress_acl_entries = [
     {
       cidr_ip                = "10.0.1.0/24"
-      description            = "默认规则"
+      description            = "test-rule"
       network_acl_entry_name = "test-entries"
       policy                 = "drop"
       port                   = "80/80"
@@ -15,8 +15,8 @@ resource "bytepluscc_vpc_network_acl" "NetworkAclDemo" {
   egress_acl_entries = [
     {
       cidr_ip                = "0.0.0.0/0"
-      description            = "默认规则"
-      network_acl_entry_name = ""
+      description            = "test-rule"
+      network_acl_entry_name = "test-entries"
       policy                 = "accept"
       port                   = "-1/-1"
     protocol = "all" }

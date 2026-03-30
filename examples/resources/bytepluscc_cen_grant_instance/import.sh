@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cen_grant_instance.example "instance_id|cen_id"
