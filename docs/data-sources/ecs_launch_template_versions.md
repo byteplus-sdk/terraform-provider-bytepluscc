@@ -3,12 +3,12 @@
 page_title: "bytepluscc_ecs_launch_template_versions Data Source - terraform-provider-bytepluscc"
 subcategory: "ECS"
 description: |-
-  Plural Data Source schema for Byteplus::ECS::LaunchtemplateVersion
+  Plural Data Source schema for Byteplus::ECS::LaunchTemplateVersion
 ---
 
 # bytepluscc_ecs_launch_template_versions (Data Source)
 
-Plural Data Source schema for Byteplus::ECS::LaunchtemplateVersion
+Plural Data Source schema for Byteplus::ECS::LaunchTemplateVersion
 
 
 

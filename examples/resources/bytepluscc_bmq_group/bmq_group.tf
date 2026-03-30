@@ -1,4 +1,4 @@
-resource "bytepluscc_bmq_group" "BMQGroupDemo" {
+resource "byteplus_bmq_group" "BMQGroupDemo" {
   description = "this is test group"
   group_name  = "cBMQGroupDemo"
   instance_id = "bmq-4ld4vpjzd32tq1gxxxxx"

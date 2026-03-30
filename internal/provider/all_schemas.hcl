@@ -621,3 +621,19 @@ resource_schema "byteplus_cdn_domain" {
 resource_schema "byteplus_emr_node_group" {
   cloudcontrol_type_name = "Byteplus::EMR::NodeGroup"
 }
+
+resource_schema "byteplus_cen_grant_instance" {
+  cloudcontrol_type_name = "Byteplus::CEN::GrantInstance"
+}
+
+resource_schema "byteplus_vpn_vpn_connection" {
+  cloudcontrol_type_name = "Byteplus::VPN::VPNConnection"
+}
+
+resource_schema "byteplus_privatezone_user_vpc_authorization" {
+  cloudcontrol_type_name = "Byteplus::PrivateZone::UserVPCAuthorization"
+}
+
+resource_schema "byteplus_vefaas_function" {
+  cloudcontrol_type_name = "Byteplus::VEFAAS::Function"
+}

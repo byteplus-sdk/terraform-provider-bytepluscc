@@ -758,5 +758,25 @@
         "resource": "bytepluscc_emr_node_group",
         "identifier": ["ClusterId","NodeGroupId"],
         "path": "./examples/resources/bytepluscc_emr_node_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cen_grant_instance",
+        "identifier": ["InstanceId","CenId"],
+        "path": "./examples/resources/bytepluscc_cen_grant_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpn_vpn_connection",
+        "identifier": ["VpnConnectionId"],
+        "path": "./examples/resources/bytepluscc_vpn_vpn_connection/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatezone_user_vpc_authorization",
+        "identifier": ["AccountID"],
+        "path": "./examples/resources/bytepluscc_privatezone_user_vpc_authorization/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vefaas_function",
+        "identifier": ["FunctionId"],
+        "path": "./examples/resources/bytepluscc_vefaas_function/import.sh"
     }
 ]

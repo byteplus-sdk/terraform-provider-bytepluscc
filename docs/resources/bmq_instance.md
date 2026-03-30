@@ -2,17 +2,17 @@
 page_title: "bytepluscc_bmq_instance Resource - terraform-provider-bytepluscc"
 subcategory: "BMQ"
 description: |-
-  云原生消息引擎 100% 兼容 Apache Kafka 协议，基于云原生的全托管、高吞吐、低时延、高可用、高可扩展性、高稳定性的分布式消息引擎服务，支持灵活动态扩缩容和流批一体计算，提供企业级大数据量级的实时流数据处理能力，帮助您构建数据处理的“中枢神经系统”，广泛应用于日志收集、数据聚合、离线数据分析等业务场景。
+  The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It is a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service built on cloud-native architecture. It supports flexible, dynamic scaling and integrated stream-batch processing, delivering enterprise-grade, real-time stream data processing at large scale. It helps you build the 'central nervous system' for data processing and is widely used in scenarios such as log collection, data aggregation, and offline data analysis.
 ---
 
 # bytepluscc_bmq_instance (Resource)
 
-云原生消息引擎 100% 兼容 Apache Kafka 协议，基于云原生的全托管、高吞吐、低时延、高可用、高可扩展性、高稳定性的分布式消息引擎服务，支持灵活动态扩缩容和流批一体计算，提供企业级大数据量级的实时流数据处理能力，帮助您构建数据处理的“中枢神经系统”，广泛应用于日志收集、数据聚合、离线数据分析等业务场景。
+The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It is a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service built on cloud-native architecture. It supports flexible, dynamic scaling and integrated stream-batch processing, delivering enterprise-grade, real-time stream data processing at large scale. It helps you build the 'central nervous system' for data processing and is widely used in scenarios such as log collection, data aggregation, and offline data analysis.
 
 ## Example Usage
 
 ```terraform
-resource "bytepluscc_bmq_instance" "BMQInstanceDemo" {
+resource "byteplus_bmq_instance" "BMQInstanceDemo" {
   name              = "BMQInstanceDemo"
   billing_type      = "POST"
   project_name      = "default"
@@ -45,67 +45,67 @@ resource "bytepluscc_bmq_instance" "BMQInstanceDemo" {
 
 ### Required
 
-- `billing_type` (String) 实例的计费方式，取值如下：POST：按量计费。MIX：包年包月。
-- `name` (String) 自定设置 BMQ 实例的名称，约束限制如下：由小写字母、数字和中划线（-）组成。长度为 1~64 字符。
-- `project_name` (String) 实例所属项目名称。
-- `security_group_id_list` (Set of String) 实例使用安全组列表。
-- `specification` (String) 实例规格。
-- `subnet_id_list` (Set of String) 实例使用的子网列表。
-- `vpc_id` (String) 实例所在VPC ID。
-- `zone_id_list` (Set of String) 实例所在可用区列表。
+- `billing_type` (String) Instance billing method. Possible values: POST: Pay-as-you-go. MIX: Subscription
+- `name` (String) Set a custom name for the BMQ instance. Constraints: Use lowercase letters, numbers, and hyphens (-). Length: 1–64 characters
+- `project_name` (String) Project name to which the instance belongs
+- `security_group_id_list` (Set of String) List of security groups used by the instance
+- `specification` (String) Instance specification
+- `subnet_id_list` (Set of String) List of subnets used by the instance
+- `vpc_id` (String) VPC ID where the instance is located
+- `zone_id_list` (Set of String) List of availability zones where the instance is located
 
 ### Optional
 
-- `auto_renew` (String) 是否开启自动续费，取值如下：true：开启自动续费。false：关闭自动续费。
-- `billing_period` (String) 购买时长的单位，取值如下：MONTHLY：按月购买。YEARLY：按年购买。
-- `description` (String) 实例的描述语句。
-- `eip_id` (String) 实例是否开启公网访问。如果需要开启公网访问，请配置相同地域的公网 IP 的 ID。
-- `endpoints` (Attributes) 实例所有接入点响应数据。 (see [below for nested schema](#nestedatt--endpoints))
-- `message_retention` (Number) 实例下所有 Topic 的消息保留时长，单位为小时。
-- `tags` (Attributes Set) 实例资源标签列表。
- 特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--tags))
-- `times` (Number) 包年包月类型实例的购买时长，单位为月。
+- `auto_renew` (String) Whether to enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal
+- `billing_period` (String) Unit of purchase duration. Possible values: MONTHLY: Monthly purchase. YEARLY: Annual purchase
+- `description` (String) Instance description statement
+- `eip_id` (String) Whether public access is enabled for the instance. To enable public access, configure the public IP ID in the same region
+- `endpoints` (Attributes) Response data for all instance endpoints (see [below for nested schema](#nestedatt--endpoints))
+- `message_retention` (Number) Message retention period for all topics under the instance, in hours
+- `tags` (Attributes Set) Instance resource tag list
+ Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability. (see [below for nested schema](#nestedatt--tags))
+- `times` (Number) Purchase duration for subscription instances, in months
 
 ### Read-Only
 
-- `created_time` (String) 实例的创建时间。
-- `expiration_time` (String) 实例过期时间。
-- `group_limit` (Number) 实例消费组数量上限。
+- `created_time` (String) Instance creation time
+- `expiration_time` (String) Instance expiration time
+- `group_limit` (Number) Maximum number of consumer groups per instance
 - `id` (String) Uniquely identifies the resource.
-- `instance_id` (String) 实例ID。
-- `partition_limit` (Number) 实例分区数量上限。
-- `resource_tags` (Attributes Set) 实例资源标签列表。
- 特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--resource_tags))
-- `resources` (Attributes) 实例资源统计响应数据。 (see [below for nested schema](#nestedatt--resources))
-- `status` (String) 实例的状态。取值如下：INITIALIZING：初始化中，INITIALIZATION_FAILED：初始化失败，RUNNING：运行中，MODIFYING：更新中，MODIFY_FAILED：更新失败，RELEASING：释放中，STOPPING：停止中，STOPPED：停止，RECOVERING：恢复中，EXCEPTION：异常，CAPACITY_EXPAXION_FAILED：扩容失败，EXPANDING_CAPACITY：扩容中，CANCEL_EXPANDING_CAPACITY：扩容取消中，RESTARTING：重启中，UNPAID：未支付
-- `topic_limit` (Number) 实例Topic数量上限。
+- `instance_id` (String) Instance ID
+- `partition_limit` (Number) Maximum number of partitions per instance
+- `resource_tags` (Attributes Set) Instance resource tag list
+ Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability. (see [below for nested schema](#nestedatt--resource_tags))
+- `resources` (Attributes) Instance resource statistics response data (see [below for nested schema](#nestedatt--resources))
+- `status` (String) Instance status. Possible values: INITIALIZING: Initializing, INITIALIZATION_FAILED: Initialization failed, RUNNING: Running, MODIFYING: Updating, MODIFY_FAILED: Update failed, RELEASING: Releasing, STOPPING: Stopping, STOPPED: Stopped, RECOVERING: Recovering, EXCEPTION: Exception, CAPACITY_EXPAXION_FAILED: Capacity expansion failed, EXPANDING_CAPACITY: Expanding capacity, CANCEL_EXPANDING_CAPACITY: Canceling capacity expansion, RESTARTING: Restarting, UNPAID: Unpaid
+- `topic_limit` (Number) Maximum number of topics per instance
 
 <a id="nestedatt--endpoints"></a>
 ### Nested Schema for `endpoints`
 
 Optional:
 
-- `overlay` (Attributes) 实例私网访问接入点响应数据。 (see [below for nested schema](#nestedatt--endpoints--overlay))
-- `public` (Attributes) 实例公网访问接入点响应数据。 (see [below for nested schema](#nestedatt--endpoints--public))
+- `overlay` (Attributes) Instance private network access endpoint response data (see [below for nested schema](#nestedatt--endpoints--overlay))
+- `public` (Attributes) Instance public access endpoint response data (see [below for nested schema](#nestedatt--endpoints--public))
 
 <a id="nestedatt--endpoints--overlay"></a>
 ### Nested Schema for `endpoints.overlay`
 
 Optional:
 
-- `vpc_ids` (Set of String) 售卖区网络关联的VPC ID列表。
+- `vpc_ids` (Set of String) List of VPC IDs associated with the sales zone network
 
 Read-Only:
 
-- `address` (String) 域名映射地址。
-- `eip_id` (String) 实例绑定的EIP的ID。
-- `plain` (String) 私网Plain接入点。
-- `plain_port` (Number) 普通接入点端口。
-- `sasl` (String) 私网SASL认证接入点。
-- `sasl_port` (Number) 认证接入点端口。
-- `ssl` (String) 加密接入点。
-- `ssl_port` (Number) 加密接入点端口。
-- `status` (String) 接入点状态。
+- `address` (String) Domain mapping address
+- `eip_id` (String) ID of the EIP bound to the instance
+- `plain` (String) Private network Plain endpoint
+- `plain_port` (Number) Standard endpoint port
+- `sasl` (String) Private network SASL authentication endpoint
+- `sasl_port` (Number) Authentication endpoint port
+- `ssl` (String) Encrypted endpoint
+- `ssl_port` (Number) Encrypted endpoint port
+- `status` (String) Endpoint status
 
 
 <a id="nestedatt--endpoints--public"></a>
@@ -113,19 +113,19 @@ Read-Only:
 
 Optional:
 
-- `eip_id` (String) 实例绑定的EIP的ID。
+- `eip_id` (String) ID of the EIP bound to the instance
 
 Read-Only:
 
-- `address` (String) 域名映射地址。
-- `plain` (String) 私网Plain接入点。
-- `plain_port` (Number) 普通接入点端口。
-- `sasl` (String) 私网SASL认证接入点。
-- `sasl_port` (Number) 认证接入点端口。
-- `ssl` (String) 加密接入点。
-- `ssl_port` (Number) 加密接入点端口。
-- `status` (String) 接入点状态。
-- `vpc_ids` (Set of String) 售卖区网络关联的VPC ID列表。
+- `address` (String) Domain mapping address
+- `plain` (String) Private network Plain endpoint
+- `plain_port` (Number) Standard endpoint port
+- `sasl` (String) Private network SASL authentication endpoint
+- `sasl_port` (Number) Authentication endpoint port
+- `ssl` (String) Encrypted endpoint
+- `ssl_port` (Number) Encrypted endpoint port
+- `status` (String) Endpoint status
+- `vpc_ids` (Set of String) List of VPC IDs associated with the sales zone network
 
 
 
@@ -134,9 +134,9 @@ Read-Only:
 
 Optional:
 
-- `key` (String) 标签键。
-- `type` (String) 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
-- `value` (String) 标签值。
+- `key` (String) Tag key
+- `type` (String) Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag
+- `value` (String) Tag value
 
 
 <a id="nestedatt--resource_tags"></a>
@@ -144,18 +144,18 @@ Optional:
 
 Read-Only:
 
-- `tag_kvs` (Attributes Set) 标签键值对。
- 特别提示: 在使用 SetNestedAttribute 时，必须完整定义其嵌套结构体的所有属性。若定义不完整，Terraform 在执行计划对比时可能会检测到意料之外的差异，从而触发不必要的资源更新，影响资源的稳定性与可预测性。 (see [below for nested schema](#nestedatt--resource_tags--tag_kvs))
-- `type` (String) 标签类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+- `tag_kvs` (Attributes Set) Tag key-value pair
+ Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability. (see [below for nested schema](#nestedatt--resource_tags--tag_kvs))
+- `type` (String) Tag type. Options: CUSTOM: custom tag. SYSTEM: system tag
 
 <a id="nestedatt--resource_tags--tag_kvs"></a>
 ### Nested Schema for `resource_tags.tag_kvs`
 
 Read-Only:
 
-- `key` (String) 标签键。
-- `type` (String) 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
-- `value` (String) 标签值。
+- `key` (String) Tag key
+- `type` (String) Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag
+- `value` (String) Tag value
 
 
 
@@ -164,15 +164,15 @@ Read-Only:
 
 Read-Only:
 
-- `storage` (Attributes) 资源统计响应数据。 (see [below for nested schema](#nestedatt--resources--storage))
+- `storage` (Attributes) Resource statistics response data (see [below for nested schema](#nestedatt--resources--storage))
 
 <a id="nestedatt--resources--storage"></a>
 ### Nested Schema for `resources.storage`
 
 Read-Only:
 
-- `size` (Number) 资源大小。
-- `unit` (String) 资源单位。
+- `size` (Number) Resource size
+- `unit` (String) Resource unit
 
 ## Import
 

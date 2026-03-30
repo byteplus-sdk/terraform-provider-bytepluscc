@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vefaas_function.example "function_id"
