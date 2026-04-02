@@ -158,6 +158,7 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vpn_vpn_connection -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_VPNConnection.json -package vpn ../byteplus/vpn/vpn_connection_singular_data_source_gen.go ../byteplus/vpn/vpn_connection_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_privatezone_user_vpc_authorization -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_UserVPCAuthorization.json -package privatezone ../byteplus/privatezone/user_vpc_authorization_singular_data_source_gen.go ../byteplus/privatezone/user_vpc_authorization_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vefaas_function -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_Function.json -package vefaas ../byteplus/vefaas/function_singular_data_source_gen.go ../byteplus/vefaas/function_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vedbm_account -ccschema ../service/cloudcontrol/schemas/Byteplus_VEDBM_Account.json -package vedbm ../byteplus/vedbm/account_singular_data_source_gen.go ../byteplus/vedbm/account_singular_data_source_gen_test.go
 
 package provider
 
