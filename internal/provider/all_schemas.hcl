@@ -637,3 +637,7 @@ resource_schema "byteplus_privatezone_user_vpc_authorization" {
 resource_schema "byteplus_vefaas_function" {
   cloudcontrol_type_name = "Byteplus::VEFAAS::Function"
 }
+
+resource_schema "byteplus_vedbm_account" {
+  cloudcontrol_type_name = "Byteplus::VEDBM::Account"
+}

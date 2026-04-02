@@ -778,5 +778,10 @@
         "resource": "bytepluscc_vefaas_function",
         "identifier": ["FunctionId"],
         "path": "./examples/resources/bytepluscc_vefaas_function/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vedbm_account",
+        "identifier": ["InstanceId","AccountName"],
+        "path": "./examples/resources/bytepluscc_vedbm_account/import.sh"
     }
 ]

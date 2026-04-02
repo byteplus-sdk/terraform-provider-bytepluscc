@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vedbm_account.example "instance_id|account_name"
