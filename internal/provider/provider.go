@@ -382,7 +382,12 @@ func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.D
 	if c.Endpoints != nil && !c.Endpoints.CloudControlAPI.IsNull() {
 		config.WithEndpoint(c.Endpoints.CloudControlAPI.ValueString())
 	} else {
-		config.WithEndpoint(fmt.Sprintf("cloudcontrol.%s.byteplusapi.com", c.Region.ValueString()))
+		region := c.Region.ValueString()
+		if strings.HasPrefix(region, "cn-") && region != "cn-hongkong" {
+			config.WithEndpoint(fmt.Sprintf("cloudcontrol.%s.byteplusapi.com.cn", c.Region.ValueString()))
+		} else {
+			config.WithEndpoint(fmt.Sprintf("cloudcontrol.%s.byteplusapi.com", c.Region.ValueString()))
+		}
 	}
 
 	if !(c.ProxyURL.IsNull() || c.ProxyURL.IsUnknown()) {
