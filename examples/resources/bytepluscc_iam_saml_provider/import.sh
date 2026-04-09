@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_iam_saml_provider.example "saml_provider_name"

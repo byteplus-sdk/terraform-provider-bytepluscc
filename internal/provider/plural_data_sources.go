@@ -159,6 +159,10 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_user_vpc_authorizations -cctype Byteplus::PrivateZone::UserVPCAuthorization -package privatezone ../byteplus/privatezone/user_vpc_authorization_plural_data_source_gen.go ../byteplus/privatezone/user_vpc_authorization_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vefaas_functions -cctype Byteplus::VEFAAS::Function -package vefaas ../byteplus/vefaas/function_plural_data_source_gen.go ../byteplus/vefaas/function_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vedbm_accounts -cctype Byteplus::VEDBM::Account -package vedbm ../byteplus/vedbm/account_plural_data_source_gen.go ../byteplus/vedbm/account_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_oidc_providers -cctype Byteplus::IAM::OidcProvider -package iam ../byteplus/iam/oidc_provider_plural_data_source_gen.go ../byteplus/iam/oidc_provider_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_saml_providers -cctype Byteplus::IAM::SamlProvider -package iam ../byteplus/iam/saml_provider_plural_data_source_gen.go ../byteplus/iam/saml_provider_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vefaas_timers -cctype Byteplus::VEFAAS::Timer -package vefaas ../byteplus/vefaas/timer_plural_data_source_gen.go ../byteplus/vefaas/timer_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vmp_alerting_rules -cctype Byteplus::VMP::AlertingRule -package vmp ../byteplus/vmp/alerting_rule_plural_data_source_gen.go ../byteplus/vmp/alerting_rule_plural_data_source_gen_test.go
 
 package provider
 
