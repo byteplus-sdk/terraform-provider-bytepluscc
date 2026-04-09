@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_iam_oidc_provider.example "oidc_provider_name"

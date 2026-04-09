@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vmp_alerting_rule.example "alerting_rule_id"

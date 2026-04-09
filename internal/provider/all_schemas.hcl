@@ -641,3 +641,19 @@ resource_schema "byteplus_vefaas_function" {
 resource_schema "byteplus_vedbm_account" {
   cloudcontrol_type_name = "Byteplus::VEDBM::Account"
 }
+
+resource_schema "byteplus_iam_oidc_provider" {
+  cloudcontrol_type_name = "Byteplus::IAM::OidcProvider"
+}
+
+resource_schema "byteplus_iam_saml_provider" {
+  cloudcontrol_type_name = "Byteplus::IAM::SamlProvider"
+}
+
+resource_schema "byteplus_vefaas_timer" {
+  cloudcontrol_type_name = "Byteplus::VEFAAS::Timer"
+}
+
+resource_schema "byteplus_vmp_alerting_rule" {
+  cloudcontrol_type_name = "Byteplus::VMP::AlertingRule"
+}

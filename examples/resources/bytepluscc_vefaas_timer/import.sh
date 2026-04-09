@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vefaas_timer.example "function_id|timer_id"

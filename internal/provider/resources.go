@@ -159,6 +159,10 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_privatezone_user_vpc_authorization -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_UserVPCAuthorization.json -package privatezone -- ../byteplus/privatezone/user_vpc_authorization_resource_gen.go ../byteplus/privatezone/user_vpc_authorization_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_vefaas_function -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_Function.json -package vefaas -- ../byteplus/vefaas/function_resource_gen.go ../byteplus/vefaas/function_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_vedbm_account -ccschema ../service/cloudcontrol/schemas/Byteplus_VEDBM_Account.json -package vedbm -- ../byteplus/vedbm/account_resource_gen.go ../byteplus/vedbm/account_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_iam_oidc_provider -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_OidcProvider.json -package iam -- ../byteplus/iam/oidc_provider_resource_gen.go ../byteplus/iam/oidc_provider_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_iam_saml_provider -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_SamlProvider.json -package iam -- ../byteplus/iam/saml_provider_resource_gen.go ../byteplus/iam/saml_provider_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vefaas_timer -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_Timer.json -package vefaas -- ../byteplus/vefaas/timer_resource_gen.go ../byteplus/vefaas/timer_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vmp_alerting_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_VMP_AlertingRule.json -package vmp -- ../byteplus/vmp/alerting_rule_resource_gen.go ../byteplus/vmp/alerting_rule_resource_gen_test.go
 
 package provider
 
