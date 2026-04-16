@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cen_bandwidth_package.example "cen_bandwidth_package_id"

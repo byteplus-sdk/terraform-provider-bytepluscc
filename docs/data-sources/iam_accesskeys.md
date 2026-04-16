@@ -3,12 +3,12 @@
 page_title: "bytepluscc_iam_accesskeys Data Source - terraform-provider-bytepluscc"
 subcategory: "IAM"
 description: |-
-  Plural Data Source schema for Byteplus::IAM::AccessKey
+  Plural Data Source schema for Byteplus::IAM::Accesskey
 ---
 
 # bytepluscc_iam_accesskeys (Data Source)
 
-Plural Data Source schema for Byteplus::IAM::AccessKey
+Plural Data Source schema for Byteplus::IAM::Accesskey
 
 
 

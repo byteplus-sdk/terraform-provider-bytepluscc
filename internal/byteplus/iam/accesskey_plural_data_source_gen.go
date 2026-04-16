@@ -16,12 +16,12 @@ import (
 )
 
 func init() {
-	registry.AddDataSourceFactory("bytepluscc_iam_accesskeys", accessKeysDataSource)
+	registry.AddDataSourceFactory("bytepluscc_iam_accesskeys", accesskeysDataSource)
 }
 
-// accessKeysDataSource returns the Terraform bytepluscc_iam_accesskeys data source.
-// This Terraform data source corresponds to the Cloud Control Byteplus::IAM::AccessKey resource.
-func accessKeysDataSource(ctx context.Context) (datasource.DataSource, error) {
+// accesskeysDataSource returns the Terraform bytepluscc_iam_accesskeys data source.
+// This Terraform data source corresponds to the Cloud Control Byteplus::IAM::Accesskey resource.
+func accesskeysDataSource(ctx context.Context) (datasource.DataSource, error) {
 	attributes := map[string]schema.Attribute{
 		"id": schema.StringAttribute{
 			Description: "Uniquely identifies the data source.",
@@ -35,13 +35,13 @@ func accessKeysDataSource(ctx context.Context) (datasource.DataSource, error) {
 	}
 
 	schema := schema.Schema{
-		Description: "Plural Data Source schema for Byteplus::IAM::AccessKey",
+		Description: "Plural Data Source schema for Byteplus::IAM::Accesskey",
 		Attributes:  attributes,
 	}
 
 	var opts generic.DataSourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::IAM::AccessKey").WithTerraformTypeName("bytepluscc_iam_accesskeys")
+	opts = opts.WithCloudControlTypeName("Byteplus::IAM::Accesskey").WithTerraformTypeName("bytepluscc_iam_accesskeys")
 	opts = opts.WithTerraformSchema(schema)
 
 	v, err := generic.NewPluralDataSource(ctx, opts...)

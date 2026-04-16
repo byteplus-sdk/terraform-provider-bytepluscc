@@ -512,7 +512,9 @@
     "ConfigureNodes"
   ],
   "tagging": {
-    "taggable": false
+    "tagOnCreate": true,
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "Byteplus::Redis::Instance",
   "writeOnlyProperties": [

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_privatelink_vpc_endpoint.example "endpoint_id"
