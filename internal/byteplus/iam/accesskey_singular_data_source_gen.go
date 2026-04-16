@@ -15,12 +15,12 @@ import (
 )
 
 func init() {
-	registry.AddDataSourceFactory("bytepluscc_iam_accesskey", accessKeyDataSource)
+	registry.AddDataSourceFactory("bytepluscc_iam_accesskey", accesskeyDataSource)
 }
 
-// accessKeyDataSource returns the Terraform bytepluscc_iam_accesskey data source.
-// This Terraform data source corresponds to the Cloud Control Byteplus::IAM::AccessKey resource.
-func accessKeyDataSource(ctx context.Context) (datasource.DataSource, error) {
+// accesskeyDataSource returns the Terraform bytepluscc_iam_accesskey data source.
+// This Terraform data source corresponds to the Cloud Control Byteplus::IAM::Accesskey resource.
+func accesskeyDataSource(ctx context.Context) (datasource.DataSource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: AccessKeyId
 		// Cloud Control resource type schema:
@@ -144,13 +144,13 @@ func accessKeyDataSource(ctx context.Context) (datasource.DataSource, error) {
 	}
 
 	schema := schema.Schema{
-		Description: "Data Source schema for Byteplus::IAM::AccessKey",
+		Description: "Data Source schema for Byteplus::IAM::Accesskey",
 		Attributes:  attributes,
 	}
 
 	var opts generic.DataSourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::IAM::AccessKey").WithTerraformTypeName("bytepluscc_iam_accesskey")
+	opts = opts.WithCloudControlTypeName("Byteplus::IAM::Accesskey").WithTerraformTypeName("bytepluscc_iam_accesskey")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"access_key_id":     "AccessKeyId",

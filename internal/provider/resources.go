@@ -163,6 +163,12 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_iam_saml_provider -ccschema ../service/cloudcontrol/schemas/Byteplus_IAM_SamlProvider.json -package iam -- ../byteplus/iam/saml_provider_resource_gen.go ../byteplus/iam/saml_provider_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_vefaas_timer -ccschema ../service/cloudcontrol/schemas/Byteplus_VEFAAS_Timer.json -package vefaas -- ../byteplus/vefaas/timer_resource_gen.go ../byteplus/vefaas/timer_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_vmp_alerting_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_VMP_AlertingRule.json -package vmp -- ../byteplus/vmp/alerting_rule_resource_gen.go ../byteplus/vmp/alerting_rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_import_task -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_ImportTask.json -package tls -- ../byteplus/tls/import_task_resource_gen.go ../byteplus/tls/import_task_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_cen_bandwidth_package -ccschema ../service/cloudcontrol/schemas/Byteplus_CEN_BandwidthPackage.json -package cen -- ../byteplus/cen/bandwidth_package_resource_gen.go ../byteplus/cen/bandwidth_package_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vedbm_endpoint -ccschema ../service/cloudcontrol/schemas/Byteplus_VEDBM_Endpoint.json -package vedbm -- ../byteplus/vedbm/endpoint_resource_gen.go ../byteplus/vedbm/endpoint_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_Instance.json -package rdspostgresql -- ../byteplus/rdspostgresql/instance_resource_gen.go ../byteplus/rdspostgresql/instance_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_privatelink_vpc_endpoint -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateLink_VpcEndpoint.json -package privatelink -- ../byteplus/privatelink/vpc_endpoint_resource_gen.go ../byteplus/privatelink/vpc_endpoint_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_consumer_group -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_ConsumerGroup.json -package tls -- ../byteplus/tls/consumer_group_resource_gen.go ../byteplus/tls/consumer_group_resource_gen_test.go
 
 package provider
 

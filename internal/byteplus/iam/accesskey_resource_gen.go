@@ -19,12 +19,12 @@ import (
 )
 
 func init() {
-	registry.AddResourceFactory("bytepluscc_iam_accesskey", accessKeyResource)
+	registry.AddResourceFactory("bytepluscc_iam_accesskey", accesskeyResource)
 }
 
-// accessKeyResource returns the Terraform bytepluscc_iam_accesskey resource.
-// This Terraform resource corresponds to the Cloud Control Byteplus::IAM::AccessKey resource.
-func accessKeyResource(ctx context.Context) (resource.Resource, error) {
+// accesskeyResource returns the Terraform bytepluscc_iam_accesskey resource.
+// This Terraform resource corresponds to the Cloud Control Byteplus::IAM::Accesskey resource.
+func accesskeyResource(ctx context.Context) (resource.Resource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: AccessKeyId
 		// Cloud Control resource type schema:
@@ -63,6 +63,7 @@ func accessKeyResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"last_login_date": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "Last login time.",
+			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.UseStateForUnknown(),
@@ -105,12 +106,10 @@ func accessKeyResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"secret_access_key": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "Secret Access Key.",
-			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.UseStateForUnknown(),
 			}, /*END PLAN MODIFIERS*/
-			// SecretAccessKey is a write-only property.
 		}, /*END ATTRIBUTE*/
 		// Property: Service
 		// Cloud Control resource type schema:
@@ -200,7 +199,7 @@ func accessKeyResource(ctx context.Context) (resource.Resource, error) {
 
 	var opts generic.ResourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::IAM::AccessKey").WithTerraformTypeName("bytepluscc_iam_accesskey")
+	opts = opts.WithCloudControlTypeName("Byteplus::IAM::Accesskey").WithTerraformTypeName("bytepluscc_iam_accesskey")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"access_key_id":     "AccessKeyId",
@@ -215,10 +214,6 @@ func accessKeyResource(ctx context.Context) (resource.Resource, error) {
 		"user_name":         "UserName",
 	})
 
-	opts = opts.WithWriteOnlyPropertyPaths([]string{
-		"/properties/SecretAccessKey",
-	})
-
 	opts = opts.WithReadOnlyPropertyPaths([]string{
 		"/properties/AccessKeyId",
 		"/properties/CreatedTime",
@@ -226,7 +221,7 @@ func accessKeyResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/RequestTime",
 		"/properties/Service",
 		"/properties/UpdatedTime",
-		"/properties/LastLoginDate",
+		"/properties/SecretAccessKey",
 	})
 
 	opts = opts.WithCreateOnlyPropertyPaths([]string{

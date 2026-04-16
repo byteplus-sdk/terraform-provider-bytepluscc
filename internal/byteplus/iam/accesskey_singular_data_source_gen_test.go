@@ -14,8 +14,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccByteplusIAMAccessKeyDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::IAM::AccessKey", "bytepluscc_iam_accesskey", "test")
+func TestAccByteplusIAMAccesskeyDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::IAM::Accesskey", "bytepluscc_iam_accesskey", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{
@@ -28,8 +28,8 @@ func TestAccByteplusIAMAccessKeyDataSource_basic(t *testing.T) {
 	})
 }
 
-func TestAccByteplusIAMAccessKeyDataSource_NonExistent(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::IAM::AccessKey", "bytepluscc_iam_accesskey", "test")
+func TestAccByteplusIAMAccesskeyDataSource_NonExistent(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::IAM::Accesskey", "bytepluscc_iam_accesskey", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

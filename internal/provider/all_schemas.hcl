@@ -657,3 +657,27 @@ resource_schema "byteplus_vefaas_timer" {
 resource_schema "byteplus_vmp_alerting_rule" {
   cloudcontrol_type_name = "Byteplus::VMP::AlertingRule"
 }
+
+resource_schema "byteplus_tls_import_task" {
+  cloudcontrol_type_name = "Byteplus::TLS::ImportTask"
+}
+
+resource_schema "byteplus_cen_bandwidth_package" {
+  cloudcontrol_type_name = "Byteplus::CEN::BandwidthPackage"
+}
+
+resource_schema "byteplus_vedbm_endpoint" {
+  cloudcontrol_type_name = "Byteplus::VEDBM::Endpoint"
+}
+
+resource_schema "byteplus_rdspostgresql_instance" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::Instance"
+}
+
+resource_schema "byteplus_privatelink_vpc_endpoint" {
+  cloudcontrol_type_name = "Byteplus::PrivateLink::VpcEndpoint"
+}
+
+resource_schema "byteplus_tls_consumer_group" {
+  cloudcontrol_type_name = "Byteplus::TLS::ConsumerGroup"
+}
