@@ -833,5 +833,75 @@
         "resource": "bytepluscc_tls_consumer_group",
         "identifier": ["ProjectID","ConsumerGroupName"],
         "path": "./examples/resources/bytepluscc_tls_consumer_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatelink_vpc_endpoint_connection",
+        "identifier": ["ServiceId","EndpointId"],
+        "path": "./examples/resources/bytepluscc_privatelink_vpc_endpoint_connection/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_alarm_notify_group",
+        "identifier": ["AlarmNotifyGroupId"],
+        "path": "./examples/resources/bytepluscc_tls_alarm_notify_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_shipper",
+        "identifier": ["ShipperId"],
+        "path": "./examples/resources/bytepluscc_tls_shipper/import.sh"
+    },
+    {
+        "resource": "bytepluscc_redis_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_redis_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cen_route_entry",
+        "identifier": ["CenId","DestinationCidrBlock","InstanceId"],
+        "path": "./examples/resources/bytepluscc_cen_route_entry/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vefaas_release",
+        "identifier": ["FunctionId"],
+        "path": "./examples/resources/bytepluscc_vefaas_release/import.sh"
+    },
+    {
+        "resource": "bytepluscc_storageebs_snapshot_group",
+        "identifier": ["SnapshotGroupId"],
+        "path": "./examples/resources/bytepluscc_storageebs_snapshot_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vke_kubeconfig",
+        "identifier": ["ClusterId","KubeconfigId"],
+        "path": "./examples/resources/bytepluscc_vke_kubeconfig/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vepfs_mount_service",
+        "identifier": ["MountServiceId"],
+        "path": "./examples/resources/bytepluscc_vepfs_mount_service/import.sh"
+    },
+    {
+        "resource": "bytepluscc_mongodb_ssl_state",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_mongodb_ssl_state/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cen_service_route_entry",
+        "identifier": ["CenId","DestinationCidrBlock"],
+        "path": "./examples/resources/bytepluscc_cen_service_route_entry/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cen_inter_region_bandwidth",
+        "identifier": ["InterRegionBandwidthId"],
+        "path": "./examples/resources/bytepluscc_cen_inter_region_bandwidth/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rabbitmq_allow_list",
+        "identifier": ["AllowListId"],
+        "path": "./examples/resources/bytepluscc_rabbitmq_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_rule",
+        "identifier": ["RuleId"],
+        "path": "./examples/resources/bytepluscc_tls_rule/import.sh"
     }
 ]

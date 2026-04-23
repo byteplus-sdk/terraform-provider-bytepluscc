@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_mongodb_ssl_state.example "instance_id"
