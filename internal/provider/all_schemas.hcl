@@ -681,3 +681,59 @@ resource_schema "byteplus_privatelink_vpc_endpoint" {
 resource_schema "byteplus_tls_consumer_group" {
   cloudcontrol_type_name = "Byteplus::TLS::ConsumerGroup"
 }
+
+resource_schema "byteplus_privatelink_vpc_endpoint_connection" {
+  cloudcontrol_type_name = "Byteplus::PrivateLink::VpcEndpointConnection"
+}
+
+resource_schema "byteplus_tls_alarm_notify_group" {
+  cloudcontrol_type_name = "Byteplus::TLS::AlarmNotifyGroup"
+}
+
+resource_schema "byteplus_tls_shipper" {
+  cloudcontrol_type_name = "Byteplus::TLS::Shipper"
+}
+
+resource_schema "byteplus_redis_allow_list" {
+  cloudcontrol_type_name = "Byteplus::Redis::AllowList"
+}
+
+resource_schema "byteplus_cen_route_entry" {
+  cloudcontrol_type_name = "Byteplus::CEN::RouteEntry"
+}
+
+resource_schema "byteplus_vefaas_release" {
+  cloudcontrol_type_name = "Byteplus::VEFAAS::Release"
+}
+
+resource_schema "byteplus_storageebs_snapshot_group" {
+  cloudcontrol_type_name = "Byteplus::StorageEBS::SnapshotGroup"
+}
+
+resource_schema "byteplus_vke_kubeconfig" {
+  cloudcontrol_type_name = "Byteplus::VKE::Kubeconfig"
+}
+
+resource_schema "byteplus_vepfs_mount_service" {
+  cloudcontrol_type_name = "Byteplus::VEPFS::MountService"
+}
+
+resource_schema "byteplus_mongodb_ssl_state" {
+  cloudcontrol_type_name = "Byteplus::MongoDB::SSLState"
+}
+
+resource_schema "byteplus_cen_service_route_entry" {
+  cloudcontrol_type_name = "Byteplus::CEN::ServiceRouteEntry"
+}
+
+resource_schema "byteplus_cen_inter_region_bandwidth" {
+  cloudcontrol_type_name = "Byteplus::CEN::InterRegionBandwidth"
+}
+
+resource_schema "byteplus_rabbitmq_allow_list" {
+  cloudcontrol_type_name = "Byteplus::RabbitMQ::AllowList"
+}
+
+resource_schema "byteplus_tls_rule" {
+  cloudcontrol_type_name = "Byteplus::TLS::Rule"
+}

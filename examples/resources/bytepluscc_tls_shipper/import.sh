@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tls_shipper.example "shipper_id"

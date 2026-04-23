@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vke_kubeconfig.example "cluster_id|kubeconfig_id"

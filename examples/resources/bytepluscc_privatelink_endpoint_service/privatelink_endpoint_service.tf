@@ -4,7 +4,6 @@ resource "bytepluscc_privatelink_endpoint_service" "PrivateLinkEndpointServiceDe
   service_resource_type = "CLB"
   resources = [
     {
-      instance_id = ""
       resource_id = "clb-rr0o8ni4dxxxx58wxxxxx"
       zone_ids    = []
     }
