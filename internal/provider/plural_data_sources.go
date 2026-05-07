@@ -183,6 +183,10 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cen_inter_region_bandwidths -cctype Byteplus::CEN::InterRegionBandwidth -package cen ../byteplus/cen/inter_region_bandwidth_plural_data_source_gen.go ../byteplus/cen/inter_region_bandwidth_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rabbitmq_allow_lists -cctype Byteplus::RabbitMQ::AllowList -package rabbitmq ../byteplus/rabbitmq/allow_list_plural_data_source_gen.go ../byteplus/rabbitmq/allow_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_rules -cctype Byteplus::TLS::Rule -package tls ../byteplus/tls/rule_plural_data_source_gen.go ../byteplus/tls/rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_endpoint_acl_policies -cctype Byteplus::CR::EndpointAclPolicy -package cr ../byteplus/cr/endpoint_acl_policy_plural_data_source_gen.go ../byteplus/cr/endpoint_acl_policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpn_ssl_vpn_client_certs -cctype Byteplus::VPN::SslVpnClientCert -package vpn ../byteplus/vpn/ssl_vpn_client_cert_plural_data_source_gen.go ../byteplus/vpn/ssl_vpn_client_cert_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_peer_attachments -cctype Byteplus::TransitRouter::PeerAttachment -package transitrouter ../byteplus/transitrouter/peer_attachment_plural_data_source_gen.go ../byteplus/transitrouter/peer_attachment_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_service_control_policies -cctype Byteplus::Organization::ServiceControlPolicy -package organization ../byteplus/organization/service_control_policy_plural_data_source_gen.go ../byteplus/organization/service_control_policy_plural_data_source_gen_test.go
 
 package provider
 

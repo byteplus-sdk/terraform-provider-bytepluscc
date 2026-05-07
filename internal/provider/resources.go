@@ -183,6 +183,10 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_cen_inter_region_bandwidth -ccschema ../service/cloudcontrol/schemas/Byteplus_CEN_InterRegionBandwidth.json -package cen -- ../byteplus/cen/inter_region_bandwidth_resource_gen.go ../byteplus/cen/inter_region_bandwidth_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_rabbitmq_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_RabbitMQ_AllowList.json -package rabbitmq -- ../byteplus/rabbitmq/allow_list_resource_gen.go ../byteplus/rabbitmq/allow_list_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_tls_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_Rule.json -package tls -- ../byteplus/tls/rule_resource_gen.go ../byteplus/tls/rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_cr_endpoint_acl_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_CR_EndpointAclPolicy.json -package cr -- ../byteplus/cr/endpoint_acl_policy_resource_gen.go ../byteplus/cr/endpoint_acl_policy_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpn_ssl_vpn_client_cert -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_SslVpnClientCert.json -package vpn -- ../byteplus/vpn/ssl_vpn_client_cert_resource_gen.go ../byteplus/vpn/ssl_vpn_client_cert_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_transitrouter_peer_attachment -ccschema ../service/cloudcontrol/schemas/Byteplus_TransitRouter_PeerAttachment.json -package transitrouter -- ../byteplus/transitrouter/peer_attachment_resource_gen.go ../byteplus/transitrouter/peer_attachment_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_organization_service_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_ServiceControlPolicy.json -package organization -- ../byteplus/organization/service_control_policy_resource_gen.go ../byteplus/organization/service_control_policy_resource_gen_test.go
 
 package provider
 

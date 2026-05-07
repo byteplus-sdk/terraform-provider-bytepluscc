@@ -903,5 +903,25 @@
         "resource": "bytepluscc_tls_rule",
         "identifier": ["RuleId"],
         "path": "./examples/resources/bytepluscc_tls_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cr_endpoint_acl_policy",
+        "identifier": ["Registry","Entry"],
+        "path": "./examples/resources/bytepluscc_cr_endpoint_acl_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpn_ssl_vpn_client_cert",
+        "identifier": ["SslVpnClientCertId"],
+        "path": "./examples/resources/bytepluscc_vpn_ssl_vpn_client_cert/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_peer_attachment",
+        "identifier": ["TransitRouterAttachmentId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_peer_attachment/import.sh"
+    },
+    {
+        "resource": "bytepluscc_organization_service_control_policy",
+        "identifier": ["PolicyID"],
+        "path": "./examples/resources/bytepluscc_organization_service_control_policy/import.sh"
     }
 ]

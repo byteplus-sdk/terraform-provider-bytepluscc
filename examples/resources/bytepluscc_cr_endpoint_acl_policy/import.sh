@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cr_endpoint_acl_policy.example "registry|entry"
