@@ -737,3 +737,19 @@ resource_schema "byteplus_rabbitmq_allow_list" {
 resource_schema "byteplus_tls_rule" {
   cloudcontrol_type_name = "Byteplus::TLS::Rule"
 }
+
+resource_schema "byteplus_cr_endpoint_acl_policy" {
+  cloudcontrol_type_name = "Byteplus::CR::EndpointAclPolicy"
+}
+
+resource_schema "byteplus_vpn_ssl_vpn_client_cert" {
+  cloudcontrol_type_name = "Byteplus::VPN::SslVpnClientCert"
+}
+
+resource_schema "byteplus_transitrouter_peer_attachment" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::PeerAttachment"
+}
+
+resource_schema "byteplus_organization_service_control_policy" {
+  cloudcontrol_type_name = "Byteplus::Organization::ServiceControlPolicy"
+}
