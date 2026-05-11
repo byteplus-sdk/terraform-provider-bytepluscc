@@ -923,5 +923,10 @@
         "resource": "bytepluscc_organization_service_control_policy",
         "identifier": ["PolicyID"],
         "path": "./examples/resources/bytepluscc_organization_service_control_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_parameter_template",
+        "identifier": ["TemplateId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_parameter_template/import.sh"
     }
 ]
