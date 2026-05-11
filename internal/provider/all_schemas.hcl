@@ -753,3 +753,7 @@ resource_schema "byteplus_transitrouter_peer_attachment" {
 resource_schema "byteplus_organization_service_control_policy" {
   cloudcontrol_type_name = "Byteplus::Organization::ServiceControlPolicy"
 }
+
+resource_schema "byteplus_rdsmysql_parameter_template" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::ParameterTemplate"
+}

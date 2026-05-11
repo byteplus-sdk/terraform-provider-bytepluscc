@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdsmysql_parameter_template.example "template_id"

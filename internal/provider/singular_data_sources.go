@@ -187,6 +187,7 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vpn_ssl_vpn_client_cert -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_SslVpnClientCert.json -package vpn ../byteplus/vpn/ssl_vpn_client_cert_singular_data_source_gen.go ../byteplus/vpn/ssl_vpn_client_cert_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_transitrouter_peer_attachment -ccschema ../service/cloudcontrol/schemas/Byteplus_TransitRouter_PeerAttachment.json -package transitrouter ../byteplus/transitrouter/peer_attachment_singular_data_source_gen.go ../byteplus/transitrouter/peer_attachment_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_organization_service_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_ServiceControlPolicy.json -package organization ../byteplus/organization/service_control_policy_singular_data_source_gen.go ../byteplus/organization/service_control_policy_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_rdsmysql_parameter_template -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_ParameterTemplate.json -package rdsmysql ../byteplus/rdsmysql/parameter_template_singular_data_source_gen.go ../byteplus/rdsmysql/parameter_template_singular_data_source_gen_test.go
 
 package provider
 

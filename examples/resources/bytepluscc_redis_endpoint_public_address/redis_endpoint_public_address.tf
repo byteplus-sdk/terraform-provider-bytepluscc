@@ -3,4 +3,3 @@ resource "bytepluscc_redis_endpoint_public_address" "RedisEndpointPublicAddressD
   port        = 6379
   eip_id      = "eip-w08rcc38bsw0865yxxxxx"
 }
-
