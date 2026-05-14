@@ -188,6 +188,8 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_transitrouter_peer_attachment -ccschema ../service/cloudcontrol/schemas/Byteplus_TransitRouter_PeerAttachment.json -package transitrouter -- ../byteplus/transitrouter/peer_attachment_resource_gen.go ../byteplus/transitrouter/peer_attachment_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_organization_service_control_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_ServiceControlPolicy.json -package organization -- ../byteplus/organization/service_control_policy_resource_gen.go ../byteplus/organization/service_control_policy_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_rdsmysql_parameter_template -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSMySQL_ParameterTemplate.json -package rdsmysql -- ../byteplus/rdsmysql/parameter_template_resource_gen.go ../byteplus/rdsmysql/parameter_template_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_rdspostgresql_backup -ccschema ../service/cloudcontrol/schemas/Byteplus_RDSPostgreSQL_Backup.json -package rdspostgresql -- ../byteplus/rdspostgresql/backup_resource_gen.go ../byteplus/rdspostgresql/backup_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_redis_parameter_group -ccschema ../service/cloudcontrol/schemas/Byteplus_Redis_ParameterGroup.json -package redis -- ../byteplus/redis/parameter_group_resource_gen.go ../byteplus/redis/parameter_group_resource_gen_test.go
 
 package provider
 

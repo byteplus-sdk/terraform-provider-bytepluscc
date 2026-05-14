@@ -188,6 +188,8 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_peer_attachments -cctype Byteplus::TransitRouter::PeerAttachment -package transitrouter ../byteplus/transitrouter/peer_attachment_plural_data_source_gen.go ../byteplus/transitrouter/peer_attachment_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_service_control_policies -cctype Byteplus::Organization::ServiceControlPolicy -package organization ../byteplus/organization/service_control_policy_plural_data_source_gen.go ../byteplus/organization/service_control_policy_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmysql_parameter_templates -cctype Byteplus::RDSMySQL::ParameterTemplate -package rdsmysql ../byteplus/rdsmysql/parameter_template_plural_data_source_gen.go ../byteplus/rdsmysql/parameter_template_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdspostgresql_backups -cctype Byteplus::RDSPostgreSQL::Backup -package rdspostgresql ../byteplus/rdspostgresql/backup_plural_data_source_gen.go ../byteplus/rdspostgresql/backup_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_redis_parameter_groups -cctype Byteplus::Redis::ParameterGroup -package redis ../byteplus/redis/parameter_group_plural_data_source_gen.go ../byteplus/redis/parameter_group_plural_data_source_gen_test.go
 
 package provider
 
