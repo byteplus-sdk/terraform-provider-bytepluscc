@@ -757,3 +757,11 @@ resource_schema "byteplus_organization_service_control_policy" {
 resource_schema "byteplus_rdsmysql_parameter_template" {
   cloudcontrol_type_name = "Byteplus::RDSMySQL::ParameterTemplate"
 }
+
+resource_schema "byteplus_rdspostgresql_backup" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::Backup"
+}
+
+resource_schema "byteplus_redis_parameter_group" {
+  cloudcontrol_type_name = "Byteplus::Redis::ParameterGroup"
+}

@@ -21,6 +21,7 @@ import (
 	byteplusclicreds "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/credentials/clicreds"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/common"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/customresources"
 	baselogging "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/logging"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/registry"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int32validator"
@@ -292,6 +293,20 @@ func (p *ByteplusCCProvider) Resources(ctx context.Context) []func() resource.Re
 			)
 
 			continue
+		}
+
+		// Allow hand-written code to wrap or replace the auto-generated
+		// resource without modifying the generated `*_resource_gen.go`.
+		// See internal/customresources for details.
+		if wrap, ok := customresources.Lookup(name); ok {
+			v, err = wrap(ctx, v)
+			if err != nil {
+				diags.AddError(
+					"Error wrapping Resource",
+					fmt.Sprintf("Error applying custom override for the %s Resource.\n%s\n", name, err),
+				)
+				continue
+			}
 		}
 
 		resources = append(resources, func() resource.Resource {

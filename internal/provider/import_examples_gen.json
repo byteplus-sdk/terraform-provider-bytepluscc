@@ -928,5 +928,15 @@
         "resource": "bytepluscc_rdsmysql_parameter_template",
         "identifier": ["TemplateId"],
         "path": "./examples/resources/bytepluscc_rdsmysql_parameter_template/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_backup",
+        "identifier": ["BackupId","InstanceId"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_backup/import.sh"
+    },
+    {
+        "resource": "bytepluscc_redis_parameter_group",
+        "identifier": ["ParameterGroupId"],
+        "path": "./examples/resources/bytepluscc_redis_parameter_group/import.sh"
     }
 ]
