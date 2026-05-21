@@ -662,20 +662,12 @@ resource_schema "byteplus_tls_import_task" {
   cloudcontrol_type_name = "Byteplus::TLS::ImportTask"
 }
 
-resource_schema "byteplus_cen_bandwidth_package" {
-  cloudcontrol_type_name = "Byteplus::CEN::BandwidthPackage"
-}
-
 resource_schema "byteplus_vedbm_endpoint" {
   cloudcontrol_type_name = "Byteplus::VEDBM::Endpoint"
 }
 
 resource_schema "byteplus_rdspostgresql_instance" {
   cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::Instance"
-}
-
-resource_schema "byteplus_privatelink_vpc_endpoint" {
-  cloudcontrol_type_name = "Byteplus::PrivateLink::VpcEndpoint"
 }
 
 resource_schema "byteplus_tls_consumer_group" {
@@ -764,4 +756,16 @@ resource_schema "byteplus_rdspostgresql_backup" {
 
 resource_schema "byteplus_redis_parameter_group" {
   cloudcontrol_type_name = "Byteplus::Redis::ParameterGroup"
+}
+
+resource_schema "byteplus_cen_bandwidth_package" {
+  cloudcontrol_type_name = "Byteplus::CEN::BandwidthPackage"
+}
+
+resource_schema "byteplus_privatelink_vpc_endpoint" {
+  cloudcontrol_type_name = "Byteplus::PrivateLink::VPCEndpoint"
+}
+
+resource_schema "byteplus_privatezone_private_zone" {
+  cloudcontrol_type_name = "Byteplus::PrivateZone::PrivateZone"
 }
