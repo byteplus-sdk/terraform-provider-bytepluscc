@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_privatezone_private_zone.example "zid"

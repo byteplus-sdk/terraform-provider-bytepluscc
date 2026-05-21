@@ -810,11 +810,6 @@
         "path": "./examples/resources/bytepluscc_tls_import_task/import.sh"
     },
     {
-        "resource": "bytepluscc_cen_bandwidth_package",
-        "identifier": ["CenBandwidthPackageId"],
-        "path": "./examples/resources/bytepluscc_cen_bandwidth_package/import.sh"
-    },
-    {
         "resource": "bytepluscc_vedbm_endpoint",
         "identifier": ["InstanceId","EndpointId"],
         "path": "./examples/resources/bytepluscc_vedbm_endpoint/import.sh"
@@ -823,11 +818,6 @@
         "resource": "bytepluscc_rdspostgresql_instance",
         "identifier": ["InstanceId"],
         "path": "./examples/resources/bytepluscc_rdspostgresql_instance/import.sh"
-    },
-    {
-        "resource": "bytepluscc_privatelink_vpc_endpoint",
-        "identifier": ["EndpointId"],
-        "path": "./examples/resources/bytepluscc_privatelink_vpc_endpoint/import.sh"
     },
     {
         "resource": "bytepluscc_tls_consumer_group",
@@ -938,5 +928,20 @@
         "resource": "bytepluscc_redis_parameter_group",
         "identifier": ["ParameterGroupId"],
         "path": "./examples/resources/bytepluscc_redis_parameter_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cen_bandwidth_package",
+        "identifier": ["CenBandwidthPackageId"],
+        "path": "./examples/resources/bytepluscc_cen_bandwidth_package/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatelink_vpc_endpoint",
+        "identifier": ["EndpointId"],
+        "path": "./examples/resources/bytepluscc_privatelink_vpc_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatezone_private_zone",
+        "identifier": ["ZID"],
+        "path": "./examples/resources/bytepluscc_privatezone_private_zone/import.sh"
     }
 ]
