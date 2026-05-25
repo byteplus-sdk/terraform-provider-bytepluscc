@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpn_vpn_gateway_route.example "vpn_gateway_route_id"

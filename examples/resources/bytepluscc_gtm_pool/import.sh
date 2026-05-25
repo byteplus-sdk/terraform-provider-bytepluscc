@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_gtm_pool.example "gtm_id|pool_id"

@@ -191,6 +191,13 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cen_bandwidth_packages -cctype Byteplus::CEN::BandwidthPackage -package cen ../byteplus/cen/bandwidth_package_plural_data_source_gen.go ../byteplus/cen/bandwidth_package_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatelink_vpc_endpoints -cctype Byteplus::PrivateLink::VpcEndpoint -package privatelink ../byteplus/privatelink/vpc_endpoint_plural_data_source_gen.go ../byteplus/privatelink/vpc_endpoint_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatezone_private_zones -cctype Byteplus::PrivateZone::PrivateZone -package privatezone ../byteplus/privatezone/private_zone_plural_data_source_gen.go ../byteplus/privatezone/private_zone_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_directconnect_gateway_routes -cctype Byteplus::DirectConnect::DirectConnectGatewayRoute -package directconnect ../byteplus/directconnect/gateway_route_plural_data_source_gen.go ../byteplus/directconnect/gateway_route_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpn_ssl_vpn_servers -cctype Byteplus::VPN::SslVpnServer -package vpn ../byteplus/vpn/ssl_vpn_server_plural_data_source_gen.go ../byteplus/vpn/ssl_vpn_server_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpn_vpn_gateway_routes -cctype Byteplus::VPN::VpnGatewayRoute -package vpn ../byteplus/vpn/vpn_gateway_route_plural_data_source_gen.go ../byteplus/vpn/vpn_gateway_route_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_alarms -cctype Byteplus::TLS::Alarm -package tls ../byteplus/tls/alarm_plural_data_source_gen.go ../byteplus/tls/alarm_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_directconnect_virtual_interfaces -cctype Byteplus::DirectConnect::VirtualInterface -package directconnect ../byteplus/directconnect/virtual_interface_plural_data_source_gen.go ../byteplus/directconnect/virtual_interface_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kms_secrets -cctype Byteplus::KMS::Secret -package kms ../byteplus/kms/secret_plural_data_source_gen.go ../byteplus/kms/secret_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_gtm_pools -cctype Byteplus::GTM::Pool -package gtm ../byteplus/gtm/pool_plural_data_source_gen.go ../byteplus/gtm/pool_plural_data_source_gen_test.go
 
 package provider
 
@@ -213,6 +220,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/filenas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/fwcenter"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/gtm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"

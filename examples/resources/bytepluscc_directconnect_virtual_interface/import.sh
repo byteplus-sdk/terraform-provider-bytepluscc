@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_directconnect_virtual_interface.example "virtual_interface_id"

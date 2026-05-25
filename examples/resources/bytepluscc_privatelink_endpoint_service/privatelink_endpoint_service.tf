@@ -21,4 +21,5 @@ resource "bytepluscc_privatelink_endpoint_service" "PrivateLinkEndpointServiceDe
   ]
   payer                     = "Endpoint"
   enable_verify_private_dns = true
+  permit_account_ids        = ["*"]
 }

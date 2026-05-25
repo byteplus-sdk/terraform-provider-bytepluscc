@@ -769,3 +769,31 @@ resource_schema "byteplus_privatelink_vpc_endpoint" {
 resource_schema "byteplus_privatezone_private_zone" {
   cloudcontrol_type_name = "Byteplus::PrivateZone::PrivateZone"
 }
+
+resource_schema "byteplus_directconnect_gateway_route" {
+  cloudcontrol_type_name = "Byteplus::DirectConnect::DirectConnectGatewayRoute"
+}
+
+resource_schema "byteplus_vpn_ssl_vpn_server" {
+  cloudcontrol_type_name = "Byteplus::VPN::SslVpnServer"
+}
+
+resource_schema "byteplus_vpn_vpn_gateway_route" {
+  cloudcontrol_type_name = "Byteplus::VPN::VpnGatewayRoute"
+}
+
+resource_schema "byteplus_tls_alarm" {
+  cloudcontrol_type_name = "Byteplus::TLS::Alarm"
+}
+
+resource_schema "byteplus_directconnect_virtual_interface" {
+  cloudcontrol_type_name = "Byteplus::DirectConnect::VirtualInterface"
+}
+
+resource_schema "byteplus_kms_secret" {
+  cloudcontrol_type_name = "Byteplus::KMS::Secret"
+}
+
+resource_schema "byteplus_gtm_pool" {
+  cloudcontrol_type_name = "Byteplus::GTM::Pool"
+}

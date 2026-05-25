@@ -191,6 +191,13 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_cen_bandwidth_package -ccschema ../service/cloudcontrol/schemas/Byteplus_CEN_BandwidthPackage.json -package cen -- ../byteplus/cen/bandwidth_package_resource_gen.go ../byteplus/cen/bandwidth_package_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_privatelink_vpc_endpoint -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateLink_VPCEndpoint.json -package privatelink -- ../byteplus/privatelink/vpc_endpoint_resource_gen.go ../byteplus/privatelink/vpc_endpoint_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_privatezone_private_zone -ccschema ../service/cloudcontrol/schemas/Byteplus_PrivateZone_PrivateZone.json -package privatezone -- ../byteplus/privatezone/private_zone_resource_gen.go ../byteplus/privatezone/private_zone_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_directconnect_gateway_route -ccschema ../service/cloudcontrol/schemas/Byteplus_DirectConnect_DirectConnectGatewayRoute.json -package directconnect -- ../byteplus/directconnect/gateway_route_resource_gen.go ../byteplus/directconnect/gateway_route_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpn_ssl_vpn_server -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_SslVpnServer.json -package vpn -- ../byteplus/vpn/ssl_vpn_server_resource_gen.go ../byteplus/vpn/ssl_vpn_server_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vpn_vpn_gateway_route -ccschema ../service/cloudcontrol/schemas/Byteplus_VPN_VpnGatewayRoute.json -package vpn -- ../byteplus/vpn/vpn_gateway_route_resource_gen.go ../byteplus/vpn/vpn_gateway_route_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_alarm -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_Alarm.json -package tls -- ../byteplus/tls/alarm_resource_gen.go ../byteplus/tls/alarm_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_directconnect_virtual_interface -ccschema ../service/cloudcontrol/schemas/Byteplus_DirectConnect_VirtualInterface.json -package directconnect -- ../byteplus/directconnect/virtual_interface_resource_gen.go ../byteplus/directconnect/virtual_interface_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_kms_secret -ccschema ../service/cloudcontrol/schemas/Byteplus_KMS_Secret.json -package kms -- ../byteplus/kms/secret_resource_gen.go ../byteplus/kms/secret_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_gtm_pool -ccschema ../service/cloudcontrol/schemas/Byteplus_GTM_Pool.json -package gtm -- ../byteplus/gtm/pool_resource_gen.go ../byteplus/gtm/pool_resource_gen_test.go
 
 package provider
 
@@ -213,6 +220,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/escloud"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/filenas"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/fwcenter"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/gtm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"
