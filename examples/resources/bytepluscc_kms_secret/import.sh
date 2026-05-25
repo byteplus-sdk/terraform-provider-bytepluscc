@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kms_secret.example "secret_name"

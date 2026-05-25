@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tls_alarm.example "alarm_id"
