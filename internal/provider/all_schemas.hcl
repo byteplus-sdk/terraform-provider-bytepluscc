@@ -758,6 +758,10 @@ resource_schema "byteplus_redis_parameter_group" {
   cloudcontrol_type_name = "Byteplus::Redis::ParameterGroup"
 }
 
+resource_schema "byteplus_rdspostgresql_parameter_template" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::ParameterTemplate"
+}
+
 resource_schema "byteplus_cen_bandwidth_package" {
   cloudcontrol_type_name = "Byteplus::CEN::BandwidthPackage"
 }

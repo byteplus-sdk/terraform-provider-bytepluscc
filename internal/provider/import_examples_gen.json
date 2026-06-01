@@ -930,6 +930,10 @@
         "path": "./examples/resources/bytepluscc_redis_parameter_group/import.sh"
     },
     {
+        "resource": "bytepluscc_rdspostgresql_parameter_template",
+        "identifier": ["TemplateId"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_parameter_template/import.sh"
+    },
         "resource": "bytepluscc_cen_bandwidth_package",
         "identifier": ["CenBandwidthPackageId"],
         "path": "./examples/resources/bytepluscc_cen_bandwidth_package/import.sh"
