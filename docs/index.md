@@ -96,7 +96,7 @@ provider "bytepluscc" {
 
 ### Environment variables
 
-You can provide your credentials via BYTEPLUS_ACCESS_KEY and BYTEPLUS_SECRET_KEY environment variables, representing your byteplus public key and private key respectively. BYTEPLUS_REGION, BYTEPLUS_PROFILE, and BYTEPLUS_FILE_PATH are also used, if applicable:
+You can provide your credentials via BYTEPLUS_ACCESS_KEY and BYTEPLUS_SECRET_KEY environment variables, representing your byteplus public key and private key respectively. BYTEPLUS_SESSION_TOKEN, BYTEPLUS_REGION, BYTEPLUS_PROFILE, and BYTEPLUS_FILE_PATH are also used, if applicable:
 
 ```shell
 provider "bytepluscc" {
@@ -109,6 +109,7 @@ Usage:
 ```shell
 $ export BYTEPLUS_ACCESS_KEY="your_public_key"
 $ export BYTEPLUS_SECRET_KEY="your_private_key"
+$ export BYTEPLUS_SESSION_TOKEN="your_session_token" # optional, used together with temporary AK/SK from STS
 $ export BYTEPLUS_REGION="cn-beijing"
 $ export BYTEPLUS_PROFILE="your_profile"
 $ export BYTEPLUS_FILE_PATH="your_file_path" # if empty, default path is ~/.byteplus
@@ -122,6 +123,7 @@ $ export BYTEPLUS_FILE_PATH="your_file_path" # if empty, default path is ~/.byte
 
 - `access_key` (String) The Access Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_ACCESS_KEY` environment variable
 - `secret_key` (String) he Secret Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_SECRET_KEY` environment variable
+- `session_token` (String) The Session Token for Byteplus Provider, used together with temporary AK/SK obtained from STS. It can also be sourced from the `BYTEPLUS_SESSION_TOKEN` environment variable
 - `profile` (String) The Profile for byteplus Provider. It can be used as an alternative authentication method to AK/SK, and can also be sourced from the `BYTEPLUS_PROFILE` environment variable
 - `file_path` (String) The File Path for byteplus Provider. It specifies the path to the profile configuration file. If not specified, the default path `~/.byteplus` will be used, and can also be sourced from the `BYTEPLUS_FILE_PATH` environment variable
 - `assume_role` (Attributes) An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role))
@@ -129,7 +131,7 @@ $ export BYTEPLUS_FILE_PATH="your_file_path" # if empty, default path is ~/.byte
 - `disable_ssl` (Boolean) Disable SSL for Byteplus Provider
 - `endpoints` (Attributes) An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration. (see [below for nested schema](#nestedatt--endpoints))
 - `proxy_url` (String) PROXY URL for Byteplus Provider
-- `region` (String) The Region for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_REGION` environment variable
+- `region` (String) The Region for Byteplus Provider. It can also be sourced from the `BYTEPLUS_REGION` environment variable. Defaults to `ap-southeast-1` when not provided.
 
 
 <a id="nestedatt--assume_role"></a>
@@ -153,7 +155,7 @@ Optional:
 Optional:
 
 - `cloudcontrolapi` (String) Use this to override the default Cloud Control API service endpoint URL
-- `sts` (String) Use this to override the default STS service endpoint URL
+- `sts` (String) Use this to override the default STS service endpoint URL. When `assume_role` is configured and `sts` is not specified, the provider uses `sts.{region}.byteplusapi.com.cn` for `cn-` prefixed regions (except `cn-hongkong`), and `sts.{region}.byteplusapi.com` for all other regions.
 
 ## Warning：
 The current version has a known issue when modifying the SetNestedAttribute and ListNestedAttribute of nested ReadOnly/WriteOnly properties, which may cause abnormal plan/apply results. It is recommended that you consider the above limitations and be cautious when changing related data.

@@ -91,8 +91,12 @@ func (p *ByteplusCCProvider) Schema(ctx context.Context, request provider.Schema
 				Description: "he Secret Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_SECRET_KEY` environment variable",
 				Optional:    true,
 			},
+			"session_token": schema.StringAttribute{
+				Description: "The Session Token for Byteplus Provider, used together with temporary AK/SK obtained from STS. It can also be sourced from the `BYTEPLUS_SESSION_TOKEN` environment variable",
+				Optional:    true,
+			},
 			"region": schema.StringAttribute{
-				Description: "The Region for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_REGION` environment variable",
+				Description: "The Region for Byteplus Provider. It can also be sourced from the `BYTEPLUS_REGION` environment variable. Defaults to `ap-southeast-1` when not provided.",
 				Optional:    true,
 			},
 			"disable_ssl": schema.BoolAttribute{
@@ -157,6 +161,7 @@ func (p *ByteplusCCProvider) Schema(ctx context.Context, request provider.Schema
 type configModel struct {
 	AccessKey       types.String    `tfsdk:"access_key"`
 	SecretKey       types.String    `tfsdk:"secret_key"`
+	SessionToken    types.String    `tfsdk:"session_token"`
 	Region          types.String    `tfsdk:"region"`
 	DisableSSL      types.Bool      `tfsdk:"disable_ssl"`
 	CustomerHeaders types.String    `tfsdk:"customer_headers"`
@@ -198,6 +203,9 @@ func (p *ByteplusCCProvider) Configure(ctx context.Context, request provider.Con
 	if config.SecretKey.IsNull() || config.SecretKey.IsUnknown() {
 		config.SecretKey = types.StringValue(os.Getenv("BYTEPLUS_SECRET_KEY"))
 	}
+	if config.SessionToken.IsNull() || config.SessionToken.IsUnknown() {
+		config.SessionToken = types.StringValue(os.Getenv("BYTEPLUS_SESSION_TOKEN"))
+	}
 	if config.Profile.IsNull() || config.Profile.IsUnknown() {
 		config.Profile = types.StringValue(os.Getenv("BYTEPLUS_PROFILE"))
 	}
@@ -206,6 +214,9 @@ func (p *ByteplusCCProvider) Configure(ctx context.Context, request provider.Con
 	}
 	if config.Region.IsNull() || config.Region.IsUnknown() {
 		config.Region = types.StringValue(os.Getenv("BYTEPLUS_REGION"))
+	}
+	if config.Region.ValueString() == "" {
+		config.Region = types.StringValue("ap-southeast-1")
 	}
 	// 验证认证方式：必须配置ak + sk，或者必须配置profile + file_path
 	hasAKSK := config.AccessKey.ValueString() != "" && config.SecretKey.ValueString() != ""
@@ -357,7 +368,7 @@ func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.D
 	if c.AccessKey.ValueString() != "" && c.SecretKey.ValueString() != "" {
 		config = volcengine.NewConfig().
 			WithRegion(c.Region.ValueString()).
-			WithCredentials(credentials.NewStaticCredentials(c.AccessKey.ValueString(), c.SecretKey.ValueString(), "")).
+			WithCredentials(credentials.NewStaticCredentials(c.AccessKey.ValueString(), c.SecretKey.ValueString(), c.SessionToken.ValueString())).
 			WithDisableSSL(c.DisableSSL.ValueBool()).
 			WithExtendHttpRequest(func(ctx context.Context, request *http.Request) {
 				request.Header.Set("user-agent", version)
@@ -431,11 +442,19 @@ func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.D
 			SecurityKey:     c.SecretKey.ValueString(),
 			RoleName:        roleName, // 扮演角色名称
 			AccountId:       accountId,
+			Schema:          "https",
 			Region:          c.Region.ValueString(),
 			DurationSeconds: int(c.AssumeRole.Duration.ValueInt32()),
 		}
-		if c.Endpoints != nil && !c.Endpoints.STS.IsNull() {
+		if c.Endpoints != nil && !c.Endpoints.STS.IsNull() && c.Endpoints.STS.ValueString() != "" {
 			stsValue.Host = c.Endpoints.STS.ValueString()
+		} else {
+			region := c.Region.ValueString()
+			if strings.HasPrefix(region, "cn-") && region != "cn-hongkong" {
+				stsValue.Host = fmt.Sprintf("sts.%s.byteplusapi.com.cn", region)
+			} else {
+				stsValue.Host = fmt.Sprintf("sts.%s.byteplusapi.com", region)
+			}
 		}
 		if c.DisableSSL.ValueBool() {
 			stsValue.Schema = "http"
