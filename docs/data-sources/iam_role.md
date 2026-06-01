@@ -29,6 +29,7 @@ Data Source schema for Byteplus::IAM::Role
 - `policies` (Attributes Set) Role Strategy (see [below for nested schema](#nestedatt--policies))
 - `role_id` (Number) Role ID
 - `role_name` (String) Role name, length 1–64, supports English letters, numbers, and .-_ characters
+- `service_name` (String) Service associated with the service-linked role to be created.
 - `tags` (Attributes Set) Tag (see [below for nested schema](#nestedatt--tags))
 - `trn` (String) Role TRN
 - `trust_policy_document` (String) Role trust policy. The trust policy follows resource-based policy rules in IAM policy syntax.
@@ -39,8 +40,23 @@ Data Source schema for Byteplus::IAM::Role
 
 Read-Only:
 
+- `attach_date` (String) Policy binding time.
+- `description` (String) Policy description.
 - `policy_name` (String) Policy name
+- `policy_scopes` (Attributes Set) Policy authorization scope, specifically refers to the project scope. (see [below for nested schema](#nestedatt--policies--policy_scopes))
+- `policy_trn` (String) Policy TRN.
 - `policy_type` (String) Policy type. Policy type. System indicates a system preset policy; Custom indicates a custom policy.
+
+<a id="nestedatt--policies--policy_scopes"></a>
+### Nested Schema for `policies.policy_scopes`
+
+Read-Only:
+
+- `attach_date` (String) Project authorization time.
+- `policy_scope_type` (String) Authorization type. Global means global authorization (not limited to any project), Project means project-based authorization.
+- `project_display_name` (String) Project display name for project-based authorization.
+- `project_name` (String) Project name for project-based authorization.
+
 
 
 <a id="nestedatt--tags"></a>

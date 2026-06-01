@@ -6,7 +6,6 @@
 package iam_test
 
 import (
-	"regexp"
 	"testing"
 
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/acctest"
@@ -18,8 +17,30 @@ func TestAccByteplusIAMRole_basic(t *testing.T) {
 
 	td.ResourceTest(t, []resource.TestStep{
 		{
-			Config:      td.EmptyConfig(),
-			ExpectError: regexp.MustCompile("Missing required argument"),
+			Config: td.EmptyConfig(),
+			Check: resource.ComposeTestCheckFunc(
+				td.CheckExistsInVolcengine(),
+			),
+		},
+		{
+			ResourceName:      td.ResourceName,
+			ImportState:       true,
+			ImportStateVerify: true,
+		},
+	})
+}
+
+func TestAccByteplusIAMRole_disappears(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::IAM::Role", "bytepluscc_iam_role", "test")
+
+	td.ResourceTest(t, []resource.TestStep{
+		{
+			Config: td.EmptyConfig(),
+			Check: resource.ComposeTestCheckFunc(
+				td.CheckExistsInVolcengine(),
+				td.DeleteResource(),
+			),
+			ExpectNonEmptyPlan: true,
 		},
 	})
 }
