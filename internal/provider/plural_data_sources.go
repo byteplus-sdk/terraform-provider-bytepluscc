@@ -199,6 +199,8 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_directconnect_virtual_interfaces -cctype Byteplus::DirectConnect::VirtualInterface -package directconnect ../byteplus/directconnect/virtual_interface_plural_data_source_gen.go ../byteplus/directconnect/virtual_interface_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kms_secrets -cctype Byteplus::KMS::Secret -package kms ../byteplus/kms/secret_plural_data_source_gen.go ../byteplus/kms/secret_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_gtm_pools -cctype Byteplus::GTM::Pool -package gtm ../byteplus/gtm/pool_plural_data_source_gen.go ../byteplus/gtm/pool_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_contact_groups -cctype Byteplus::CloudMonitor::ContactGroup -package cloudmonitor ../byteplus/cloudmonitor/contact_group_plural_data_source_gen.go ../byteplus/cloudmonitor/contact_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_id_services -cctype Byteplus::ID::Service -package id ../byteplus/id/service_plural_data_source_gen.go ../byteplus/id/service_plural_data_source_gen_test.go
 
 package provider
 
@@ -224,6 +226,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/gtm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/id"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/mongodb"
