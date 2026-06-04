@@ -801,3 +801,11 @@ resource_schema "byteplus_kms_secret" {
 resource_schema "byteplus_gtm_pool" {
   cloudcontrol_type_name = "Byteplus::GTM::Pool"
 }
+
+resource_schema "byteplus_cloudmonitor_contact_group" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::ContactGroup"
+}
+
+resource_schema "byteplus_id_service" {
+  cloudcontrol_type_name = "Byteplus::ID::Service"
+}

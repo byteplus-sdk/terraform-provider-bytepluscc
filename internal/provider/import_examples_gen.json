@@ -934,6 +934,7 @@
         "identifier": ["TemplateId"],
         "path": "./examples/resources/bytepluscc_rdspostgresql_parameter_template/import.sh"
     },
+    {
         "resource": "bytepluscc_cen_bandwidth_package",
         "identifier": ["CenBandwidthPackageId"],
         "path": "./examples/resources/bytepluscc_cen_bandwidth_package/import.sh"
@@ -982,5 +983,15 @@
         "resource": "bytepluscc_gtm_pool",
         "identifier": ["GtmId","PoolId"],
         "path": "./examples/resources/bytepluscc_gtm_pool/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudmonitor_contact_group",
+        "identifier": ["ContactGroupId"],
+        "path": "./examples/resources/bytepluscc_cloudmonitor_contact_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_id_service",
+        "identifier": ["ServiceId"],
+        "path": "./examples/resources/bytepluscc_id_service/import.sh"
     }
 ]

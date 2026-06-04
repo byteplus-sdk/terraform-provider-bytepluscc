@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_id_service.example "service_id"

@@ -199,6 +199,8 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_directconnect_virtual_interface -ccschema ../service/cloudcontrol/schemas/Byteplus_DirectConnect_VirtualInterface.json -package directconnect ../byteplus/directconnect/virtual_interface_singular_data_source_gen.go ../byteplus/directconnect/virtual_interface_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_kms_secret -ccschema ../service/cloudcontrol/schemas/Byteplus_KMS_Secret.json -package kms ../byteplus/kms/secret_singular_data_source_gen.go ../byteplus/kms/secret_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_gtm_pool -ccschema ../service/cloudcontrol/schemas/Byteplus_GTM_Pool.json -package gtm ../byteplus/gtm/pool_singular_data_source_gen.go ../byteplus/gtm/pool_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_contact_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_ContactGroup.json -package cloudmonitor ../byteplus/cloudmonitor/contact_group_singular_data_source_gen.go ../byteplus/cloudmonitor/contact_group_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_id_service -ccschema ../service/cloudcontrol/schemas/Byteplus_ID_Service.json -package id ../byteplus/id/service_singular_data_source_gen.go ../byteplus/id/service_singular_data_source_gen_test.go
 
 package provider
 
@@ -224,6 +226,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/gtm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/hbase"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/iam"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/id"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kafka"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/kms"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/mongodb"
