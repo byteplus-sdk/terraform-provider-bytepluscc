@@ -201,6 +201,9 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_gtm_pool -ccschema ../service/cloudcontrol/schemas/Byteplus_GTM_Pool.json -package gtm -- ../byteplus/gtm/pool_resource_gen.go ../byteplus/gtm/pool_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_cloudmonitor_contact_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_ContactGroup.json -package cloudmonitor -- ../byteplus/cloudmonitor/contact_group_resource_gen.go ../byteplus/cloudmonitor/contact_group_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_id_service -ccschema ../service/cloudcontrol/schemas/Byteplus_ID_Service.json -package id -- ../byteplus/id/service_resource_gen.go ../byteplus/id/service_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_check_log_project -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_CheckLogProject.json -package clb -- ../byteplus/clb/check_log_project_resource_gen.go ../byteplus/clb/check_log_project_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_clb_check_log_topic -ccschema ../service/cloudcontrol/schemas/Byteplus_CLB_CheckLogTopic.json -package clb -- ../byteplus/clb/check_log_topic_resource_gen.go ../byteplus/clb/check_log_topic_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_transitrouter_route_table_propagation -ccschema ../service/cloudcontrol/schemas/Byteplus_TransitRouter_RouteTablePropagation.json -package transitrouter -- ../byteplus/transitrouter/route_table_propagation_resource_gen.go ../byteplus/transitrouter/route_table_propagation_resource_gen_test.go
 
 package provider
 
