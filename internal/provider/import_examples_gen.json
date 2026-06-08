@@ -993,5 +993,20 @@
         "resource": "bytepluscc_id_service",
         "identifier": ["ServiceId"],
         "path": "./examples/resources/bytepluscc_id_service/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_check_log_project",
+        "identifier": ["LogProjectId"],
+        "path": "./examples/resources/bytepluscc_clb_check_log_project/import.sh"
+    },
+    {
+        "resource": "bytepluscc_clb_check_log_topic",
+        "identifier": ["LoadBalancerId","LogTopicId"],
+        "path": "./examples/resources/bytepluscc_clb_check_log_topic/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_route_table_propagation",
+        "identifier": ["TransitRouterRouteTableId","TransitRouterAttachmentId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_route_table_propagation/import.sh"
     }
 ]

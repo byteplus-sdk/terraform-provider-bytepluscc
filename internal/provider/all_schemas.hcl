@@ -809,3 +809,15 @@ resource_schema "byteplus_cloudmonitor_contact_group" {
 resource_schema "byteplus_id_service" {
   cloudcontrol_type_name = "Byteplus::ID::Service"
 }
+
+resource_schema "byteplus_clb_check_log_project" {
+  cloudcontrol_type_name = "Byteplus::CLB::CheckLogProject"
+}
+
+resource_schema "byteplus_clb_check_log_topic" {
+  cloudcontrol_type_name = "Byteplus::CLB::CheckLogTopic"
+}
+
+resource_schema "byteplus_transitrouter_route_table_propagation" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::RouteTablePropagation"
+}
