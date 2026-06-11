@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vmp_rule_file.example "workspace_id|rule_file_id"

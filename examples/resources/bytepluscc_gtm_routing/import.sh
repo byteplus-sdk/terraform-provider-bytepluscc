@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_gtm_routing.example "gtm_id"

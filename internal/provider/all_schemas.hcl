@@ -821,3 +821,43 @@ resource_schema "byteplus_clb_check_log_topic" {
 resource_schema "byteplus_transitrouter_route_table_propagation" {
   cloudcontrol_type_name = "Byteplus::TransitRouter::RouteTablePropagation"
 }
+
+resource_schema "byteplus_directconnect_bgp_peer" {
+  cloudcontrol_type_name = "Byteplus::DirectConnect::BgpPeer"
+}
+
+resource_schema "byteplus_mongodb_account" {
+  cloudcontrol_type_name = "Byteplus::MongoDB::Account"
+}
+
+resource_schema "byteplus_rdsmysql_endpoint_public_address" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::EndpointPublicAddress"
+}
+
+resource_schema "byteplus_vepfs_fileset" {
+  cloudcontrol_type_name = "Byteplus::VEPFS::Fileset"
+}
+
+resource_schema "byteplus_kafka_user" {
+  cloudcontrol_type_name = "Byteplus::Kafka::User"
+}
+
+resource_schema "byteplus_dns_record" {
+  cloudcontrol_type_name = "Byteplus::DNS::Record"
+}
+
+resource_schema "byteplus_vmp_rule_file" {
+  cloudcontrol_type_name = "Byteplus::VMP::RuleFile"
+}
+
+resource_schema "byteplus_gtm_gtm" {
+  cloudcontrol_type_name = "Byteplus::GTM::GTM"
+}
+
+resource_schema "byteplus_gtm_rule" {
+  cloudcontrol_type_name = "Byteplus::GTM::Rule"
+}
+
+resource_schema "byteplus_gtm_routing" {
+  cloudcontrol_type_name = "Byteplus::GTM::Routing"
+}
