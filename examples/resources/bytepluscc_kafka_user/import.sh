@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kafka_user.example "instance_id|user_name"

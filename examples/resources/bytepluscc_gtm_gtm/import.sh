@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_gtm_gtm.example "gtm_id"

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_dns_record.example "zid|record_id"

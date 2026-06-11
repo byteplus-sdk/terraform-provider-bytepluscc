@@ -1008,5 +1008,55 @@
         "resource": "bytepluscc_transitrouter_route_table_propagation",
         "identifier": ["TransitRouterRouteTableId","TransitRouterAttachmentId"],
         "path": "./examples/resources/bytepluscc_transitrouter_route_table_propagation/import.sh"
+    },
+    {
+        "resource": "bytepluscc_directconnect_bgp_peer",
+        "identifier": ["BgpPeerId"],
+        "path": "./examples/resources/bytepluscc_directconnect_bgp_peer/import.sh"
+    },
+    {
+        "resource": "bytepluscc_mongodb_account",
+        "identifier": ["InstanceId","AccountName"],
+        "path": "./examples/resources/bytepluscc_mongodb_account/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_endpoint_public_address",
+        "identifier": ["InstanceId","EndpointId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_endpoint_public_address/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vepfs_fileset",
+        "identifier": ["FileSystemId","FilesetId"],
+        "path": "./examples/resources/bytepluscc_vepfs_fileset/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kafka_user",
+        "identifier": ["InstanceId","UserName"],
+        "path": "./examples/resources/bytepluscc_kafka_user/import.sh"
+    },
+    {
+        "resource": "bytepluscc_dns_record",
+        "identifier": ["ZID","RecordID"],
+        "path": "./examples/resources/bytepluscc_dns_record/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vmp_rule_file",
+        "identifier": ["WorkspaceId","RuleFileId"],
+        "path": "./examples/resources/bytepluscc_vmp_rule_file/import.sh"
+    },
+    {
+        "resource": "bytepluscc_gtm_gtm",
+        "identifier": ["GtmId"],
+        "path": "./examples/resources/bytepluscc_gtm_gtm/import.sh"
+    },
+    {
+        "resource": "bytepluscc_gtm_rule",
+        "identifier": ["GtmId","PolicyType","RuleId"],
+        "path": "./examples/resources/bytepluscc_gtm_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_gtm_routing",
+        "identifier": ["GtmId"],
+        "path": "./examples/resources/bytepluscc_gtm_routing/import.sh"
     }
 ]
