@@ -1058,5 +1058,55 @@
         "resource": "bytepluscc_gtm_routing",
         "identifier": ["GtmId"],
         "path": "./examples/resources/bytepluscc_gtm_routing/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_transit_router_bandwidth_package",
+        "identifier": ["TransitRouterBandwidthPackageId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_transit_router_bandwidth_package/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_direct_connect_gateway_attachment",
+        "identifier": ["TransitRouterId","TransitRouterAttachmentId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_direct_connect_gateway_attachment/import.sh"
+    },
+    {
+        "resource": "bytepluscc_transitrouter_transit_router_route_table_association",
+        "identifier": ["TransitRouterRouteTableId","TransitRouterAttachmentId"],
+        "path": "./examples/resources/bytepluscc_transitrouter_transit_router_route_table_association/import.sh"
+    },
+    {
+        "resource": "bytepluscc_mongodb_endpoint",
+        "identifier": ["InstanceId","EndpointId"],
+        "path": "./examples/resources/bytepluscc_mongodb_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdspostgresql_instance_ssl",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_rdspostgresql_instance_ssl/import.sh"
+    },
+    {
+        "resource": "bytepluscc_storageebs_snapshot_policy",
+        "identifier": ["AutoSnapshotPolicyId"],
+        "path": "./examples/resources/bytepluscc_storageebs_snapshot_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_dns_backup",
+        "identifier": ["ZID","BackupID"],
+        "path": "./examples/resources/bytepluscc_dns_backup/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_allowed_ip_address",
+        "identifier": ["UserId"],
+        "path": "./examples/resources/bytepluscc_iam_allowed_ip_address/import.sh"
+    },
+    {
+        "resource": "bytepluscc_privatelink_gateway_endpoint",
+        "identifier": ["EndpointId"],
+        "path": "./examples/resources/bytepluscc_privatelink_gateway_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmssql_backup",
+        "identifier": ["InstanceId","BackupId"],
+        "path": "./examples/resources/bytepluscc_rdsmssql_backup/import.sh"
     }
 ]

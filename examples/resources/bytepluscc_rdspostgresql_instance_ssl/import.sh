@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdspostgresql_instance_ssl.example "instance_id"

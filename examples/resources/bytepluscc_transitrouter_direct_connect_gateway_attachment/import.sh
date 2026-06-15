@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_transitrouter_direct_connect_gateway_attachment.example "transit_router_id|transit_router_attachment_id"

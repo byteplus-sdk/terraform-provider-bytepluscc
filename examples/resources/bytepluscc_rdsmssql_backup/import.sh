@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdsmssql_backup.example "instance_id|backup_id"
