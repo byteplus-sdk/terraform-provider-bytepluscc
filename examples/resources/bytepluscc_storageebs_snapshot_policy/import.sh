@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_storageebs_snapshot_policy.example "auto_snapshot_policy_id"

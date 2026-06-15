@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_transitrouter_transit_router_bandwidth_package.example "transit_router_bandwidth_package_id"

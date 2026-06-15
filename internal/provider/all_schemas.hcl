@@ -861,3 +861,43 @@ resource_schema "byteplus_gtm_rule" {
 resource_schema "byteplus_gtm_routing" {
   cloudcontrol_type_name = "Byteplus::GTM::Routing"
 }
+
+resource_schema "byteplus_transitrouter_transit_router_bandwidth_package" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterBandwidthPackage"
+}
+
+resource_schema "byteplus_transitrouter_direct_connect_gateway_attachment" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::DirectConnectGatewayAttachment"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_route_table_association" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterRouteTableAssociation"
+}
+
+resource_schema "byteplus_mongodb_endpoint" {
+  cloudcontrol_type_name = "Byteplus::MongoDB::Endpoint"
+}
+
+resource_schema "byteplus_rdspostgresql_instance_ssl" {
+  cloudcontrol_type_name = "Byteplus::RDSPostgreSQL::InstanceSSL"
+}
+
+resource_schema "byteplus_storageebs_snapshot_policy" {
+  cloudcontrol_type_name = "Byteplus::StorageEBS::SnapshotPolicy"
+}
+
+resource_schema "byteplus_dns_backup" {
+  cloudcontrol_type_name = "Byteplus::DNS::Backup"
+}
+
+resource_schema "byteplus_iam_allowed_ip_address" {
+  cloudcontrol_type_name = "Byteplus::IAM::AllowedIpAddress"
+}
+
+resource_schema "byteplus_privatelink_gateway_endpoint" {
+  cloudcontrol_type_name = "Byteplus::PrivateLink::GatewayEndpoint"
+}
+
+resource_schema "byteplus_rdsmssql_backup" {
+  cloudcontrol_type_name = "Byteplus::RDSMsSQL::Backup"
+}

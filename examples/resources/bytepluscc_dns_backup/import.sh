@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_dns_backup.example "zid|backup_id"

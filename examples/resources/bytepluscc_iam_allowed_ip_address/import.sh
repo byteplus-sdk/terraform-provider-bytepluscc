@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_iam_allowed_ip_address.example "user_id"
