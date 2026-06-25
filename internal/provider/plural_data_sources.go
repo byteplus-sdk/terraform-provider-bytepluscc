@@ -224,6 +224,14 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_allowed_ip_addresses -cctype Byteplus::IAM::AllowedIpAddress -package iam ../byteplus/iam/allowed_ip_address_plural_data_source_gen.go ../byteplus/iam/allowed_ip_address_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_privatelink_gateway_endpoints -cctype Byteplus::PrivateLink::GatewayEndpoint -package privatelink ../byteplus/privatelink/gateway_endpoint_plural_data_source_gen.go ../byteplus/privatelink/gateway_endpoint_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_rdsmssql_backups -cctype Byteplus::RDSMsSQL::Backup -package rdsmssql ../byteplus/rdsmssql/backup_plural_data_source_gen.go ../byteplus/rdsmssql/backup_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_vpc_endpoints -cctype Byteplus::CR::VpcEndpoint -package cr ../byteplus/cr/vpc_endpoint_plural_data_source_gen.go ../byteplus/cr/vpc_endpoint_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_etls -cctype Byteplus::TLS::Etl -package tls ../byteplus/tls/etl_plural_data_source_gen.go ../byteplus/tls/etl_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_hosts -cctype Byteplus::TLS::Host -package tls ../byteplus/tls/host_plural_data_source_gen.go ../byteplus/tls/host_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_host_groups -cctype Byteplus::TLS::HostGroup -package tls ../byteplus/tls/host_group_plural_data_source_gen.go ../byteplus/tls/host_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_groups -cctype Byteplus::Kafka::Group -package kafka ../byteplus/kafka/group_plural_data_source_gen.go ../byteplus/kafka/group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_dns_backup_schedules -cctype Byteplus::DNS::BackupSchedule -package dns ../byteplus/dns/backup_schedule_plural_data_source_gen.go ../byteplus/dns/backup_schedule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_event_rules -cctype Byteplus::CloudMonitor::EventRule -package cloudmonitor ../byteplus/cloudmonitor/event_rule_plural_data_source_gen.go ../byteplus/cloudmonitor/event_rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_gtm_policies -cctype Byteplus::GTM::Policy -package gtm ../byteplus/gtm/policy_plural_data_source_gen.go ../byteplus/gtm/policy_plural_data_source_gen_test.go
 
 package provider
 

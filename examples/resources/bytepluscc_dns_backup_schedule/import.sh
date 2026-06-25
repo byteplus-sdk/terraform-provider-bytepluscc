@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_dns_backup_schedule.example "zid"

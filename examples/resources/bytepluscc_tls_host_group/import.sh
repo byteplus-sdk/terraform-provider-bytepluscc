@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tls_host_group.example "host_group_id"

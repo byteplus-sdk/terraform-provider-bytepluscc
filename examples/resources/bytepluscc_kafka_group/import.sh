@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kafka_group.example "instance_id|group_id"
