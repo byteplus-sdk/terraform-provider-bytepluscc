@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cr_vpc_endpoint.example "registry"

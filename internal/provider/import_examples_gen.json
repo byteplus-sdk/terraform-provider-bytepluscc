@@ -1108,5 +1108,45 @@
         "resource": "bytepluscc_rdsmssql_backup",
         "identifier": ["InstanceId","BackupId"],
         "path": "./examples/resources/bytepluscc_rdsmssql_backup/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cr_vpc_endpoint",
+        "identifier": ["Registry"],
+        "path": "./examples/resources/bytepluscc_cr_vpc_endpoint/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_etl",
+        "identifier": ["TaskID"],
+        "path": "./examples/resources/bytepluscc_tls_etl/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_host",
+        "identifier": ["HostGroupID","IP"],
+        "path": "./examples/resources/bytepluscc_tls_host/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_host_group",
+        "identifier": ["HostGroupID"],
+        "path": "./examples/resources/bytepluscc_tls_host_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kafka_group",
+        "identifier": ["InstanceId","GroupId"],
+        "path": "./examples/resources/bytepluscc_kafka_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_dns_backup_schedule",
+        "identifier": ["ZID"],
+        "path": "./examples/resources/bytepluscc_dns_backup_schedule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudmonitor_event_rule",
+        "identifier": ["RuleId"],
+        "path": "./examples/resources/bytepluscc_cloudmonitor_event_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_gtm_policy",
+        "identifier": ["GtmId","PolicyType"],
+        "path": "./examples/resources/bytepluscc_gtm_policy/import.sh"
     }
 ]

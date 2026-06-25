@@ -901,3 +901,35 @@ resource_schema "byteplus_privatelink_gateway_endpoint" {
 resource_schema "byteplus_rdsmssql_backup" {
   cloudcontrol_type_name = "Byteplus::RDSMsSQL::Backup"
 }
+
+resource_schema "byteplus_cr_vpc_endpoint" {
+  cloudcontrol_type_name = "Byteplus::CR::VpcEndpoint"
+}
+
+resource_schema "byteplus_tls_etl" {
+  cloudcontrol_type_name = "Byteplus::TLS::Etl"
+}
+
+resource_schema "byteplus_tls_host" {
+  cloudcontrol_type_name = "Byteplus::TLS::Host"
+}
+
+resource_schema "byteplus_tls_host_group" {
+  cloudcontrol_type_name = "Byteplus::TLS::HostGroup"
+}
+
+resource_schema "byteplus_kafka_group" {
+  cloudcontrol_type_name = "Byteplus::Kafka::Group"
+}
+
+resource_schema "byteplus_dns_backup_schedule" {
+  cloudcontrol_type_name = "Byteplus::DNS::BackupSchedule"
+}
+
+resource_schema "byteplus_cloudmonitor_event_rule" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::EventRule"
+}
+
+resource_schema "byteplus_gtm_policy" {
+  cloudcontrol_type_name = "Byteplus::GTM::Policy"
+}
