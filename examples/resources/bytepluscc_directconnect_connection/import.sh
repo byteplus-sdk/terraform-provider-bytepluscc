@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_directconnect_connection.example "direct_connect_connection_id"

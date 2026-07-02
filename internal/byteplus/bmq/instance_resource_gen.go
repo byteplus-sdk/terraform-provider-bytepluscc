@@ -35,11 +35,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Whether to enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal",
+		//	  "description": "Enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal.",
 		//	  "type": "string"
 		//	}
 		"auto_renew": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Whether to enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal",
+			Description: "Enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal.",
 			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
@@ -52,11 +52,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Unit of purchase duration. Possible values: MONTHLY: Monthly purchase. YEARLY: Annual purchase",
+		//	  "description": "Unit of purchase duration. Options: MONTHLY—monthly subscription; YEARLY—yearly subscription",
 		//	  "type": "string"
 		//	}
 		"billing_period": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Unit of purchase duration. Possible values: MONTHLY: Monthly purchase. YEARLY: Annual purchase",
+			Description: "Unit of purchase duration. Options: MONTHLY—monthly subscription; YEARLY—yearly subscription",
 			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
@@ -69,7 +69,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Instance billing method. Possible values: POST: Pay-as-you-go. MIX: Subscription",
+		//	  "description": "Instance billing method. Options: POST—pay-as-you-go; MIX—yearly/monthly subscription",
 		//	  "enum": [
 		//	    "POST",
 		//	    "MIX"
@@ -77,7 +77,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	  "type": "string"
 		//	}
 		"billing_type": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Instance billing method. Possible values: POST: Pay-as-you-go. MIX: Subscription",
+			Description: "Instance billing method. Options: POST—pay-as-you-go; MIX—yearly/monthly subscription",
 			Required:    true,
 			Validators: []validator.String{ /*START VALIDATORS*/
 				stringvalidator.OneOf(
@@ -107,11 +107,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Instance description statement",
+		//	  "description": "Instance description",
 		//	  "type": "string"
 		//	}
 		"description": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Instance description statement",
+			Description: "Instance description",
 			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
@@ -123,11 +123,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Whether public access is enabled for the instance. To enable public access, configure the public IP ID in the same region",
+		//	  "description": "Whether public access is enabled for the instance. If public access is required, configure the ID of a public IP in the same region",
 		//	  "type": "string"
 		//	}
 		"eip_id": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Whether public access is enabled for the instance. To enable public access, configure the public IP ID in the same region",
+			Description: "Whether public access is enabled for the instance. If public access is required, configure the ID of a public IP in the same region",
 			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
@@ -154,7 +154,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	          "type": "string"
 		//	        },
 		//	        "Plain": {
-		//	          "description": "Private network Plain endpoint",
+		//	          "description": "Private network Plain access point",
 		//	          "type": "string"
 		//	        },
 		//	        "PlainPort": {
@@ -162,7 +162,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	          "type": "integer"
 		//	        },
 		//	        "Sasl": {
-		//	          "description": "Private network SASL authentication endpoint",
+		//	          "description": "Private network SASL authentication access point",
 		//	          "type": "string"
 		//	        },
 		//	        "SaslPort": {
@@ -205,7 +205,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	          "type": "string"
 		//	        },
 		//	        "Plain": {
-		//	          "description": "Private network Plain endpoint",
+		//	          "description": "Private network Plain access point",
 		//	          "type": "string"
 		//	        },
 		//	        "PlainPort": {
@@ -213,7 +213,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	          "type": "integer"
 		//	        },
 		//	        "Sasl": {
-		//	          "description": "Private network SASL authentication endpoint",
+		//	          "description": "Private network SASL authentication access point",
 		//	          "type": "string"
 		//	        },
 		//	        "SaslPort": {
@@ -270,7 +270,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 						}, /*END ATTRIBUTE*/
 						// Property: Plain
 						"plain": schema.StringAttribute{ /*START ATTRIBUTE*/
-							Description: "Private network Plain endpoint",
+							Description: "Private network Plain access point",
 							Computed:    true,
 							PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 								stringplanmodifier.UseStateForUnknown(),
@@ -286,7 +286,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 						}, /*END ATTRIBUTE*/
 						// Property: Sasl
 						"sasl": schema.StringAttribute{ /*START ATTRIBUTE*/
-							Description: "Private network SASL authentication endpoint",
+							Description: "Private network SASL authentication access point",
 							Computed:    true,
 							PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 								stringplanmodifier.UseStateForUnknown(),
@@ -364,7 +364,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 						}, /*END ATTRIBUTE*/
 						// Property: Plain
 						"plain": schema.StringAttribute{ /*START ATTRIBUTE*/
-							Description: "Private network Plain endpoint",
+							Description: "Private network Plain access point",
 							Computed:    true,
 							PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 								stringplanmodifier.UseStateForUnknown(),
@@ -380,7 +380,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 						}, /*END ATTRIBUTE*/
 						// Property: Sasl
 						"sasl": schema.StringAttribute{ /*START ATTRIBUTE*/
-							Description: "Private network SASL authentication endpoint",
+							Description: "Private network SASL authentication access point",
 							Computed:    true,
 							PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 								stringplanmodifier.UseStateForUnknown(),
@@ -489,11 +489,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Message retention period for all topics under the instance, in hours",
+		//	  "description": "Message retention period for all Topics under the instance, in hours",
 		//	  "type": "integer"
 		//	}
 		"message_retention": schema.Int64Attribute{ /*START ATTRIBUTE*/
-			Description: "Message retention period for all topics under the instance, in hours",
+			Description: "Message retention period for all Topics under the instance, in hours",
 			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
@@ -504,13 +504,13 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Set a custom name for the BMQ instance. Constraints: Use lowercase letters, numbers, and hyphens (-). Length: 1–64 characters",
+		//	  "description": "Custom BMQ instance name. Constraints: must consist of lowercase letters, numbers, and hyphens (-). Length: 1–64 characters",
 		//	  "maxLength": 64,
 		//	  "minLength": 1,
 		//	  "type": "string"
 		//	}
 		"name": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Set a custom name for the BMQ instance. Constraints: Use lowercase letters, numbers, and hyphens (-). Length: 1–64 characters",
+			Description: "Custom BMQ instance name. Constraints: must consist of lowercase letters, numbers, and hyphens (-). Length: 1–64 characters",
 			Required:    true,
 			Validators: []validator.String{ /*START VALIDATORS*/
 				stringvalidator.LengthBetween(1, 64),
@@ -537,11 +537,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Project name to which the instance belongs",
+		//	  "description": "Project name associated with the instance",
 		//	  "type": "string"
 		//	}
 		"project_name": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Project name to which the instance belongs",
+			Description: "Project name associated with the instance",
 			Required:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.RequiresReplace(),
@@ -565,7 +565,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	              "type": "string"
 		//	            },
 		//	            "Type": {
-		//	              "description": "Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag",
+		//	              "description": "Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag",
 		//	              "type": "string"
 		//	            },
 		//	            "Value": {
@@ -582,7 +582,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	        "uniqueItems": true
 		//	      },
 		//	      "Type": {
-		//	        "description": "Tag type. Options: CUSTOM: custom tag. SYSTEM: system tag",
+		//	        "description": "Tag type. Options: CUSTOM—custom tag; SYSTEM—system tag",
 		//	        "type": "string"
 		//	      }
 		//	    },
@@ -605,7 +605,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 								}, /*END ATTRIBUTE*/
 								// Property: Type
 								"type": schema.StringAttribute{ /*START ATTRIBUTE*/
-									Description: "Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag",
+									Description: "Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 								// Property: Value
@@ -620,7 +620,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 					}, /*END ATTRIBUTE*/
 					// Property: Type
 					"type": schema.StringAttribute{ /*START ATTRIBUTE*/
-						Description: "Tag type. Options: CUSTOM: custom tag. SYSTEM: system tag",
+						Description: "Tag type. Options: CUSTOM—custom tag; SYSTEM—system tag",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 				}, /*END SCHEMA*/
@@ -685,7 +685,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "List of security groups used by the instance",
+		//	  "description": "Security group list used by the instance",
 		//	  "insertionOrder": false,
 		//	  "items": {
 		//	    "type": "string"
@@ -695,7 +695,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"security_group_id_list": schema.SetAttribute{ /*START ATTRIBUTE*/
 			ElementType: types.StringType,
-			Description: "List of security groups used by the instance",
+			Description: "Security group list used by the instance",
 			Required:    true,
 			PlanModifiers: []planmodifier.Set{ /*START PLAN MODIFIERS*/
 				setplanmodifier.RequiresReplace(),
@@ -733,7 +733,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "List of subnets used by the instance",
+		//	  "description": "Subnet list used by the instance",
 		//	  "insertionOrder": false,
 		//	  "items": {
 		//	    "type": "string"
@@ -743,7 +743,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"subnet_id_list": schema.SetAttribute{ /*START ATTRIBUTE*/
 			ElementType: types.StringType,
-			Description: "List of subnets used by the instance",
+			Description: "Subnet list used by the instance",
 			Required:    true,
 			PlanModifiers: []planmodifier.Set{ /*START PLAN MODIFIERS*/
 				setplanmodifier.RequiresReplace(),
@@ -762,7 +762,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	        "type": "string"
 		//	      },
 		//	      "Type": {
-		//	        "description": "Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag",
+		//	        "description": "Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag",
 		//	        "type": "string"
 		//	      },
 		//	      "Value": {
@@ -795,7 +795,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 					}, /*END ATTRIBUTE*/
 					// Property: Type
 					"type": schema.StringAttribute{ /*START ATTRIBUTE*/
-						Description: "Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag",
+						Description: "Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag",
 						Optional:    true,
 						Computed:    true,
 						PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
@@ -824,11 +824,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Purchase duration for subscription instances, in months",
+		//	  "description": "Purchase duration for yearly/monthly subscription instances, in months",
 		//	  "type": "integer"
 		//	}
 		"times": schema.Int64Attribute{ /*START ATTRIBUTE*/
-			Description: "Purchase duration for subscription instances, in months",
+			Description: "Purchase duration for yearly/monthly subscription instances, in months",
 			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
@@ -841,11 +841,11 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Maximum number of topics per instance",
+		//	  "description": "Maximum number of Topics per instance",
 		//	  "type": "integer"
 		//	}
 		"topic_limit": schema.Int64Attribute{ /*START ATTRIBUTE*/
-			Description: "Maximum number of topics per instance",
+			Description: "Maximum number of Topics per instance",
 			Computed:    true,
 			PlanModifiers: []planmodifier.Int64{ /*START PLAN MODIFIERS*/
 				int64planmodifier.UseStateForUnknown(),
@@ -869,7 +869,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "List of availability zones where the instance is located",
+		//	  "description": "List of availability zones for the instance",
 		//	  "insertionOrder": false,
 		//	  "items": {
 		//	    "type": "string"
@@ -879,7 +879,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"zone_id_list": schema.SetAttribute{ /*START ATTRIBUTE*/
 			ElementType: types.StringType,
-			Description: "List of availability zones where the instance is located",
+			Description: "List of availability zones for the instance",
 			Required:    true,
 			PlanModifiers: []planmodifier.Set{ /*START PLAN MODIFIERS*/
 				setplanmodifier.RequiresReplace(),
@@ -897,7 +897,7 @@ func instanceResource(ctx context.Context) (resource.Resource, error) {
 	}
 
 	schema := schema.Schema{
-		Description: "The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It is a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service built on cloud-native architecture. It supports flexible, dynamic scaling and integrated stream-batch processing, delivering enterprise-grade, real-time stream data processing at large scale. It helps you build the 'central nervous system' for data processing and is widely used in scenarios such as log collection, data aggregation, and offline data analysis.",
+		Description: "The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It offers a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service based on cloud-native architecture. Supports flexible and dynamic scaling, integrated stream and batch processing, and provides enterprise-grade real-time stream data processing capabilities for large-scale data. Helps you build the 'central nervous system' for data processing, widely used in scenarios such as log collection, data aggregation, and offline data analysis.",
 		Version:     1,
 		Attributes:  attributes,
 	}

@@ -32,4 +32,5 @@ resource "bytepluscc_redis_instance" "RedisInstanceDemo" {
   no_auth_mode        = "open"
   parameter_group_id  = "DefaultParamGroupId-6.0"
   continuous_backup   = true
+  create_backup       = true
 }

@@ -1148,5 +1148,40 @@
         "resource": "bytepluscc_gtm_policy",
         "identifier": ["GtmId","PolicyType"],
         "path": "./examples/resources/bytepluscc_gtm_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_directconnect_connection",
+        "identifier": ["DirectConnectConnectionId"],
+        "path": "./examples/resources/bytepluscc_directconnect_connection/import.sh"
+    },
+    {
+        "resource": "bytepluscc_organization_service_control_policy_enabler",
+        "identifier": ["OrganizationID"],
+        "path": "./examples/resources/bytepluscc_organization_service_control_policy_enabler/import.sh"
+    },
+    {
+        "resource": "bytepluscc_waf_host_group",
+        "identifier": ["HostGroupId"],
+        "path": "./examples/resources/bytepluscc_waf_host_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_fwcenter_address_book",
+        "identifier": ["GroupUuid"],
+        "path": "./examples/resources/bytepluscc_fwcenter_address_book/import.sh"
+    },
+    {
+        "resource": "bytepluscc_fwcenter_control_policy",
+        "identifier": ["RuleId","Direction"],
+        "path": "./examples/resources/bytepluscc_fwcenter_control_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_alarm_webhook_integration_type",
+        "identifier": ["WebhookID"],
+        "path": "./examples/resources/bytepluscc_tls_alarm_webhook_integration_type/import.sh"
+    },
+    {
+        "resource": "bytepluscc_fwcenter_vpc_fire_wall_acl_rule",
+        "identifier": ["VpcFirewallId","RuleId"],
+        "path": "./examples/resources/bytepluscc_fwcenter_vpc_fire_wall_acl_rule/import.sh"
     }
 ]

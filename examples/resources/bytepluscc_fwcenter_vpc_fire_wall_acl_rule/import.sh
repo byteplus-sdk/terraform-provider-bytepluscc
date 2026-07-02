@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_fwcenter_vpc_fire_wall_acl_rule.example "vpc_firewall_id|rule_id"

@@ -21,26 +21,26 @@ Data Source schema for Byteplus::BMQ::Group
 
 ### Read-Only
 
-- `created_time` (String) Consumer Group creation time.
-- `description` (String) Consumer Group description.
-- `group_id` (String) Consumer Group ID.
-- `group_name` (String) Set the Consumer Group name manually. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
-- `instance_id` (String) BMQ instance ID.
-- `owner_id` (String) User ID associated with the Consumer Group.
-- `owner_name` (String) Name of the user associated with the Consumer Group.
-- `reset_info` (Attributes) Reset consumption position information. (see [below for nested schema](#nestedatt--reset_info))
-- `status` (String) Consumer Group status.
-- `topic_infos` (Attributes Set) Topic list. (see [below for nested schema](#nestedatt--topic_infos))
+- `created_time` (String) Consumer Group creation time
+- `description` (String) Consumer Group description
+- `group_id` (String) Consumer Group ID
+- `group_name` (String) Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
+- `instance_id` (String) BMQ instance ID
+- `owner_id` (String) User ID of the Consumer Group owner
+- `owner_name` (String) Name of the Consumer Group owner
+- `reset_info` (Attributes) Reset consumption offset information (see [below for nested schema](#nestedatt--reset_info))
+- `status` (String) Consumer Group status
+- `topic_infos` (Attributes Set) Topic list (see [below for nested schema](#nestedatt--topic_infos))
 
 <a id="nestedatt--reset_info"></a>
 ### Nested Schema for `reset_info`
 
 Read-Only:
 
-- `offset_type` (String) This parameter is required when the reset mode is OFFSET. Specifies the reference consumption position for re-consuming. Options are: EARLIEST: The reference position is the earliest consumption point. CURRENT: The reference position is the current consumption point. LATEST: The reference position is the latest consumption point.
-- `partition_id` (Number) Partition number.
-- `reset_by` (String) Reset mode. Options are: TIMESTAMP: Reset the consumption position based on a specific time point. Specify a past or future time, and jump directly to the position at that time to start consuming. OFFSET: Reset the consumption position based on a specified offset. Start consuming from the specified position, and you can use the offsetType parameter to specify the offset.
-- `reset_value` (Number) Reset value. If the reset mode is TIMESTAMP, this value is the time point for re-consuming messages, for example, 1722224612000. If the reset mode is OFFSET, this value is the relative offset from the reference position specified in OffsetType, for example, 100.
+- `offset_type` (String) If the reset mode is OFFSET, this parameter is required. Specify the reference consumption position for resuming consumption. Options: EARLIEST: Reference position is the earliest offset. CURRENT: Reference position is the current offset. LATEST: Reference position is the latest offset.
+- `partition_id` (Number) Partition number
+- `reset_by` (String) Reset mode. Options: TIMESTAMP: Reset the consumption offset based on a timestamp. Specify a past or future time to jump directly to the offset at that time and start consuming. OFFSET: Reset the consumption offset based on a specified offset, starting consumption from that offset. You can specify the offset using the offsetType parameter.
+- `reset_value` (Number) Reset value. If TIMESTAMP is selected, this value is the timestamp for resuming consumption, e.g., 1722224612000. If OFFSET is selected, this value is the relative offset from the reference offset in OffsetType, e.g., 100.
 - `topic_id` (String) Topic ID。
 
 
@@ -49,24 +49,24 @@ Read-Only:
 
 Read-Only:
 
-- `create_time` (String) Topic creation time.
-- `description` (String) Topic description.
-- `lag` (Number) Number of unconsumed messages in the Topic.
-- `partition_infos` (Attributes Set) Partition list. (see [below for nested schema](#nestedatt--topic_infos--partition_infos))
-- `partitions` (Number) Number of Topic partitions.
-- `retention` (Number) Retention period of data in the Topic, in hours.
-- `status` (String) Topic status.
+- `create_time` (String) Topic creation time
+- `description` (String) Topic description
+- `lag` (Number) Number of unconsumed messages in the Topic
+- `partition_infos` (Attributes Set) Partition list (see [below for nested schema](#nestedatt--topic_infos--partition_infos))
+- `partitions` (Number) Number of Topic partitions
+- `retention` (Number) Retention period of data in the Topic, in hours
+- `status` (String) Topic status
 - `topic_id` (String) Topic ID。
-- `topic_name` (String) Topic name.
+- `topic_name` (String) Topic name
 
 <a id="nestedatt--topic_infos--partition_infos"></a>
 ### Nested Schema for `topic_infos.partition_infos`
 
 Read-Only:
 
-- `current_offset` (Number) Current consumption position.
-- `group_name` (String) Name of the Consumer Group.
-- `lag` (Number) Number of unconsumed messages in the partition.
-- `latest_offset` (Number) Latest consumption position.
-- `partition_id` (Number) Partition number.
-- `topic_name` (String) Name of the Topic subscribed by the Consumer Group.
+- `current_offset` (Number) Current consumption offset
+- `group_name` (String) Consumer Group name
+- `lag` (Number) Number of unconsumed messages in the partition
+- `latest_offset` (Number) Latest consumption offset
+- `partition_id` (Number) Partition number
+- `topic_name` (String) Name of the Topic subscribed by the Consumer Group

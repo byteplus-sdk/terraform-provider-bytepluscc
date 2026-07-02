@@ -933,3 +933,31 @@ resource_schema "byteplus_cloudmonitor_event_rule" {
 resource_schema "byteplus_gtm_policy" {
   cloudcontrol_type_name = "Byteplus::GTM::Policy"
 }
+
+resource_schema "byteplus_directconnect_connection" {
+  cloudcontrol_type_name = "Byteplus::DirectConnect::Connection"
+}
+
+resource_schema "byteplus_organization_service_control_policy_enabler" {
+  cloudcontrol_type_name = "Byteplus::Organization::ServiceControlPolicyEnabler"
+}
+
+resource_schema "byteplus_waf_host_group" {
+  cloudcontrol_type_name = "Byteplus::WAF::HostGroup"
+}
+
+resource_schema "byteplus_fwcenter_address_book" {
+  cloudcontrol_type_name = "Byteplus::FWCenter::AddressBook"
+}
+
+resource_schema "byteplus_fwcenter_control_policy" {
+  cloudcontrol_type_name = "Byteplus::FWCenter::ControlPolicy"
+}
+
+resource_schema "byteplus_tls_alarm_webhook_integration_type" {
+  cloudcontrol_type_name = "Byteplus::TLS::AlarmWebhookIntegrationType"
+}
+
+resource_schema "byteplus_fwcenter_vpc_fire_wall_acl_rule" {
+  cloudcontrol_type_name = "Byteplus::FWCenter::VpcFireWallAclRule"
+}

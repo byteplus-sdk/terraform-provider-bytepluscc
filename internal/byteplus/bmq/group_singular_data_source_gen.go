@@ -26,101 +26,101 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Consumer Group creation time.",
+		//	  "description": "Consumer Group creation time",
 		//	  "type": "string"
 		//	}
 		"created_time": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Consumer Group creation time.",
+			Description: "Consumer Group creation time",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: Description
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Consumer Group description.",
+		//	  "description": "Consumer Group description",
 		//	  "type": "string"
 		//	}
 		"description": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Consumer Group description.",
+			Description: "Consumer Group description",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: GroupId
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Consumer Group ID.",
+		//	  "description": "Consumer Group ID",
 		//	  "type": "string"
 		//	}
 		"group_id": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Consumer Group ID.",
+			Description: "Consumer Group ID",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: GroupName
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Set the Consumer Group name manually. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.",
+		//	  "description": "Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.",
 		//	  "maxLength": 64,
 		//	  "minLength": 3,
 		//	  "type": "string"
 		//	}
 		"group_name": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Set the Consumer Group name manually. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.",
+			Description: "Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: InstanceId
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "BMQ instance ID.",
+		//	  "description": "BMQ instance ID",
 		//	  "type": "string"
 		//	}
 		"instance_id": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "BMQ instance ID.",
+			Description: "BMQ instance ID",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: OwnerId
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "User ID associated with the Consumer Group.",
+		//	  "description": "User ID of the Consumer Group owner",
 		//	  "type": "string"
 		//	}
 		"owner_id": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "User ID associated with the Consumer Group.",
+			Description: "User ID of the Consumer Group owner",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: OwnerName
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Name of the user associated with the Consumer Group.",
+		//	  "description": "Name of the Consumer Group owner",
 		//	  "type": "string"
 		//	}
 		"owner_name": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Name of the user associated with the Consumer Group.",
+			Description: "Name of the Consumer Group owner",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: ResetInfo
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Reset consumption position information.",
+		//	  "description": "Reset consumption offset information",
 		//	  "properties": {
 		//	    "OffsetType": {
-		//	      "description": "This parameter is required when the reset mode is OFFSET. Specifies the reference consumption position for re-consuming. Options are: EARLIEST: The reference position is the earliest consumption point. CURRENT: The reference position is the current consumption point. LATEST: The reference position is the latest consumption point.",
+		//	      "description": "If the reset mode is OFFSET, this parameter is required. Specify the reference consumption position for resuming consumption. Options: EARLIEST: Reference position is the earliest offset. CURRENT: Reference position is the current offset. LATEST: Reference position is the latest offset.",
 		//	      "type": "string"
 		//	    },
 		//	    "PartitionId": {
-		//	      "description": "Partition number.",
+		//	      "description": "Partition number",
 		//	      "type": "integer"
 		//	    },
 		//	    "ResetBy": {
-		//	      "description": "Reset mode. Options are: TIMESTAMP: Reset the consumption position based on a specific time point. Specify a past or future time, and jump directly to the position at that time to start consuming. OFFSET: Reset the consumption position based on a specified offset. Start consuming from the specified position, and you can use the offsetType parameter to specify the offset.",
+		//	      "description": "Reset mode. Options: TIMESTAMP: Reset the consumption offset based on a timestamp. Specify a past or future time to jump directly to the offset at that time and start consuming. OFFSET: Reset the consumption offset based on a specified offset, starting consumption from that offset. You can specify the offset using the offsetType parameter.",
 		//	      "type": "string"
 		//	    },
 		//	    "ResetValue": {
-		//	      "description": "Reset value. If the reset mode is TIMESTAMP, this value is the time point for re-consuming messages, for example, 1722224612000. If the reset mode is OFFSET, this value is the relative offset from the reference position specified in OffsetType, for example, 100.",
+		//	      "description": "Reset value. If TIMESTAMP is selected, this value is the timestamp for resuming consumption, e.g., 1722224612000. If OFFSET is selected, this value is the relative offset from the reference offset in OffsetType, e.g., 100.",
 		//	      "format": "int64",
 		//	      "type": "integer"
 		//	    },
@@ -135,22 +135,22 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 			Attributes: map[string]schema.Attribute{ /*START SCHEMA*/
 				// Property: OffsetType
 				"offset_type": schema.StringAttribute{ /*START ATTRIBUTE*/
-					Description: "This parameter is required when the reset mode is OFFSET. Specifies the reference consumption position for re-consuming. Options are: EARLIEST: The reference position is the earliest consumption point. CURRENT: The reference position is the current consumption point. LATEST: The reference position is the latest consumption point.",
+					Description: "If the reset mode is OFFSET, this parameter is required. Specify the reference consumption position for resuming consumption. Options: EARLIEST: Reference position is the earliest offset. CURRENT: Reference position is the current offset. LATEST: Reference position is the latest offset.",
 					Computed:    true,
 				}, /*END ATTRIBUTE*/
 				// Property: PartitionId
 				"partition_id": schema.Int64Attribute{ /*START ATTRIBUTE*/
-					Description: "Partition number.",
+					Description: "Partition number",
 					Computed:    true,
 				}, /*END ATTRIBUTE*/
 				// Property: ResetBy
 				"reset_by": schema.StringAttribute{ /*START ATTRIBUTE*/
-					Description: "Reset mode. Options are: TIMESTAMP: Reset the consumption position based on a specific time point. Specify a past or future time, and jump directly to the position at that time to start consuming. OFFSET: Reset the consumption position based on a specified offset. Start consuming from the specified position, and you can use the offsetType parameter to specify the offset.",
+					Description: "Reset mode. Options: TIMESTAMP: Reset the consumption offset based on a timestamp. Specify a past or future time to jump directly to the offset at that time and start consuming. OFFSET: Reset the consumption offset based on a specified offset, starting consumption from that offset. You can specify the offset using the offsetType parameter.",
 					Computed:    true,
 				}, /*END ATTRIBUTE*/
 				// Property: ResetValue
 				"reset_value": schema.Int64Attribute{ /*START ATTRIBUTE*/
-					Description: "Reset value. If the reset mode is TIMESTAMP, this value is the time point for re-consuming messages, for example, 1722224612000. If the reset mode is OFFSET, this value is the relative offset from the reference position specified in OffsetType, for example, 100.",
+					Description: "Reset value. If TIMESTAMP is selected, this value is the timestamp for resuming consumption, e.g., 1722224612000. If OFFSET is selected, this value is the relative offset from the reference offset in OffsetType, e.g., 100.",
 					Computed:    true,
 				}, /*END ATTRIBUTE*/
 				// Property: TopicId
@@ -159,71 +159,71 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 					Computed:    true,
 				}, /*END ATTRIBUTE*/
 			}, /*END SCHEMA*/
-			Description: "Reset consumption position information.",
+			Description: "Reset consumption offset information",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: Status
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Consumer Group status.",
+		//	  "description": "Consumer Group status",
 		//	  "type": "string"
 		//	}
 		"status": schema.StringAttribute{ /*START ATTRIBUTE*/
-			Description: "Consumer Group status.",
+			Description: "Consumer Group status",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 		// Property: TopicInfos
 		// Cloud Control resource type schema:
 		//
 		//	{
-		//	  "description": "Topic list.",
+		//	  "description": "Topic list",
 		//	  "insertionOrder": false,
 		//	  "items": {
 		//	    "properties": {
 		//	      "CreateTime": {
-		//	        "description": "Topic creation time.",
+		//	        "description": "Topic creation time",
 		//	        "type": "string"
 		//	      },
 		//	      "Description": {
-		//	        "description": "Topic description.",
+		//	        "description": "Topic description",
 		//	        "type": "string"
 		//	      },
 		//	      "Lag": {
-		//	        "description": "Number of unconsumed messages in the Topic.",
+		//	        "description": "Number of unconsumed messages in the Topic",
 		//	        "format": "int64",
 		//	        "type": "integer"
 		//	      },
 		//	      "PartitionInfos": {
-		//	        "description": "Partition list.",
+		//	        "description": "Partition list",
 		//	        "insertionOrder": false,
 		//	        "items": {
 		//	          "properties": {
 		//	            "CurrentOffset": {
-		//	              "description": "Current consumption position.",
+		//	              "description": "Current consumption offset",
 		//	              "format": "int64",
 		//	              "type": "integer"
 		//	            },
 		//	            "GroupName": {
-		//	              "description": "Name of the Consumer Group.",
+		//	              "description": "Consumer Group name",
 		//	              "type": "string"
 		//	            },
 		//	            "Lag": {
-		//	              "description": "Number of unconsumed messages in the partition.",
+		//	              "description": "Number of unconsumed messages in the partition",
 		//	              "format": "int64",
 		//	              "type": "integer"
 		//	            },
 		//	            "LatestOffset": {
-		//	              "description": "Latest consumption position.",
+		//	              "description": "Latest consumption offset",
 		//	              "format": "int64",
 		//	              "type": "integer"
 		//	            },
 		//	            "PartitionId": {
-		//	              "description": "Partition number.",
+		//	              "description": "Partition number",
 		//	              "type": "integer"
 		//	            },
 		//	            "TopicName": {
-		//	              "description": "Name of the Topic subscribed by the Consumer Group.",
+		//	              "description": "Name of the Topic subscribed by the Consumer Group",
 		//	              "type": "string"
 		//	            }
 		//	          },
@@ -233,15 +233,15 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	        "uniqueItems": true
 		//	      },
 		//	      "Partitions": {
-		//	        "description": "Number of Topic partitions.",
+		//	        "description": "Number of Topic partitions",
 		//	        "type": "integer"
 		//	      },
 		//	      "Retention": {
-		//	        "description": "Retention period of data in the Topic, in hours.",
+		//	        "description": "Retention period of data in the Topic, in hours",
 		//	        "type": "integer"
 		//	      },
 		//	      "Status": {
-		//	        "description": "Topic status.",
+		//	        "description": "Topic status",
 		//	        "type": "string"
 		//	      },
 		//	      "TopicId": {
@@ -249,7 +249,7 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 		//	        "type": "string"
 		//	      },
 		//	      "TopicName": {
-		//	        "description": "Topic name.",
+		//	        "description": "Topic name",
 		//	        "type": "string"
 		//	      }
 		//	    },
@@ -263,17 +263,17 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 				Attributes: map[string]schema.Attribute{ /*START SCHEMA*/
 					// Property: CreateTime
 					"create_time": schema.StringAttribute{ /*START ATTRIBUTE*/
-						Description: "Topic creation time.",
+						Description: "Topic creation time",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: Description
 					"description": schema.StringAttribute{ /*START ATTRIBUTE*/
-						Description: "Topic description.",
+						Description: "Topic description",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: Lag
 					"lag": schema.Int64Attribute{ /*START ATTRIBUTE*/
-						Description: "Number of unconsumed messages in the Topic.",
+						Description: "Number of unconsumed messages in the Topic",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: PartitionInfos
@@ -282,52 +282,52 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 							Attributes: map[string]schema.Attribute{ /*START SCHEMA*/
 								// Property: CurrentOffset
 								"current_offset": schema.Int64Attribute{ /*START ATTRIBUTE*/
-									Description: "Current consumption position.",
+									Description: "Current consumption offset",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 								// Property: GroupName
 								"group_name": schema.StringAttribute{ /*START ATTRIBUTE*/
-									Description: "Name of the Consumer Group.",
+									Description: "Consumer Group name",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 								// Property: Lag
 								"lag": schema.Int64Attribute{ /*START ATTRIBUTE*/
-									Description: "Number of unconsumed messages in the partition.",
+									Description: "Number of unconsumed messages in the partition",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 								// Property: LatestOffset
 								"latest_offset": schema.Int64Attribute{ /*START ATTRIBUTE*/
-									Description: "Latest consumption position.",
+									Description: "Latest consumption offset",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 								// Property: PartitionId
 								"partition_id": schema.Int64Attribute{ /*START ATTRIBUTE*/
-									Description: "Partition number.",
+									Description: "Partition number",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 								// Property: TopicName
 								"topic_name": schema.StringAttribute{ /*START ATTRIBUTE*/
-									Description: "Name of the Topic subscribed by the Consumer Group.",
+									Description: "Name of the Topic subscribed by the Consumer Group",
 									Computed:    true,
 								}, /*END ATTRIBUTE*/
 							}, /*END SCHEMA*/
 						}, /*END NESTED OBJECT*/
-						Description: "Partition list.",
+						Description: "Partition list",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: Partitions
 					"partitions": schema.Int64Attribute{ /*START ATTRIBUTE*/
-						Description: "Number of Topic partitions.",
+						Description: "Number of Topic partitions",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: Retention
 					"retention": schema.Int64Attribute{ /*START ATTRIBUTE*/
-						Description: "Retention period of data in the Topic, in hours.",
+						Description: "Retention period of data in the Topic, in hours",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: Status
 					"status": schema.StringAttribute{ /*START ATTRIBUTE*/
-						Description: "Topic status.",
+						Description: "Topic status",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 					// Property: TopicId
@@ -337,12 +337,12 @@ func groupDataSource(ctx context.Context) (datasource.DataSource, error) {
 					}, /*END ATTRIBUTE*/
 					// Property: TopicName
 					"topic_name": schema.StringAttribute{ /*START ATTRIBUTE*/
-						Description: "Topic name.",
+						Description: "Topic name",
 						Computed:    true,
 					}, /*END ATTRIBUTE*/
 				}, /*END SCHEMA*/
 			}, /*END NESTED OBJECT*/
-			Description: "Topic list.",
+			Description: "Topic list",
 			Computed:    true,
 		}, /*END ATTRIBUTE*/
 	} /*END SCHEMA*/

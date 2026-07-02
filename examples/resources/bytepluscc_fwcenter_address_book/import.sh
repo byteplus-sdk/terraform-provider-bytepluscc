@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_fwcenter_address_book.example "group_uuid"
