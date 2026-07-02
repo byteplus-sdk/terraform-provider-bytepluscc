@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_organization_service_control_policy_enabler.example "organization_id"

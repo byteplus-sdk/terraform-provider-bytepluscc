@@ -108,13 +108,11 @@
     "/properties/RequestTime",
     "/properties/Service",
     "/properties/UpdatedTime",
-    "/properties/LastLoginDate"
+    "/properties/LastLoginDate",
+    "/properties/SecretAccessKey"
   ],
   "tagging": {
     "taggable": false
   },
-  "typeName": "Byteplus::IAM::Accesskey",
-  "writeOnlyProperties": [
-    "/properties/SecretAccessKey"
-  ]
+  "typeName": "Byteplus::IAM::Accesskey"
 }

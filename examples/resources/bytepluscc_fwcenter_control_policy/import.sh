@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_fwcenter_control_policy.example "rule_id|direction"

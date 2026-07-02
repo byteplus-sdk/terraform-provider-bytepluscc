@@ -2,17 +2,17 @@
 page_title: "bytepluscc_bmq_instance Resource - terraform-provider-bytepluscc"
 subcategory: "BMQ"
 description: |-
-  The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It is a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service built on cloud-native architecture. It supports flexible, dynamic scaling and integrated stream-batch processing, delivering enterprise-grade, real-time stream data processing at large scale. It helps you build the 'central nervous system' for data processing and is widely used in scenarios such as log collection, data aggregation, and offline data analysis.
+  The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It offers a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service based on cloud-native architecture. Supports flexible and dynamic scaling, integrated stream and batch processing, and provides enterprise-grade real-time stream data processing capabilities for large-scale data. Helps you build the 'central nervous system' for data processing, widely used in scenarios such as log collection, data aggregation, and offline data analysis.
 ---
 
 # bytepluscc_bmq_instance (Resource)
 
-The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It is a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service built on cloud-native architecture. It supports flexible, dynamic scaling and integrated stream-batch processing, delivering enterprise-grade, real-time stream data processing at large scale. It helps you build the 'central nervous system' for data processing and is widely used in scenarios such as log collection, data aggregation, and offline data analysis.
+The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It offers a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service based on cloud-native architecture. Supports flexible and dynamic scaling, integrated stream and batch processing, and provides enterprise-grade real-time stream data processing capabilities for large-scale data. Helps you build the 'central nervous system' for data processing, widely used in scenarios such as log collection, data aggregation, and offline data analysis.
 
 ## Example Usage
 
 ```terraform
-resource "byteplus_bmq_instance" "BMQInstanceDemo" {
+resource "bytepluscc_bmq_instance" "BMQInstanceDemo" {
   name              = "BMQInstanceDemo"
   billing_type      = "POST"
   project_name      = "default"
@@ -45,26 +45,26 @@ resource "byteplus_bmq_instance" "BMQInstanceDemo" {
 
 ### Required
 
-- `billing_type` (String) Instance billing method. Possible values: POST: Pay-as-you-go. MIX: Subscription
-- `name` (String) Set a custom name for the BMQ instance. Constraints: Use lowercase letters, numbers, and hyphens (-). Length: 1–64 characters
-- `project_name` (String) Project name to which the instance belongs
-- `security_group_id_list` (Set of String) List of security groups used by the instance
+- `billing_type` (String) Instance billing method. Options: POST—pay-as-you-go; MIX—yearly/monthly subscription
+- `name` (String) Custom BMQ instance name. Constraints: must consist of lowercase letters, numbers, and hyphens (-). Length: 1–64 characters
+- `project_name` (String) Project name associated with the instance
+- `security_group_id_list` (Set of String) Security group list used by the instance
 - `specification` (String) Instance specification
-- `subnet_id_list` (Set of String) List of subnets used by the instance
+- `subnet_id_list` (Set of String) Subnet list used by the instance
 - `vpc_id` (String) VPC ID where the instance is located
-- `zone_id_list` (Set of String) List of availability zones where the instance is located
+- `zone_id_list` (Set of String) List of availability zones for the instance
 
 ### Optional
 
-- `auto_renew` (String) Whether to enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal
-- `billing_period` (String) Unit of purchase duration. Possible values: MONTHLY: Monthly purchase. YEARLY: Annual purchase
-- `description` (String) Instance description statement
-- `eip_id` (String) Whether public access is enabled for the instance. To enable public access, configure the public IP ID in the same region
+- `auto_renew` (String) Enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal.
+- `billing_period` (String) Unit of purchase duration. Options: MONTHLY—monthly subscription; YEARLY—yearly subscription
+- `description` (String) Instance description
+- `eip_id` (String) Whether public access is enabled for the instance. If public access is required, configure the ID of a public IP in the same region
 - `endpoints` (Attributes) Response data for all instance endpoints (see [below for nested schema](#nestedatt--endpoints))
-- `message_retention` (Number) Message retention period for all topics under the instance, in hours
+- `message_retention` (Number) Message retention period for all Topics under the instance, in hours
 - `tags` (Attributes Set) Instance resource tag list
  Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability. (see [below for nested schema](#nestedatt--tags))
-- `times` (Number) Purchase duration for subscription instances, in months
+- `times` (Number) Purchase duration for yearly/monthly subscription instances, in months
 
 ### Read-Only
 
@@ -78,7 +78,7 @@ resource "byteplus_bmq_instance" "BMQInstanceDemo" {
  Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability. (see [below for nested schema](#nestedatt--resource_tags))
 - `resources` (Attributes) Instance resource statistics response data (see [below for nested schema](#nestedatt--resources))
 - `status` (String) Instance status. Possible values: INITIALIZING: Initializing, INITIALIZATION_FAILED: Initialization failed, RUNNING: Running, MODIFYING: Updating, MODIFY_FAILED: Update failed, RELEASING: Releasing, STOPPING: Stopping, STOPPED: Stopped, RECOVERING: Recovering, EXCEPTION: Exception, CAPACITY_EXPAXION_FAILED: Capacity expansion failed, EXPANDING_CAPACITY: Expanding capacity, CANCEL_EXPANDING_CAPACITY: Canceling capacity expansion, RESTARTING: Restarting, UNPAID: Unpaid
-- `topic_limit` (Number) Maximum number of topics per instance
+- `topic_limit` (Number) Maximum number of Topics per instance
 
 <a id="nestedatt--endpoints"></a>
 ### Nested Schema for `endpoints`
@@ -99,9 +99,9 @@ Read-Only:
 
 - `address` (String) Domain mapping address
 - `eip_id` (String) ID of the EIP bound to the instance
-- `plain` (String) Private network Plain endpoint
+- `plain` (String) Private network Plain access point
 - `plain_port` (Number) Standard endpoint port
-- `sasl` (String) Private network SASL authentication endpoint
+- `sasl` (String) Private network SASL authentication access point
 - `sasl_port` (Number) Authentication endpoint port
 - `ssl` (String) Encrypted endpoint
 - `ssl_port` (Number) Encrypted endpoint port
@@ -118,9 +118,9 @@ Optional:
 Read-Only:
 
 - `address` (String) Domain mapping address
-- `plain` (String) Private network Plain endpoint
+- `plain` (String) Private network Plain access point
 - `plain_port` (Number) Standard endpoint port
-- `sasl` (String) Private network SASL authentication endpoint
+- `sasl` (String) Private network SASL authentication access point
 - `sasl_port` (Number) Authentication endpoint port
 - `ssl` (String) Encrypted endpoint
 - `ssl_port` (Number) Encrypted endpoint port
@@ -135,7 +135,7 @@ Read-Only:
 Optional:
 
 - `key` (String) Tag key
-- `type` (String) Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag
+- `type` (String) Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag
 - `value` (String) Tag value
 
 
@@ -146,7 +146,7 @@ Read-Only:
 
 - `tag_kvs` (Attributes Set) Tag key-value pair
  Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability. (see [below for nested schema](#nestedatt--resource_tags--tag_kvs))
-- `type` (String) Tag type. Options: CUSTOM: custom tag. SYSTEM: system tag
+- `type` (String) Tag type. Options: CUSTOM—custom tag; SYSTEM—system tag
 
 <a id="nestedatt--resource_tags--tag_kvs"></a>
 ### Nested Schema for `resource_tags.tag_kvs`
@@ -154,7 +154,7 @@ Read-Only:
 Read-Only:
 
 - `key` (String) Tag key
-- `type` (String) Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag
+- `type` (String) Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag
 - `value` (String) Tag value
 
 

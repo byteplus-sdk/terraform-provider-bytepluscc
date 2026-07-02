@@ -1,4 +1,4 @@
-resource "byteplus_bmq_instance" "BMQInstanceDemo" {
+resource "bytepluscc_bmq_instance" "BMQInstanceDemo" {
   name              = "BMQInstanceDemo"
   billing_type      = "POST"
   project_name      = "default"

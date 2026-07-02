@@ -105,12 +105,10 @@ func accesskeyResource(ctx context.Context) (resource.Resource, error) {
 		//	}
 		"secret_access_key": schema.StringAttribute{ /*START ATTRIBUTE*/
 			Description: "Secret Access Key.",
-			Optional:    true,
 			Computed:    true,
 			PlanModifiers: []planmodifier.String{ /*START PLAN MODIFIERS*/
 				stringplanmodifier.UseStateForUnknown(),
 			}, /*END PLAN MODIFIERS*/
-			// SecretAccessKey is a write-only property.
 		}, /*END ATTRIBUTE*/
 		// Property: Service
 		// Cloud Control resource type schema:
@@ -215,10 +213,6 @@ func accesskeyResource(ctx context.Context) (resource.Resource, error) {
 		"user_name":         "UserName",
 	})
 
-	opts = opts.WithWriteOnlyPropertyPaths([]string{
-		"/properties/SecretAccessKey",
-	})
-
 	opts = opts.WithReadOnlyPropertyPaths([]string{
 		"/properties/AccessKeyId",
 		"/properties/CreatedTime",
@@ -227,6 +221,7 @@ func accesskeyResource(ctx context.Context) (resource.Resource, error) {
 		"/properties/Service",
 		"/properties/UpdatedTime",
 		"/properties/LastLoginDate",
+		"/properties/SecretAccessKey",
 	})
 
 	opts = opts.WithCreateOnlyPropertyPaths([]string{

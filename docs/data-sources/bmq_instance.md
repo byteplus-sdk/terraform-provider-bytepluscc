@@ -21,31 +21,31 @@ Data Source schema for Byteplus::BMQ::Instance
 
 ### Read-Only
 
-- `auto_renew` (String) Whether to enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal
-- `billing_period` (String) Unit of purchase duration. Possible values: MONTHLY: Monthly purchase. YEARLY: Annual purchase
-- `billing_type` (String) Instance billing method. Possible values: POST: Pay-as-you-go. MIX: Subscription
+- `auto_renew` (String) Enable auto-renewal. Possible values: true: Enable auto-renewal. false: Disable auto-renewal.
+- `billing_period` (String) Unit of purchase duration. Options: MONTHLY—monthly subscription; YEARLY—yearly subscription
+- `billing_type` (String) Instance billing method. Options: POST—pay-as-you-go; MIX—yearly/monthly subscription
 - `created_time` (String) Instance creation time
-- `description` (String) Instance description statement
-- `eip_id` (String) Whether public access is enabled for the instance. To enable public access, configure the public IP ID in the same region
+- `description` (String) Instance description
+- `eip_id` (String) Whether public access is enabled for the instance. If public access is required, configure the ID of a public IP in the same region
 - `endpoints` (Attributes) Response data for all instance endpoints (see [below for nested schema](#nestedatt--endpoints))
 - `expiration_time` (String) Instance expiration time
 - `group_limit` (Number) Maximum number of consumer groups per instance
 - `instance_id` (String) Instance ID
-- `message_retention` (Number) Message retention period for all topics under the instance, in hours
-- `name` (String) Set a custom name for the BMQ instance. Constraints: Use lowercase letters, numbers, and hyphens (-). Length: 1–64 characters
+- `message_retention` (Number) Message retention period for all Topics under the instance, in hours
+- `name` (String) Custom BMQ instance name. Constraints: must consist of lowercase letters, numbers, and hyphens (-). Length: 1–64 characters
 - `partition_limit` (Number) Maximum number of partitions per instance
-- `project_name` (String) Project name to which the instance belongs
+- `project_name` (String) Project name associated with the instance
 - `resource_tags` (Attributes Set) Instance resource tag list (see [below for nested schema](#nestedatt--resource_tags))
 - `resources` (Attributes) Instance resource statistics response data (see [below for nested schema](#nestedatt--resources))
-- `security_group_id_list` (Set of String) List of security groups used by the instance
+- `security_group_id_list` (Set of String) Security group list used by the instance
 - `specification` (String) Instance specification
 - `status` (String) Instance status. Possible values: INITIALIZING: Initializing, INITIALIZATION_FAILED: Initialization failed, RUNNING: Running, MODIFYING: Updating, MODIFY_FAILED: Update failed, RELEASING: Releasing, STOPPING: Stopping, STOPPED: Stopped, RECOVERING: Recovering, EXCEPTION: Exception, CAPACITY_EXPAXION_FAILED: Capacity expansion failed, EXPANDING_CAPACITY: Expanding capacity, CANCEL_EXPANDING_CAPACITY: Canceling capacity expansion, RESTARTING: Restarting, UNPAID: Unpaid
-- `subnet_id_list` (Set of String) List of subnets used by the instance
+- `subnet_id_list` (Set of String) Subnet list used by the instance
 - `tags` (Attributes Set) Instance resource tag list (see [below for nested schema](#nestedatt--tags))
-- `times` (Number) Purchase duration for subscription instances, in months
-- `topic_limit` (Number) Maximum number of topics per instance
+- `times` (Number) Purchase duration for yearly/monthly subscription instances, in months
+- `topic_limit` (Number) Maximum number of Topics per instance
 - `vpc_id` (String) VPC ID where the instance is located
-- `zone_id_list` (Set of String) List of availability zones where the instance is located
+- `zone_id_list` (Set of String) List of availability zones for the instance
 
 <a id="nestedatt--endpoints"></a>
 ### Nested Schema for `endpoints`
@@ -62,9 +62,9 @@ Read-Only:
 
 - `address` (String) Domain mapping address
 - `eip_id` (String) ID of the EIP bound to the instance
-- `plain` (String) Private network Plain endpoint
+- `plain` (String) Private network Plain access point
 - `plain_port` (Number) Standard endpoint port
-- `sasl` (String) Private network SASL authentication endpoint
+- `sasl` (String) Private network SASL authentication access point
 - `sasl_port` (Number) Authentication endpoint port
 - `ssl` (String) Encrypted endpoint
 - `ssl_port` (Number) Encrypted endpoint port
@@ -79,9 +79,9 @@ Read-Only:
 
 - `address` (String) Domain mapping address
 - `eip_id` (String) ID of the EIP bound to the instance
-- `plain` (String) Private network Plain endpoint
+- `plain` (String) Private network Plain access point
 - `plain_port` (Number) Standard endpoint port
-- `sasl` (String) Private network SASL authentication endpoint
+- `sasl` (String) Private network SASL authentication access point
 - `sasl_port` (Number) Authentication endpoint port
 - `ssl` (String) Encrypted endpoint
 - `ssl_port` (Number) Encrypted endpoint port
@@ -96,7 +96,7 @@ Read-Only:
 Read-Only:
 
 - `tag_kvs` (Attributes Set) Tag key-value pair (see [below for nested schema](#nestedatt--resource_tags--tag_kvs))
-- `type` (String) Tag type. Options: CUSTOM: custom tag. SYSTEM: system tag
+- `type` (String) Tag type. Options: CUSTOM—custom tag; SYSTEM—system tag
 
 <a id="nestedatt--resource_tags--tag_kvs"></a>
 ### Nested Schema for `resource_tags.tag_kvs`
@@ -104,7 +104,7 @@ Read-Only:
 Read-Only:
 
 - `key` (String) Tag key
-- `type` (String) Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag
+- `type` (String) Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag
 - `value` (String) Tag value
 
 
@@ -132,5 +132,5 @@ Read-Only:
 Read-Only:
 
 - `key` (String) Tag key
-- `type` (String) Type of instance tag. Possible values: CUSTOM: Custom tag. SYSTEM: System tag
+- `type` (String) Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag
 - `value` (String) Tag value
