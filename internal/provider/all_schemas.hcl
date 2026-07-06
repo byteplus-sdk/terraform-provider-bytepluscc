@@ -961,3 +961,31 @@ resource_schema "byteplus_tls_alarm_webhook_integration_type" {
 resource_schema "byteplus_fwcenter_vpc_fire_wall_acl_rule" {
   cloudcontrol_type_name = "Byteplus::FWCenter::VpcFireWallAclRule"
 }
+
+resource_schema "byteplus_rdsmysql_instance_readonly_node" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::InstanceReadonlyNode"
+}
+
+resource_schema "byteplus_fwcenter_nat_fire_wall_control_policy" {
+  cloudcontrol_type_name = "Byteplus::FWCenter::NatFireWallControlPolicy"
+}
+
+resource_schema "byteplus_kms_key_material" {
+  cloudcontrol_type_name = "Byteplus::KMS::KeyMaterial"
+}
+
+resource_schema "byteplus_id_user_pool" {
+  cloudcontrol_type_name = "Byteplus::ID::UserPool"
+}
+
+resource_schema "byteplus_id_permission_namespace" {
+  cloudcontrol_type_name = "Byteplus::ID::PermissionNamespace"
+}
+
+resource_schema "byteplus_id_workload_pool" {
+  cloudcontrol_type_name = "Byteplus::ID::WorkloadPool"
+}
+
+resource_schema "byteplus_id_auth_config" {
+  cloudcontrol_type_name = "Byteplus::ID::AuthConfig"
+}

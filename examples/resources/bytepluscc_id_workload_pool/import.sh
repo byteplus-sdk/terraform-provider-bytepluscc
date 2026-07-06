@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_id_workload_pool.example "workload_pool_name"
