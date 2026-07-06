@@ -1183,5 +1183,40 @@
         "resource": "bytepluscc_fwcenter_vpc_fire_wall_acl_rule",
         "identifier": ["VpcFirewallId","RuleId"],
         "path": "./examples/resources/bytepluscc_fwcenter_vpc_fire_wall_acl_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_rdsmysql_instance_readonly_node",
+        "identifier": ["InstanceId","NodeId"],
+        "path": "./examples/resources/bytepluscc_rdsmysql_instance_readonly_node/import.sh"
+    },
+    {
+        "resource": "bytepluscc_fwcenter_nat_fire_wall_control_policy",
+        "identifier": ["NatFirewallId","Direction","RuleId"],
+        "path": "./examples/resources/bytepluscc_fwcenter_nat_fire_wall_control_policy/import.sh"
+    },
+    {
+        "resource": "bytepluscc_kms_key_material",
+        "identifier": ["KeyID"],
+        "path": "./examples/resources/bytepluscc_kms_key_material/import.sh"
+    },
+    {
+        "resource": "bytepluscc_id_user_pool",
+        "identifier": ["Uid"],
+        "path": "./examples/resources/bytepluscc_id_user_pool/import.sh"
+    },
+    {
+        "resource": "bytepluscc_id_permission_namespace",
+        "identifier": ["NamespaceName"],
+        "path": "./examples/resources/bytepluscc_id_permission_namespace/import.sh"
+    },
+    {
+        "resource": "bytepluscc_id_workload_pool",
+        "identifier": ["WorkloadPoolName"],
+        "path": "./examples/resources/bytepluscc_id_workload_pool/import.sh"
+    },
+    {
+        "resource": "bytepluscc_id_auth_config",
+        "identifier": ["InboundAuthConfigId"],
+        "path": "./examples/resources/bytepluscc_id_auth_config/import.sh"
     }
 ]

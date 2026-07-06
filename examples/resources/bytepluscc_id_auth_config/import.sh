@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_id_auth_config.example "inbound_auth_config_id"

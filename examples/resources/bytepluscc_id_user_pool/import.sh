@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_id_user_pool.example "uid"
