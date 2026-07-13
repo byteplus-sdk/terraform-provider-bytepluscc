@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_id_oauth2_credential_provider.example "name|pool_name"

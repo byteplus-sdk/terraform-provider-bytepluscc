@@ -798,6 +798,10 @@ resource_schema "byteplus_kms_secret" {
   cloudcontrol_type_name = "Byteplus::KMS::Secret"
 }
 
+resource_schema "byteplus_tls_alarm_content_template_type" {
+  cloudcontrol_type_name = "Byteplus::TLS::AlarmContentTemplateType"
+}
+
 resource_schema "byteplus_gtm_pool" {
   cloudcontrol_type_name = "Byteplus::GTM::Pool"
 }
@@ -808,6 +812,10 @@ resource_schema "byteplus_cloudmonitor_contact_group" {
 
 resource_schema "byteplus_id_service" {
   cloudcontrol_type_name = "Byteplus::ID::Service"
+}
+
+resource_schema "byteplus_id_oauth2_credential_provider" {
+  cloudcontrol_type_name = "Byteplus::ID::Oauth2CredentialProvider"
 }
 
 resource_schema "byteplus_clb_check_log_project" {
