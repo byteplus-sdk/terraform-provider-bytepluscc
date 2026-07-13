@@ -980,6 +980,11 @@
         "path": "./examples/resources/bytepluscc_kms_secret/import.sh"
     },
     {
+        "resource": "bytepluscc_tls_alarm_content_template_type",
+        "identifier": ["AlarmContentTemplateId"],
+        "path": "./examples/resources/bytepluscc_tls_alarm_content_template_type/import.sh"
+    },
+    {
         "resource": "bytepluscc_gtm_pool",
         "identifier": ["GtmId","PoolId"],
         "path": "./examples/resources/bytepluscc_gtm_pool/import.sh"
@@ -993,6 +998,11 @@
         "resource": "bytepluscc_id_service",
         "identifier": ["ServiceId"],
         "path": "./examples/resources/bytepluscc_id_service/import.sh"
+    },
+    {
+        "resource": "bytepluscc_id_oauth2_credential_provider",
+        "identifier": ["Name","PoolName"],
+        "path": "./examples/resources/bytepluscc_id_oauth2_credential_provider/import.sh"
     },
     {
         "resource": "bytepluscc_clb_check_log_project",
