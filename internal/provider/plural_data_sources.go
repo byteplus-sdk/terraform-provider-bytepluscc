@@ -248,6 +248,10 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_id_permission_namespaces -cctype Byteplus::ID::PermissionNamespace -package id ../byteplus/id/permission_namespace_plural_data_source_gen.go ../byteplus/id/permission_namespace_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_id_workload_pools -cctype Byteplus::ID::WorkloadPool -package id ../byteplus/id/workload_pool_plural_data_source_gen.go ../byteplus/id/workload_pool_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_id_auth_configs -cctype Byteplus::ID::AuthConfig -package id ../byteplus/id/auth_config_plural_data_source_gen.go ../byteplus/id/auth_config_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_download_tasks -cctype Byteplus::TLS::DownloadTask -package tls ../byteplus/tls/download_task_plural_data_source_gen.go ../byteplus/tls/download_task_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_rule_bound_host_groups -cctype Byteplus::TLS::RuleBoundHostGroup -package tls ../byteplus/tls/rule_bound_host_group_plural_data_source_gen.go ../byteplus/tls/rule_bound_host_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_escloud_ip_allow_lists -cctype Byteplus::ESCloud::IpAllowList -package escloud ../byteplus/escloud/ip_allow_list_plural_data_source_gen.go ../byteplus/escloud/ip_allow_list_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vmp_integration_tasks -cctype Byteplus::VMP::IntegrationTask -package vmp ../byteplus/vmp/integration_task_plural_data_source_gen.go ../byteplus/vmp/integration_task_plural_data_source_gen_test.go
 
 package provider
 

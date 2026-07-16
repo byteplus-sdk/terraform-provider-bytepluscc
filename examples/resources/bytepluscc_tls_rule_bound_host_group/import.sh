@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tls_rule_bound_host_group.example "rule_id|host_group_id"
