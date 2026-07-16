@@ -248,6 +248,10 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_id_permission_namespace -ccschema ../service/cloudcontrol/schemas/Byteplus_ID_PermissionNamespace.json -package id -- ../byteplus/id/permission_namespace_resource_gen.go ../byteplus/id/permission_namespace_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_id_workload_pool -ccschema ../service/cloudcontrol/schemas/Byteplus_ID_WorkloadPool.json -package id -- ../byteplus/id/workload_pool_resource_gen.go ../byteplus/id/workload_pool_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_id_auth_config -ccschema ../service/cloudcontrol/schemas/Byteplus_ID_AuthConfig.json -package id -- ../byteplus/id/auth_config_resource_gen.go ../byteplus/id/auth_config_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_download_task -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_DownloadTask.json -package tls -- ../byteplus/tls/download_task_resource_gen.go ../byteplus/tls/download_task_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tls_rule_bound_host_group -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_RuleBoundHostGroup.json -package tls -- ../byteplus/tls/rule_bound_host_group_resource_gen.go ../byteplus/tls/rule_bound_host_group_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_escloud_ip_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_ESCloud_IpAllowList.json -package escloud -- ../byteplus/escloud/ip_allow_list_resource_gen.go ../byteplus/escloud/ip_allow_list_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_vmp_integration_task -ccschema ../service/cloudcontrol/schemas/Byteplus_VMP_IntegrationTask.json -package vmp -- ../byteplus/vmp/integration_task_resource_gen.go ../byteplus/vmp/integration_task_resource_gen_test.go
 
 package provider
 

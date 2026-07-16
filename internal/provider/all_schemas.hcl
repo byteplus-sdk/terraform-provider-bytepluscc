@@ -997,3 +997,19 @@ resource_schema "byteplus_id_workload_pool" {
 resource_schema "byteplus_id_auth_config" {
   cloudcontrol_type_name = "Byteplus::ID::AuthConfig"
 }
+
+resource_schema "byteplus_tls_download_task" {
+  cloudcontrol_type_name = "Byteplus::TLS::DownloadTask"
+}
+
+resource_schema "byteplus_tls_rule_bound_host_group" {
+  cloudcontrol_type_name = "Byteplus::TLS::RuleBoundHostGroup"
+}
+
+resource_schema "byteplus_escloud_ip_allow_list" {
+  cloudcontrol_type_name = "Byteplus::ESCloud::IpAllowList"
+}
+
+resource_schema "byteplus_vmp_integration_task" {
+  cloudcontrol_type_name = "Byteplus::VMP::IntegrationTask"
+}

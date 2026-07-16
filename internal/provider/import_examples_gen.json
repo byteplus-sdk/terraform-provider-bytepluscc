@@ -1228,5 +1228,25 @@
         "resource": "bytepluscc_id_auth_config",
         "identifier": ["InboundAuthConfigId"],
         "path": "./examples/resources/bytepluscc_id_auth_config/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_download_task",
+        "identifier": ["TopicId","TaskId"],
+        "path": "./examples/resources/bytepluscc_tls_download_task/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tls_rule_bound_host_group",
+        "identifier": ["RuleId","HostGroupId"],
+        "path": "./examples/resources/bytepluscc_tls_rule_bound_host_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_escloud_ip_allow_list",
+        "identifier": ["InstanceId","Type"],
+        "path": "./examples/resources/bytepluscc_escloud_ip_allow_list/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vmp_integration_task",
+        "identifier": ["IntegrationTaskId"],
+        "path": "./examples/resources/bytepluscc_vmp_integration_task/import.sh"
     }
 ]
