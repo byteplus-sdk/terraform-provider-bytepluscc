@@ -943,6 +943,6 @@ func TestTranslateForUpdate(t *testing.T) {
 	for key, value := range tfToCC {
 		ccToTf[value] = key
 	}
-	result, _ := translateForUpdate(json, "test-id", schema.Attributes, ccToTf)
-	fmt.Printf(result)
+	result, _ := translateForUpdate(json, "", schema.Attributes, ccToTf)
+	fmt.Print(result)
 }
