@@ -5,9 +5,11 @@ package cloudcontrol
 
 import (
 	"encoding/json"
+	"strings"
 	"testing"
 
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
+	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/tfresource"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
@@ -53,5 +55,25 @@ func TestNormalizeResourceDescriptionPreservesUserTagFields(t *testing.T) {
 	}
 	if tag["Type"] != "CUSTOM" {
 		t.Fatalf("Tags[0].Type = %v, want CUSTOM", tag["Type"])
+	}
+}
+
+// TestNormalizeResourceDescriptionMalformedPropertiesIsNotNotFound verifies
+// malformed Properties remain a normalization error rather than NotFound.
+func TestNormalizeResourceDescriptionMalformedPropertiesIsNotNotFound(t *testing.T) {
+	t.Parallel()
+
+	properties := "{"
+	description := &cloudcontrol.ResourceDescriptionForGetResourceOutput{Properties: &properties}
+
+	err := NormalizeResourceDescription(description)
+	if err == nil {
+		t.Fatal("NormalizeResourceDescription() returned nil, want an error")
+	}
+	if tfresource.NotFound(err) {
+		t.Fatalf("NormalizeResourceDescription() error must not be NotFound: %v", err)
+	}
+	if !strings.Contains(err.Error(), "failed to unmarshal ResourceDescription.Properties") {
+		t.Fatalf("NormalizeResourceDescription() error = %q, want unmarshal context", err)
 	}
 }
