@@ -17,9 +17,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus"
 	bytepluscredentials "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/credentials"
 	byteplusclicreds "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/credentials/clicreds"
 	byteplusdefaults "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/defaults"
+	byteplussession "github.com/byteplus-sdk/byteplus-go-sdk-v2/byteplus/session"
+	byteplusvke "github.com/byteplus-sdk/byteplus-go-sdk-v2/service/vke"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/cloudcontrol"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/common"
 	"github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/customresources"
@@ -47,12 +50,19 @@ const (
 // is passed to each resource and data source in their Configure methods.
 type providerData struct {
 	ccAPIClient *cloudcontrol.CloudControl
+	vkeClient   *byteplusvke.VKE
 	logger      baselogging.Logger
 	region      string
 }
 
 func (p *providerData) CloudControlAPIClient(_ context.Context) *cloudcontrol.CloudControl {
 	return p.ccAPIClient
+}
+
+// VKEClient returns a native VKE API client used by hand-written resource
+// overrides that need to bypass Cloud Control for specific create quirks.
+func (p *providerData) VKEClient(_ context.Context) *byteplusvke.VKE {
+	return p.vkeClient
 }
 
 func (p *providerData) Region(_ context.Context) string {
@@ -470,13 +480,71 @@ func newProviderData(ctx context.Context, c *configModel) (*providerData, diag.D
 		return nil, diags
 	}
 
+	vkeClient, vkeDiags := newVKEClient(creds, c)
+	diags.Append(vkeDiags...)
+	if diags.HasError() {
+		return nil, diags
+	}
+
 	providerData := &providerData{
 		ccAPIClient: cloudcontrolClient,
+		vkeClient:   vkeClient,
 		logger:      logger,
 		region:      c.Region.String(),
 	}
 
 	return providerData, diags
+}
+
+// newVKEClient builds a native VKE service client that shares the same resolved
+// credentials as Cloud Control (via a volcengine→byteplus credentials adapter).
+func newVKEClient(creds *credentials.Credentials, c *configModel) (*byteplusvke.VKE, diag.Diagnostics) {
+	var diags diag.Diagnostics
+	if creds == nil {
+		diags.AddError("VKE client configuration failed", "credentials are nil")
+		return nil, diags
+	}
+
+	bpCfg := byteplus.NewConfig().
+		WithRegion(c.Region.ValueString()).
+		WithCredentials(bytepluscredentials.NewCredentials(&volcengineToByteplusCredentialsProvider{creds: creds})).
+		WithDisableSSL(c.DisableSSL.ValueBool())
+
+	bpSess, err := byteplussession.NewSession(bpCfg)
+	if err != nil {
+		diags.AddError("VKE client configuration failed", err.Error())
+		return nil, diags
+	}
+	return byteplusvke.New(bpSess), diags
+}
+
+// volcengineToByteplusCredentialsProvider adapts volcengine credentials (used by
+// Cloud Control) to the byteplus-go-sdk-v2 credentials.Provider interface.
+type volcengineToByteplusCredentialsProvider struct {
+	creds *credentials.Credentials
+}
+
+func (p *volcengineToByteplusCredentialsProvider) Retrieve() (bytepluscredentials.Value, error) {
+	if p.creds == nil {
+		return bytepluscredentials.Value{ProviderName: "VolcengineAdapter"}, fmt.Errorf("volcengine credentials is nil")
+	}
+	v, err := p.creds.Get()
+	if err != nil {
+		return bytepluscredentials.Value{ProviderName: "VolcengineAdapter"}, err
+	}
+	return bytepluscredentials.Value{
+		AccessKeyID:     v.AccessKeyID,
+		SecretAccessKey: v.SecretAccessKey,
+		SessionToken:    v.SessionToken,
+		ProviderName:    "VolcengineAdapter",
+	}, nil
+}
+
+func (p *volcengineToByteplusCredentialsProvider) IsExpired() bool {
+	if p.creds == nil {
+		return true
+	}
+	return p.creds.IsExpired()
 }
 
 func ParseTrn(trn string) (string, string, error) {

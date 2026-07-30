@@ -68,6 +68,8 @@ resource "bytepluscc_vke_cluster" "VKEClusterDemo" {
 - `irsa_config` (Attributes) IRSA (IAM Role for Service Account) capability parameter configuration (see [below for nested schema](#nestedatt--irsa_config))
 - `kubernetes_version_create` (String) Kubernetes version of the cluster, in the format x.xx. When creating a cluster, the system automatically matches the latest VKE version corresponding to this Kubernetes version. (For creation)
 - `logging_config` (Attributes) Cluster log configuration information. (see [below for nested schema](#nestedatt--logging_config))
+
+~> **Note:** Prefer omitting `logging_config` unless you intentionally enable at least one log setup (`enabled = true`). Empty or all-disabled `LoggingConfig` values are stripped on create because the VKE API rejects them with `InvalidParameter.LoggingConfig` in some regions. If Cloud Control create still fails with that error, the provider falls back to the native VKE `CreateCluster` API automatically.
 - `monitoring_config` (Attributes) Monitoring configuration information. (see [below for nested schema](#nestedatt--monitoring_config))
 - `pods_config` (Attributes) Pod network configuration. (see [below for nested schema](#nestedatt--pods_config))
 - `project_name` (String) Project name to which the cluster belongs. A cluster can belong to only one project. Only English letters, numbers, underscores (_), periods (.), and hyphens (-) are allowed. Maximum length: 64 characters. Default: default.
