@@ -252,6 +252,8 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_tls_rule_bound_host_group -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_RuleBoundHostGroup.json -package tls ../byteplus/tls/rule_bound_host_group_singular_data_source_gen.go ../byteplus/tls/rule_bound_host_group_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_escloud_ip_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_ESCloud_IpAllowList.json -package escloud ../byteplus/escloud/ip_allow_list_singular_data_source_gen.go ../byteplus/escloud/ip_allow_list_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vmp_integration_task -ccschema ../service/cloudcontrol/schemas/Byteplus_VMP_IntegrationTask.json -package vmp ../byteplus/vmp/integration_task_singular_data_source_gen.go ../byteplus/vmp/integration_task_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_cc_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_CcRule.json -package waf ../byteplus/waf/cc_rule_singular_data_source_gen.go ../byteplus/waf/cc_rule_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_contact -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_Contact.json -package cloudmonitor ../byteplus/cloudmonitor/contact_singular_data_source_gen.go ../byteplus/cloudmonitor/contact_singular_data_source_gen_test.go
 
 package provider
 

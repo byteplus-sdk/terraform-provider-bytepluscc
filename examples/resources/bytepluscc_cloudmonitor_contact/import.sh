@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudmonitor_contact.example "contact_id"

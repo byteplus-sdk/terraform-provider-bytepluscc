@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_waf_cc_rule.example "host|rule_id"
