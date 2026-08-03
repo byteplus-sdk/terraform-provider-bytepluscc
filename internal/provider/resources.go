@@ -252,6 +252,8 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_tls_rule_bound_host_group -ccschema ../service/cloudcontrol/schemas/Byteplus_TLS_RuleBoundHostGroup.json -package tls -- ../byteplus/tls/rule_bound_host_group_resource_gen.go ../byteplus/tls/rule_bound_host_group_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_escloud_ip_allow_list -ccschema ../service/cloudcontrol/schemas/Byteplus_ESCloud_IpAllowList.json -package escloud -- ../byteplus/escloud/ip_allow_list_resource_gen.go ../byteplus/escloud/ip_allow_list_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_vmp_integration_task -ccschema ../service/cloudcontrol/schemas/Byteplus_VMP_IntegrationTask.json -package vmp -- ../byteplus/vmp/integration_task_resource_gen.go ../byteplus/vmp/integration_task_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_waf_cc_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_CcRule.json -package waf -- ../byteplus/waf/cc_rule_resource_gen.go ../byteplus/waf/cc_rule_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_cloudmonitor_contact -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_Contact.json -package cloudmonitor -- ../byteplus/cloudmonitor/contact_resource_gen.go ../byteplus/cloudmonitor/contact_resource_gen_test.go
 
 package provider
 

@@ -1013,3 +1013,11 @@ resource_schema "byteplus_escloud_ip_allow_list" {
 resource_schema "byteplus_vmp_integration_task" {
   cloudcontrol_type_name = "Byteplus::VMP::IntegrationTask"
 }
+
+resource_schema "byteplus_waf_cc_rule" {
+  cloudcontrol_type_name = "Byteplus::WAF::CcRule"
+}
+
+resource_schema "byteplus_cloudmonitor_contact" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::Contact"
+}

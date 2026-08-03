@@ -252,6 +252,8 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tls_rule_bound_host_groups -cctype Byteplus::TLS::RuleBoundHostGroup -package tls ../byteplus/tls/rule_bound_host_group_plural_data_source_gen.go ../byteplus/tls/rule_bound_host_group_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_escloud_ip_allow_lists -cctype Byteplus::ESCloud::IpAllowList -package escloud ../byteplus/escloud/ip_allow_list_plural_data_source_gen.go ../byteplus/escloud/ip_allow_list_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vmp_integration_tasks -cctype Byteplus::VMP::IntegrationTask -package vmp ../byteplus/vmp/integration_task_plural_data_source_gen.go ../byteplus/vmp/integration_task_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_cc_rules -cctype Byteplus::WAF::CcRule -package waf ../byteplus/waf/cc_rule_plural_data_source_gen.go ../byteplus/waf/cc_rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_contacts -cctype Byteplus::CloudMonitor::Contact -package cloudmonitor ../byteplus/cloudmonitor/contact_plural_data_source_gen.go ../byteplus/cloudmonitor/contact_plural_data_source_gen_test.go
 
 package provider
 
