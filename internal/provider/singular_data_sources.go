@@ -254,6 +254,8 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vmp_integration_task -ccschema ../service/cloudcontrol/schemas/Byteplus_VMP_IntegrationTask.json -package vmp ../byteplus/vmp/integration_task_singular_data_source_gen.go ../byteplus/vmp/integration_task_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_cc_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_CcRule.json -package waf ../byteplus/waf/cc_rule_singular_data_source_gen.go ../byteplus/waf/cc_rule_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_contact -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_Contact.json -package cloudmonitor ../byteplus/cloudmonitor/contact_singular_data_source_gen.go ../byteplus/cloudmonitor/contact_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_resourceshare_resource_share -ccschema ../service/cloudcontrol/schemas/Byteplus_ResourceShare_ResourceShare.json -package resourceshare ../byteplus/resourceshare/resource_share_singular_data_source_gen.go ../byteplus/resourceshare/resource_share_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_certificateservice_child_cert_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_CertificateService_ChildCertInstance.json -package certificateservice ../byteplus/certificateservice/child_cert_instance_singular_data_source_gen.go ../byteplus/certificateservice/child_cert_instance_singular_data_source_gen_test.go
 
 package provider
 
@@ -265,6 +267,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/bmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/certificateservice"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudidentity"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudmonitor"
@@ -292,6 +295,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdsmysql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdspostgresql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/resourceshare"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"

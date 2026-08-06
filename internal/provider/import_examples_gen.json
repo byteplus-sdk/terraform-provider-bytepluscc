@@ -1258,5 +1258,15 @@
         "resource": "bytepluscc_cloudmonitor_contact",
         "identifier": ["ContactId"],
         "path": "./examples/resources/bytepluscc_cloudmonitor_contact/import.sh"
+    },
+    {
+        "resource": "bytepluscc_resourceshare_resource_share",
+        "identifier": ["ResourceShareTrn"],
+        "path": "./examples/resources/bytepluscc_resourceshare_resource_share/import.sh"
+    },
+    {
+        "resource": "bytepluscc_certificateservice_child_cert_instance",
+        "identifier": ["InstanceId"],
+        "path": "./examples/resources/bytepluscc_certificateservice_child_cert_instance/import.sh"
     }
 ]
