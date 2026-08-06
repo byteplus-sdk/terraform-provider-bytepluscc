@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_certificateservice_child_cert_instance.example "instance_id"

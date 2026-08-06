@@ -1021,3 +1021,11 @@ resource_schema "byteplus_waf_cc_rule" {
 resource_schema "byteplus_cloudmonitor_contact" {
   cloudcontrol_type_name = "Byteplus::CloudMonitor::Contact"
 }
+
+resource_schema "byteplus_resourceshare_resource_share" {
+  cloudcontrol_type_name = "Byteplus::ResourceShare::ResourceShare"
+}
+
+resource_schema "byteplus_certificateservice_child_cert_instance" {
+  cloudcontrol_type_name = "Byteplus::CertificateService::ChildCertInstance"
+}
