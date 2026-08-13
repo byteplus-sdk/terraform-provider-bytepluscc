@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_config_group_rule.example "account_group_id|rule_id"

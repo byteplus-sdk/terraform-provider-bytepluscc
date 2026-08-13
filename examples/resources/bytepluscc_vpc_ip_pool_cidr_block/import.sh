@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_ip_pool_cidr_block.example "ip_address_pool_id|cidr_block"

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_certificateservice_organization_info.example "organization_id"
