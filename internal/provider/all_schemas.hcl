@@ -1029,3 +1029,27 @@ resource_schema "byteplus_resourceshare_resource_share" {
 resource_schema "byteplus_certificateservice_child_cert_instance" {
   cloudcontrol_type_name = "Byteplus::CertificateService::ChildCertInstance"
 }
+
+resource_schema "byteplus_ecs_scheduled_instance" {
+  cloudcontrol_type_name = "Byteplus::ECS::ScheduledInstance"
+}
+
+resource_schema "byteplus_vpc_ip_pool" {
+  cloudcontrol_type_name = "Byteplus::VPC::IpPool"
+}
+
+resource_schema "byteplus_vpc_ip_pool_cidr_block" {
+  cloudcontrol_type_name = "Byteplus::VPC::IpPoolCidrBlock"
+}
+
+resource_schema "byteplus_config_rule" {
+  cloudcontrol_type_name = "Byteplus::Config::Rule"
+}
+
+resource_schema "byteplus_certificateservice_organization_info" {
+  cloudcontrol_type_name = "Byteplus::CertificateService::OrganizationInfo"
+}
+
+resource_schema "byteplus_config_group_rule" {
+  cloudcontrol_type_name = "Byteplus::Config::GroupRule"
+}

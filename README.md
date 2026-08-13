@@ -64,7 +64,7 @@ data "bytepluscc_vpc_vpc" "VpcVpcDataSource" {
 
 ## Authentication
 
-The Bytepluscc provider offers a flexible means of providing credentials for authentication. The following methods are supported, in this order, and explained below:
+The Bytepluscc provider first resolves source credentials and then optionally uses those credentials to call STS AssumeRole.
 
 ### Static credentials
 
@@ -73,29 +73,35 @@ Static credentials can be provided by adding an public_key and private_key in-li
 > **Warning**:
 > Hard-coded credentials are not recommended in any Terraform configuration and risks secret leakage should this file ever be committed to a public version control system.
 
-**Authentication Priority and Requirements:**
-- **AK/SK Authentication**: The `access_key` and `secret_key` parameters have the highest priority for authentication.
-- **Profile Authentication**: The `profile` parameter can be used as an alternative authentication method.
+**Authentication Resolution and Requirements:**
+
+- **AK/SK Authentication**: Complete `access_key` and `secret_key` credentials have the highest source priority; `session_token` is forwarded when temporary credentials are used.
+- **Profile Authentication**: `profile` or `file_path` selects BytePlus CLI credentials when a complete AK/SK pair is absent.
+- **Default Credential Provider**: When neither complete AK/SK nor Profile inputs are configured, the BytePlus SDK default credential chain is used.
+- **AssumeRole**: When `assume_role` is configured, it wraps the selected AK/SK, Profile, or default-chain source and supplies refreshable target-role credentials.
 - **Validation Rules**:
-    - At least one authentication method must be provided: either `access_key`/`secret_key` OR `profile`
-    - If both AK/SK and Profile are provided, AK/SK authentication takes precedence over Profile authentication
-    - The `file_path` parameter is optional. If not specified, the default path `~/.byteplus` will be used to locate the profile configuration file
+    - If complete AK/SK and Profile inputs are both present, AK/SK takes precedence and the provider returns a warning
+    - A partial AK/SK pair is not a usable source and does not override Profile inputs
+    - The `file_path` parameter is optional. If not specified, the default file `~/.byteplus/config.json` is used
 
 Usage:
 
-```shell
+```terraform
 provider "bytepluscc" {
-   access_key = "your ak"
-   secret_key = "your sk"
-   region = "cn-beijing"
-  profile = "your profile" 
-   file_path = "" # if empty, default path is ~/.byteplus
+  region    = "ap-southeast-1"
+  profile   = "platform-admin"
+  file_path = "/path/to/.byteplus/config.json"
+
+  assume_role {
+    assume_role_trn  = "trn:iam::222222222222:role/terraform-execution"
+    duration_seconds = 3600
+  }
 }
 ```
 
 ### Environment variables
 
-You can provide your credentials via BYTEPLUS_ACCESS_KEY and BYTEPLUS_SECRET_KEY environment variables, representing your byteplus public key and private key respectively. BYTEPLUS_REGION, BYTEPLUS_PROFILE, and BYTEPLUS_FILE_PATH are also used, if applicable:
+Set `BYTEPLUS_REGION` and choose AK/SK, Profile, or the default credential chain. If both complete AK/SK and Profile inputs are configured, AK/SK takes precedence and the provider returns a warning:
 ```shell
 provider "bytepluscc" {
 
@@ -105,11 +111,16 @@ provider "bytepluscc" {
 Usage:
 
 ```shell
+$ export BYTEPLUS_REGION="ap-southeast-1"
+
+# Option 1: AK/SK credentials
 $ export BYTEPLUS_ACCESS_KEY="your_public_key"
 $ export BYTEPLUS_SECRET_KEY="your_private_key"
-$ export BYTEPLUS_REGION="cn-beijing"
-$ export BYTEPLUS_PROFILE="your_profile"
-$ export BYTEPLUS_FILE_PATH="your_file_path" # if empty, default path is ~/.byteplus
+$ export BYTEPLUS_SESSION_TOKEN="your_session_token" # optional for temporary credentials
+
+# Option 2: Profile credentials (do not set AK/SK at the same time)
+# export BYTEPLUS_PROFILE="your_profile"
+# export BYTEPLUS_FILE_PATH="your_file_path" # defaults to ~/.byteplus/config.json
 ```
 
 ## Authenticated Cloud Control proxy
@@ -173,11 +184,12 @@ The equivalent environment variables are `BYTEPLUS_NO_PROXY` (with `NO_PROXY` an
 
 ### Optional
 
-- `access_key` (String) The Access Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_ACCESS_KEY` environment variable
-- `secret_key` (String) he Secret Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_SECRET_KEY` environment variable
-- `assume_role` (Attributes) An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role))
-- `profile` (String) The Profile for byteplus Provider. It can be used as an alternative authentication method to AK/SK, and can also be sourced from the `BYTEPLUS_PROFILE` environment variable
-- `file_path` (String) The File Path for byteplus Provider. It specifies the path to the profile configuration file. If not specified, the default path `~/.byteplus` will be used, and can also be sourced from the `BYTEPLUS_FILE_PATH` environment variable
+- `access_key` (String) The Access Key for Byteplus Provider. It can also be sourced from the `BYTEPLUS_ACCESS_KEY` environment variable
+- `secret_key` (String) The Secret Key for Byteplus Provider. It can also be sourced from the `BYTEPLUS_SECRET_KEY` environment variable
+- `session_token` (String) The Session Token for Byteplus Provider, used together with temporary AK/SK obtained from STS. It can also be sourced from the `BYTEPLUS_SESSION_TOKEN` environment variable
+- `profile` (String) The Profile for Byteplus Provider. It can be sourced from the `BYTEPLUS_PROFILE` environment variable. Complete AccessKey and SecretKey credentials take precedence when both sources are configured
+- `file_path` (String) The File Path for Byteplus Provider. It specifies the path to the profile configuration file. If not specified, the default file `~/.byteplus/config.json` will be used, and can also be sourced from the `BYTEPLUS_FILE_PATH` environment variable
+- `assume_role` (Attributes) An `assume_role` block that uses the selected source credentials to obtain target-role credentials. Only one `assume_role` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role))
 - `customer_headers` (String) CUSTOMER HEADERS for Byteplus Provider. The customer_headers field uses commas (,) to separate multiple headers, and colons (:) to separate each header key from its corresponding value.
 - `disable_ssl` (Boolean) Disable SSL for Byteplus Provider
 - `endpoints` (Attributes) An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration. (see [below for nested schema](#nestedatt--endpoints))
@@ -194,12 +206,11 @@ The equivalent environment variables are `BYTEPLUS_NO_PROXY` (with `NO_PROXY` an
 
 Required:
 
-- `assume_role_session_name` (String) The session name to use when making the AssumeRole call.
 - `assume_role_trn` (String) he TRN of the role to assume.
-- `duration_seconds` (Number) The duration of the session when making the AssumeRole call. Its value ranges from 900 to 43200(seconds), and default is 3600 seconds.
 
 Optional:
 
+- `duration_seconds` (Number) The duration of the session when making the AssumeRole call. Its value ranges from 900 to 43200(seconds), and default is 3600 seconds.
 - `policy` (String) A more restrictive policy when making the AssumeRole call
 
 <a id="nestedatt--endpoints"></a>

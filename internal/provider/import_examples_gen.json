@@ -1268,5 +1268,35 @@
         "resource": "bytepluscc_certificateservice_child_cert_instance",
         "identifier": ["InstanceId"],
         "path": "./examples/resources/bytepluscc_certificateservice_child_cert_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_scheduled_instance",
+        "identifier": ["ScheduledInstanceId"],
+        "path": "./examples/resources/bytepluscc_ecs_scheduled_instance/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_ip_pool",
+        "identifier": ["IpAddressPoolId"],
+        "path": "./examples/resources/bytepluscc_vpc_ip_pool/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_ip_pool_cidr_block",
+        "identifier": ["IpAddressPoolId","CidrBlock"],
+        "path": "./examples/resources/bytepluscc_vpc_ip_pool_cidr_block/import.sh"
+    },
+    {
+        "resource": "bytepluscc_config_rule",
+        "identifier": ["RuleId"],
+        "path": "./examples/resources/bytepluscc_config_rule/import.sh"
+    },
+    {
+        "resource": "bytepluscc_certificateservice_organization_info",
+        "identifier": ["OrganizationId"],
+        "path": "./examples/resources/bytepluscc_certificateservice_organization_info/import.sh"
+    },
+    {
+        "resource": "bytepluscc_config_group_rule",
+        "identifier": ["AccountGroupId","RuleId"],
+        "path": "./examples/resources/bytepluscc_config_group_rule/import.sh"
     }
 ]

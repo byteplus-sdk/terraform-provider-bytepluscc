@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_config_rule.example "rule_id"

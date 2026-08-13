@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ecs_scheduled_instance.example "scheduled_instance_id"

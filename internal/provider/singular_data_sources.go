@@ -256,6 +256,12 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_contact -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_Contact.json -package cloudmonitor ../byteplus/cloudmonitor/contact_singular_data_source_gen.go ../byteplus/cloudmonitor/contact_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_resourceshare_resource_share -ccschema ../service/cloudcontrol/schemas/Byteplus_ResourceShare_ResourceShare.json -package resourceshare ../byteplus/resourceshare/resource_share_singular_data_source_gen.go ../byteplus/resourceshare/resource_share_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_certificateservice_child_cert_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_CertificateService_ChildCertInstance.json -package certificateservice ../byteplus/certificateservice/child_cert_instance_singular_data_source_gen.go ../byteplus/certificateservice/child_cert_instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_ecs_scheduled_instance -ccschema ../service/cloudcontrol/schemas/Byteplus_ECS_ScheduledInstance.json -package ecs ../byteplus/ecs/scheduled_instance_singular_data_source_gen.go ../byteplus/ecs/scheduled_instance_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vpc_ip_pool -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_IpPool.json -package vpc ../byteplus/vpc/ip_pool_singular_data_source_gen.go ../byteplus/vpc/ip_pool_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vpc_ip_pool_cidr_block -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_IpPoolCidrBlock.json -package vpc ../byteplus/vpc/ip_pool_cidr_block_singular_data_source_gen.go ../byteplus/vpc/ip_pool_cidr_block_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_config_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_Config_Rule.json -package config ../byteplus/config/rule_singular_data_source_gen.go ../byteplus/config/rule_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_certificateservice_organization_info -ccschema ../service/cloudcontrol/schemas/Byteplus_CertificateService_OrganizationInfo.json -package certificateservice ../byteplus/certificateservice/organization_info_singular_data_source_gen.go ../byteplus/certificateservice/organization_info_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_config_group_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_Config_GroupRule.json -package config ../byteplus/config/group_rule_singular_data_source_gen.go ../byteplus/config/group_rule_singular_data_source_gen_test.go
 
 package provider
 
@@ -271,6 +277,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudidentity"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudmonitor"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/config"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/directconnect"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"

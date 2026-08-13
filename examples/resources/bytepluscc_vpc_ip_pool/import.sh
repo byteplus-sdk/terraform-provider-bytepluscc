@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_ip_pool.example "ip_address_pool_id"

@@ -256,6 +256,12 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_contacts -cctype Byteplus::CloudMonitor::Contact -package cloudmonitor ../byteplus/cloudmonitor/contact_plural_data_source_gen.go ../byteplus/cloudmonitor/contact_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_resourceshare_resource_shares -cctype Byteplus::ResourceShare::ResourceShare -package resourceshare ../byteplus/resourceshare/resource_share_plural_data_source_gen.go ../byteplus/resourceshare/resource_share_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_certificateservice_child_cert_instances -cctype Byteplus::CertificateService::ChildCertInstance -package certificateservice ../byteplus/certificateservice/child_cert_instance_plural_data_source_gen.go ../byteplus/certificateservice/child_cert_instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_scheduled_instances -cctype Byteplus::ECS::ScheduledInstance -package ecs ../byteplus/ecs/scheduled_instance_plural_data_source_gen.go ../byteplus/ecs/scheduled_instance_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_ip_pools -cctype Byteplus::VPC::IpPool -package vpc ../byteplus/vpc/ip_pool_plural_data_source_gen.go ../byteplus/vpc/ip_pool_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_ip_pool_cidr_blocks -cctype Byteplus::VPC::IpPoolCidrBlock -package vpc ../byteplus/vpc/ip_pool_cidr_block_plural_data_source_gen.go ../byteplus/vpc/ip_pool_cidr_block_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_config_rules -cctype Byteplus::Config::Rule -package config ../byteplus/config/rule_plural_data_source_gen.go ../byteplus/config/rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_certificateservice_organization_infos -cctype Byteplus::CertificateService::OrganizationInfo -package certificateservice ../byteplus/certificateservice/organization_info_plural_data_source_gen.go ../byteplus/certificateservice/organization_info_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_config_group_rules -cctype Byteplus::Config::GroupRule -package config ../byteplus/config/group_rule_plural_data_source_gen.go ../byteplus/config/group_rule_plural_data_source_gen_test.go
 
 package provider
 
@@ -271,6 +277,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/clb"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudidentity"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cloudmonitor"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/config"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cr"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/directconnect"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/dns"
