@@ -6,11 +6,14 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"net"
 	"net/http"
 	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 	"time"
@@ -19,11 +22,320 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	frameworkprovider "github.com/hashicorp/terraform-plugin-framework/provider"
 	providerschema "github.com/hashicorp/terraform-plugin-framework/provider/schema"
+	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+	"github.com/hashicorp/terraform-plugin-go/tftypes"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 )
 
 const testProxyAuthorization = "Basic WlRJX3Rlc3Q6dGVzdC10b2tlbg=="
+
+type sequenceCredentialsProvider struct {
+	values []credentials.Value
+	calls  int
+}
+
+// Retrieve returns the next configured credential value and records the retrieval count.
+func (p *sequenceCredentialsProvider) Retrieve() (credentials.Value, error) {
+	if len(p.values) == 0 {
+		return credentials.Value{}, errors.New("no credentials configured")
+	}
+	index := p.calls
+	if index >= len(p.values) {
+		index = len(p.values) - 1
+	}
+	p.calls++
+	return p.values[index], nil
+}
+
+// IsExpired keeps the sequence provider refreshable so each target refresh re-reads it.
+func (p *sequenceCredentialsProvider) IsExpired() bool {
+	return true
+}
+
+// TestConfigModelCanDecodeProviderSchema verifies internal fields do not interfere with
+// Terraform Plugin Framework configuration decoding.
+func TestConfigModelCanDecodeProviderSchema(t *testing.T) {
+	ctx := context.Background()
+	var schemaResponse frameworkprovider.SchemaResponse
+	(&ByteplusCCProvider{}).Schema(ctx, frameworkprovider.SchemaRequest{}, &schemaResponse)
+	terraType := schemaResponse.Schema.Type().TerraformType(ctx)
+	objectType, ok := terraType.(tftypes.Object)
+	if !ok {
+		t.Fatalf("expected provider schema object type, got %T", terraType)
+	}
+	values := make(map[string]tftypes.Value, len(objectType.AttributeTypes))
+	for name, attributeType := range objectType.AttributeTypes {
+		values[name] = tftypes.NewValue(attributeType, nil)
+	}
+	config := tfsdk.Config{
+		Raw:    tftypes.NewValue(objectType, values),
+		Schema: schemaResponse.Schema,
+	}
+
+	var model configModel
+	diags := config.Get(ctx, &model)
+	if diags.HasError() {
+		t.Fatalf("decode provider configuration: %v", diags)
+	}
+}
+
+// TestBuildSourceCredentialsPrefersCompleteAKSKWithWarning verifies the original source
+// precedence is preserved while users are warned when Profile inputs are ignored.
+func TestBuildSourceCredentialsPrefersCompleteAKSKWithWarning(t *testing.T) {
+	profilePath := writeProfileConfig(t, `{
+		"current": "platform-admin",
+		"profiles": {
+			"platform-admin": {
+				"mode": "ak",
+				"access-key": "profile-ak",
+				"secret-key": "profile-sk"
+			}
+		}
+	}`)
+	tests := map[string]func(*configModel){
+		"profile": func(config *configModel) {
+			config.Profile = types.StringValue("platform-admin")
+		},
+		"file_path": func(config *configModel) {
+			config.FilePath = types.StringValue(profilePath)
+		},
+	}
+	for name, configure := range tests {
+		t.Run(name, func(t *testing.T) {
+			config := credentialTestConfigModel()
+			config.AccessKey = types.StringValue("selected-ak")
+			config.SecretKey = types.StringValue("selected-sk")
+			configure(config)
+
+			source, diags := buildSourceCredentials(config)
+			if diags.HasError() {
+				t.Fatalf("buildSourceCredentials returned errors: %v", diags)
+			}
+			if diags.WarningsCount() != 1 {
+				t.Fatalf("expected one multiple-source warning, got %v", diags)
+			}
+			warning := diags.Warnings()[0]
+			if !strings.Contains(warning.Summary(), "Multiple Credential Sources Configured") ||
+				!strings.Contains(warning.Detail(), "selected AccessKey/SecretKey") ||
+				!strings.Contains(warning.Detail(), "ignored Profile/file_path") {
+				t.Fatalf("unexpected warning: %v", warning)
+			}
+
+			value, err := source.Get()
+			if err != nil {
+				t.Fatalf("retrieve selected credentials: %v", err)
+			}
+			if value.AccessKeyID != "selected-ak" || value.SecretAccessKey != "selected-sk" {
+				t.Fatalf("expected AK/SK credentials, got %#v", value)
+			}
+		})
+	}
+}
+
+// TestBuildSourceCredentialsUsesProfileWithoutWarningForIncompleteAKSK verifies a partial
+// AK/SK pair is not treated as a competing usable source.
+func TestBuildSourceCredentialsUsesProfileWithoutWarningForIncompleteAKSK(t *testing.T) {
+	profilePath := writeProfileConfig(t, `{
+		"profiles": {
+			"platform-admin": {
+				"mode": "ak",
+				"access-key": "profile-ak",
+				"secret-key": "profile-sk"
+			}
+		}
+	}`)
+	config := credentialTestConfigModel()
+	config.AccessKey = types.StringValue("incomplete-ak")
+	config.Profile = types.StringValue("platform-admin")
+	config.FilePath = types.StringValue(profilePath)
+
+	source, diags := buildSourceCredentials(config)
+	if diags.HasError() || diags.WarningsCount() != 0 {
+		t.Fatalf("expected Profile without diagnostics, got %v", diags)
+	}
+	value, err := source.Get()
+	if err != nil {
+		t.Fatalf("retrieve Profile credentials: %v", err)
+	}
+	if value.AccessKeyID != "profile-ak" || value.SecretAccessKey != "profile-sk" {
+		t.Fatalf("expected Profile credentials, got %#v", value)
+	}
+}
+
+// TestBuildCredentialsWrapsProfileAsAssumeRoleSource verifies Profile credentials and
+// AssumeRole options are passed through their separate source and target layers.
+func TestBuildCredentialsWrapsProfileAsAssumeRoleSource(t *testing.T) {
+	profilePath := writeProfileConfig(t, `{
+		"profiles": {
+			"platform-admin": {
+				"mode": "ak",
+				"access-key": "profile-ak",
+				"secret-key": "profile-sk",
+				"session-token": "profile-token"
+			}
+		}
+	}`)
+	config := credentialTestConfigModel()
+	config.Profile = types.StringValue("platform-admin")
+	config.FilePath = types.StringValue(profilePath)
+	config.AssumeRole = &AssumeRoleData{
+		AssumeRoleTRN: types.StringValue("trn:iam::222222222222:role/terraform-execution"),
+		Duration:      types.Int32Value(1800),
+		Policy:        types.StringValue(`{"Statement":[]}`),
+	}
+	config.Endpoints = &endpointData{STS: types.StringValue("sts.example.com")}
+
+	var capturedSource credentials.Value
+	var capturedSTS credentials.StsValue
+	finalCredentials, diags := buildCredentialsWithFactory(config, func(source *credentials.Credentials, stsValue credentials.StsValue) *credentials.Credentials {
+		var err error
+		capturedSource, err = source.Get()
+		if err != nil {
+			t.Fatalf("retrieve captured source credentials: %v", err)
+		}
+		capturedSTS = stsValue
+		return credentials.NewStaticCredentials("target-ak", "target-sk", "target-token")
+	})
+	if diags.HasError() || finalCredentials == nil {
+		t.Fatalf("buildCredentialsWithFactory returned credentials=%v diagnostics=%v", finalCredentials, diags)
+	}
+	if capturedSource.AccessKeyID != "profile-ak" || capturedSource.SecretAccessKey != "profile-sk" || capturedSource.SessionToken != "profile-token" {
+		t.Fatalf("unexpected AssumeRole source credentials: %#v", capturedSource)
+	}
+	if capturedSTS.AccountId != "222222222222" || capturedSTS.RoleName != "terraform-execution" ||
+		capturedSTS.DurationSeconds != 1800 || capturedSTS.Policy != `{"Statement":[]}` || capturedSTS.Host != "sts.example.com" {
+		t.Fatalf("unexpected AssumeRole configuration: %#v", capturedSTS)
+	}
+}
+
+// TestBuildCredentialsUsesByteplusRegionalSTSEndpoint verifies the BytePlus-specific
+// regional endpoint selection remains intact when the source-aware wrapper is used.
+func TestBuildCredentialsUsesByteplusRegionalSTSEndpoint(t *testing.T) {
+	tests := map[string]string{
+		"cn-beijing":     "sts.cn-beijing.byteplusapi.com.cn",
+		"cn-hongkong":    "sts.cn-hongkong.byteplusapi.com",
+		"ap-southeast-1": "sts.ap-southeast-1.byteplusapi.com",
+	}
+	for region, wantHost := range tests {
+		t.Run(region, func(t *testing.T) {
+			config := credentialTestConfigModel()
+			config.Region = types.StringValue(region)
+			config.AssumeRole = &AssumeRoleData{
+				AssumeRoleTRN: types.StringValue("trn:iam::222222222222:role/terraform-execution"),
+				Duration:      types.Int32Null(),
+				Policy:        types.StringNull(),
+			}
+			_, diags := buildCredentialsWithFactory(config, func(_ *credentials.Credentials, stsValue credentials.StsValue) *credentials.Credentials {
+				if stsValue.Host != wantHost {
+					t.Fatalf("STS host = %q, want %q", stsValue.Host, wantHost)
+				}
+				if stsValue.DurationSeconds != int(defaultAssumeRoleDuration.Seconds()) {
+					t.Fatalf("duration = %d, want %v", stsValue.DurationSeconds, defaultAssumeRoleDuration.Seconds())
+				}
+				return credentials.NewStaticCredentials("target-ak", "target-sk", "target-token")
+			})
+			if diags.HasError() {
+				t.Fatalf("buildCredentialsWithFactory returned diagnostics: %v", diags)
+			}
+		})
+	}
+}
+
+// TestSourceAssumeRoleProviderRefreshesSourceCredentials verifies a target refresh
+// obtains fresh source credentials and forwards the current session token to STS.
+func TestSourceAssumeRoleProviderRefreshesSourceCredentials(t *testing.T) {
+	sourceProvider := &sequenceCredentialsProvider{values: []credentials.Value{
+		{AccessKeyID: "source-ak-1", SecretAccessKey: "source-sk-1", SessionToken: "source-token-1"},
+		{AccessKeyID: "source-ak-2", SecretAccessKey: "source-sk-2", SessionToken: "source-token-2"},
+	}}
+	source := credentials.NewExpireAbleCredentials(sourceProvider)
+
+	var stsCalls []credentials.StsValue
+	target := newAssumeRoleCredentialsWithRetriever(source, credentials.StsValue{
+		AccountId: "222222222222", RoleName: "terraform-execution", DurationSeconds: 3600,
+	}, func(stsValue credentials.StsValue) (credentials.Value, error) {
+		stsCalls = append(stsCalls, stsValue)
+		call := len(stsCalls)
+		return credentials.Value{
+			AccessKeyID: fmt.Sprintf("target-ak-%d", call), SecretAccessKey: fmt.Sprintf("target-sk-%d", call), SessionToken: fmt.Sprintf("target-token-%d", call),
+		}, nil
+	})
+
+	first, err := target.Get()
+	if err != nil || first.AccessKeyID != "target-ak-1" {
+		t.Fatalf("first target credentials = %#v, err=%v", first, err)
+	}
+	cached, err := target.Get()
+	if err != nil || cached.AccessKeyID != "target-ak-1" || len(stsCalls) != 1 {
+		t.Fatalf("cached target credentials = %#v, STS calls=%d, err=%v", cached, len(stsCalls), err)
+	}
+	target.Expire()
+	second, err := target.Get()
+	if err != nil || second.AccessKeyID != "target-ak-2" {
+		t.Fatalf("refreshed target credentials = %#v, err=%v", second, err)
+	}
+	if sourceProvider.calls != 2 || len(stsCalls) != 2 {
+		t.Fatalf("source calls=%d, STS calls=%d, want 2 each", sourceProvider.calls, len(stsCalls))
+	}
+	if stsCalls[0].SessionToken != "source-token-1" || stsCalls[1].SessionToken != "source-token-2" {
+		t.Fatalf("source session tokens were not refreshed: %#v", stsCalls)
+	}
+}
+
+// TestBuildCredentialsWrapsDefaultSourceForAssumeRole verifies the BytePlus default
+// credential chain remains a valid refreshable source for AssumeRole.
+func TestBuildCredentialsWrapsDefaultSourceForAssumeRole(t *testing.T) {
+	config := credentialTestConfigModel()
+	config.AssumeRole = &AssumeRoleData{
+		AssumeRoleTRN: types.StringValue("trn:iam::222222222222:role/terraform-execution"),
+		Duration:      types.Int32Value(3600),
+		Policy:        types.StringNull(),
+	}
+
+	factoryCalled := false
+	finalCredentials, diags := buildCredentialsWithFactory(config, func(source *credentials.Credentials, stsValue credentials.StsValue) *credentials.Credentials {
+		factoryCalled = true
+		if source == nil {
+			t.Fatal("expected default source credentials")
+		}
+		if _, ok := source.GetProvider().(*byteplusCredentialsProvider); !ok {
+			t.Fatalf("expected BytePlus default credentials adapter, got %T", source.GetProvider())
+		}
+		if stsValue.AccountId != "222222222222" || stsValue.RoleName != "terraform-execution" {
+			t.Fatalf("unexpected AssumeRole configuration: %#v", stsValue)
+		}
+		return credentials.NewStaticCredentials("target-ak", "target-sk", "target-token")
+	})
+	if diags.HasError() || !factoryCalled || finalCredentials == nil {
+		t.Fatalf("default source was not wrapped: credentials=%v diagnostics=%v", finalCredentials, diags)
+	}
+}
+
+// credentialTestConfigModel returns a minimal resolved configuration for credential tests.
+func credentialTestConfigModel() *configModel {
+	return &configModel{
+		AccessKey:    types.StringNull(),
+		SecretKey:    types.StringNull(),
+		SessionToken: types.StringNull(),
+		Region:       types.StringValue("ap-southeast-1"),
+		DisableSSL:   types.BoolValue(false),
+		Profile:      types.StringNull(),
+		FilePath:     types.StringNull(),
+		Endpoints:    &endpointData{},
+	}
+}
+
+// writeProfileConfig writes an isolated BytePlus CLI Profile configuration for a test.
+func writeProfileConfig(t *testing.T, content string) string {
+	t.Helper()
+	path := filepath.Join(t.TempDir(), "config.json")
+	if err := os.WriteFile(path, []byte(content), 0o600); err != nil {
+		t.Fatalf("write Profile configuration: %v", err)
+	}
+	return path
+}
 
 func TestProviderProxyAuthorizationSchema(t *testing.T) {
 	var response frameworkprovider.SchemaResponse

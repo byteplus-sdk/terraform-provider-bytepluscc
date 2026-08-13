@@ -87,11 +87,11 @@ func (p *ByteplusCCProvider) Schema(ctx context.Context, request provider.Schema
 	response.Schema = schema.Schema{
 		Attributes: map[string]schema.Attribute{
 			"access_key": schema.StringAttribute{
-				Description: "The Access Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_ACCESS_KEY` environment variable",
+				Description: "The Access Key for Byteplus Provider. It can also be sourced from the `BYTEPLUS_ACCESS_KEY` environment variable",
 				Optional:    true,
 			},
 			"secret_key": schema.StringAttribute{
-				Description: "he Secret Key for Byteplus Provider. It must be provided, but it can also be sourced from the `BYTEPLUS_SECRET_KEY` environment variable",
+				Description: "The Secret Key for Byteplus Provider. It can also be sourced from the `BYTEPLUS_SECRET_KEY` environment variable",
 				Optional:    true,
 			},
 			"session_token": schema.StringAttribute{
@@ -147,7 +147,7 @@ func (p *ByteplusCCProvider) Schema(ctx context.Context, request provider.Schema
 					},
 				},
 				Optional:    true,
-				Description: "An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration.",
+				Description: "An `assume_role` block that uses the selected source credentials to obtain target-role credentials. Only one `assume_role` block may be in the configuration.",
 			},
 			"endpoints": schema.SingleNestedAttribute{
 				Attributes: map[string]schema.Attribute{
@@ -164,11 +164,11 @@ func (p *ByteplusCCProvider) Schema(ctx context.Context, request provider.Schema
 				Description: "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.",
 			},
 			"profile": schema.StringAttribute{
-				Description: "The profile for Byteplus Provider. It can be sourced from the `BYTEPLUS_PROFILE` environment variable",
+				Description: "The Profile for Byteplus Provider. It can be sourced from the `BYTEPLUS_PROFILE` environment variable. Complete AccessKey and SecretKey credentials take precedence when both sources are configured",
 				Optional:    true,
 			},
 			"file_path": schema.StringAttribute{
-				Description: "The file path for Byteplus Provider configuration. It can be sourced from the `BYTEPLUS_FILE_PATH` environment variable",
+				Description: "The Profile configuration file path for Byteplus Provider. It defaults to `~/.byteplus/config.json` and can be sourced from the `BYTEPLUS_FILE_PATH` environment variable",
 				Optional:    true,
 			},
 		},
@@ -283,7 +283,7 @@ func (p *ByteplusCCProvider) Configure(ctx context.Context, request provider.Con
 	}
 	if config.AssumeRole.Policy.IsNull() || config.AssumeRole.Policy.IsUnknown() {
 		if policy := os.Getenv("BYTEPLUS_ASSUME_ROLE_POLICY"); policy != "" {
-			config.AssumeRole.Policy = types.StringValue("BYTEPLUS_ASSUME_ROLE_Policy")
+			config.AssumeRole.Policy = types.StringValue(policy)
 		}
 	}
 
@@ -360,57 +360,92 @@ func (p *ByteplusCCProvider) DataSources(ctx context.Context) []func() datasourc
 	return dataSources
 }
 
-// buildCredentials 按优先级选择 SDK 使用的凭证提供方：
-//  1. assume_role：以显式 AccessKey/SecretKey 为源凭证，扮演指定角色（STS 凭证）；
-//  2. 显式配置的 AccessKey/SecretKey（静态凭证）；
-//  3. profile 或 file_path（byteplus CLI 配置文件凭证）；
-//  4. DefaultCredentialProvider 默认凭证链（环境变量、OIDC、CLI 配置、ECS 实例角色）。
-//
-// 当未提供任何显式凭证时，默认回退到 byteplus DefaultCredentialProvider。
-func buildCredentials(c *configModel) (*credentials.Credentials, diag.Diagnostics) {
+type assumeRoleCredentialsFactory func(*credentials.Credentials, credentials.StsValue) *credentials.Credentials
+
+// buildSourceCredentials 按完整 AK/SK、Profile/file_path、BytePlus 默认凭证链的顺序
+// 选择调用云服务或 STS 的源凭证。前两种可用来源同时存在时继续使用
+// AK/SK 并返回警告，避免用户在不知情的情况下使用了非预期身份。
+func buildSourceCredentials(c *configModel) (*credentials.Credentials, diag.Diagnostics) {
 	var diags diag.Diagnostics
 	switch {
-	case c.AssumeRole != nil && !c.AssumeRole.AssumeRoleTRN.IsNull():
-		accountId, roleName, err := ParseTrn(c.AssumeRole.AssumeRoleTRN.ValueString())
-		if err != nil {
-			diags.AddError(err.Error(), err.Error())
-			return nil, diags
-		}
-
-		if c.AssumeRole.Duration.IsNull() || c.AssumeRole.Duration.IsUnknown() {
-			c.AssumeRole.Duration = types.Int32Value(3600)
-		}
-
-		stsValue := credentials.StsValue{
-			AccessKey:       c.AccessKey.ValueString(),
-			SecurityKey:     c.SecretKey.ValueString(),
-			RoleName:        roleName, // 扮演角色名称
-			AccountId:       accountId,
-			Schema:          "https",
-			Region:          c.Region.ValueString(),
-			DurationSeconds: int(c.AssumeRole.Duration.ValueInt32()),
-		}
-		if c.Endpoints != nil && !c.Endpoints.STS.IsNull() && c.Endpoints.STS.ValueString() != "" {
-			stsValue.Host = c.Endpoints.STS.ValueString()
-		} else {
-			region := c.Region.ValueString()
-			if strings.HasPrefix(region, "cn-") && region != "cn-hongkong" {
-				stsValue.Host = fmt.Sprintf("sts.%s.byteplusapi.com.cn", region)
-			} else {
-				stsValue.Host = fmt.Sprintf("sts.%s.byteplusapi.com", region)
-			}
-		}
-		if c.DisableSSL.ValueBool() {
-			stsValue.Schema = "http"
-		}
-		return credentials.NewStsCredentials(stsValue), diags
 	case c.AccessKey.ValueString() != "" && c.SecretKey.ValueString() != "":
+		if c.Profile.ValueString() != "" || c.FilePath.ValueString() != "" {
+			diags.AddWarning(
+				"Multiple Credential Sources Configured",
+				"Both complete AccessKey/SecretKey credentials and Profile/file_path credentials are configured. The provider selected AccessKey/SecretKey according to the credential precedence and ignored Profile/file_path. Remove the unused credential configuration or environment variables to avoid using an unintended identity.",
+			)
+		}
 		return credentials.NewStaticCredentials(c.AccessKey.ValueString(), c.SecretKey.ValueString(), c.SessionToken.ValueString()), diags
 	case c.Profile.ValueString() != "" || c.FilePath.ValueString() != "":
 		return newCliCredentials(c.FilePath.ValueString(), c.Profile.ValueString()), diags
 	default:
 		return newDefaultCredentials(), diags
 	}
+}
+
+// buildCredentials 先选择可刷新的源凭证，再按需使用 AssumeRole 凭证提供方包装源凭证。
+// AssumeRole 不再与 Profile、静态凭证或默认凭证链竞争优先级。
+func buildCredentials(c *configModel) (*credentials.Credentials, diag.Diagnostics) {
+	return buildCredentialsWithFactory(c, newAssumeRoleCredentials)
+}
+
+// buildCredentialsWithFactory 使用可注入的工厂构造最终凭证，使测试能够验证源凭证
+// 选择与 AssumeRole 参数，而无需发起真实 STS 请求。源凭证的产生过程对 Provider
+// 保持透明；静态凭证、Profile 和默认凭证链都可以作为一次 Provider AssumeRole 的输入。
+func buildCredentialsWithFactory(c *configModel, factory assumeRoleCredentialsFactory) (*credentials.Credentials, diag.Diagnostics) {
+	sourceCredentials, diags := buildSourceCredentials(c)
+	if diags.HasError() {
+		return nil, diags
+	}
+	if !hasAssumeRole(c) {
+		return sourceCredentials, diags
+	}
+
+	accountId, roleName, err := ParseTrn(c.AssumeRole.AssumeRoleTRN.ValueString())
+	if err != nil {
+		diags.AddError("Invalid AssumeRole TRN", err.Error())
+		return nil, diags
+	}
+	if c.AssumeRole.Duration.IsNull() || c.AssumeRole.Duration.IsUnknown() {
+		c.AssumeRole.Duration = types.Int32Value(int32(defaultAssumeRoleDuration.Seconds()))
+	}
+
+	stsValue := credentials.StsValue{
+		RoleName:        roleName,
+		AccountId:       accountId,
+		Schema:          "https",
+		Region:          c.Region.ValueString(),
+		DurationSeconds: int(c.AssumeRole.Duration.ValueInt32()),
+		Policy:          c.AssumeRole.Policy.ValueString(),
+	}
+	if c.Endpoints != nil && !c.Endpoints.STS.IsNull() && c.Endpoints.STS.ValueString() != "" {
+		stsValue.Host = c.Endpoints.STS.ValueString()
+	} else {
+		// BytePlus 中国大陆区域使用 .com.cn，香港与其他区域使用 .com。
+		// 这里保留原有分区路由，避免源凭证改造后将 STS 请求发往错误站点。
+		region := c.Region.ValueString()
+		if strings.HasPrefix(region, "cn-") && region != "cn-hongkong" {
+			stsValue.Host = fmt.Sprintf("sts.%s.byteplusapi.com.cn", region)
+		} else {
+			stsValue.Host = fmt.Sprintf("sts.%s.byteplusapi.com", region)
+		}
+	}
+	if c.DisableSSL.ValueBool() {
+		stsValue.Schema = "http"
+	}
+
+	return factory(sourceCredentials, stsValue), diags
+}
+
+// hasAssumeRole reports whether the resolved configuration contains a usable target role TRN.
+func hasAssumeRole(c *configModel) bool {
+	return c.AssumeRole != nil && isKnownNonEmptyString(c.AssumeRole.AssumeRoleTRN)
+}
+
+// isKnownNonEmptyString reports whether a Terraform string is configured with a known,
+// non-empty value.
+func isKnownNonEmptyString(value types.String) bool {
+	return !value.IsNull() && !value.IsUnknown() && value.ValueString() != ""
 }
 
 func setProxyDefaultsFromEnvironment(c *configModel) {
