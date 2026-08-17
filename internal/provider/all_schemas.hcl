@@ -1053,3 +1053,23 @@ resource_schema "byteplus_certificateservice_organization_info" {
 resource_schema "byteplus_config_group_rule" {
   cloudcontrol_type_name = "Byteplus::Config::GroupRule"
 }
+
+resource_schema "byteplus_autoscaling_notification_configuration" {
+  cloudcontrol_type_name = "Byteplus::AutoScaling::NotificationConfiguration"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_traffic_qos_marking_policy" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterTrafficQosMarkingPolicy"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_traffic_qos_marking_entry" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterTrafficQosMarkingEntry"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_traffic_qos_queue_entry" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterTrafficQosQueueEntry"
+}
+
+resource_schema "byteplus_config_configuration_recorder" {
+  cloudcontrol_type_name = "Byteplus::Config::ConfigurationRecorder"
+}

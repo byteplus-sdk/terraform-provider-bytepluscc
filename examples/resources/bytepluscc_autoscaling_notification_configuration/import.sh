@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_autoscaling_notification_configuration.example "scaling_group_id"

@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_config_configuration_recorder.example "recorder_type"
