@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_rdsmysql_ssl.example "instance_id"

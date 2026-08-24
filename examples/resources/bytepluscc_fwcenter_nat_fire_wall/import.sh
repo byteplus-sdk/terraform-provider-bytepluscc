@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_fwcenter_nat_fire_wall.example "nat_firewall_id"

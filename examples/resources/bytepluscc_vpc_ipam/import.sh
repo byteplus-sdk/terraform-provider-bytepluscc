@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_vpc_ipam.example "ipam_id"

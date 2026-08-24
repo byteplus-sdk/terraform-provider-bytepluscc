@@ -1073,3 +1073,47 @@ resource_schema "byteplus_transitrouter_transit_router_traffic_qos_queue_entry" 
 resource_schema "byteplus_config_configuration_recorder" {
   cloudcontrol_type_name = "Byteplus::Config::ConfigurationRecorder"
 }
+
+resource_schema "byteplus_vpc_ipam" {
+  cloudcontrol_type_name = "Byteplus::VPC::IPAM"
+}
+
+resource_schema "byteplus_vpc_ipam_pool" {
+  cloudcontrol_type_name = "Byteplus::VPC::IpamPool"
+}
+
+resource_schema "byteplus_vpc_ipam_scope" {
+  cloudcontrol_type_name = "Byteplus::VPC::IpamScope"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_attachment_to_route_table" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterAttachmentToRouteTable"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_forward_policy_table" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterForwardPolicyTable"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_traffic_qos_queue_policy" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterTrafficQosQueuePolicy"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_multicast_domain" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterMulticastDomain"
+}
+
+resource_schema "byteplus_rdsmysql_ssl" {
+  cloudcontrol_type_name = "Byteplus::RDSMySQL::Ssl"
+}
+
+resource_schema "byteplus_vepfs_data_flow_task" {
+  cloudcontrol_type_name = "Byteplus::VEPFS::DataFlowTask"
+}
+
+resource_schema "byteplus_kafka_acl" {
+  cloudcontrol_type_name = "Byteplus::Kafka::ACL"
+}
+
+resource_schema "byteplus_fwcenter_nat_fire_wall" {
+  cloudcontrol_type_name = "Byteplus::FWCenter::NATFireWall"
+}
