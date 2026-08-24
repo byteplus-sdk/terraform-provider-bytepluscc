@@ -284,6 +284,8 @@
   },
   "typeName": "Byteplus::Organization::Account",
   "writeOnlyProperties": [
+    "/properties/SecureContactInfo/NewPhone",
+    "/properties/SecureContactInfo/NewEmail",
     "/properties/Password"
   ]
 }

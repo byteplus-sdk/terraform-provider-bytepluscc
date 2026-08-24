@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_kafka_acl.example "instance_id|user_name|ip|resource_type|pattern_type|resource|access_policy"
