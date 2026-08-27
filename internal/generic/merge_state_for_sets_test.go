@@ -277,6 +277,94 @@ func TestMergeLocalWithRemoteForSets_ReadonlyRemoteChangeIgnored(t *testing.T) {
 	}
 }
 
+// TestMergeLocalWithRemoteForSets_ReadOnlySetUsesLocal verifies that computed-only
+// Sets keep prior-state ordering while writable Sets continue to use remote ordering.
+func TestMergeLocalWithRemoteForSets_ReadOnlySetUsesLocal(t *testing.T) {
+	attributes := map[string]schema.Attribute{
+		"name": schema.StringAttribute{
+			Required: true,
+		},
+		"writable_set": schema.SetNestedAttribute{
+			NestedObject: schema.NestedAttributeObject{
+				Attributes: map[string]schema.Attribute{
+					"id": schema.StringAttribute{
+						Required: true,
+					},
+				},
+			},
+			Optional: true,
+		},
+		"readonly_set": schema.SetNestedAttribute{
+			NestedObject: schema.NestedAttributeObject{
+				Attributes: map[string]schema.Attribute{
+					"id": schema.StringAttribute{
+						Computed: true,
+					},
+				},
+			},
+			Computed: true,
+		},
+		"items": schema.ListNestedAttribute{
+			NestedObject: schema.NestedAttributeObject{
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						Required: true,
+					},
+					"readonly_inner_set": schema.SetNestedAttribute{
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"id": schema.StringAttribute{
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+			},
+			Optional: true,
+		},
+	}
+	ccToTfNameMap := map[string]string{
+		"Name":             "name",
+		"WritableSet":      "writable_set",
+		"ReadonlySet":      "readonly_set",
+		"Items":            "items",
+		"ReadonlyInnerSet": "readonly_inner_set",
+		"Id":               "id",
+	}
+
+	local := `{"Name":"test","WritableSet":[{"Id":"b"},{"Id":"a"}],"ReadonlySet":[{"Id":"y"},{"Id":"x"}],"Items":[{"Name":"i1","ReadonlyInnerSet":[{"Id":"q"},{"Id":"p"}]}]}`
+	remote := `{"Name":"test","WritableSet":[{"Id":"a"},{"Id":"b"}],"ReadonlySet":[{"Id":"x"},{"Id":"y"}],"Items":[{"Name":"i1","ReadonlyInnerSet":[{"Id":"p"},{"Id":"q"}]}]}`
+
+	result, err := mergeLocalWithRemoteForSets(local, remote, attributes, ccToTfNameMap)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	var resultMap map[string]interface{}
+	json.Unmarshal([]byte(result), &resultMap)
+
+	// Writable Set uses remote order (a, b).
+	ws := resultMap["WritableSet"].([]interface{})
+	if ws[0].(map[string]interface{})["Id"] != "a" {
+		t.Errorf("expected WritableSet[0].Id='a' (remote), got '%v'", ws[0].(map[string]interface{})["Id"])
+	}
+
+	// Read-only Set keeps local order (y, x).
+	rs := resultMap["ReadonlySet"].([]interface{})
+	if rs[0].(map[string]interface{})["Id"] != "y" {
+		t.Errorf("expected ReadonlySet[0].Id='y' (local), got '%v'", rs[0].(map[string]interface{})["Id"])
+	}
+
+	// Nested read-only Set inside ListNested keeps local order (q, p).
+	items := resultMap["Items"].([]interface{})
+	inner := items[0].(map[string]interface{})["ReadonlyInnerSet"].([]interface{})
+	if inner[0].(map[string]interface{})["Id"] != "q" {
+		t.Errorf("expected Items[0].ReadonlyInnerSet[0].Id='q' (local), got '%v'", inner[0].(map[string]interface{})["Id"])
+	}
+}
+
 func TestMergeLocalWithRemoteForSets_TagsAlwaysUseRemote(t *testing.T) {
 	// Tags must always use remote data regardless of schema type,
 	// because MergeSystemTags relies on remote Tags for sys:/volc: tag filtering.
