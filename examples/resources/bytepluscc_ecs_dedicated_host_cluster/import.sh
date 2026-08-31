@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_ecs_dedicated_host_cluster.example "dedicated_host_cluster_id"

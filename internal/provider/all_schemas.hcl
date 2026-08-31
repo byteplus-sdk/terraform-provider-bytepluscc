@@ -1117,3 +1117,35 @@ resource_schema "byteplus_kafka_acl" {
 resource_schema "byteplus_fwcenter_nat_fire_wall" {
   cloudcontrol_type_name = "Byteplus::FWCenter::NATFireWall"
 }
+
+resource_schema "byteplus_ecs_dedicated_host_cluster" {
+  cloudcontrol_type_name = "Byteplus::ECS::DedicatedHostCluster"
+}
+
+resource_schema "byteplus_cr_robot_account" {
+  cloudcontrol_type_name = "Byteplus::CR::RobotAccount"
+}
+
+resource_schema "byteplus_vpc_ipv4_gateway" {
+  cloudcontrol_type_name = "Byteplus::VPC::Ipv4Gateway"
+}
+
+resource_schema "byteplus_redis_key_scan_job" {
+  cloudcontrol_type_name = "Byteplus::Redis::KeyScanJob"
+}
+
+resource_schema "byteplus_iam_api_key" {
+  cloudcontrol_type_name = "Byteplus::IAM::ApiKey"
+}
+
+resource_schema "byteplus_waf_ip_group" {
+  cloudcontrol_type_name = "Byteplus::WAF::IpGroup"
+}
+
+resource_schema "byteplus_waf_system_bot" {
+  cloudcontrol_type_name = "Byteplus::WAF::SystemBot"
+}
+
+resource_schema "byteplus_waf_custom_page" {
+  cloudcontrol_type_name = "Byteplus::WAF::CustomPage"
+}

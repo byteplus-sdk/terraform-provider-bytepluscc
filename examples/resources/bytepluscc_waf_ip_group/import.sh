@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_waf_ip_group.example "ip_group_id"

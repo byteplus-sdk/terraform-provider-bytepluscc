@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_waf_custom_page.example "host|rule_id"
