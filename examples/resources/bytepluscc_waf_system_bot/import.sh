@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_waf_system_bot.example "host|rule_tag"

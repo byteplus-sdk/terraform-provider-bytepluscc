@@ -1378,5 +1378,45 @@
         "resource": "bytepluscc_fwcenter_nat_fire_wall",
         "identifier": ["NatFirewallId"],
         "path": "./examples/resources/bytepluscc_fwcenter_nat_fire_wall/import.sh"
+    },
+    {
+        "resource": "bytepluscc_ecs_dedicated_host_cluster",
+        "identifier": ["DedicatedHostClusterId"],
+        "path": "./examples/resources/bytepluscc_ecs_dedicated_host_cluster/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cr_robot_account",
+        "identifier": ["Registry","Username"],
+        "path": "./examples/resources/bytepluscc_cr_robot_account/import.sh"
+    },
+    {
+        "resource": "bytepluscc_vpc_ipv4_gateway",
+        "identifier": ["Ipv4GatewayId"],
+        "path": "./examples/resources/bytepluscc_vpc_ipv4_gateway/import.sh"
+    },
+    {
+        "resource": "bytepluscc_redis_key_scan_job",
+        "identifier": ["InstanceId","JobId"],
+        "path": "./examples/resources/bytepluscc_redis_key_scan_job/import.sh"
+    },
+    {
+        "resource": "bytepluscc_iam_api_key",
+        "identifier": ["UserName","ApiKeyId"],
+        "path": "./examples/resources/bytepluscc_iam_api_key/import.sh"
+    },
+    {
+        "resource": "bytepluscc_waf_ip_group",
+        "identifier": ["IpGroupId"],
+        "path": "./examples/resources/bytepluscc_waf_ip_group/import.sh"
+    },
+    {
+        "resource": "bytepluscc_waf_system_bot",
+        "identifier": ["Host","RuleTag"],
+        "path": "./examples/resources/bytepluscc_waf_system_bot/import.sh"
+    },
+    {
+        "resource": "bytepluscc_waf_custom_page",
+        "identifier": ["Host","RuleId"],
+        "path": "./examples/resources/bytepluscc_waf_custom_page/import.sh"
     }
 ]

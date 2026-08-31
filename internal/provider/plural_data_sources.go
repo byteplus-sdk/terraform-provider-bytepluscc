@@ -278,6 +278,14 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vepfs_data_flow_tasks -cctype Byteplus::VEPFS::DataFlowTask -package vepfs ../byteplus/vepfs/data_flow_task_plural_data_source_gen.go ../byteplus/vepfs/data_flow_task_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_kafka_acls -cctype Byteplus::Kafka::ACL -package kafka ../byteplus/kafka/acl_plural_data_source_gen.go ../byteplus/kafka/acl_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_fwcenter_nat_fire_walls -cctype Byteplus::FWCenter::NATFireWall -package fwcenter ../byteplus/fwcenter/nat_fire_wall_plural_data_source_gen.go ../byteplus/fwcenter/nat_fire_wall_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_ecs_dedicated_host_clusters -cctype Byteplus::ECS::DedicatedHostCluster -package ecs ../byteplus/ecs/dedicated_host_cluster_plural_data_source_gen.go ../byteplus/ecs/dedicated_host_cluster_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cr_robot_accounts -cctype Byteplus::CR::RobotAccount -package cr ../byteplus/cr/robot_account_plural_data_source_gen.go ../byteplus/cr/robot_account_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_ipv4_gateways -cctype Byteplus::VPC::Ipv4Gateway -package vpc ../byteplus/vpc/ipv4_gateway_plural_data_source_gen.go ../byteplus/vpc/ipv4_gateway_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_redis_key_scan_jobs -cctype Byteplus::Redis::KeyScanJob -package redis ../byteplus/redis/key_scan_job_plural_data_source_gen.go ../byteplus/redis/key_scan_job_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_iam_api_keys -cctype Byteplus::IAM::ApiKey -package iam ../byteplus/iam/api_key_plural_data_source_gen.go ../byteplus/iam/api_key_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_ip_groups -cctype Byteplus::WAF::IpGroup -package waf ../byteplus/waf/ip_group_plural_data_source_gen.go ../byteplus/waf/ip_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_system_bots -cctype Byteplus::WAF::SystemBot -package waf ../byteplus/waf/system_bot_plural_data_source_gen.go ../byteplus/waf/system_bot_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_custom_pages -cctype Byteplus::WAF::CustomPage -package waf ../byteplus/waf/custom_page_plural_data_source_gen.go ../byteplus/waf/custom_page_plural_data_source_gen_test.go
 
 package provider
 
