@@ -1079,11 +1079,11 @@ resource_schema "byteplus_vpc_ipam" {
 }
 
 resource_schema "byteplus_vpc_ipam_pool" {
-  cloudcontrol_type_name = "Byteplus::VPC::IpamPool"
+  cloudcontrol_type_name = "Byteplus::VPC::IPAMPool"
 }
 
 resource_schema "byteplus_vpc_ipam_scope" {
-  cloudcontrol_type_name = "Byteplus::VPC::IpamScope"
+  cloudcontrol_type_name = "Byteplus::VPC::IPAMScope"
 }
 
 resource_schema "byteplus_transitrouter_transit_router_attachment_to_route_table" {
