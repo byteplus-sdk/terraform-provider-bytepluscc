@@ -22,12 +22,12 @@ import (
 )
 
 func init() {
-	registry.AddResourceFactory("bytepluscc_vpc_ipam_pool", ipamPoolResource)
+	registry.AddResourceFactory("bytepluscc_vpc_ipam_pool", iPAMPoolResource)
 }
 
-// ipamPoolResource returns the Terraform bytepluscc_vpc_ipam_pool resource.
-// This Terraform resource corresponds to the Cloud Control Byteplus::VPC::IpamPool resource.
-func ipamPoolResource(ctx context.Context) (resource.Resource, error) {
+// iPAMPoolResource returns the Terraform bytepluscc_vpc_ipam_pool resource.
+// This Terraform resource corresponds to the Cloud Control Byteplus::VPC::IPAMPool resource.
+func iPAMPoolResource(ctx context.Context) (resource.Resource, error) {
 	attributes := map[string]schema.Attribute{ /*START SCHEMA*/
 		// Property: AccountId
 		// Cloud Control resource type schema:
@@ -429,7 +429,7 @@ func ipamPoolResource(ctx context.Context) (resource.Resource, error) {
 
 	var opts generic.ResourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::VPC::IpamPool").WithTerraformTypeName("bytepluscc_vpc_ipam_pool")
+	opts = opts.WithCloudControlTypeName("Byteplus::VPC::IPAMPool").WithTerraformTypeName("bytepluscc_vpc_ipam_pool")
 	opts = opts.WithTerraformSchema(schema)
 	opts = opts.WithAttributeNameMap(map[string]string{
 		"account_id":                         "AccountId",

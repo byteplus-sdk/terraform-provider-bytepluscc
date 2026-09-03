@@ -166,5 +166,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "Byteplus::VPC::IpamScope"
+  "typeName": "Byteplus::VPC::IPAMScope"
 }

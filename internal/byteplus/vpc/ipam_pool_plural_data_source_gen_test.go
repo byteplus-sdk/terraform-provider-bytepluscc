@@ -13,8 +13,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccByteplusVPCIpamPoolsDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::VPC::IpamPool", "bytepluscc_vpc_ipam_pools", "test")
+func TestAccByteplusVPCIPAMPoolsDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::VPC::IPAMPool", "bytepluscc_vpc_ipam_pools", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{

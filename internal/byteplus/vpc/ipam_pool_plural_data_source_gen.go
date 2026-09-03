@@ -16,12 +16,12 @@ import (
 )
 
 func init() {
-	registry.AddDataSourceFactory("bytepluscc_vpc_ipam_pools", ipamPoolsDataSource)
+	registry.AddDataSourceFactory("bytepluscc_vpc_ipam_pools", iPAMPoolsDataSource)
 }
 
-// ipamPoolsDataSource returns the Terraform bytepluscc_vpc_ipam_pools data source.
-// This Terraform data source corresponds to the Cloud Control Byteplus::VPC::IpamPool resource.
-func ipamPoolsDataSource(ctx context.Context) (datasource.DataSource, error) {
+// iPAMPoolsDataSource returns the Terraform bytepluscc_vpc_ipam_pools data source.
+// This Terraform data source corresponds to the Cloud Control Byteplus::VPC::IPAMPool resource.
+func iPAMPoolsDataSource(ctx context.Context) (datasource.DataSource, error) {
 	attributes := map[string]schema.Attribute{
 		"id": schema.StringAttribute{
 			Description: "Uniquely identifies the data source.",
@@ -35,13 +35,13 @@ func ipamPoolsDataSource(ctx context.Context) (datasource.DataSource, error) {
 	}
 
 	schema := schema.Schema{
-		Description: "Plural Data Source schema for Byteplus::VPC::IpamPool",
+		Description: "Plural Data Source schema for Byteplus::VPC::IPAMPool",
 		Attributes:  attributes,
 	}
 
 	var opts generic.DataSourceOptions
 
-	opts = opts.WithCloudControlTypeName("Byteplus::VPC::IpamPool").WithTerraformTypeName("bytepluscc_vpc_ipam_pools")
+	opts = opts.WithCloudControlTypeName("Byteplus::VPC::IPAMPool").WithTerraformTypeName("bytepluscc_vpc_ipam_pools")
 	opts = opts.WithTerraformSchema(schema)
 
 	v, err := generic.NewPluralDataSource(ctx, opts...)

@@ -3,12 +3,12 @@
 page_title: "bytepluscc_vpc_ipam_pool Data Source - terraform-provider-bytepluscc"
 subcategory: "VPC"
 description: |-
-  Data Source schema for Byteplus::VPC::IpamPool
+  Data Source schema for Byteplus::VPC::IPAMPool
 ---
 
 # bytepluscc_vpc_ipam_pool (Data Source)
 
-Data Source schema for Byteplus::VPC::IpamPool
+Data Source schema for Byteplus::VPC::IPAMPool
 
 
 

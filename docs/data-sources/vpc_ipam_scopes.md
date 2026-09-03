@@ -3,12 +3,12 @@
 page_title: "bytepluscc_vpc_ipam_scopes Data Source - terraform-provider-bytepluscc"
 subcategory: "VPC"
 description: |-
-  Plural Data Source schema for Byteplus::VPC::IpamScope
+  Plural Data Source schema for Byteplus::VPC::IPAMScope
 ---
 
 # bytepluscc_vpc_ipam_scopes (Data Source)
 
-Plural Data Source schema for Byteplus::VPC::IpamScope
+Plural Data Source schema for Byteplus::VPC::IPAMScope
 
 
 

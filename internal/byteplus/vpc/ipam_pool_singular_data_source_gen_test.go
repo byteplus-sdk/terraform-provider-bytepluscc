@@ -13,8 +13,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 )
 
-func TestAccByteplusVPCIpamPoolDataSource_basic(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::VPC::IpamPool", "bytepluscc_vpc_ipam_pool", "test")
+func TestAccByteplusVPCIPAMPoolDataSource_basic(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::VPC::IPAMPool", "bytepluscc_vpc_ipam_pool", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{
@@ -24,8 +24,8 @@ func TestAccByteplusVPCIpamPoolDataSource_basic(t *testing.T) {
 	})
 }
 
-func TestAccByteplusVPCIpamPoolDataSource_NonExistent(t *testing.T) {
-	td := acctest.NewTestData(t, "Byteplus::VPC::IpamPool", "bytepluscc_vpc_ipam_pool", "test")
+func TestAccByteplusVPCIPAMPoolDataSource_NonExistent(t *testing.T) {
+	td := acctest.NewTestData(t, "Byteplus::VPC::IPAMPool", "bytepluscc_vpc_ipam_pool", "test")
 
 	td.DataSourceTest(t, []resource.TestStep{
 		{
