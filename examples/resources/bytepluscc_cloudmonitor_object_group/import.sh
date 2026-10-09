@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudmonitor_object_group.example "group_id"

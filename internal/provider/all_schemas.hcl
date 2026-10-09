@@ -1149,3 +1149,43 @@ resource_schema "byteplus_waf_system_bot" {
 resource_schema "byteplus_waf_custom_page" {
   cloudcontrol_type_name = "Byteplus::WAF::CustomPage"
 }
+
+resource_schema "byteplus_vke_nodepool_scaling_policy" {
+  cloudcontrol_type_name = "Byteplus::VKE::NodepoolScalingPolicy"
+}
+
+resource_schema "byteplus_vpc_ipam_resource_discovery" {
+  cloudcontrol_type_name = "Byteplus::VPC::IPAMResourceDiscovery"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_route_policy_table" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterRoutePolicyTable"
+}
+
+resource_schema "byteplus_transitrouter_transit_router_forward_policy_entry" {
+  cloudcontrol_type_name = "Byteplus::TransitRouter::TransitRouterForwardPolicyEntry"
+}
+
+resource_schema "byteplus_billing_financial_relation" {
+  cloudcontrol_type_name = "Byteplus::Billing::FinancialRelation"
+}
+
+resource_schema "byteplus_waf_bot_analyse_protect_rule" {
+  cloudcontrol_type_name = "Byteplus::WAF::BotAnalyseProtectRule"
+}
+
+resource_schema "byteplus_waf_custom_bot" {
+  cloudcontrol_type_name = "Byteplus::WAF::CustomBot"
+}
+
+resource_schema "byteplus_securitycenter_agent" {
+  cloudcontrol_type_name = "Byteplus::SecurityCenter::Agent"
+}
+
+resource_schema "byteplus_cloudmonitor_object_group" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::ObjectGroup"
+}
+
+resource_schema "byteplus_cloudmonitor_alert_template" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::AlertTemplate"
+}

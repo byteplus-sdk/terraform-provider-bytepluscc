@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_securitycenter_agent.example "agent_id"
