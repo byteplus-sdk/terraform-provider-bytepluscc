@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudmonitor_alert_template.example "template_id"

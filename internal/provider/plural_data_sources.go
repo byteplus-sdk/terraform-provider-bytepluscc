@@ -286,6 +286,16 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_ip_groups -cctype Byteplus::WAF::IpGroup -package waf ../byteplus/waf/ip_group_plural_data_source_gen.go ../byteplus/waf/ip_group_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_system_bots -cctype Byteplus::WAF::SystemBot -package waf ../byteplus/waf/system_bot_plural_data_source_gen.go ../byteplus/waf/system_bot_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_custom_pages -cctype Byteplus::WAF::CustomPage -package waf ../byteplus/waf/custom_page_plural_data_source_gen.go ../byteplus/waf/custom_page_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vke_nodepool_scaling_policies -cctype Byteplus::VKE::NodepoolScalingPolicy -package vke ../byteplus/vke/nodepool_scaling_policy_plural_data_source_gen.go ../byteplus/vke/nodepool_scaling_policy_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_vpc_ipam_resource_discoveries -cctype Byteplus::VPC::IPAMResourceDiscovery -package vpc ../byteplus/vpc/ipam_resource_discovery_plural_data_source_gen.go ../byteplus/vpc/ipam_resource_discovery_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_transit_router_route_policy_tables -cctype Byteplus::TransitRouter::TransitRouterRoutePolicyTable -package transitrouter ../byteplus/transitrouter/transit_router_route_policy_table_plural_data_source_gen.go ../byteplus/transitrouter/transit_router_route_policy_table_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_transitrouter_transit_router_forward_policy_entries -cctype Byteplus::TransitRouter::TransitRouterForwardPolicyEntry -package transitrouter ../byteplus/transitrouter/transit_router_forward_policy_entry_plural_data_source_gen.go ../byteplus/transitrouter/transit_router_forward_policy_entry_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_billing_financial_relations -cctype Byteplus::Billing::FinancialRelation -package billing ../byteplus/billing/financial_relation_plural_data_source_gen.go ../byteplus/billing/financial_relation_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_bot_analyse_protect_rules -cctype Byteplus::WAF::BotAnalyseProtectRule -package waf ../byteplus/waf/bot_analyse_protect_rule_plural_data_source_gen.go ../byteplus/waf/bot_analyse_protect_rule_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_waf_custom_bots -cctype Byteplus::WAF::CustomBot -package waf ../byteplus/waf/custom_bot_plural_data_source_gen.go ../byteplus/waf/custom_bot_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_securitycenter_agents -cctype Byteplus::SecurityCenter::Agent -package securitycenter ../byteplus/securitycenter/agent_plural_data_source_gen.go ../byteplus/securitycenter/agent_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_object_groups -cctype Byteplus::CloudMonitor::ObjectGroup -package cloudmonitor ../byteplus/cloudmonitor/object_group_plural_data_source_gen.go ../byteplus/cloudmonitor/object_group_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_alert_templates -cctype Byteplus::CloudMonitor::AlertTemplate -package cloudmonitor ../byteplus/cloudmonitor/alert_template_plural_data_source_gen.go ../byteplus/cloudmonitor/alert_template_plural_data_source_gen_test.go
 
 package provider
 
@@ -294,6 +304,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ark"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/billing"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/bmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
@@ -327,6 +338,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdspostgresql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/resourceshare"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/securitycenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"

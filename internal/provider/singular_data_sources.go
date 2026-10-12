@@ -286,6 +286,16 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_ip_group -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_IpGroup.json -package waf ../byteplus/waf/ip_group_singular_data_source_gen.go ../byteplus/waf/ip_group_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_system_bot -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_SystemBot.json -package waf ../byteplus/waf/system_bot_singular_data_source_gen.go ../byteplus/waf/system_bot_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_custom_page -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_CustomPage.json -package waf ../byteplus/waf/custom_page_singular_data_source_gen.go ../byteplus/waf/custom_page_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vke_nodepool_scaling_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_VKE_NodepoolScalingPolicy.json -package vke ../byteplus/vke/nodepool_scaling_policy_singular_data_source_gen.go ../byteplus/vke/nodepool_scaling_policy_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_vpc_ipam_resource_discovery -ccschema ../service/cloudcontrol/schemas/Byteplus_VPC_IPAMResourceDiscovery.json -package vpc ../byteplus/vpc/ipam_resource_discovery_singular_data_source_gen.go ../byteplus/vpc/ipam_resource_discovery_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_transitrouter_transit_router_route_policy_table -ccschema ../service/cloudcontrol/schemas/Byteplus_TransitRouter_TransitRouterRoutePolicyTable.json -package transitrouter ../byteplus/transitrouter/transit_router_route_policy_table_singular_data_source_gen.go ../byteplus/transitrouter/transit_router_route_policy_table_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_transitrouter_transit_router_forward_policy_entry -ccschema ../service/cloudcontrol/schemas/Byteplus_TransitRouter_TransitRouterForwardPolicyEntry.json -package transitrouter ../byteplus/transitrouter/transit_router_forward_policy_entry_singular_data_source_gen.go ../byteplus/transitrouter/transit_router_forward_policy_entry_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_billing_financial_relation -ccschema ../service/cloudcontrol/schemas/Byteplus_Billing_FinancialRelation.json -package billing ../byteplus/billing/financial_relation_singular_data_source_gen.go ../byteplus/billing/financial_relation_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_bot_analyse_protect_rule -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_BotAnalyseProtectRule.json -package waf ../byteplus/waf/bot_analyse_protect_rule_singular_data_source_gen.go ../byteplus/waf/bot_analyse_protect_rule_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_waf_custom_bot -ccschema ../service/cloudcontrol/schemas/Byteplus_WAF_CustomBot.json -package waf ../byteplus/waf/custom_bot_singular_data_source_gen.go ../byteplus/waf/custom_bot_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_securitycenter_agent -ccschema ../service/cloudcontrol/schemas/Byteplus_SecurityCenter_Agent.json -package securitycenter ../byteplus/securitycenter/agent_singular_data_source_gen.go ../byteplus/securitycenter/agent_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_object_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_ObjectGroup.json -package cloudmonitor ../byteplus/cloudmonitor/object_group_singular_data_source_gen.go ../byteplus/cloudmonitor/object_group_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_alert_template -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_AlertTemplate.json -package cloudmonitor ../byteplus/cloudmonitor/alert_template_singular_data_source_gen.go ../byteplus/cloudmonitor/alert_template_singular_data_source_gen_test.go
 
 package provider
 
@@ -294,6 +304,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/apig"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/ark"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/autoscaling"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/billing"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/bmq"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cdn"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/cen"
@@ -327,6 +338,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/rdspostgresql"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/redis"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/resourceshare"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/securitycenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
