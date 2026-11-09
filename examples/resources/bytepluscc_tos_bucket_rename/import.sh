@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tos_bucket_rename.example "bucket"

@@ -296,6 +296,18 @@
 //go:generate go run generators/resource/main.go -resource bytepluscc_securitycenter_agent -ccschema ../service/cloudcontrol/schemas/Byteplus_SecurityCenter_Agent.json -package securitycenter -- ../byteplus/securitycenter/agent_resource_gen.go ../byteplus/securitycenter/agent_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_cloudmonitor_object_group -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_ObjectGroup.json -package cloudmonitor -- ../byteplus/cloudmonitor/object_group_resource_gen.go ../byteplus/cloudmonitor/object_group_resource_gen_test.go
 //go:generate go run generators/resource/main.go -resource bytepluscc_cloudmonitor_alert_template -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_AlertTemplate.json -package cloudmonitor -- ../byteplus/cloudmonitor/alert_template_resource_gen.go ../byteplus/cloudmonitor/alert_template_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_Bucket.json -package tos -- ../byteplus/tos/bucket_resource_gen.go ../byteplus/tos/bucket_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_inventory -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketInventory.json -package tos -- ../byteplus/tos/bucket_inventory_resource_gen.go ../byteplus/tos/bucket_inventory_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_notification -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketNotification.json -package tos -- ../byteplus/tos/bucket_notification_resource_gen.go ../byteplus/tos/bucket_notification_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_cors -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketCors.json -package tos -- ../byteplus/tos/bucket_cors_resource_gen.go ../byteplus/tos/bucket_cors_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_encryption -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketEncryption.json -package tos -- ../byteplus/tos/bucket_encryption_resource_gen.go ../byteplus/tos/bucket_encryption_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_realtime_log -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketRealtimeLog.json -package tos -- ../byteplus/tos/bucket_realtime_log_resource_gen.go ../byteplus/tos/bucket_realtime_log_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_object -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_Object.json -package tos -- ../byteplus/tos/object_resource_gen.go ../byteplus/tos/object_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_access_monitor -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketAccessMonitor.json -package tos -- ../byteplus/tos/bucket_access_monitor_resource_gen.go ../byteplus/tos/bucket_access_monitor_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_mirror_back -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketMirrorBack.json -package tos -- ../byteplus/tos/bucket_mirror_back_resource_gen.go ../byteplus/tos/bucket_mirror_back_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_rename -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketRename.json -package tos -- ../byteplus/tos/bucket_rename_resource_gen.go ../byteplus/tos/bucket_rename_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_replication -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketReplication.json -package tos -- ../byteplus/tos/bucket_replication_resource_gen.go ../byteplus/tos/bucket_replication_resource_gen_test.go
+//go:generate go run generators/resource/main.go -resource bytepluscc_tos_bucket_website -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketWebsite.json -package tos -- ../byteplus/tos/bucket_website_resource_gen.go ../byteplus/tos/bucket_website_resource_gen_test.go
 
 package provider
 
@@ -341,6 +353,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/securitycenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tos"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vedbm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"

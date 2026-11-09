@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tos_bucket_inventory.example "bucket_name|inventory_id"

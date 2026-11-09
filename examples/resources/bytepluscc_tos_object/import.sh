@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tos_object.example "bucket|key"
