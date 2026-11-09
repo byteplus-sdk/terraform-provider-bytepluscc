@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tos_bucket_realtime_log.example "bucket_name"

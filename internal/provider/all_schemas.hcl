@@ -1189,3 +1189,52 @@ resource_schema "byteplus_cloudmonitor_object_group" {
 resource_schema "byteplus_cloudmonitor_alert_template" {
   cloudcontrol_type_name = "Byteplus::CloudMonitor::AlertTemplate"
 }
+
+resource_schema "byteplus_tos_bucket" {
+  cloudcontrol_type_name = "Byteplus::TOS::Bucket"
+}
+
+resource_schema "byteplus_tos_bucket_inventory" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketInventory"
+}
+
+resource_schema "byteplus_tos_bucket_notification" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketNotification"
+}
+
+resource_schema "byteplus_tos_bucket_cors" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketCors"
+  suppress_plural_data_source_generation= true
+}
+
+resource_schema "byteplus_tos_bucket_encryption" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketEncryption"
+}
+
+resource_schema "byteplus_tos_bucket_realtime_log" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketRealtimeLog"
+}
+
+resource_schema "byteplus_tos_object" {
+  cloudcontrol_type_name = "Byteplus::TOS::Object"
+}
+
+resource_schema "byteplus_tos_bucket_access_monitor" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketAccessMonitor"
+}
+
+resource_schema "byteplus_tos_bucket_mirror_back" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketMirrorBack"
+}
+
+resource_schema "byteplus_tos_bucket_rename" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketRename"
+}
+
+resource_schema "byteplus_tos_bucket_replication" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketReplication"
+}
+
+resource_schema "byteplus_tos_bucket_website" {
+  cloudcontrol_type_name = "Byteplus::TOS::BucketWebsite"
+}

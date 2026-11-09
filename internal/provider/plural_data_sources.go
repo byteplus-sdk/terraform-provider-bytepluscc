@@ -296,6 +296,17 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_securitycenter_agents -cctype Byteplus::SecurityCenter::Agent -package securitycenter ../byteplus/securitycenter/agent_plural_data_source_gen.go ../byteplus/securitycenter/agent_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_object_groups -cctype Byteplus::CloudMonitor::ObjectGroup -package cloudmonitor ../byteplus/cloudmonitor/object_group_plural_data_source_gen.go ../byteplus/cloudmonitor/object_group_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_alert_templates -cctype Byteplus::CloudMonitor::AlertTemplate -package cloudmonitor ../byteplus/cloudmonitor/alert_template_plural_data_source_gen.go ../byteplus/cloudmonitor/alert_template_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_buckets -cctype Byteplus::TOS::Bucket -package tos ../byteplus/tos/bucket_plural_data_source_gen.go ../byteplus/tos/bucket_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_inventories -cctype Byteplus::TOS::BucketInventory -package tos ../byteplus/tos/bucket_inventory_plural_data_source_gen.go ../byteplus/tos/bucket_inventory_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_notifications -cctype Byteplus::TOS::BucketNotification -package tos ../byteplus/tos/bucket_notification_plural_data_source_gen.go ../byteplus/tos/bucket_notification_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_encryptions -cctype Byteplus::TOS::BucketEncryption -package tos ../byteplus/tos/bucket_encryption_plural_data_source_gen.go ../byteplus/tos/bucket_encryption_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_realtime_logs -cctype Byteplus::TOS::BucketRealtimeLog -package tos ../byteplus/tos/bucket_realtime_log_plural_data_source_gen.go ../byteplus/tos/bucket_realtime_log_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_objects -cctype Byteplus::TOS::Object -package tos ../byteplus/tos/object_plural_data_source_gen.go ../byteplus/tos/object_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_access_monitors -cctype Byteplus::TOS::BucketAccessMonitor -package tos ../byteplus/tos/bucket_access_monitor_plural_data_source_gen.go ../byteplus/tos/bucket_access_monitor_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_mirror_backs -cctype Byteplus::TOS::BucketMirrorBack -package tos ../byteplus/tos/bucket_mirror_back_plural_data_source_gen.go ../byteplus/tos/bucket_mirror_back_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_renames -cctype Byteplus::TOS::BucketRename -package tos ../byteplus/tos/bucket_rename_plural_data_source_gen.go ../byteplus/tos/bucket_rename_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_replications -cctype Byteplus::TOS::BucketReplication -package tos ../byteplus/tos/bucket_replication_plural_data_source_gen.go ../byteplus/tos/bucket_replication_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_websites -cctype Byteplus::TOS::BucketWebsite -package tos ../byteplus/tos/bucket_website_plural_data_source_gen.go ../byteplus/tos/bucket_website_plural_data_source_gen_test.go
 
 package provider
 
@@ -341,6 +352,7 @@ import (
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/securitycenter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/storageebs"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tls"
+	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/tos"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/transitrouter"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vedbm"
 	_ "github.com/byteplus-sdk/terraform-provider-bytepluscc/internal/byteplus/vefaas"

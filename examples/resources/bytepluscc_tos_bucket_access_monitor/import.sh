@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_tos_bucket_access_monitor.example "bucket"

@@ -1468,5 +1468,65 @@
         "resource": "bytepluscc_cloudmonitor_alert_template",
         "identifier": ["TemplateId"],
         "path": "./examples/resources/bytepluscc_cloudmonitor_alert_template/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket",
+        "identifier": ["Name"],
+        "path": "./examples/resources/bytepluscc_tos_bucket/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_inventory",
+        "identifier": ["BucketName","InventoryId"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_inventory/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_notification",
+        "identifier": ["BucketName"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_notification/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_cors",
+        "identifier": ["BucketName"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_cors/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_encryption",
+        "identifier": ["Name"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_encryption/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_realtime_log",
+        "identifier": ["BucketName"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_realtime_log/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_object",
+        "identifier": ["Bucket","Key"],
+        "path": "./examples/resources/bytepluscc_tos_object/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_access_monitor",
+        "identifier": ["Bucket"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_access_monitor/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_mirror_back",
+        "identifier": ["Bucket"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_mirror_back/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_rename",
+        "identifier": ["Bucket"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_rename/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_replication",
+        "identifier": ["Bucket"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_replication/import.sh"
+    },
+    {
+        "resource": "bytepluscc_tos_bucket_website",
+        "identifier": ["Bucket"],
+        "path": "./examples/resources/bytepluscc_tos_bucket_website/import.sh"
     }
 ]
