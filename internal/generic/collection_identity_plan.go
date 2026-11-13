@@ -316,12 +316,13 @@ func canonicalizeTerraformCollectionsAtPath(
 		if err != nil {
 			return current, err
 		}
-		transformed := make([]tftypes.Value, len(elements))
+		transformed := make([]tftypes.Value, 0, len(elements))
 		for index, element := range elements {
-			transformed[index], err = canonicalizeTerraformCollectionsAtPath(element, segments[1:], identifiers, allowUnsafe)
+			value, err := canonicalizeTerraformCollectionsAtPath(element, segments[1:], identifiers, allowUnsafe)
 			if err != nil {
 				return current, fmt.Errorf("element %d: %w", index, err)
 			}
+			transformed = append(transformed, value)
 		}
 		return tftypes.NewValue(current.Type(), transformed), nil
 	}
@@ -385,9 +386,9 @@ func canonicalizeTerraformCollectionState(remote tftypes.Value, identifiers [][]
 	if compareErr != nil {
 		return remote, compareErr
 	}
-	canonical := make([]tftypes.Value, len(sortable))
-	for index, element := range sortable {
-		canonical[index] = element.value
+	canonical := make([]tftypes.Value, 0, len(sortable))
+	for _, element := range sortable {
+		canonical = append(canonical, element.value)
 	}
 	return tftypes.NewValue(remote.Type(), canonical), nil
 }

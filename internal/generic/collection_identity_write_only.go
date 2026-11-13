@@ -76,6 +76,9 @@ func (r *genericResource) identityCollectionWriteOnlyAttributeNames(collectionPa
 		if err != nil {
 			return nil, err
 		}
+		if len(names) == 0 {
+			return nil, fmt.Errorf("resolving write-only property %q: no attribute name", writeOnlyPath)
+		}
 		result = append(result, names[0])
 	}
 	return result, nil

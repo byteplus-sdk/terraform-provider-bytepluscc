@@ -201,10 +201,10 @@ func resourceWithCreateOnlyPropertyPaths(v []string) ResourceOptionsFunc {
 // options have deterministic schema-derived behavior.
 func resourceWithCollectionIdentities(v []CollectionIdentity) ResourceOptionsFunc {
 	return func(o *genericResource) error {
-		o.collectionIdentities = make([]CollectionIdentity, len(v))
-		for index, identity := range v {
-			o.collectionIdentities[index] = identity
-			o.collectionIdentities[index].IdentifierPaths = append([]string(nil), identity.IdentifierPaths...)
+		o.collectionIdentities = make([]CollectionIdentity, 0, len(v))
+		for _, identity := range v {
+			identity.IdentifierPaths = append([]string(nil), identity.IdentifierPaths...)
+			o.collectionIdentities = append(o.collectionIdentities, identity)
 		}
 
 		return nil

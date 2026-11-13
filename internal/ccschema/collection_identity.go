@@ -64,14 +64,19 @@ func (r *Resource) validateCollectionIdentity(resourceType, collectionPath strin
 		return fmt.Errorf("resource %s collection %s elementIdentifier %q: %s", resourceType, collectionPath, pointer, reason)
 	}
 
+	first := ""
+	if len(property.ElementIdentifier) > 0 {
+		first = property.ElementIdentifier[0]
+	}
+
 	if property.Type.String() != PropertyTypeArray {
-		return invalid(property.ElementIdentifier[0], "is only valid for type=array")
+		return invalid(first, "is only valid for type=array")
 	}
 	if property.InsertionOrder == nil || *property.InsertionOrder {
-		return invalid(property.ElementIdentifier[0], "requires insertionOrder=false")
+		return invalid(first, "requires insertionOrder=false")
 	}
 	if property.Items == nil || property.Items.Type.String() != PropertyTypeObject {
-		return invalid(property.ElementIdentifier[0], "requires items to resolve to type=object")
+		return invalid(first, "requires items to resolve to type=object")
 	}
 
 	seen := make(map[string]struct{}, len(property.ElementIdentifier))
@@ -121,8 +126,8 @@ func relativeJSONPointerSegments(pointer string) ([]string, error) {
 	}
 
 	raw := strings.Split(strings.TrimPrefix(pointer, "/"), "/")
-	segments := make([]string, len(raw))
-	for index, segment := range raw {
+	segments := make([]string, 0, len(raw))
+	for _, segment := range raw {
 		var decoded strings.Builder
 		for i := 0; i < len(segment); i++ {
 			if segment[i] != '~' {
@@ -139,7 +144,7 @@ func relativeJSONPointerSegments(pointer string) ([]string, error) {
 				decoded.WriteByte('/')
 			}
 		}
-		segments[index] = decoded.String()
+		segments = append(segments, decoded.String())
 	}
 
 	return segments, nil

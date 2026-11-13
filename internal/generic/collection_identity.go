@@ -120,9 +120,9 @@ func canonicalizeCollectionByIdentity(collection []interface{}, identifierPaths 
 		return nil, compareErr
 	}
 
-	result := make([]interface{}, len(sortable))
-	for index, element := range sortable {
-		result[index] = element.value
+	result := make([]interface{}, 0, len(sortable))
+	for _, element := range sortable {
+		result = append(result, element.value)
 	}
 	return result, nil
 }
@@ -218,9 +218,9 @@ func collectionIdentitiesInnerFirst(identities []CollectionIdentity) ([]Collecti
 	sort.SliceStable(ordered, func(left, right int) bool {
 		return ordered[left].depth > ordered[right].depth
 	})
-	result := make([]CollectionIdentity, len(ordered))
-	for index, item := range ordered {
-		result[index] = item.identity
+	result := make([]CollectionIdentity, 0, len(ordered))
+	for _, item := range ordered {
+		result = append(result, item.identity)
 	}
 	return result, nil
 }
@@ -568,12 +568,12 @@ func jsonPointerSegments(pointer string) ([]string, error) {
 	if !strings.HasPrefix(pointer, "/") {
 		return nil, fmt.Errorf("JSON Pointer must start with /")
 	}
-	rawSegments := strings.Split(pointer[1:], "/")
-	segments := make([]string, len(rawSegments))
-	for index, segment := range rawSegments {
+	rawSegments := strings.Split(strings.TrimPrefix(pointer, "/"), "/")
+	segments := make([]string, 0, len(rawSegments))
+	for _, segment := range rawSegments {
 		segment = strings.ReplaceAll(segment, "~1", "/")
 		segment = strings.ReplaceAll(segment, "~0", "~")
-		segments[index] = segment
+		segments = append(segments, segment)
 	}
 	return segments, nil
 }
