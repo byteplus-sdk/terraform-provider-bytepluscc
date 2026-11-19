@@ -1528,5 +1528,10 @@
         "resource": "bytepluscc_tos_bucket_website",
         "identifier": ["Bucket"],
         "path": "./examples/resources/bytepluscc_tos_bucket_website/import.sh"
+    },
+    {
+        "resource": "bytepluscc_organization_delegated_administrator",
+        "identifier": ["AccountId","ServicePrincipal"],
+        "path": "./examples/resources/bytepluscc_organization_delegated_administrator/import.sh"
     }
 ]

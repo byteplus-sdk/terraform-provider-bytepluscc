@@ -1238,3 +1238,7 @@ resource_schema "byteplus_tos_bucket_replication" {
 resource_schema "byteplus_tos_bucket_website" {
   cloudcontrol_type_name = "Byteplus::TOS::BucketWebsite"
 }
+
+resource_schema "byteplus_organization_delegated_administrator" {
+  cloudcontrol_type_name = "Byteplus::Organization::DelegatedAdministrator"
+}
