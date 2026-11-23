@@ -314,6 +314,26 @@
     "/properties/LogPublicIP",
     "/properties/TopicID"
   ],
+  "Byteplus::TOS::BucketEncryption": [
+    "/properties/KMSMasterKeyID"
+  ],
+  "Byteplus::TOS::BucketInventory": [
+    "/properties/Destination/TOSBucketDestination/AccountID"
+  ],
+  "Byteplus::TOS::BucketMirrorBack": [
+    "/properties/Rules/*/ID"
+  ],
+  "Byteplus::TOS::BucketRealtimeLog": [
+    "/properties/RealTimeLog/TLSProjectID",
+    "/properties/RealTimeLog/TLSTopicID"
+  ],
+  "Byteplus::TOS::BucketReplication": [
+    "/properties/Rules/*/ID"
+  ],
+  "Byteplus::TOS::Object": [
+    "/properties/VersionID",
+    "/properties/VersionIDs"
+  ],
   "Byteplus::VEDBM::Account": [
     "/properties/AccountDesc"
   ],
