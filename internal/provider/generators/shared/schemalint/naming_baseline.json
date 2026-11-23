@@ -1,0 +1,378 @@
+{
+  "Byteplus::ALB::LoadBalancer": [
+    "/properties/AddressIpVersion"
+  ],
+  "Byteplus::ALB::ServerGroup": [
+    "/properties/IPAddressType"
+  ],
+  "Byteplus::APIG::Gateway": [
+    "/properties/GatewayID",
+    "/properties/MonitorSpec/WorkspaceID"
+  ],
+  "Byteplus::APIG::GatewayService": [
+    "/properties/ServiceNetworkSpec/PrivateNetworkIP"
+  ],
+  "Byteplus::APIG::Upstream": [
+    "/properties/BackendTargets/*/IP",
+    "/properties/ConnectionPoolSettings/Http1MaxPendingRequests",
+    "/properties/LoadBalancerSettings/ConsistentHashLB",
+    "/properties/LoadBalancerSettings/ConsistentHashLB/HTTPCookie",
+    "/properties/LoadBalancerSettings/ConsistentHashLB/HttpHeaderName",
+    "/properties/LoadBalancerSettings/ConsistentHashLB/HttpQueryParameterName",
+    "/properties/LoadBalancerSettings/LbPolicy",
+    "/properties/LoadBalancerSettings/SimpleLB",
+    "/properties/UpstreamSpec/EcsInstances/*/IP"
+  ],
+  "Byteplus::Billing::FinancialRelation": [
+    "/properties/AuthInfo/*/AuthID",
+    "/properties/FiliationDesc",
+    "/properties/MajorAccountID",
+    "/properties/RelationDesc",
+    "/properties/RelationID",
+    "/properties/StatusDesc",
+    "/properties/SubAccountID"
+  ],
+  "Byteplus::CDN::Domain": [
+    "/properties/ConditionalOrigin/OriginRules/*/Actions/OriginLines/*/HttpPort",
+    "/properties/ConditionalOrigin/OriginRules/*/Actions/OriginLines/*/HttpsPort",
+    "/properties/CustomErrorPage/ErrorPageRule/*/ErrorPageAction/RedirectUrl",
+    "/properties/HTTPS",
+    "/properties/HTTPS/DisableHttp",
+    "/properties/HTTPS/HTTP2",
+    "/properties/HttpForcedRedirect",
+    "/properties/IPv6",
+    "/properties/Origin/*/OriginAction/OriginLines/*/HttpPort",
+    "/properties/Origin/*/OriginAction/OriginLines/*/HttpsPort",
+    "/properties/OriginIPv6",
+    "/properties/RequestBlockRule/BlockRule/*/BlockAction/RedirectUrl",
+    "/properties/SignedUrlAuth",
+    "/properties/SignedUrlAuth/SignedUrlAuthRules",
+    "/properties/SignedUrlAuth/SignedUrlAuthRules/*/SignedUrlAuthAction",
+    "/properties/SignedUrlAuth/SignedUrlAuthRules/*/SignedUrlAuthAction/URLAuthType",
+    "/properties/Timeout/TimeoutRules/*/TimeoutAction/HttpTimeout",
+    "/properties/UrlNormalize"
+  ],
+  "Byteplus::CLB::CLB": [
+    "/properties/AddressIpVersion",
+    "/properties/EipID",
+    "/properties/Eni/EniID",
+    "/properties/Enis/EniID"
+  ],
+  "Byteplus::CLB::ServerGroup": [
+    "/properties/AddressIpVersion"
+  ],
+  "Byteplus::CloudMonitor::ObjectGroup": [
+    "/properties/Objects/*/Dimensions/ResourceID"
+  ],
+  "Byteplus::DNS::Backup": [
+    "/properties/BackupID"
+  ],
+  "Byteplus::DNS::Record": [
+    "/properties/RecordID",
+    "/properties/RecordSetID"
+  ],
+  "Byteplus::DNS::Zone": [
+    "/properties/AllocateDNSServerList",
+    "/properties/DnsSecurity",
+    "/properties/InstanceID",
+    "/properties/RealDNSServerList"
+  ],
+  "Byteplus::ECS::LaunchTemplate": [
+    "/tagging"
+  ],
+  "Byteplus::ESCloud::Instance": [
+    "/properties/ESEip",
+    "/properties/ESEipId",
+    "/properties/ESPrivateEndpoint",
+    "/properties/ESPrivateIpAllowList",
+    "/properties/ESPrivateIpWhitelist",
+    "/properties/ESPublicEndpoint",
+    "/properties/ESPublicIpAllowList",
+    "/properties/ESPublicIpWhitelist",
+    "/properties/EnableESPrivateDomainPublic",
+    "/properties/EnableESPrivateNetwork",
+    "/properties/EnableESPublicNetwork",
+    "/properties/EsPubBandwidth",
+    "/properties/InstanceConfiguration/VPC",
+    "/tagging"
+  ],
+  "Byteplus::IAM::AllowedIpAddress": [
+    "/properties/EnableIPList",
+    "/properties/IPList",
+    "/properties/IPList/*/IP"
+  ],
+  "Byteplus::IAM::Group": [
+    "/properties/AccountID",
+    "/properties/UserGroupID",
+    "/properties/Users/*/UserID"
+  ],
+  "Byteplus::IAM::Project": [
+    "/properties/AccountID"
+  ],
+  "Byteplus::KMS::Key": [
+    "/properties/KeyID",
+    "/properties/ReEncrypt/NewKeyID",
+    "/properties/ReplicateKey/ReplicaKeyID"
+  ],
+  "Byteplus::KMS::KeyMaterial": [
+    "/properties/KeyID"
+  ],
+  "Byteplus::KMS::Secret": [
+    "/properties/SecretID",
+    "/properties/SecretVersions/*/VersionID"
+  ],
+  "Byteplus::Kafka::AllowList": [
+    "/properties/AllowListDesc"
+  ],
+  "Byteplus::MongoDB::Account": [
+    "/properties/AccountDesc"
+  ],
+  "Byteplus::MongoDB::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC"
+  ],
+  "Byteplus::MongoDB::Endpoint": [
+    "/properties/DBAddresses/*/AddressIP"
+  ],
+  "Byteplus::Organization::Account": [
+    "/properties/OrgID",
+    "/properties/OrgUnitID",
+    "/properties/OrgVerificationID"
+  ],
+  "Byteplus::Organization::Organization": [
+    "/properties/OrganizationID",
+    "/properties/Owner/AccountID"
+  ],
+  "Byteplus::Organization::ServiceControlPolicy": [
+    "/properties/PolicyID",
+    "/properties/Targets/*/TargetID"
+  ],
+  "Byteplus::Organization::ServiceControlPolicyEnabler": [
+    "/properties/OrganizationID"
+  ],
+  "Byteplus::Organization::Unit": [
+    "/properties/OrgID"
+  ],
+  "Byteplus::PrivateLink::VpcEndpointConnection": [
+    "/properties/Zones/*/NetworkInterfaceIP"
+  ],
+  "Byteplus::PrivateZone::PrivateZone": [
+    "/properties/Vpcs/*/AccountID"
+  ],
+  "Byteplus::PrivateZone::Record": [
+    "/properties/RecordSets/*/ID"
+  ],
+  "Byteplus::PrivateZone::ResolverEndpoint": [
+    "/properties/EndpointID",
+    "/properties/IpConfigs/*/AzID",
+    "/properties/IpConfigs/*/IP",
+    "/properties/IpConfigs/*/SubnetID",
+    "/properties/SecurityGroupID",
+    "/properties/VpcID"
+  ],
+  "Byteplus::PrivateZone::ResolverRule": [
+    "/properties/EndpointID",
+    "/properties/ForwardIPs",
+    "/properties/ForwardIPs/*/IP",
+    "/properties/RuleID",
+    "/properties/VPCs",
+    "/properties/VPCs/*/AccountID"
+  ],
+  "Byteplus::PrivateZone::UserVPCAuthorization": [
+    "/properties/AccountID"
+  ],
+  "Byteplus::RDSMsSQL::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC"
+  ],
+  "Byteplus::RDSMsSQL::Backup": [
+    "/properties/BackupDatabaseDetail/*/BackupDownloadLinkEIP"
+  ],
+  "Byteplus::RDSMsSQL::Instance": [
+    "/properties/ConnectionInfo/*/Address/*/IPAddress",
+    "/properties/NodeDetailInfo/*/NodeIP"
+  ],
+  "Byteplus::RDSMySQL::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC"
+  ],
+  "Byteplus::RDSMySQL::DBAccount": [
+    "/properties/AccountDesc"
+  ],
+  "Byteplus::RDSMySQL::Endpoint": [
+    "/properties/Addresses/*/IPAddress"
+  ],
+  "Byteplus::RDSMySQL::EndpointPublicAddress": [
+    "/properties/IPAddress"
+  ],
+  "Byteplus::RDSMySQL::Instance": [
+    "/properties/AddressObjects/*/IPAddress",
+    "/properties/CpuNum",
+    "/properties/Endpoints/*/Addresses/*/IPAddress",
+    "/properties/NodeCPUUsedPercentage",
+    "/properties/ProxyDetail/ProxyResourceInfo/CurrentProxyCpuNum",
+    "/properties/ProxyDetail/ProxyResourceInfo/MaxProxyCpuNum",
+    "/properties/ProxyDetail/ProxyResourceInfo/MinProxyCpuNum"
+  ],
+  "Byteplus::RDSMySQL::ParameterTemplate": [
+    "/properties/TemplateDesc"
+  ],
+  "Byteplus::RDSPostgreSQL::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC",
+    "/properties/IPAddress"
+  ],
+  "Byteplus::RDSPostgreSQL::DBEndpoint": [
+    "/properties/InnerAddresses/IPAddress",
+    "/properties/PrivateAddresses/IPAddress",
+    "/properties/PublicAddresses/IPAddress"
+  ],
+  "Byteplus::RDSPostgreSQL::Instance": [
+    "/properties/Endpoints/*/Address/*/IPAddress",
+    "/properties/ReplicationSlots/*/IPAddress",
+    "/properties/ReplicationSlots/*/WalDelay",
+    "/properties/StorageWALUse"
+  ],
+  "Byteplus::RDSPostgreSQL::ParameterTemplate": [
+    "/properties/TemplateDesc"
+  ],
+  "Byteplus::RabbitMQ::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC"
+  ],
+  "Byteplus::Redis::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC"
+  ],
+  "Byteplus::SecurityCenter::Agent": [
+    "/properties/AgentID",
+    "/properties/EcsInstance",
+    "/properties/EcsInstance/AccountID",
+    "/properties/EcsInstance/ECSUpdateAt",
+    "/properties/EcsInstance/IPList"
+  ],
+  "Byteplus::TLS::Alarm": [
+    "/properties/QueryRequests/0/TopicId",
+    "/properties/QueryRequests/0/TopicName"
+  ],
+  "Byteplus::TLS::AlarmNotifyGroup": [
+    "/properties/NoticeRules/*/ReceiverInfos/*/GeneralWebhookHeaders/*/key",
+    "/properties/NoticeRules/*/ReceiverInfos/*/GeneralWebhookHeaders/*/value",
+    "/properties/Receivers/*/GeneralWebhookHeaders/*/key",
+    "/properties/Receivers/*/GeneralWebhookHeaders/*/value"
+  ],
+  "Byteplus::TLS::AlarmWebhookIntegrationType": [
+    "/properties/WebhookID"
+  ],
+  "Byteplus::TLS::ConsumerGroup": [
+    "/properties/ProjectID",
+    "/properties/TopicIDList"
+  ],
+  "Byteplus::TLS::Etl": [
+    "/properties/TaskID"
+  ],
+  "Byteplus::TLS::Host": [
+    "/properties/HostGroupID",
+    "/properties/IP"
+  ],
+  "Byteplus::TLS::HostGroup": [
+    "/properties/HostGroupID",
+    "/properties/HostIPList"
+  ],
+  "Byteplus::TLS::ImportTask": [
+    "/properties/ImportSourceInfo/KafkaSourceInfo/InstanceID",
+    "/properties/ProjectID",
+    "/properties/TaskID",
+    "/properties/TopicID"
+  ],
+  "Byteplus::TLS::Index": [
+    "/properties/KeyValue/*/Value/IndexSQLAll",
+    "/properties/KeyValue/*/Value/JsonKeys/*/Value/IndexSQLAll",
+    "/properties/KeyValue/*/Value/JsonKeys/*/Value/SqlFlag",
+    "/properties/KeyValue/*/Value/SqlFlag",
+    "/properties/UserInnerKeyValue/*/Value/IndexSQLAll",
+    "/properties/UserInnerKeyValue/*/Value/JsonKeys/*/Value/IndexSQLAll",
+    "/properties/UserInnerKeyValue/*/Value/JsonKeys/*/Value/SqlFlag",
+    "/properties/UserInnerKeyValue/*/Value/SqlFlag"
+  ],
+  "Byteplus::TLS::Project": [
+    "/properties/ProjectID"
+  ],
+  "Byteplus::TLS::ScheduleSqlTask": [
+    "/properties/DestProjectID",
+    "/properties/DestTopicID",
+    "/properties/SourceProjectID",
+    "/properties/SourceTopicID"
+  ],
+  "Byteplus::TLS::Topic": [
+    "/properties/LogPublicIP",
+    "/properties/TopicID"
+  ],
+  "Byteplus::TOS::BucketEncryption": [
+    "/properties/KMSMasterKeyID"
+  ],
+  "Byteplus::TOS::BucketInventory": [
+    "/properties/Destination/TOSBucketDestination/AccountID"
+  ],
+  "Byteplus::TOS::BucketMirrorBack": [
+    "/properties/Rules/*/ID"
+  ],
+  "Byteplus::TOS::BucketRealtimeLog": [
+    "/properties/RealTimeLog/TLSProjectID",
+    "/properties/RealTimeLog/TLSTopicID"
+  ],
+  "Byteplus::TOS::BucketReplication": [
+    "/properties/Rules/*/ID"
+  ],
+  "Byteplus::TOS::Object": [
+    "/properties/VersionID",
+    "/properties/VersionIDs"
+  ],
+  "Byteplus::VEDBM::Account": [
+    "/properties/AccountDesc"
+  ],
+  "Byteplus::VEDBM::AllowList": [
+    "/properties/AllowListDesc",
+    "/properties/AllowListIPNum",
+    "/properties/AssociatedInstances/*/VPC"
+  ],
+  "Byteplus::VEDBM::Database": [
+    "/properties/DBDesc"
+  ],
+  "Byteplus::VEDBM::Endpoint": [
+    "/properties/PrivateAddresses/IPAddress",
+    "/properties/PublicAddresses/IPAddress"
+  ],
+  "Byteplus::VEDBM::Instance": [
+    "/properties/Nodes/*/vCPU"
+  ],
+  "Byteplus::WAF::CcRule": [
+    "/properties/CustomResponsePageID"
+  ],
+  "Byteplus::WAF::Domain": [
+    "/properties/AdvancedDefenseIP",
+    "/properties/AutoCCEnable",
+    "/properties/BackendGroups/*/Backends/*/IP",
+    "/properties/CcEnable",
+    "/properties/CertificateID",
+    "/properties/ClientIPLocation",
+    "/properties/CloudAccessConfig/*/InstanceID",
+    "/properties/CloudAccessConfig/*/ListenerID",
+    "/properties/TCPListenerConfig/*/InstanceID",
+    "/properties/TCPListenerConfig/*/ListenerID",
+    "/properties/VpcID"
+  ],
+  "Byteplus::WAF::IpGroup": [
+    "/properties/IpList/0",
+    "/properties/RelatedRules/0/RuleTag"
+  ],
+  "Byteplus::WAF::SystemBot": [
+    "/properties/IPMatch"
+  ]
+}
