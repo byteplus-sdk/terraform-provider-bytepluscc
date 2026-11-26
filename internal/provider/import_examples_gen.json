@@ -1533,5 +1533,10 @@
         "resource": "bytepluscc_organization_delegated_administrator",
         "identifier": ["AccountId","ServicePrincipal"],
         "path": "./examples/resources/bytepluscc_organization_delegated_administrator/import.sh"
+    },
+    {
+        "resource": "bytepluscc_cloudmonitor_aggregation_policy",
+        "identifier": ["ResourceId"],
+        "path": "./examples/resources/bytepluscc_cloudmonitor_aggregation_policy/import.sh"
     }
 ]

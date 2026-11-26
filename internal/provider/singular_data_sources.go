@@ -309,6 +309,7 @@
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_tos_bucket_replication -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketReplication.json -package tos ../byteplus/tos/bucket_replication_singular_data_source_gen.go ../byteplus/tos/bucket_replication_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_tos_bucket_website -ccschema ../service/cloudcontrol/schemas/Byteplus_TOS_BucketWebsite.json -package tos ../byteplus/tos/bucket_website_singular_data_source_gen.go ../byteplus/tos/bucket_website_singular_data_source_gen_test.go
 //go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_organization_delegated_administrator -ccschema ../service/cloudcontrol/schemas/Byteplus_Organization_DelegatedAdministrator.json -package organization ../byteplus/organization/delegated_administrator_singular_data_source_gen.go ../byteplus/organization/delegated_administrator_singular_data_source_gen_test.go
+//go:generate go run generators/singular-data-source/main.go -data-source bytepluscc_cloudmonitor_aggregation_policy -ccschema ../service/cloudcontrol/schemas/Byteplus_CloudMonitor_AggregationPolicy.json -package cloudmonitor ../byteplus/cloudmonitor/aggregation_policy_singular_data_source_gen.go ../byteplus/cloudmonitor/aggregation_policy_singular_data_source_gen_test.go
 
 package provider
 
