@@ -1,0 +1,1 @@
+$ terraform import bytepluscc_cloudmonitor_aggregation_policy.example "resource_id"

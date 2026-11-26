@@ -1242,3 +1242,7 @@ resource_schema "byteplus_tos_bucket_website" {
 resource_schema "byteplus_organization_delegated_administrator" {
   cloudcontrol_type_name = "Byteplus::Organization::DelegatedAdministrator"
 }
+
+resource_schema "byteplus_cloudmonitor_aggregation_policy" {
+  cloudcontrol_type_name = "Byteplus::CloudMonitor::AggregationPolicy"
+}

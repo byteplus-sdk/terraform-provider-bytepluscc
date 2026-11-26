@@ -505,8 +505,5 @@
   "tagging": {
     "taggable": false
   },
-  "typeName": "Byteplus::VPN::VPNConnection",
-  "writeOnlyProperties": [
-    "/properties/Spec"
-  ]
+  "typeName": "Byteplus::VPN::VPNConnection"
 }

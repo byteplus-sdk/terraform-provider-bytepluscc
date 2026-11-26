@@ -308,6 +308,7 @@
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_replications -cctype Byteplus::TOS::BucketReplication -package tos ../byteplus/tos/bucket_replication_plural_data_source_gen.go ../byteplus/tos/bucket_replication_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_tos_bucket_websites -cctype Byteplus::TOS::BucketWebsite -package tos ../byteplus/tos/bucket_website_plural_data_source_gen.go ../byteplus/tos/bucket_website_plural_data_source_gen_test.go
 //go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_organization_delegated_administrators -cctype Byteplus::Organization::DelegatedAdministrator -package organization ../byteplus/organization/delegated_administrator_plural_data_source_gen.go ../byteplus/organization/delegated_administrator_plural_data_source_gen_test.go
+//go:generate go run generators/plural-data-source/main.go -data-source bytepluscc_cloudmonitor_aggregation_policies -cctype Byteplus::CloudMonitor::AggregationPolicy -package cloudmonitor ../byteplus/cloudmonitor/aggregation_policy_plural_data_source_gen.go ../byteplus/cloudmonitor/aggregation_policy_plural_data_source_gen_test.go
 
 package provider
 
